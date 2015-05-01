@@ -1,0 +1,102 @@
+#!/bin/bash
+
+#
+# This is the release package builder. It will create things in the build directory for you.
+# If you are not a dev, then just don't do this! Once it's done, making a release means
+#     1. Checking all the tags in the welcome banner and the release notes
+#     2. Testing the installer, tagging the project
+#     3. re-running on the tagged directory
+#     4. Upload the install script to the correct noarch directory
+#     5. download the source tarball from git and upload to the correct noarch directory, with the correct name
+#
+#
+PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
+BUILD_DIR=$PROJECT_DIR/build
+
+cd $PROJECT_DIR
+TAG=`git name-rev --tags --name-only $(git rev-parse HEAD) | sed s'/.$//'`
+TAG=`echo ${TAG} | sed s'/\^0//' | sed s'/\^//'`
+echo $TAG
+
+
+# Make the build directory
+mkdir -p $BUILD_DIR
+rm -rf $BUILD_DIR/*
+################################################################
+# Build the package tarball
+################################################################
+RELEASE_PACKAGE="kavetoolbox-$TAG.tar.gz"
+echo "Building $RELEASE_PACKAGE"
+#mkdir -p $BUILD_DIR/package/kavetoolbox/
+#cp -r $SRC_DIR/HDP $BUILD_DIR/package/ambari-server/resources/stacks/
+mkdir -p /tmp/tempbuild/
+
+# Tar autocollapses. If I'm not in the same path as I'm taring than my tarball
+# contains the full path.
+cd $PROJECT_DIR/..
+cp -r `basename $PROJECT_DIR` /tmp/tempbuild/KaveToolbox
+cd /tmp/tempbuild/
+#remove pyc files!
+find . -name "*.pyc" -exec rm '{}' ';'
+tar -czf $RELEASE_PACKAGE KaveToolbox
+mv $RELEASE_PACKAGE $BUILD_DIR
+cd $PROJECT_DIR
+
+################################################################
+# Write the actual installation script to the file
+################################################################
+RELEASE_INSTALLER="kavetoolbox-installer-$TAG.sh"
+echo "Writing the noarch installer: $RELEASE_INSTALLER"
+
+echo '#!/bin/bash' > $BUILD_DIR/$RELEASE_INSTALLER
+cat $PROJECT_DIR/LICENSE >> $BUILD_DIR/$RELEASE_INSTALLER
+
+cat << EOF >> $BUILD_DIR/$RELEASE_INSTALLER
+#
+# The auto install script, passes all arguements to the KaveInstall.sh script. For more details on the arguments, try --help
+#
+#
+# NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks
+#  this password is intended to be widely known and is used here as an extension of the URL
+#
+repos_server="http://repos:kaverepos@repos.kave.io/"
+checkout="wget"
+if [ -f /etc/kave/mirror ]; then
+	while read line
+	do
+		#echo \$line
+		if [ -z "\$line" ]; then
+			continue
+		elif [[ ! "\$line" =~ "http" ]]; then
+			if [ -d "\$line" ]; then
+				checkout="cp"
+				repos_server=\${line}
+				break
+			fi
+			continue
+		fi
+		res=\`curl -i -X HEAD "\$line" 2>&1\`
+		#echo \$res
+		if [[ "\$res" =~ "200 OK" ]]; then
+			repos_server=\${line}
+			break
+		elif  [[ "\$res" =~ "302 Found" ]]; then
+			repos_server=\${line}
+			break
+		fi
+	done < /etc/kave/mirror
+fi
+
+
+if [ ! -f $RELEASE_PACKAGE ]; then
+	#echo \${checkout} \${repos_server}
+	\${checkout} \${repos_server}/noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE
+fi
+tar -xzf $RELEASE_PACKAGE
+#try to cope with the annoying way the git-generated tarball contains something with .git at the end!
+if [ -d kavetoolbox.git ]; then
+	mv kavetoolbox.git kavetoolbox
+fi
+EOF
+
+echo './[k,K]ave[t,T]oolbox*/scripts/KaveInstall $@' >> $BUILD_DIR/$RELEASE_INSTALLER

@@ -1,0 +1,3533 @@
+,X,Y,type,StateCode,StateName
+0,-80.518598,40.636951,Polygon,WV,West Virginia
+1,-80.518598,39.722302,Polygon,WV,West Virginia
+2,-79.477979,39.722302,Polygon,WV,West Virginia
+3,-79.488933,39.20747,Polygon,WV,West Virginia
+4,-79.291763,39.300578,Polygon,WV,West Virginia
+5,-79.094593,39.470363,Polygon,WV,West Virginia
+6,-78.963147,39.437501,Polygon,WV,West Virginia
+7,-78.765977,39.585379,Polygon,WV,West Virginia
+8,-78.470222,39.514178,Polygon,WV,West Virginia
+9,-78.431884,39.623717,Polygon,WV,West Virginia
+10,-78.267575,39.61824,Polygon,WV,West Virginia
+11,-78.174467,39.694917,Polygon,WV,West Virginia
+12,-78.004682,39.601809,Polygon,WV,West Virginia
+13,-77.834897,39.601809,Polygon,WV,West Virginia
+14,-77.719881,39.322485,Polygon,WV,West Virginia
+15,-77.82942,39.130793,Polygon,WV,West Virginia
+16,-78.349729,39.464886,Polygon,WV,West Virginia
+17,-78.404499,39.169131,Polygon,WV,West Virginia
+18,-78.870039,38.763838,Polygon,WV,West Virginia
+19,-78.996008,38.851469,Polygon,WV,West Virginia
+20,-79.209609,38.495467,Polygon,WV,West Virginia
+21,-79.313671,38.413313,Polygon,WV,West Virginia
+22,-79.477979,38.457129,Polygon,WV,West Virginia
+23,-79.647764,38.594052,Polygon,WV,West Virginia
+24,-79.724442,38.364021,Polygon,WV,West Virginia
+25,-79.921611,38.177805,Polygon,WV,West Virginia
+26,-79.998289,37.997066,Polygon,WV,West Virginia
+27,-80.184505,37.849189,Polygon,WV,West Virginia
+28,-80.294043,37.690357,Polygon,WV,West Virginia
+29,-80.29952,37.509618,Polygon,WV,West Virginia
+30,-80.474782,37.421987,Polygon,WV,West Virginia
+31,-80.513121,37.482234,Polygon,WV,West Virginia
+32,-80.967707,37.290541,Polygon,WV,West Virginia
+33,-81.225123,37.235771,Polygon,WV,West Virginia
+34,-81.362047,37.339833,Polygon,WV,West Virginia
+35,-81.55374,37.208387,Polygon,WV,West Virginia
+36,-81.679709,37.20291,Polygon,WV,West Virginia
+37,-81.849494,37.285064,Polygon,WV,West Virginia
+38,-81.986418,37.454849,Polygon,WV,West Virginia
+39,-81.969987,37.537003,Polygon,WV,West Virginia
+40,-82.101434,37.553434,Polygon,WV,West Virginia
+41,-82.293127,37.668449,Polygon,WV,West Virginia
+42,-82.342419,37.783465,Polygon,WV,West Virginia
+43,-82.50125,37.931343,Polygon,WV,West Virginia
+44,-82.621743,38.123036,Polygon,WV,West Virginia
+45,-82.594358,38.424267,Polygon,WV,West Virginia
+46,-82.331465,38.446175,Polygon,WV,West Virginia
+47,-82.293127,38.577622,Polygon,WV,West Virginia
+48,-82.172634,38.632391,Polygon,WV,West Virginia
+49,-82.221926,38.785745,Polygon,WV,West Virginia
+50,-82.03571,39.026731,Polygon,WV,West Virginia
+51,-81.887833,38.873376,Polygon,WV,West Virginia
+52,-81.783771,38.966484,Polygon,WV,West Virginia
+53,-81.811156,39.0815,Polygon,WV,West Virginia
+54,-81.685186,39.273193,Polygon,WV,West Virginia
+55,-81.57017,39.267716,Polygon,WV,West Virginia
+56,-81.455155,39.410117,Polygon,WV,West Virginia
+57,-81.345616,39.344393,Polygon,WV,West Virginia
+58,-81.219646,39.388209,Polygon,WV,West Virginia
+59,-80.830783,39.711348,Polygon,WV,West Virginia
+60,-80.737675,40.078303,Polygon,WV,West Virginia
+61,-80.600752,40.319289,Polygon,WV,West Virginia
+62,-80.595275,40.472643,Polygon,WV,West Virginia
+63,-80.666475,40.582182,Polygon,WV,West Virginia
+64,-80.518598,40.636951,Polygon,WV,West Virginia
+65,-80.978661,36.562108,Polygon,NC,North Carolina
+66,-80.294043,36.545677,Polygon,NC,North Carolina
+67,-79.510841,36.5402,Polygon,NC,North Carolina
+68,-75.868676,36.551154,Polygon,NC,North Carolina
+69,-75.75366,36.151337,Polygon,NC,North Carolina
+70,-76.032984,36.189676,Polygon,NC,North Carolina
+71,-76.071322,36.140383,Polygon,NC,North Carolina
+72,-76.410893,36.080137,Polygon,NC,North Carolina
+73,-76.460185,36.025367,Polygon,NC,North Carolina
+74,-76.68474,36.008937,Polygon,NC,North Carolina
+75,-76.673786,35.937736,Polygon,NC,North Carolina
+76,-76.399939,35.987029,Polygon,NC,North Carolina
+77,-76.3616,35.943213,Polygon,NC,North Carolina
+78,-76.060368,35.992506,Polygon,NC,North Carolina
+79,-75.961783,35.899398,Polygon,NC,North Carolina
+80,-75.781044,35.937736,Polygon,NC,North Carolina
+81,-75.715321,35.696751,Polygon,NC,North Carolina
+82,-75.775568,35.581735,Polygon,NC,North Carolina
+83,-75.89606,35.570781,Polygon,NC,North Carolina
+84,-76.147999,35.324319,Polygon,NC,North Carolina
+85,-76.482093,35.313365,Polygon,NC,North Carolina
+86,-76.536862,35.14358,Polygon,NC,North Carolina
+87,-76.394462,34.973795,Polygon,NC,North Carolina
+88,-76.279446,34.940933,Polygon,NC,North Carolina
+89,-76.493047,34.661609,Polygon,NC,North Carolina
+90,-76.673786,34.694471,Polygon,NC,North Carolina
+91,-76.991448,34.667086,Polygon,NC,North Carolina
+92,-77.210526,34.60684,Polygon,NC,North Carolina
+93,-77.555573,34.415147,Polygon,NC,North Carolina
+94,-77.82942,34.163208,Polygon,NC,North Carolina
+95,-77.971821,33.845545,Polygon,NC,North Carolina
+96,-78.179944,33.916745,Polygon,NC,North Carolina
+97,-78.541422,33.851022,Polygon,NC,North Carolina
+98,-79.675149,34.80401,Polygon,NC,North Carolina
+99,-80.797922,34.820441,Polygon,NC,North Carolina
+100,-80.781491,34.935456,Polygon,NC,North Carolina
+101,-80.934845,35.105241,Polygon,NC,North Carolina
+102,-81.038907,35.044995,Polygon,NC,North Carolina
+103,-81.044384,35.149057,Polygon,NC,North Carolina
+104,-82.276696,35.198349,Polygon,NC,North Carolina
+105,-82.550543,35.160011,Polygon,NC,North Carolina
+106,-82.764143,35.066903,Polygon,NC,North Carolina
+107,-83.109191,35.00118,Polygon,NC,North Carolina
+108,-83.618546,34.984749,Polygon,NC,North Carolina
+109,-84.319594,34.990226,Polygon,NC,North Carolina
+110,-84.29221,35.225734,Polygon,NC,North Carolina
+111,-84.09504,35.247642,Polygon,NC,North Carolina
+112,-84.018363,35.41195,Polygon,NC,North Carolina
+113,-83.7719,35.559827,Polygon,NC,North Carolina
+114,-83.498053,35.565304,Polygon,NC,North Carolina
+115,-83.251591,35.718659,Polygon,NC,North Carolina
+116,-82.994175,35.773428,Polygon,NC,North Carolina
+117,-82.775097,35.997983,Polygon,NC,North Carolina
+118,-82.638174,36.063706,Polygon,NC,North Carolina
+119,-82.610789,35.965121,Polygon,NC,North Carolina
+120,-82.216449,36.156814,Polygon,NC,North Carolina
+121,-82.03571,36.118475,Polygon,NC,North Carolina
+122,-81.909741,36.304691,Polygon,NC,North Carolina
+123,-81.723525,36.353984,Polygon,NC,North Carolina
+124,-81.679709,36.589492,Polygon,NC,North Carolina
+125,-80.978661,36.562108,Polygon,NC,North Carolina
+126,-75.414089,39.804456,Polygon,DE,Delaware
+127,-75.507197,39.683964,Polygon,DE,Delaware
+128,-75.611259,39.61824,Polygon,DE,Delaware
+129,-75.589352,39.459409,Polygon,DE,Delaware
+130,-75.441474,39.311532,Polygon,DE,Delaware
+131,-75.403136,39.065069,Polygon,DE,Delaware
+132,-75.189535,38.807653,Polygon,DE,Delaware
+133,-75.09095,38.796699,Polygon,DE,Delaware
+134,-75.047134,38.451652,Polygon,DE,Delaware
+135,-75.693413,38.462606,Polygon,DE,Delaware
+136,-75.786521,39.722302,Polygon,DE,Delaware
+137,-75.616736,39.831841,Polygon,DE,Delaware
+138,-75.414089,39.804456,Polygon,DE,Delaware
+139,-71.196845,41.67757,MultiPolygon,RI,Rhode Island
+140,-71.120168,41.496831,MultiPolygon,RI,Rhode Island
+141,-71.317338,41.474923,MultiPolygon,RI,Rhode Island
+142,-71.196845,41.67757,MultiPolygon,RI,Rhode Island
+143,-71.530939,42.01714,MultiPolygon,RI,Rhode Island
+144,-71.383061,42.01714,MultiPolygon,RI,Rhode Island
+145,-71.328292,41.781632,MultiPolygon,RI,Rhode Island
+146,-71.22423,41.710431,MultiPolygon,RI,Rhode Island
+147,-71.344723,41.726862,MultiPolygon,RI,Rhode Island
+148,-71.448785,41.578985,MultiPolygon,RI,Rhode Island
+149,-71.481646,41.370861,MultiPolygon,RI,Rhode Island
+150,-71.859555,41.321569,MultiPolygon,RI,Rhode Island
+151,-71.799309,41.414677,MultiPolygon,RI,Rhode Island
+152,-71.799309,42.006186,MultiPolygon,RI,Rhode Island
+153,-71.530939,42.01714,MultiPolygon,RI,Rhode Island
+154,-93.608485,33.018527,Polygon,LA,Louisiana
+155,-91.16577,33.002096,Polygon,LA,Louisiana
+156,-91.072662,32.887081,Polygon,LA,Louisiana
+157,-91.143862,32.843265,Polygon,LA,Louisiana
+158,-91.154816,32.640618,Polygon,LA,Louisiana
+159,-91.006939,32.514649,Polygon,LA,Louisiana
+160,-90.985031,32.218894,Polygon,LA,Louisiana
+161,-91.105524,31.988862,Polygon,LA,Louisiana
+162,-91.341032,31.846462,Polygon,LA,Louisiana
+163,-91.401278,31.621907,Polygon,LA,Louisiana
+164,-91.499863,31.643815,Polygon,LA,Louisiana
+165,-91.516294,31.27686,Polygon,LA,Louisiana
+166,-91.636787,31.265906,Polygon,LA,Louisiana
+167,-91.565587,31.068736,Polygon,LA,Louisiana
+168,-91.636787,30.997536,Polygon,LA,Louisiana
+169,-89.747242,30.997536,Polygon,LA,Louisiana
+170,-89.845827,30.66892,Polygon,LA,Louisiana
+171,-89.681519,30.449842,Polygon,LA,Louisiana
+172,-89.643181,30.285534,Polygon,LA,Louisiana
+173,-89.522688,30.181472,Polygon,LA,Louisiana
+174,-89.818443,30.044549,Polygon,LA,Louisiana
+175,-89.84035,29.945964,Polygon,LA,Louisiana
+176,-89.599365,29.88024,Polygon,LA,Louisiana
+177,-89.495303,30.039072,Polygon,LA,Louisiana
+178,-89.287179,29.88024,Polygon,LA,Louisiana
+179,-89.30361,29.754271,Polygon,LA,Louisiana
+180,-89.424103,29.699501,Polygon,LA,Louisiana
+181,-89.648657,29.748794,Polygon,LA,Louisiana
+182,-89.621273,29.655686,Polygon,LA,Louisiana
+183,-89.69795,29.513285,Polygon,LA,Louisiana
+184,-89.506257,29.387316,Polygon,LA,Louisiana
+185,-89.199548,29.348977,Polygon,LA,Louisiana
+186,-89.09001,29.2011,Polygon,LA,Louisiana
+187,-89.002379,29.179192,Polygon,LA,Louisiana
+188,-89.16121,29.009407,Polygon,LA,Louisiana
+189,-89.336472,29.042268,Polygon,LA,Louisiana
+190,-89.484349,29.217531,Polygon,LA,Louisiana
+191,-89.851304,29.310638,Polygon,LA,Louisiana
+192,-89.851304,29.480424,Polygon,LA,Louisiana
+193,-90.032043,29.425654,Polygon,LA,Louisiana
+194,-90.021089,29.283254,Polygon,LA,Louisiana
+195,-90.103244,29.151807,Polygon,LA,Louisiana
+196,-90.23469,29.129899,Polygon,LA,Louisiana
+197,-90.333275,29.277777,Polygon,LA,Louisiana
+198,-90.563307,29.283254,Polygon,LA,Louisiana
+199,-90.645461,29.129899,Polygon,LA,Louisiana
+200,-90.798815,29.086084,Polygon,LA,Louisiana
+201,-90.963123,29.179192,Polygon,LA,Louisiana
+202,-91.09457,29.190146,Polygon,LA,Louisiana
+203,-91.220539,29.436608,Polygon,LA,Louisiana
+204,-91.445094,29.546147,Polygon,LA,Louisiana
+205,-91.532725,29.529716,Polygon,LA,Louisiana
+206,-91.620356,29.73784,Polygon,LA,Louisiana
+207,-91.883249,29.710455,Polygon,LA,Louisiana
+208,-91.888726,29.836425,Polygon,LA,Louisiana
+209,-92.146142,29.715932,Polygon,LA,Louisiana
+210,-92.113281,29.622824,Polygon,LA,Louisiana
+211,-92.31045,29.535193,Polygon,LA,Louisiana
+212,-92.617159,29.579009,Polygon,LA,Louisiana
+213,-92.97316,29.715932,Polygon,LA,Louisiana
+214,-93.2251,29.776178,Polygon,LA,Louisiana
+215,-93.767317,29.726886,Polygon,LA,Louisiana
+216,-93.838517,29.688547,Polygon,LA,Louisiana
+217,-93.926148,29.787132,Polygon,LA,Louisiana
+218,-93.690639,30.143133,Polygon,LA,Louisiana
+219,-93.767317,30.334826,Polygon,LA,Louisiana
+220,-93.696116,30.438888,Polygon,LA,Louisiana
+221,-93.728978,30.575812,Polygon,LA,Louisiana
+222,-93.630393,30.679874,Polygon,LA,Louisiana
+223,-93.526331,30.93729,Polygon,LA,Louisiana
+224,-93.542762,31.15089,Polygon,LA,Louisiana
+225,-93.816609,31.556184,Polygon,LA,Louisiana
+226,-93.822086,31.775262,Polygon,LA,Louisiana
+227,-94.041164,31.994339,Polygon,LA,Louisiana
+228,-94.041164,33.018527,Polygon,LA,Louisiana
+229,-93.608485,33.018527,Polygon,LA,Louisiana
+230,-85.990061,41.759724,Polygon,IN,Indiana
+231,-84.807042,41.759724,Polygon,IN,Indiana
+232,-84.807042,41.694001,Polygon,IN,Indiana
+233,-84.801565,40.500028,Polygon,IN,Indiana
+234,-84.817996,39.103408,Polygon,IN,Indiana
+235,-84.894673,39.059592,Polygon,IN,Indiana
+236,-84.812519,38.785745,Polygon,IN,Indiana
+237,-84.987781,38.780268,Polygon,IN,Indiana
+238,-85.173997,38.68716,Polygon,IN,Indiana
+239,-85.431413,38.730976,Polygon,IN,Indiana
+240,-85.42046,38.533806,Polygon,IN,Indiana
+241,-85.590245,38.451652,Polygon,IN,Indiana
+242,-85.655968,38.325682,Polygon,IN,Indiana
+243,-85.83123,38.27639,Polygon,IN,Indiana
+244,-85.924338,38.024451,Polygon,IN,Indiana
+245,-86.039354,37.958727,Polygon,IN,Indiana
+246,-86.263908,38.051835,Polygon,IN,Indiana
+247,-86.302247,38.166851,Polygon,IN,Indiana
+248,-86.521325,38.040881,Polygon,IN,Indiana
+249,-86.504894,37.931343,Polygon,IN,Indiana
+250,-86.729448,37.893004,Polygon,IN,Indiana
+251,-86.795172,37.991589,Polygon,IN,Indiana
+252,-87.047111,37.893004,Polygon,IN,Indiana
+253,-87.129265,37.788942,Polygon,IN,Indiana
+254,-87.381204,37.93682,Polygon,IN,Indiana
+255,-87.512651,37.903958,Polygon,IN,Indiana
+256,-87.600282,37.975158,Polygon,IN,Indiana
+257,-87.682436,37.903958,Polygon,IN,Indiana
+258,-87.934375,37.893004,Polygon,IN,Indiana
+259,-88.027483,37.799896,Polygon,IN,Indiana
+260,-88.060345,37.865619,Polygon,IN,Indiana
+261,-88.000098,38.101128,Polygon,IN,Indiana
+262,-87.923421,38.15042,Polygon,IN,Indiana
+263,-87.950806,38.27639,Polygon,IN,Indiana
+264,-87.83579,38.292821,Polygon,IN,Indiana
+265,-87.655051,38.506421,Polygon,IN,Indiana
+266,-87.62219,38.637868,Polygon,IN,Indiana
+267,-87.49622,38.780268,Polygon,IN,Indiana
+268,-87.512651,38.95553,Polygon,IN,Indiana
+269,-87.63862,39.169131,Polygon,IN,Indiana
+270,-87.529082,39.34987,Polygon,IN,Indiana
+271,-87.523605,41.710431,Polygon,IN,Indiana
+272,-87.42502,41.644708,Polygon,IN,Indiana
+273,-87.118311,41.644708,Polygon,IN,Indiana
+274,-86.822556,41.759724,Polygon,IN,Indiana
+275,-85.990061,41.759724,Polygon,IN,Indiana
+276,-91.368417,43.501391,Polygon,IA,Iowa
+277,-91.215062,43.501391,Polygon,IA,Iowa
+278,-91.204109,43.353514,Polygon,IA,Iowa
+279,-91.056231,43.254929,Polygon,IA,Iowa
+280,-91.176724,43.134436,Polygon,IA,Iowa
+281,-91.143862,42.909881,Polygon,IA,Iowa
+282,-91.067185,42.75105,Polygon,IA,Iowa
+283,-90.711184,42.636034,Polygon,IA,Iowa
+284,-90.639984,42.510065,Polygon,IA,Iowa
+285,-90.420906,42.329326,Polygon,IA,Iowa
+286,-90.393521,42.225264,Polygon,IA,Iowa
+287,-90.168967,42.126679,Polygon,IA,Iowa
+288,-90.141582,42.000709,Polygon,IA,Iowa
+289,-90.179921,41.809016,Polygon,IA,Iowa
+290,-90.311367,41.743293,Polygon,IA,Iowa
+291,-90.344229,41.589939,Polygon,IA,Iowa
+292,-90.656414,41.463969,Polygon,IA,Iowa
+293,-91.045277,41.414677,Polygon,IA,Iowa
+294,-91.111001,41.239415,Polygon,IA,Iowa
+295,-90.946692,41.097014,Polygon,IA,Iowa
+296,-90.963123,40.921752,Polygon,IA,Iowa
+297,-91.09457,40.823167,Polygon,IA,Iowa
+298,-91.121954,40.669813,Polygon,IA,Iowa
+299,-91.401278,40.560274,Polygon,IA,Iowa
+300,-91.417709,40.379535,Polygon,IA,Iowa
+301,-91.527248,40.412397,Polygon,IA,Iowa
+302,-91.729895,40.615043,Polygon,IA,Iowa
+303,-91.833957,40.609566,Polygon,IA,Iowa
+304,-93.257961,40.582182,Polygon,IA,Iowa
+305,-94.632673,40.571228,Polygon,IA,Iowa
+306,-95.7664,40.587659,Polygon,IA,Iowa
+307,-95.881416,40.719105,Polygon,IA,Iowa
+308,-95.826646,40.976521,Polygon,IA,Iowa
+309,-95.925231,41.201076,Polygon,IA,Iowa
+310,-95.919754,41.453015,Polygon,IA,Iowa
+311,-96.095016,41.540646,Polygon,IA,Iowa
+312,-96.122401,41.67757,Polygon,IA,Iowa
+313,-96.062155,41.798063,Polygon,IA,Iowa
+314,-96.127878,41.973325,Polygon,IA,Iowa
+315,-96.264801,42.039048,Polygon,IA,Iowa
+316,-96.44554,42.488157,Polygon,IA,Iowa
+317,-96.631756,42.707235,Polygon,IA,Iowa
+318,-96.544125,42.855112,Polygon,IA,Iowa
+319,-96.511264,43.052282,Polygon,IA,Iowa
+320,-96.434587,43.123482,Polygon,IA,Iowa
+321,-96.560556,43.222067,Polygon,IA,Iowa
+322,-96.527695,43.397329,Polygon,IA,Iowa
+323,-96.582464,43.479483,Polygon,IA,Iowa
+324,-96.451017,43.501391,Polygon,IA,Iowa
+325,-91.368417,43.501391,Polygon,IA,Iowa
+326,-83.903347,38.769315,Polygon,KY,Kentucky
+327,-83.678792,38.632391,Polygon,KY,Kentucky
+328,-83.519961,38.703591,Polygon,KY,Kentucky
+329,-83.142052,38.626914,Polygon,KY,Kentucky
+330,-83.032514,38.725499,Polygon,KY,Kentucky
+331,-82.890113,38.758361,Polygon,KY,Kentucky
+332,-82.846298,38.588575,Polygon,KY,Kentucky
+333,-82.731282,38.561191,Polygon,KY,Kentucky
+334,-82.594358,38.424267,Polygon,KY,Kentucky
+335,-82.621743,38.123036,Polygon,KY,Kentucky
+336,-82.50125,37.931343,Polygon,KY,Kentucky
+337,-82.342419,37.783465,Polygon,KY,Kentucky
+338,-82.293127,37.668449,Polygon,KY,Kentucky
+339,-82.101434,37.553434,Polygon,KY,Kentucky
+340,-81.969987,37.537003,Polygon,KY,Kentucky
+341,-82.353373,37.268633,Polygon,KY,Kentucky
+342,-82.720328,37.120755,Polygon,KY,Kentucky
+343,-82.720328,37.044078,Polygon,KY,Kentucky
+344,-82.868205,36.978355,Polygon,KY,Kentucky
+345,-82.879159,36.890724,Polygon,KY,Kentucky
+346,-83.070852,36.852385,Polygon,KY,Kentucky
+347,-83.136575,36.742847,Polygon,KY,Kentucky
+348,-83.673316,36.600446,Polygon,KY,Kentucky
+349,-83.689746,36.584015,Polygon,KY,Kentucky
+350,-84.544149,36.594969,Polygon,KY,Kentucky
+351,-85.289013,36.627831,Polygon,KY,Kentucky
+352,-85.486183,36.616877,Polygon,KY,Kentucky
+353,-86.592525,36.655216,Polygon,KY,Kentucky
+354,-87.852221,36.633308,Polygon,KY,Kentucky
+355,-88.071299,36.677123,Polygon,KY,Kentucky
+356,-88.054868,36.496384,Polygon,KY,Kentucky
+357,-89.298133,36.507338,Polygon,KY,Kentucky
+358,-89.418626,36.496384,Polygon,KY,Kentucky
+359,-89.363857,36.622354,Polygon,KY,Kentucky
+360,-89.215979,36.578538,Polygon,KY,Kentucky
+361,-89.133825,36.983832,Polygon,KY,Kentucky
+362,-89.183118,37.038601,Polygon,KY,Kentucky
+363,-89.029763,37.213863,Polygon,KY,Kentucky
+364,-88.914747,37.224817,Polygon,KY,Kentucky
+365,-88.547792,37.071463,Polygon,KY,Kentucky
+366,-88.421823,37.153617,Polygon,KY,Kentucky
+367,-88.514931,37.285064,Polygon,KY,Kentucky
+368,-88.476592,37.389126,Polygon,KY,Kentucky
+369,-88.065822,37.482234,Polygon,KY,Kentucky
+370,-88.15893,37.657496,Polygon,KY,Kentucky
+371,-88.027483,37.799896,Polygon,KY,Kentucky
+372,-87.934375,37.893004,Polygon,KY,Kentucky
+373,-87.682436,37.903958,Polygon,KY,Kentucky
+374,-87.600282,37.975158,Polygon,KY,Kentucky
+375,-87.512651,37.903958,Polygon,KY,Kentucky
+376,-87.381204,37.93682,Polygon,KY,Kentucky
+377,-87.129265,37.788942,Polygon,KY,Kentucky
+378,-87.047111,37.893004,Polygon,KY,Kentucky
+379,-86.795172,37.991589,Polygon,KY,Kentucky
+380,-86.729448,37.893004,Polygon,KY,Kentucky
+381,-86.504894,37.931343,Polygon,KY,Kentucky
+382,-86.521325,38.040881,Polygon,KY,Kentucky
+383,-86.302247,38.166851,Polygon,KY,Kentucky
+384,-86.263908,38.051835,Polygon,KY,Kentucky
+385,-86.039354,37.958727,Polygon,KY,Kentucky
+386,-85.924338,38.024451,Polygon,KY,Kentucky
+387,-85.83123,38.27639,Polygon,KY,Kentucky
+388,-85.655968,38.325682,Polygon,KY,Kentucky
+389,-85.590245,38.451652,Polygon,KY,Kentucky
+390,-85.42046,38.533806,Polygon,KY,Kentucky
+391,-85.431413,38.730976,Polygon,KY,Kentucky
+392,-85.173997,38.68716,Polygon,KY,Kentucky
+393,-84.987781,38.780268,Polygon,KY,Kentucky
+394,-84.812519,38.785745,Polygon,KY,Kentucky
+395,-84.894673,39.059592,Polygon,KY,Kentucky
+396,-84.817996,39.103408,Polygon,KY,Kentucky
+397,-84.43461,39.103408,Polygon,KY,Kentucky
+398,-84.231963,38.895284,Polygon,KY,Kentucky
+399,-84.215533,38.807653,Polygon,KY,Kentucky
+400,-83.903347,38.769315,Polygon,KY,Kentucky
+401,-104.047534,49.000239,Polygon,MT,Montana
+402,-104.042057,47.861036,Polygon,MT,Montana
+403,-104.047534,45.944106,Polygon,MT,Montana
+404,-104.042057,44.996596,Polygon,MT,Montana
+405,-104.058488,44.996596,Polygon,MT,Montana
+406,-105.91517,45.002073,Polygon,MT,Montana
+407,-109.080842,45.002073,Polygon,MT,Montana
+408,-111.05254,45.002073,Polygon,MT,Montana
+409,-111.047063,44.476286,Polygon,MT,Montana
+410,-111.227803,44.580348,Polygon,MT,Montana
+411,-111.386634,44.75561,Polygon,MT,Montana
+412,-111.616665,44.547487,Polygon,MT,Montana
+413,-111.819312,44.509148,Polygon,MT,Montana
+414,-111.868605,44.563917,Polygon,MT,Montana
+415,-112.104113,44.520102,Polygon,MT,Montana
+416,-112.241036,44.569394,Polygon,MT,Montana
+417,-112.471068,44.481763,Polygon,MT,Montana
+418,-112.783254,44.48724,Polygon,MT,Montana
+419,-112.887315,44.394132,Polygon,MT,Montana
+420,-113.002331,44.448902,Polygon,MT,Montana
+421,-113.133778,44.772041,Polygon,MT,Montana
+422,-113.341901,44.782995,Polygon,MT,Montana
+423,-113.456917,44.865149,Polygon,MT,Montana
+424,-113.45144,45.056842,Polygon,MT,Montana
+425,-113.571933,45.128042,Polygon,MT,Montana
+426,-113.736241,45.330689,Polygon,MT,Montana
+427,-113.834826,45.522382,Polygon,MT,Montana
+428,-113.807441,45.604536,Polygon,MT,Montana
+429,-113.98818,45.703121,Polygon,MT,Montana
+430,-114.086765,45.593582,Polygon,MT,Montana
+431,-114.333228,45.456659,Polygon,MT,Montana
+432,-114.546828,45.560721,Polygon,MT,Montana
+433,-114.497536,45.670259,Polygon,MT,Montana
+434,-114.568736,45.774321,Polygon,MT,Montana
+435,-114.387997,45.88386,Polygon,MT,Montana
+436,-114.492059,46.037214,Polygon,MT,Montana
+437,-114.464674,46.272723,Polygon,MT,Montana
+438,-114.322274,46.645155,Polygon,MT,Montana
+439,-114.612552,46.639678,Polygon,MT,Montana
+440,-114.623506,46.705401,Polygon,MT,Montana
+441,-114.886399,46.809463,Polygon,MT,Montana
+442,-114.930214,46.919002,Polygon,MT,Montana
+443,-115.302646,47.187372,Polygon,MT,Montana
+444,-115.324554,47.258572,Polygon,MT,Montana
+445,-115.527201,47.302388,Polygon,MT,Montana
+446,-115.718894,47.42288,Polygon,MT,Montana
+447,-115.724371,47.696727,Polygon,MT,Montana
+448,-116.04751,47.976051,Polygon,MT,Montana
+449,-116.04751,49.000239,Polygon,MT,Montana
+450,-111.50165,48.994762,Polygon,MT,Montana
+451,-109.453274,49.000239,Polygon,MT,Montana
+452,-104.047534,49.000239,Polygon,MT,Montana
+453,-92.014696,46.705401,Polygon,MN,Minnesota
+454,-92.091373,46.749217,Polygon,MN,Minnesota
+455,-92.29402,46.667063,Polygon,MN,Minnesota
+456,-92.29402,46.075553,Polygon,MN,Minnesota
+457,-92.354266,46.015307,Polygon,MN,Minnesota
+458,-92.639067,45.933153,Polygon,MN,Minnesota
+459,-92.869098,45.719552,Polygon,MN,Minnesota
+460,-92.885529,45.577151,Polygon,MN,Minnesota
+461,-92.770513,45.566198,Polygon,MN,Minnesota
+462,-92.644544,45.440228,Polygon,MN,Minnesota
+463,-92.75956,45.286874,Polygon,MN,Minnesota
+464,-92.737652,45.117088,Polygon,MN,Minnesota
+465,-92.808852,44.750133,Polygon,MN,Minnesota
+466,-92.545959,44.569394,Polygon,MN,Minnesota
+467,-92.337835,44.552964,Polygon,MN,Minnesota
+468,-92.233773,44.443425,Polygon,MN,Minnesota
+469,-91.927065,44.333886,Polygon,MN,Minnesota
+470,-91.877772,44.202439,Polygon,MN,Minnesota
+471,-91.592971,44.032654,Polygon,MN,Minnesota
+472,-91.43414,43.994316,Polygon,MN,Minnesota
+473,-91.242447,43.775238,Polygon,MN,Minnesota
+474,-91.269832,43.616407,Polygon,MN,Minnesota
+475,-91.215062,43.501391,Polygon,MN,Minnesota
+476,-91.368417,43.501391,Polygon,MN,Minnesota
+477,-96.451017,43.501391,Polygon,MN,Minnesota
+478,-96.451017,45.297827,Polygon,MN,Minnesota
+479,-96.681049,45.412843,Polygon,MN,Minnesota
+480,-96.856311,45.604536,Polygon,MN,Minnesota
+481,-96.582464,45.818137,Polygon,MN,Minnesota
+482,-96.560556,45.933153,Polygon,MN,Minnesota
+483,-96.598895,46.332969,Polygon,MN,Minnesota
+484,-96.719387,46.437031,Polygon,MN,Minnesota
+485,-96.801542,46.656109,Polygon,MN,Minnesota
+486,-96.785111,46.924479,Polygon,MN,Minnesota
+487,-96.823449,46.968294,Polygon,MN,Minnesota
+488,-96.856311,47.609096,Polygon,MN,Minnesota
+489,-97.053481,47.948667,Polygon,MN,Minnesota
+490,-97.130158,48.140359,Polygon,MN,Minnesota
+491,-97.16302,48.545653,Polygon,MN,Minnesota
+492,-97.097296,48.682577,Polygon,MN,Minnesota
+493,-97.228743,49.000239,Polygon,MN,Minnesota
+494,-95.152983,49.000239,Polygon,MN,Minnesota
+495,-95.152983,49.383625,Polygon,MN,Minnesota
+496,-94.955813,49.372671,Polygon,MN,Minnesota
+497,-94.824366,49.295994,Polygon,MN,Minnesota
+498,-94.69292,48.775685,Polygon,MN,Minnesota
+499,-94.588858,48.715438,Polygon,MN,Minnesota
+500,-94.260241,48.699007,Polygon,MN,Minnesota
+501,-94.221903,48.649715,Polygon,MN,Minnesota
+502,-93.838517,48.627807,Polygon,MN,Minnesota
+503,-93.794701,48.518268,Polygon,MN,Minnesota
+504,-93.466085,48.545653,Polygon,MN,Minnesota
+505,-93.466085,48.589469,Polygon,MN,Minnesota
+506,-93.208669,48.644238,Polygon,MN,Minnesota
+507,-92.984114,48.62233,Polygon,MN,Minnesota
+508,-92.726698,48.540176,Polygon,MN,Minnesota
+509,-92.655498,48.436114,Polygon,MN,Minnesota
+510,-92.50762,48.447068,Polygon,MN,Minnesota
+511,-92.370697,48.222514,Polygon,MN,Minnesota
+512,-92.304974,48.315622,Polygon,MN,Minnesota
+513,-92.053034,48.359437,Polygon,MN,Minnesota
+514,-92.009219,48.266329,Polygon,MN,Minnesota
+515,-91.713464,48.200606,Polygon,MN,Minnesota
+516,-91.713464,48.112975,Polygon,MN,Minnesota
+517,-91.565587,48.041775,Polygon,MN,Minnesota
+518,-91.264355,48.080113,Polygon,MN,Minnesota
+519,-91.083616,48.178698,Polygon,MN,Minnesota
+520,-90.837154,48.238944,Polygon,MN,Minnesota
+521,-90.749522,48.091067,Polygon,MN,Minnesota
+522,-90.579737,48.123929,Polygon,MN,Minnesota
+523,-90.377091,48.091067,Polygon,MN,Minnesota
+524,-90.141582,48.112975,Polygon,MN,Minnesota
+525,-89.873212,47.987005,Polygon,MN,Minnesota
+526,-89.615796,48.008913,Polygon,MN,Minnesota
+527,-89.637704,47.954144,Polygon,MN,Minnesota
+528,-89.971797,47.828174,Polygon,MN,Minnesota
+529,-90.437337,47.729589,Polygon,MN,Minnesota
+530,-90.738569,47.625527,Polygon,MN,Minnesota
+531,-91.171247,47.368111,Polygon,MN,Minnesota
+532,-91.357463,47.20928,Polygon,MN,Minnesota
+533,-91.642264,47.028541,Polygon,MN,Minnesota
+534,-92.091373,46.787555,Polygon,MN,Minnesota
+535,-92.014696,46.705401,Polygon,MN,Minnesota
+536,-123.211348,46.174138,Polygon,OR,Oregon
+537,-123.11824,46.185092,Polygon,OR,Oregon
+538,-122.904639,46.08103,Polygon,OR,Oregon
+539,-122.811531,45.960537,Polygon,OR,Oregon
+540,-122.762239,45.659305,Polygon,OR,Oregon
+541,-122.247407,45.549767,Polygon,OR,Oregon
+542,-121.809251,45.708598,Polygon,OR,Oregon
+543,-121.535404,45.725029,Polygon,OR,Oregon
+544,-121.217742,45.670259,Polygon,OR,Oregon
+545,-121.18488,45.604536,Polygon,OR,Oregon
+546,-120.637186,45.746937,Polygon,OR,Oregon
+547,-120.505739,45.697644,Polygon,OR,Oregon
+548,-120.209985,45.725029,Polygon,OR,Oregon
+549,-119.963522,45.823614,Polygon,OR,Oregon
+550,-119.525367,45.911245,Polygon,OR,Oregon
+551,-119.125551,45.933153,Polygon,OR,Oregon
+552,-118.988627,45.998876,Polygon,OR,Oregon
+553,-116.918344,45.993399,Polygon,OR,Oregon
+554,-116.78142,45.823614,Polygon,OR,Oregon
+555,-116.545912,45.752413,Polygon,OR,Oregon
+556,-116.463758,45.61549,Polygon,OR,Oregon
+557,-116.671881,45.319735,Polygon,OR,Oregon
+558,-116.732128,45.144473,Polygon,OR,Oregon
+559,-116.847143,45.02398,Polygon,OR,Oregon
+560,-116.830713,44.930872,Polygon,OR,Oregon
+561,-116.934774,44.782995,Polygon,OR,Oregon
+562,-117.038836,44.750133,Polygon,OR,Oregon
+563,-117.241483,44.394132,Polygon,OR,Oregon
+564,-117.170283,44.257209,Polygon,OR,Oregon
+565,-116.97859,44.240778,Polygon,OR,Oregon
+566,-116.896436,44.158624,Polygon,OR,Oregon
+567,-117.027882,43.830007,Polygon,OR,Oregon
+568,-117.027882,42.000709,Polygon,OR,Oregon
+569,-118.698349,41.989755,Polygon,OR,Oregon
+570,-120.001861,41.995232,Polygon,OR,Oregon
+571,-121.037003,41.995232,Polygon,OR,Oregon
+572,-122.378853,42.011663,Polygon,OR,Oregon
+573,-123.233256,42.006186,Polygon,OR,Oregon
+574,-124.213628,42.000709,Polygon,OR,Oregon
+575,-124.356029,42.115725,Polygon,OR,Oregon
+576,-124.432706,42.438865,Polygon,OR,Oregon
+577,-124.416275,42.663419,Polygon,OR,Oregon
+578,-124.553198,42.838681,Polygon,OR,Oregon
+579,-124.454613,43.002989,Polygon,OR,Oregon
+580,-124.383413,43.271359,Polygon,OR,Oregon
+581,-124.235536,43.55616,Polygon,OR,Oregon
+582,-124.169813,43.8081,Polygon,OR,Oregon
+583,-124.060274,44.657025,Polygon,OR,Oregon
+584,-124.076705,44.772041,Polygon,OR,Oregon
+585,-123.97812,45.144473,Polygon,OR,Oregon
+586,-123.939781,45.659305,Polygon,OR,Oregon
+587,-123.994551,45.944106,Polygon,OR,Oregon
+588,-123.945258,46.113892,Polygon,OR,Oregon
+589,-123.545441,46.261769,Polygon,OR,Oregon
+590,-123.370179,46.146753,Polygon,OR,Oregon
+591,-123.211348,46.174138,Polygon,OR,Oregon
+592,-116.04751,49.000239,Polygon,ID,Idaho
+593,-116.04751,47.976051,Polygon,ID,Idaho
+594,-115.724371,47.696727,Polygon,ID,Idaho
+595,-115.718894,47.42288,Polygon,ID,Idaho
+596,-115.527201,47.302388,Polygon,ID,Idaho
+597,-115.324554,47.258572,Polygon,ID,Idaho
+598,-115.302646,47.187372,Polygon,ID,Idaho
+599,-114.930214,46.919002,Polygon,ID,Idaho
+600,-114.886399,46.809463,Polygon,ID,Idaho
+601,-114.623506,46.705401,Polygon,ID,Idaho
+602,-114.612552,46.639678,Polygon,ID,Idaho
+603,-114.322274,46.645155,Polygon,ID,Idaho
+604,-114.464674,46.272723,Polygon,ID,Idaho
+605,-114.492059,46.037214,Polygon,ID,Idaho
+606,-114.387997,45.88386,Polygon,ID,Idaho
+607,-114.568736,45.774321,Polygon,ID,Idaho
+608,-114.497536,45.670259,Polygon,ID,Idaho
+609,-114.546828,45.560721,Polygon,ID,Idaho
+610,-114.333228,45.456659,Polygon,ID,Idaho
+611,-114.086765,45.593582,Polygon,ID,Idaho
+612,-113.98818,45.703121,Polygon,ID,Idaho
+613,-113.807441,45.604536,Polygon,ID,Idaho
+614,-113.834826,45.522382,Polygon,ID,Idaho
+615,-113.736241,45.330689,Polygon,ID,Idaho
+616,-113.571933,45.128042,Polygon,ID,Idaho
+617,-113.45144,45.056842,Polygon,ID,Idaho
+618,-113.456917,44.865149,Polygon,ID,Idaho
+619,-113.341901,44.782995,Polygon,ID,Idaho
+620,-113.133778,44.772041,Polygon,ID,Idaho
+621,-113.002331,44.448902,Polygon,ID,Idaho
+622,-112.887315,44.394132,Polygon,ID,Idaho
+623,-112.783254,44.48724,Polygon,ID,Idaho
+624,-112.471068,44.481763,Polygon,ID,Idaho
+625,-112.241036,44.569394,Polygon,ID,Idaho
+626,-112.104113,44.520102,Polygon,ID,Idaho
+627,-111.868605,44.563917,Polygon,ID,Idaho
+628,-111.819312,44.509148,Polygon,ID,Idaho
+629,-111.616665,44.547487,Polygon,ID,Idaho
+630,-111.386634,44.75561,Polygon,ID,Idaho
+631,-111.227803,44.580348,Polygon,ID,Idaho
+632,-111.047063,44.476286,Polygon,ID,Idaho
+633,-111.047063,42.000709,Polygon,ID,Idaho
+634,-112.164359,41.995232,Polygon,ID,Idaho
+635,-114.04295,41.995232,Polygon,ID,Idaho
+636,-117.027882,42.000709,Polygon,ID,Idaho
+637,-117.027882,43.830007,Polygon,ID,Idaho
+638,-116.896436,44.158624,Polygon,ID,Idaho
+639,-116.97859,44.240778,Polygon,ID,Idaho
+640,-117.170283,44.257209,Polygon,ID,Idaho
+641,-117.241483,44.394132,Polygon,ID,Idaho
+642,-117.038836,44.750133,Polygon,ID,Idaho
+643,-116.934774,44.782995,Polygon,ID,Idaho
+644,-116.830713,44.930872,Polygon,ID,Idaho
+645,-116.847143,45.02398,Polygon,ID,Idaho
+646,-116.732128,45.144473,Polygon,ID,Idaho
+647,-116.671881,45.319735,Polygon,ID,Idaho
+648,-116.463758,45.61549,Polygon,ID,Idaho
+649,-116.545912,45.752413,Polygon,ID,Idaho
+650,-116.78142,45.823614,Polygon,ID,Idaho
+651,-116.918344,45.993399,Polygon,ID,Idaho
+652,-116.92382,46.168661,Polygon,ID,Idaho
+653,-117.055267,46.343923,Polygon,ID,Idaho
+654,-117.038836,46.426077,Polygon,ID,Idaho
+655,-117.044313,47.762451,Polygon,ID,Idaho
+656,-117.033359,49.000239,Polygon,ID,Idaho
+657,-116.04751,49.000239,Polygon,ID,Idaho
+658,-71.08183,45.303304,Polygon,NH,New Hampshire
+659,-71.032537,44.657025,Polygon,NH,New Hampshire
+660,-70.966814,43.34256,Polygon,NH,New Hampshire
+661,-70.807983,43.227544,Polygon,NH,New Hampshire
+662,-70.824413,43.128959,Polygon,NH,New Hampshire
+663,-70.703921,43.057759,Polygon,NH,New Hampshire
+664,-70.818936,42.871543,Polygon,NH,New Hampshire
+665,-70.917521,42.887974,Polygon,NH,New Hampshire
+666,-71.185891,42.789389,Polygon,NH,New Hampshire
+667,-71.29543,42.696281,Polygon,NH,New Hampshire
+668,-72.456542,42.729142,Polygon,NH,New Hampshire
+669,-72.544173,42.80582,Polygon,NH,New Hampshire
+670,-72.533219,42.953697,Polygon,NH,New Hampshire
+671,-72.445588,43.008466,Polygon,NH,New Hampshire
+672,-72.456542,43.150867,Polygon,NH,New Hampshire
+673,-72.379864,43.572591,Polygon,NH,New Hampshire
+674,-72.204602,43.769761,Polygon,NH,New Hampshire
+675,-72.116971,43.994316,Polygon,NH,New Hampshire
+676,-72.02934,44.07647,Polygon,NH,New Hampshire
+677,-72.034817,44.322932,Polygon,NH,New Hampshire
+678,-71.700724,44.41604,Polygon,NH,New Hampshire
+679,-71.536416,44.585825,Polygon,NH,New Hampshire
+680,-71.629524,44.750133,Polygon,NH,New Hampshire
+681,-71.4926,44.914442,Polygon,NH,New Hampshire
+682,-71.503554,45.013027,Polygon,NH,New Hampshire
+683,-71.361154,45.270443,Polygon,NH,New Hampshire
+684,-71.131122,45.243058,Polygon,NH,New Hampshire
+685,-71.08183,45.303304,Polygon,NH,New Hampshire
+686,-155.634835,18.948267,MultiPolygon,HI,Hawaii
+687,-155.881297,19.035898,MultiPolygon,HI,Hawaii
+688,-155.919636,19.123529,MultiPolygon,HI,Hawaii
+689,-155.886774,19.348084,MultiPolygon,HI,Hawaii
+690,-156.062036,19.73147,MultiPolygon,HI,Hawaii
+691,-155.925113,19.857439,MultiPolygon,HI,Hawaii
+692,-155.826528,20.032702,MultiPolygon,HI,Hawaii
+693,-155.897728,20.147717,MultiPolygon,HI,Hawaii
+694,-155.87582,20.26821,MultiPolygon,HI,Hawaii
+695,-155.596496,20.12581,MultiPolygon,HI,Hawaii
+696,-155.284311,20.021748,MultiPolygon,HI,Hawaii
+697,-155.092618,19.868393,MultiPolygon,HI,Hawaii
+698,-155.092618,19.736947,MultiPolygon,HI,Hawaii
+699,-154.807817,19.523346,MultiPolygon,HI,Hawaii
+700,-154.983079,19.348084,MultiPolygon,HI,Hawaii
+701,-155.295265,19.26593,MultiPolygon,HI,Hawaii
+702,-155.514342,19.134483,MultiPolygon,HI,Hawaii
+703,-155.634835,18.948267,MultiPolygon,HI,Hawaii
+704,-156.587823,21.029505,MultiPolygon,HI,Hawaii
+705,-156.472807,20.892581,MultiPolygon,HI,Hawaii
+706,-156.324929,20.952827,MultiPolygon,HI,Hawaii
+707,-156.00179,20.793996,MultiPolygon,HI,Hawaii
+708,-156.051082,20.651596,MultiPolygon,HI,Hawaii
+709,-156.379699,20.580396,MultiPolygon,HI,Hawaii
+710,-156.445422,20.60778,MultiPolygon,HI,Hawaii
+711,-156.461853,20.783042,MultiPolygon,HI,Hawaii
+712,-156.631638,20.821381,MultiPolygon,HI,Hawaii
+713,-156.697361,20.919966,MultiPolygon,HI,Hawaii
+714,-156.587823,21.029505,MultiPolygon,HI,Hawaii
+715,-156.982162,21.210244,MultiPolygon,HI,Hawaii
+716,-157.080747,21.106182,MultiPolygon,HI,Hawaii
+717,-157.310779,21.106182,MultiPolygon,HI,Hawaii
+718,-157.239579,21.221198,MultiPolygon,HI,Hawaii
+719,-156.982162,21.210244,MultiPolygon,HI,Hawaii
+720,-157.951581,21.697691,MultiPolygon,HI,Hawaii
+721,-157.842042,21.462183,MultiPolygon,HI,Hawaii
+722,-157.896811,21.325259,MultiPolygon,HI,Hawaii
+723,-158.110412,21.303352,MultiPolygon,HI,Hawaii
+724,-158.252813,21.582676,MultiPolygon,HI,Hawaii
+725,-158.126843,21.588153,MultiPolygon,HI,Hawaii
+726,-157.951581,21.697691,MultiPolygon,HI,Hawaii
+727,-159.468693,22.228955,MultiPolygon,HI,Hawaii
+728,-159.353678,22.218001,MultiPolygon,HI,Hawaii
+729,-159.298908,22.113939,MultiPolygon,HI,Hawaii
+730,-159.33177,21.966061,MultiPolygon,HI,Hawaii
+731,-159.446786,21.872953,MultiPolygon,HI,Hawaii
+732,-159.764448,21.987969,MultiPolygon,HI,Hawaii
+733,-159.726109,22.152277,MultiPolygon,HI,Hawaii
+734,-159.468693,22.228955,MultiPolygon,HI,Hawaii
+735,-73.343806,45.013027,Polygon,NY,New York
+736,-73.332852,44.804903,Polygon,NY,New York
+737,-73.387622,44.618687,Polygon,NY,New York
+738,-73.294514,44.437948,Polygon,NY,New York
+739,-73.321898,44.246255,Polygon,NY,New York
+740,-73.436914,44.043608,Polygon,NY,New York
+741,-73.349283,43.769761,Polygon,NY,New York
+742,-73.404052,43.687607,Polygon,NY,New York
+743,-73.245221,43.523299,Polygon,NY,New York
+744,-73.278083,42.833204,Polygon,NY,New York
+745,-73.267129,42.745573,Polygon,NY,New York
+746,-73.508114,42.08834,Polygon,NY,New York
+747,-73.486206,42.050002,Polygon,NY,New York
+748,-73.55193,41.294184,Polygon,NY,New York
+749,-73.48073,41.21203,Polygon,NY,New York
+750,-73.727192,41.102491,Polygon,NY,New York
+751,-73.655992,40.987475,Polygon,NY,New York
+752,-73.22879,40.905321,Polygon,NY,New York
+753,-73.141159,40.965568,Polygon,NY,New York
+754,-72.774204,40.965568,Polygon,NY,New York
+755,-72.587988,40.998429,Polygon,NY,New York
+756,-72.28128,41.157261,Polygon,NY,New York
+757,-72.259372,41.042245,Polygon,NY,New York
+758,-72.100541,40.992952,Polygon,NY,New York
+759,-72.467496,40.845075,Polygon,NY,New York
+760,-73.239744,40.625997,Polygon,NY,New York
+761,-73.562884,40.582182,Polygon,NY,New York
+762,-73.776484,40.593136,Polygon,NY,New York
+763,-73.935316,40.543843,Polygon,NY,New York
+764,-74.022947,40.708151,Polygon,NY,New York
+765,-73.902454,40.998429,Polygon,NY,New York
+766,-74.236547,41.14083,Polygon,NY,New York
+767,-74.69661,41.359907,Polygon,NY,New York
+768,-74.740426,41.431108,Polygon,NY,New York
+769,-74.89378,41.436584,Polygon,NY,New York
+770,-75.074519,41.60637,Polygon,NY,New York
+771,-75.052611,41.754247,Polygon,NY,New York
+772,-75.173104,41.869263,Polygon,NY,New York
+773,-75.249781,41.863786,Polygon,NY,New York
+774,-75.35932,42.000709,Polygon,NY,New York
+775,-79.76278,42.000709,Polygon,NY,New York
+776,-79.76278,42.252649,Polygon,NY,New York
+777,-79.76278,42.269079,Polygon,NY,New York
+778,-79.149363,42.55388,Polygon,NY,New York
+779,-79.050778,42.690804,Polygon,NY,New York
+780,-78.853608,42.783912,Polygon,NY,New York
+781,-78.930285,42.953697,Polygon,NY,New York
+782,-79.012439,42.986559,Polygon,NY,New York
+783,-79.072686,43.260406,Polygon,NY,New York
+784,-78.486653,43.375421,Polygon,NY,New York
+785,-77.966344,43.369944,Polygon,NY,New York
+786,-77.75822,43.34256,Polygon,NY,New York
+787,-77.533665,43.233021,Polygon,NY,New York
+788,-77.391265,43.276836,Polygon,NY,New York
+789,-76.958587,43.271359,Polygon,NY,New York
+790,-76.695693,43.34256,Polygon,NY,New York
+791,-76.41637,43.523299,Polygon,NY,New York
+792,-76.235631,43.528776,Polygon,NY,New York
+793,-76.230154,43.802623,Polygon,NY,New York
+794,-76.137046,43.961454,Polygon,NY,New York
+795,-76.3616,44.070993,Polygon,NY,New York
+796,-76.312308,44.196962,Polygon,NY,New York
+797,-75.912491,44.366748,Polygon,NY,New York
+798,-75.764614,44.514625,Polygon,NY,New York
+799,-75.282643,44.848718,Polygon,NY,New York
+800,-74.828057,45.018503,Polygon,NY,New York
+801,-74.148916,44.991119,Polygon,NY,New York
+802,-73.343806,45.013027,Polygon,NY,New York
+803,-88.054868,36.496384,Polygon,TN,Tennessee
+804,-88.071299,36.677123,Polygon,TN,Tennessee
+805,-87.852221,36.633308,Polygon,TN,Tennessee
+806,-86.592525,36.655216,Polygon,TN,Tennessee
+807,-85.486183,36.616877,Polygon,TN,Tennessee
+808,-85.289013,36.627831,Polygon,TN,Tennessee
+809,-84.544149,36.594969,Polygon,TN,Tennessee
+810,-83.689746,36.584015,Polygon,TN,Tennessee
+811,-83.673316,36.600446,Polygon,TN,Tennessee
+812,-81.679709,36.589492,Polygon,TN,Tennessee
+813,-81.723525,36.353984,Polygon,TN,Tennessee
+814,-81.909741,36.304691,Polygon,TN,Tennessee
+815,-82.03571,36.118475,Polygon,TN,Tennessee
+816,-82.216449,36.156814,Polygon,TN,Tennessee
+817,-82.610789,35.965121,Polygon,TN,Tennessee
+818,-82.638174,36.063706,Polygon,TN,Tennessee
+819,-82.775097,35.997983,Polygon,TN,Tennessee
+820,-82.994175,35.773428,Polygon,TN,Tennessee
+821,-83.251591,35.718659,Polygon,TN,Tennessee
+822,-83.498053,35.565304,Polygon,TN,Tennessee
+823,-83.7719,35.559827,Polygon,TN,Tennessee
+824,-84.018363,35.41195,Polygon,TN,Tennessee
+825,-84.09504,35.247642,Polygon,TN,Tennessee
+826,-84.29221,35.225734,Polygon,TN,Tennessee
+827,-84.319594,34.990226,Polygon,TN,Tennessee
+828,-85.606675,34.984749,Polygon,TN,Tennessee
+829,-87.359296,35.00118,Polygon,TN,Tennessee
+830,-88.202745,34.995703,Polygon,TN,Tennessee
+831,-88.471115,34.995703,Polygon,TN,Tennessee
+832,-90.311367,34.995703,Polygon,TN,Tennessee
+833,-90.212782,35.023087,Polygon,TN,Tennessee
+834,-90.114197,35.198349,Polygon,TN,Tennessee
+835,-90.130628,35.439335,Polygon,TN,Tennessee
+836,-89.944412,35.603643,Polygon,TN,Tennessee
+837,-89.911551,35.756997,Polygon,TN,Tennessee
+838,-89.763673,35.811767,Polygon,TN,Tennessee
+839,-89.730812,35.997983,Polygon,TN,Tennessee
+840,-89.533642,36.249922,Polygon,TN,Tennessee
+841,-89.539119,36.496384,Polygon,TN,Tennessee
+842,-89.484349,36.496384,Polygon,TN,Tennessee
+843,-89.418626,36.496384,Polygon,TN,Tennessee
+844,-89.298133,36.507338,Polygon,TN,Tennessee
+845,-88.054868,36.496384,Polygon,TN,Tennessee
+846,-85.497137,30.997536,Polygon,FL,Florida
+847,-85.004212,31.003013,Polygon,FL,Florida
+848,-84.867289,30.712735,Polygon,FL,Florida
+849,-83.498053,30.647012,Polygon,FL,Florida
+850,-82.216449,30.570335,Polygon,FL,Florida
+851,-82.167157,30.356734,Polygon,FL,Florida
+852,-82.046664,30.362211,Polygon,FL,Florida
+853,-82.002849,30.564858,Polygon,FL,Florida
+854,-82.041187,30.751074,Polygon,FL,Florida
+855,-81.948079,30.827751,Polygon,FL,Florida
+856,-81.718048,30.745597,Polygon,FL,Florida
+857,-81.444201,30.707258,Polygon,FL,Florida
+858,-81.383954,30.27458,Polygon,FL,Florida
+859,-81.257985,29.787132,Polygon,FL,Florida
+860,-80.967707,29.14633,Polygon,FL,Florida
+861,-80.524075,28.461713,Polygon,FL,Florida
+862,-80.589798,28.41242,Polygon,FL,Florida
+863,-80.56789,28.094758,Polygon,FL,Florida
+864,-80.381674,27.738757,Polygon,FL,Florida
+865,-80.091397,27.021277,Polygon,FL,Florida
+866,-80.03115,26.796723,Polygon,FL,Florida
+867,-80.036627,26.566691,Polygon,FL,Florida
+868,-80.146166,25.739673,Polygon,FL,Florida
+869,-80.239274,25.723243,Polygon,FL,Florida
+870,-80.337859,25.465826,Polygon,FL,Florida
+871,-80.304997,25.383672,Polygon,FL,Florida
+872,-80.49669,25.197456,Polygon,FL,Florida
+873,-80.573367,25.241272,Polygon,FL,Florida
+874,-80.759583,25.164595,Polygon,FL,Florida
+875,-81.077246,25.120779,Polygon,FL,Florida
+876,-81.170354,25.224841,Polygon,FL,Florida
+877,-81.126538,25.378195,Polygon,FL,Florida
+878,-81.351093,25.821827,Polygon,FL,Florida
+879,-81.526355,25.903982,Polygon,FL,Florida
+880,-81.679709,25.843735,Polygon,FL,Florida
+881,-81.800202,26.090198,Polygon,FL,Florida
+882,-81.833064,26.292844,Polygon,FL,Florida
+883,-82.041187,26.517399,Polygon,FL,Florida
+884,-82.09048,26.665276,Polygon,FL,Florida
+885,-82.057618,26.878877,Polygon,FL,Florida
+886,-82.172634,26.917216,Polygon,FL,Florida
+887,-82.145249,26.791246,Polygon,FL,Florida
+888,-82.249311,26.758384,Polygon,FL,Florida
+889,-82.566974,27.300601,Polygon,FL,Florida
+890,-82.692943,27.437525,Polygon,FL,Florida
+891,-82.391711,27.837342,Polygon,FL,Florida
+892,-82.588881,27.815434,Polygon,FL,Florida
+893,-82.720328,27.689464,Polygon,FL,Florida
+894,-82.851774,27.886634,Polygon,FL,Florida
+895,-82.676512,28.434328,Polygon,FL,Florida
+896,-82.643651,28.888914,Polygon,FL,Florida
+897,-82.764143,28.998453,Polygon,FL,Florida
+898,-82.802482,29.14633,Polygon,FL,Florida
+899,-82.994175,29.179192,Polygon,FL,Florida
+900,-83.218729,29.420177,Polygon,FL,Florida
+901,-83.399469,29.518762,Polygon,FL,Florida
+902,-83.410422,29.66664,Polygon,FL,Florida
+903,-83.536392,29.721409,Polygon,FL,Florida
+904,-83.640454,29.885717,Polygon,FL,Florida
+905,-84.02384,30.104795,Polygon,FL,Florida
+906,-84.357933,30.055502,Polygon,FL,Florida
+907,-84.341502,29.902148,Polygon,FL,Florida
+908,-84.451041,29.929533,Polygon,FL,Florida
+909,-84.867289,29.743317,Polygon,FL,Florida
+910,-85.310921,29.699501,Polygon,FL,Florida
+911,-85.299967,29.80904,Polygon,FL,Florida
+912,-85.404029,29.940487,Polygon,FL,Florida
+913,-85.924338,30.236241,Polygon,FL,Florida
+914,-86.29677,30.362211,Polygon,FL,Florida
+915,-86.630863,30.395073,Polygon,FL,Florida
+916,-86.910187,30.373165,Polygon,FL,Florida
+917,-87.518128,30.280057,Polygon,FL,Florida
+918,-87.37025,30.427934,Polygon,FL,Florida
+919,-87.446927,30.510088,Polygon,FL,Florida
+920,-87.408589,30.674397,Polygon,FL,Florida
+921,-87.633143,30.86609,Polygon,FL,Florida
+922,-87.600282,30.997536,Polygon,FL,Florida
+923,-85.497137,30.997536,Polygon,FL,Florida
+924,-83.454238,41.732339,MultiPolygon,MI,Michigan
+925,-84.807042,41.694001,MultiPolygon,MI,Michigan
+926,-84.807042,41.759724,MultiPolygon,MI,Michigan
+927,-85.990061,41.759724,MultiPolygon,MI,Michigan
+928,-86.822556,41.759724,MultiPolygon,MI,Michigan
+929,-86.619909,41.891171,MultiPolygon,MI,Michigan
+930,-86.482986,42.115725,MultiPolygon,MI,Michigan
+931,-86.357016,42.252649,MultiPolygon,MI,Michigan
+932,-86.263908,42.444341,MultiPolygon,MI,Michigan
+933,-86.209139,42.718189,MultiPolygon,MI,Michigan
+934,-86.231047,43.013943,MultiPolygon,MI,Michigan
+935,-86.526801,43.594499,MultiPolygon,MI,Michigan
+936,-86.433693,43.813577,MultiPolygon,MI,Michigan
+937,-86.499417,44.07647,MultiPolygon,MI,Michigan
+938,-86.269385,44.34484,MultiPolygon,MI,Michigan
+939,-86.220093,44.569394,MultiPolygon,MI,Michigan
+940,-86.252954,44.689887,MultiPolygon,MI,Michigan
+941,-86.088646,44.73918,MultiPolygon,MI,Michigan
+942,-86.066738,44.903488,MultiPolygon,MI,Michigan
+943,-85.809322,44.947303,MultiPolygon,MI,Michigan
+944,-85.612152,45.128042,MultiPolygon,MI,Michigan
+945,-85.628583,44.766564,MultiPolygon,MI,Michigan
+946,-85.524521,44.750133,MultiPolygon,MI,Michigan
+947,-85.393075,44.930872,MultiPolygon,MI,Michigan
+948,-85.387598,45.237581,MultiPolygon,MI,Michigan
+949,-85.305444,45.314258,MultiPolygon,MI,Michigan
+950,-85.031597,45.363551,MultiPolygon,MI,Michigan
+951,-85.119228,45.577151,MultiPolygon,MI,Michigan
+952,-84.938489,45.75789,MultiPolygon,MI,Michigan
+953,-84.713934,45.768844,MultiPolygon,MI,Michigan
+954,-84.461995,45.653829,MultiPolygon,MI,Michigan
+955,-84.215533,45.637398,MultiPolygon,MI,Michigan
+956,-84.09504,45.494997,MultiPolygon,MI,Michigan
+957,-83.908824,45.484043,MultiPolygon,MI,Michigan
+958,-83.596638,45.352597,MultiPolygon,MI,Michigan
+959,-83.4871,45.358074,MultiPolygon,MI,Michigan
+960,-83.317314,45.144473,MultiPolygon,MI,Michigan
+961,-83.454238,45.029457,MultiPolygon,MI,Michigan
+962,-83.322791,44.88158,MultiPolygon,MI,Michigan
+963,-83.273499,44.711795,MultiPolygon,MI,Michigan
+964,-83.333745,44.339363,MultiPolygon,MI,Michigan
+965,-83.536392,44.246255,MultiPolygon,MI,Michigan
+966,-83.585684,44.054562,MultiPolygon,MI,Michigan
+967,-83.82667,43.988839,MultiPolygon,MI,Michigan
+968,-83.958116,43.758807,MultiPolygon,MI,Michigan
+969,-83.908824,43.671176,MultiPolygon,MI,Michigan
+970,-83.667839,43.589022,MultiPolygon,MI,Michigan
+971,-83.481623,43.714992,MultiPolygon,MI,Michigan
+972,-83.262545,43.972408,MultiPolygon,MI,Michigan
+973,-82.917498,44.070993,MultiPolygon,MI,Michigan
+974,-82.747713,43.994316,MultiPolygon,MI,Michigan
+975,-82.643651,43.851915,MultiPolygon,MI,Michigan
+976,-82.539589,43.435668,MultiPolygon,MI,Michigan
+977,-82.523158,43.227544,MultiPolygon,MI,Michigan
+978,-82.413619,42.975605,MultiPolygon,MI,Michigan
+979,-82.517681,42.614127,MultiPolygon,MI,Michigan
+980,-82.681989,42.559357,MultiPolygon,MI,Michigan
+981,-82.687466,42.690804,MultiPolygon,MI,Michigan
+982,-82.797005,42.652465,MultiPolygon,MI,Michigan
+983,-82.922975,42.351234,MultiPolygon,MI,Michigan
+984,-83.125621,42.236218,MultiPolygon,MI,Michigan
+985,-83.185868,42.006186,MultiPolygon,MI,Michigan
+986,-83.437807,41.814493,MultiPolygon,MI,Michigan
+987,-83.454238,41.732339,MultiPolygon,MI,Michigan
+988,-85.508091,45.730506,MultiPolygon,MI,Michigan
+989,-85.49166,45.610013,MultiPolygon,MI,Michigan
+990,-85.623106,45.588105,MultiPolygon,MI,Michigan
+991,-85.568337,45.75789,MultiPolygon,MI,Michigan
+992,-85.508091,45.730506,MultiPolygon,MI,Michigan
+993,-87.589328,45.095181,MultiPolygon,MI,Michigan
+994,-87.742682,45.199243,MultiPolygon,MI,Michigan
+995,-87.649574,45.341643,MultiPolygon,MI,Michigan
+996,-87.885083,45.363551,MultiPolygon,MI,Michigan
+997,-87.791975,45.500474,MultiPolygon,MI,Michigan
+998,-87.781021,45.675736,MultiPolygon,MI,Michigan
+999,-87.989145,45.796229,MultiPolygon,MI,Michigan
+1000,-88.10416,45.922199,MultiPolygon,MI,Michigan
+1001,-88.531362,46.020784,MultiPolygon,MI,Michigan
+1002,-88.662808,45.987922,MultiPolygon,MI,Michigan
+1003,-89.09001,46.135799,MultiPolygon,MI,Michigan
+1004,-90.119674,46.338446,MultiPolygon,MI,Michigan
+1005,-90.229213,46.508231,MultiPolygon,MI,Michigan
+1006,-90.415429,46.568478,MultiPolygon,MI,Michigan
+1007,-90.026566,46.672539,MultiPolygon,MI,Michigan
+1008,-89.851304,46.793032,MultiPolygon,MI,Michigan
+1009,-89.413149,46.842325,MultiPolygon,MI,Michigan
+1010,-89.128348,46.990202,MultiPolygon,MI,Michigan
+1011,-88.996902,46.995679,MultiPolygon,MI,Michigan
+1012,-88.887363,47.099741,MultiPolygon,MI,Michigan
+1013,-88.575177,47.247618,MultiPolygon,MI,Michigan
+1014,-88.416346,47.373588,MultiPolygon,MI,Michigan
+1015,-88.180837,47.455742,MultiPolygon,MI,Michigan
+1016,-87.956283,47.384542,MultiPolygon,MI,Michigan
+1017,-88.350623,47.077833,MultiPolygon,MI,Michigan
+1018,-88.443731,46.973771,MultiPolygon,MI,Michigan
+1019,-88.438254,46.787555,MultiPolygon,MI,Michigan
+1020,-88.246561,46.929956,MultiPolygon,MI,Michigan
+1021,-87.901513,46.908048,MultiPolygon,MI,Michigan
+1022,-87.633143,46.809463,MultiPolygon,MI,Michigan
+1023,-87.392158,46.535616,MultiPolygon,MI,Michigan
+1024,-87.260711,46.486323,MultiPolygon,MI,Michigan
+1025,-87.008772,46.530139,MultiPolygon,MI,Michigan
+1026,-86.948526,46.469893,MultiPolygon,MI,Michigan
+1027,-86.696587,46.437031,MultiPolygon,MI,Michigan
+1028,-86.159846,46.667063,MultiPolygon,MI,Michigan
+1029,-85.880522,46.68897,MultiPolygon,MI,Michigan
+1030,-85.508091,46.678016,MultiPolygon,MI,Michigan
+1031,-85.256151,46.754694,MultiPolygon,MI,Michigan
+1032,-85.064458,46.760171,MultiPolygon,MI,Michigan
+1033,-85.02612,46.480847,MultiPolygon,MI,Michigan
+1034,-84.82895,46.442508,MultiPolygon,MI,Michigan
+1035,-84.63178,46.486323,MultiPolygon,MI,Michigan
+1036,-84.549626,46.4206,MultiPolygon,MI,Michigan
+1037,-84.418179,46.502754,MultiPolygon,MI,Michigan
+1038,-84.127902,46.530139,MultiPolygon,MI,Michigan
+1039,-84.122425,46.179615,MultiPolygon,MI,Michigan
+1040,-83.990978,46.031737,MultiPolygon,MI,Michigan
+1041,-83.793808,45.993399,MultiPolygon,MI,Michigan
+1042,-83.7719,46.091984,MultiPolygon,MI,Michigan
+1043,-83.580208,46.091984,MultiPolygon,MI,Michigan
+1044,-83.476146,45.987922,MultiPolygon,MI,Michigan
+1045,-83.563777,45.911245,MultiPolygon,MI,Michigan
+1046,-84.111471,45.976968,MultiPolygon,MI,Michigan
+1047,-84.374364,45.933153,MultiPolygon,MI,Michigan
+1048,-84.659165,46.053645,MultiPolygon,MI,Michigan
+1049,-84.741319,45.944106,MultiPolygon,MI,Michigan
+1050,-84.70298,45.850998,MultiPolygon,MI,Michigan
+1051,-84.82895,45.872906,MultiPolygon,MI,Michigan
+1052,-85.015166,46.00983,MultiPolygon,MI,Michigan
+1053,-85.338305,46.091984,MultiPolygon,MI,Michigan
+1054,-85.502614,46.097461,MultiPolygon,MI,Michigan
+1055,-85.661445,45.966014,MultiPolygon,MI,Michigan
+1056,-85.924338,45.933153,MultiPolygon,MI,Michigan
+1057,-86.209139,45.960537,MultiPolygon,MI,Michigan
+1058,-86.324155,45.905768,MultiPolygon,MI,Michigan
+1059,-86.351539,45.796229,MultiPolygon,MI,Michigan
+1060,-86.663725,45.703121,MultiPolygon,MI,Michigan
+1061,-86.647294,45.834568,MultiPolygon,MI,Michigan
+1062,-86.784218,45.861952,MultiPolygon,MI,Michigan
+1063,-86.838987,45.725029,MultiPolygon,MI,Michigan
+1064,-87.069019,45.719552,MultiPolygon,MI,Michigan
+1065,-87.17308,45.659305,MultiPolygon,MI,Michigan
+1066,-87.326435,45.423797,MultiPolygon,MI,Michigan
+1067,-87.611236,45.122565,MultiPolygon,MI,Michigan
+1068,-87.589328,45.095181,MultiPolygon,MI,Michigan
+1069,-88.805209,47.976051,MultiPolygon,MI,Michigan
+1070,-89.057148,47.850082,MultiPolygon,MI,Michigan
+1071,-89.188594,47.833651,MultiPolygon,MI,Michigan
+1072,-89.177641,47.937713,MultiPolygon,MI,Michigan
+1073,-88.547792,48.173221,MultiPolygon,MI,Michigan
+1074,-88.668285,48.008913,MultiPolygon,MI,Michigan
+1075,-88.805209,47.976051,MultiPolygon,MI,Michigan
+1076,-82.764143,35.066903,Polygon,SC,South Carolina
+1077,-82.550543,35.160011,Polygon,SC,South Carolina
+1078,-82.276696,35.198349,Polygon,SC,South Carolina
+1079,-81.044384,35.149057,Polygon,SC,South Carolina
+1080,-81.038907,35.044995,Polygon,SC,South Carolina
+1081,-80.934845,35.105241,Polygon,SC,South Carolina
+1082,-80.781491,34.935456,Polygon,SC,South Carolina
+1083,-80.797922,34.820441,Polygon,SC,South Carolina
+1084,-79.675149,34.80401,Polygon,SC,South Carolina
+1085,-78.541422,33.851022,Polygon,SC,South Carolina
+1086,-78.716684,33.80173,Polygon,SC,South Carolina
+1087,-78.935762,33.637421,Polygon,SC,South Carolina
+1088,-79.149363,33.380005,Polygon,SC,South Carolina
+1089,-79.187701,33.171881,Polygon,SC,South Carolina
+1090,-79.357487,33.007573,Polygon,SC,South Carolina
+1091,-79.582041,33.007573,Polygon,SC,South Carolina
+1092,-79.631334,32.887081,Polygon,SC,South Carolina
+1093,-79.866842,32.755634,Polygon,SC,South Carolina
+1094,-79.998289,32.613234,Polygon,SC,South Carolina
+1095,-80.206412,32.552987,Polygon,SC,South Carolina
+1096,-80.430967,32.399633,Polygon,SC,South Carolina
+1097,-80.452875,32.328433,Polygon,SC,South Carolina
+1098,-80.660998,32.246279,Polygon,SC,South Carolina
+1099,-80.885553,32.032678,Polygon,SC,South Carolina
+1100,-81.115584,32.120309,Polygon,SC,South Carolina
+1101,-81.121061,32.290094,Polygon,SC,South Carolina
+1102,-81.279893,32.558464,Polygon,SC,South Carolina
+1103,-81.416816,32.629664,Polygon,SC,South Carolina
+1104,-81.42777,32.843265,Polygon,SC,South Carolina
+1105,-81.493493,33.007573,Polygon,SC,South Carolina
+1106,-81.761863,33.160928,Polygon,SC,South Carolina
+1107,-81.937125,33.347144,Polygon,SC,South Carolina
+1108,-81.926172,33.462159,Polygon,SC,South Carolina
+1109,-82.194542,33.631944,Polygon,SC,South Carolina
+1110,-82.325988,33.81816,Polygon,SC,South Carolina
+1111,-82.55602,33.94413,Polygon,SC,South Carolina
+1112,-82.714851,34.152254,Polygon,SC,South Carolina
+1113,-82.747713,34.26727,Polygon,SC,South Carolina
+1114,-82.901067,34.486347,Polygon,SC,South Carolina
+1115,-83.005129,34.469916,Polygon,SC,South Carolina
+1116,-83.339222,34.683517,Polygon,SC,South Carolina
+1117,-83.322791,34.787579,Polygon,SC,South Carolina
+1118,-83.109191,35.00118,Polygon,SC,South Carolina
+1119,-82.764143,35.066903,Polygon,SC,South Carolina
+1120,-71.503554,45.013027,Polygon,VT,Vermont
+1121,-71.4926,44.914442,Polygon,VT,Vermont
+1122,-71.629524,44.750133,Polygon,VT,Vermont
+1123,-71.536416,44.585825,Polygon,VT,Vermont
+1124,-71.700724,44.41604,Polygon,VT,Vermont
+1125,-72.034817,44.322932,Polygon,VT,Vermont
+1126,-72.02934,44.07647,Polygon,VT,Vermont
+1127,-72.116971,43.994316,Polygon,VT,Vermont
+1128,-72.204602,43.769761,Polygon,VT,Vermont
+1129,-72.379864,43.572591,Polygon,VT,Vermont
+1130,-72.456542,43.150867,Polygon,VT,Vermont
+1131,-72.445588,43.008466,Polygon,VT,Vermont
+1132,-72.533219,42.953697,Polygon,VT,Vermont
+1133,-72.544173,42.80582,Polygon,VT,Vermont
+1134,-72.456542,42.729142,Polygon,VT,Vermont
+1135,-73.267129,42.745573,Polygon,VT,Vermont
+1136,-73.278083,42.833204,Polygon,VT,Vermont
+1137,-73.245221,43.523299,Polygon,VT,Vermont
+1138,-73.404052,43.687607,Polygon,VT,Vermont
+1139,-73.349283,43.769761,Polygon,VT,Vermont
+1140,-73.436914,44.043608,Polygon,VT,Vermont
+1141,-73.321898,44.246255,Polygon,VT,Vermont
+1142,-73.294514,44.437948,Polygon,VT,Vermont
+1143,-73.387622,44.618687,Polygon,VT,Vermont
+1144,-73.332852,44.804903,Polygon,VT,Vermont
+1145,-73.343806,45.013027,Polygon,VT,Vermont
+1146,-72.308664,45.002073,Polygon,VT,Vermont
+1147,-71.503554,45.013027,Polygon,VT,Vermont
+1148,-109.042503,37.000263,Polygon,AZ,Arizona
+1149,-109.04798,31.331629,Polygon,AZ,Arizona
+1150,-111.074448,31.331629,Polygon,AZ,Arizona
+1151,-112.246513,31.704061,Polygon,AZ,Arizona
+1152,-114.815198,32.492741,Polygon,AZ,Arizona
+1153,-114.72209,32.717295,Polygon,AZ,Arizona
+1154,-114.524921,32.755634,Polygon,AZ,Arizona
+1155,-114.470151,32.843265,Polygon,AZ,Arizona
+1156,-114.524921,33.029481,Polygon,AZ,Arizona
+1157,-114.661844,33.034958,Polygon,AZ,Arizona
+1158,-114.727567,33.40739,Polygon,AZ,Arizona
+1159,-114.524921,33.54979,Polygon,AZ,Arizona
+1160,-114.497536,33.697668,Polygon,AZ,Arizona
+1161,-114.535874,33.933176,Polygon,AZ,Arizona
+1162,-114.415382,34.108438,Polygon,AZ,Arizona
+1163,-114.256551,34.174162,Polygon,AZ,Arizona
+1164,-114.136058,34.305608,Polygon,AZ,Arizona
+1165,-114.333228,34.448009,Polygon,AZ,Arizona
+1166,-114.470151,34.710902,Polygon,AZ,Arizona
+1167,-114.634459,34.87521,Polygon,AZ,Arizona
+1168,-114.634459,35.00118,Polygon,AZ,Arizona
+1169,-114.574213,35.138103,Polygon,AZ,Arizona
+1170,-114.596121,35.324319,Polygon,AZ,Arizona
+1171,-114.678275,35.516012,Polygon,AZ,Arizona
+1172,-114.738521,36.102045,Polygon,AZ,Arizona
+1173,-114.371566,36.140383,Polygon,AZ,Arizona
+1174,-114.251074,36.01989,Polygon,AZ,Arizona
+1175,-114.152489,36.025367,Polygon,AZ,Arizona
+1176,-114.048427,36.195153,Polygon,AZ,Arizona
+1177,-114.048427,37.000263,Polygon,AZ,Arizona
+1178,-110.499369,37.00574,Polygon,AZ,Arizona
+1179,-109.042503,37.000263,Polygon,AZ,Arizona
+1180,-90.639984,42.510065,Polygon,IL,Illinois
+1181,-88.788778,42.493634,Polygon,IL,Illinois
+1182,-87.802929,42.493634,Polygon,IL,Illinois
+1183,-87.83579,42.301941,Polygon,IL,Illinois
+1184,-87.682436,42.077386,Polygon,IL,Illinois
+1185,-87.523605,41.710431,Polygon,IL,Illinois
+1186,-87.529082,39.34987,Polygon,IL,Illinois
+1187,-87.63862,39.169131,Polygon,IL,Illinois
+1188,-87.512651,38.95553,Polygon,IL,Illinois
+1189,-87.49622,38.780268,Polygon,IL,Illinois
+1190,-87.62219,38.637868,Polygon,IL,Illinois
+1191,-87.655051,38.506421,Polygon,IL,Illinois
+1192,-87.83579,38.292821,Polygon,IL,Illinois
+1193,-87.950806,38.27639,Polygon,IL,Illinois
+1194,-87.923421,38.15042,Polygon,IL,Illinois
+1195,-88.000098,38.101128,Polygon,IL,Illinois
+1196,-88.060345,37.865619,Polygon,IL,Illinois
+1197,-88.027483,37.799896,Polygon,IL,Illinois
+1198,-88.15893,37.657496,Polygon,IL,Illinois
+1199,-88.065822,37.482234,Polygon,IL,Illinois
+1200,-88.476592,37.389126,Polygon,IL,Illinois
+1201,-88.514931,37.285064,Polygon,IL,Illinois
+1202,-88.421823,37.153617,Polygon,IL,Illinois
+1203,-88.547792,37.071463,Polygon,IL,Illinois
+1204,-88.914747,37.224817,Polygon,IL,Illinois
+1205,-89.029763,37.213863,Polygon,IL,Illinois
+1206,-89.183118,37.038601,Polygon,IL,Illinois
+1207,-89.133825,36.983832,Polygon,IL,Illinois
+1208,-89.292656,36.994786,Polygon,IL,Illinois
+1209,-89.517211,37.279587,Polygon,IL,Illinois
+1210,-89.435057,37.34531,Polygon,IL,Illinois
+1211,-89.517211,37.537003,Polygon,IL,Illinois
+1212,-89.517211,37.690357,Polygon,IL,Illinois
+1213,-89.84035,37.903958,Polygon,IL,Illinois
+1214,-89.949889,37.88205,Polygon,IL,Illinois
+1215,-90.059428,38.013497,Polygon,IL,Illinois
+1216,-90.355183,38.216144,Polygon,IL,Illinois
+1217,-90.349706,38.374975,Polygon,IL,Illinois
+1218,-90.179921,38.632391,Polygon,IL,Illinois
+1219,-90.207305,38.725499,Polygon,IL,Illinois
+1220,-90.10872,38.845992,Polygon,IL,Illinois
+1221,-90.251121,38.917192,Polygon,IL,Illinois
+1222,-90.470199,38.961007,Polygon,IL,Illinois
+1223,-90.585214,38.867899,Polygon,IL,Illinois
+1224,-90.661891,38.928146,Polygon,IL,Illinois
+1225,-90.727615,39.256762,Polygon,IL,Illinois
+1226,-91.061708,39.470363,Polygon,IL,Illinois
+1227,-91.368417,39.727779,Polygon,IL,Illinois
+1228,-91.494386,40.034488,Polygon,IL,Illinois
+1229,-91.50534,40.237135,Polygon,IL,Illinois
+1230,-91.417709,40.379535,Polygon,IL,Illinois
+1231,-91.401278,40.560274,Polygon,IL,Illinois
+1232,-91.121954,40.669813,Polygon,IL,Illinois
+1233,-91.09457,40.823167,Polygon,IL,Illinois
+1234,-90.963123,40.921752,Polygon,IL,Illinois
+1235,-90.946692,41.097014,Polygon,IL,Illinois
+1236,-91.111001,41.239415,Polygon,IL,Illinois
+1237,-91.045277,41.414677,Polygon,IL,Illinois
+1238,-90.656414,41.463969,Polygon,IL,Illinois
+1239,-90.344229,41.589939,Polygon,IL,Illinois
+1240,-90.311367,41.743293,Polygon,IL,Illinois
+1241,-90.179921,41.809016,Polygon,IL,Illinois
+1242,-90.141582,42.000709,Polygon,IL,Illinois
+1243,-90.168967,42.126679,Polygon,IL,Illinois
+1244,-90.393521,42.225264,Polygon,IL,Illinois
+1245,-90.420906,42.329326,Polygon,IL,Illinois
+1246,-90.639984,42.510065,Polygon,IL,Illinois
+1247,-112.164359,41.995232,Polygon,UT,Utah
+1248,-111.047063,42.000709,Polygon,UT,Utah
+1249,-111.047063,40.998429,Polygon,UT,Utah
+1250,-109.04798,40.998429,Polygon,UT,Utah
+1251,-109.053457,39.125316,Polygon,UT,Utah
+1252,-109.058934,38.27639,Polygon,UT,Utah
+1253,-109.042503,38.166851,Polygon,UT,Utah
+1254,-109.042503,37.000263,Polygon,UT,Utah
+1255,-110.499369,37.00574,Polygon,UT,Utah
+1256,-114.048427,37.000263,Polygon,UT,Utah
+1257,-114.04295,41.995232,Polygon,UT,Utah
+1258,-112.164359,41.995232,Polygon,UT,Utah
+1259,-101.812942,36.501861,Polygon,TX,Texas
+1260,-100.000075,36.501861,Polygon,TX,Texas
+1261,-100.000075,34.563024,Polygon,TX,Texas
+1262,-99.923398,34.573978,Polygon,TX,Texas
+1263,-99.698843,34.382285,Polygon,TX,Texas
+1264,-99.57835,34.415147,Polygon,TX,Texas
+1265,-99.260688,34.404193,Polygon,TX,Texas
+1266,-99.189488,34.2125,Polygon,TX,Texas
+1267,-98.986841,34.223454,Polygon,TX,Texas
+1268,-98.767763,34.135823,Polygon,TX,Texas
+1269,-98.570593,34.146777,Polygon,TX,Texas
+1270,-98.488439,34.064623,Polygon,TX,Texas
+1271,-98.36247,34.157731,Polygon,TX,Texas
+1272,-98.170777,34.113915,Polygon,TX,Texas
+1273,-98.088623,34.004376,Polygon,TX,Texas
+1274,-97.946222,33.987946,Polygon,TX,Texas
+1275,-97.869545,33.851022,Polygon,TX,Texas
+1276,-97.694283,33.982469,Polygon,TX,Texas
+1277,-97.458774,33.905791,Polygon,TX,Texas
+1278,-97.371143,33.823637,Polygon,TX,Texas
+1279,-97.256128,33.861976,Polygon,TX,Texas
+1280,-97.173974,33.736006,Polygon,TX,Texas
+1281,-96.922034,33.960561,Polygon,TX,Texas
+1282,-96.850834,33.845545,Polygon,TX,Texas
+1283,-96.631756,33.845545,Polygon,TX,Texas
+1284,-96.423633,33.774345,Polygon,TX,Texas
+1285,-96.346956,33.686714,Polygon,TX,Texas
+1286,-96.149786,33.840068,Polygon,TX,Texas
+1287,-95.936185,33.889361,Polygon,TX,Texas
+1288,-95.8376,33.834591,Polygon,TX,Texas
+1289,-95.602092,33.933176,Polygon,TX,Texas
+1290,-95.547322,33.878407,Polygon,TX,Texas
+1291,-95.289906,33.87293,Polygon,TX,Texas
+1292,-95.224183,33.960561,Polygon,TX,Texas
+1293,-94.966767,33.861976,Polygon,TX,Texas
+1294,-94.868182,33.74696,Polygon,TX,Texas
+1295,-94.484796,33.637421,Polygon,TX,Texas
+1296,-94.380734,33.544313,Polygon,TX,Texas
+1297,-94.183564,33.593606,Polygon,TX,Texas
+1298,-94.041164,33.54979,Polygon,TX,Texas
+1299,-94.041164,33.018527,Polygon,TX,Texas
+1300,-94.041164,31.994339,Polygon,TX,Texas
+1301,-93.822086,31.775262,Polygon,TX,Texas
+1302,-93.816609,31.556184,Polygon,TX,Texas
+1303,-93.542762,31.15089,Polygon,TX,Texas
+1304,-93.526331,30.93729,Polygon,TX,Texas
+1305,-93.630393,30.679874,Polygon,TX,Texas
+1306,-93.728978,30.575812,Polygon,TX,Texas
+1307,-93.696116,30.438888,Polygon,TX,Texas
+1308,-93.767317,30.334826,Polygon,TX,Texas
+1309,-93.690639,30.143133,Polygon,TX,Texas
+1310,-93.926148,29.787132,Polygon,TX,Texas
+1311,-93.838517,29.688547,Polygon,TX,Texas
+1312,-94.002825,29.68307,Polygon,TX,Texas
+1313,-94.523134,29.546147,Polygon,TX,Texas
+1314,-94.70935,29.622824,Polygon,TX,Texas
+1315,-94.742212,29.787132,Polygon,TX,Texas
+1316,-94.873659,29.672117,Polygon,TX,Texas
+1317,-94.966767,29.699501,Polygon,TX,Texas
+1318,-95.016059,29.557101,Polygon,TX,Texas
+1319,-94.911997,29.496854,Polygon,TX,Texas
+1320,-94.895566,29.310638,Polygon,TX,Texas
+1321,-95.081782,29.113469,Polygon,TX,Texas
+1322,-95.383014,28.867006,Polygon,TX,Texas
+1323,-95.985477,28.604113,Polygon,TX,Texas
+1324,-96.045724,28.647929,Polygon,TX,Texas
+1325,-96.226463,28.582205,Polygon,TX,Texas
+1326,-96.23194,28.642452,Polygon,TX,Texas
+1327,-96.478402,28.598636,Polygon,TX,Texas
+1328,-96.593418,28.724606,Polygon,TX,Texas
+1329,-96.664618,28.697221,Polygon,TX,Texas
+1330,-96.401725,28.439805,Polygon,TX,Texas
+1331,-96.593418,28.357651,Polygon,TX,Texas
+1332,-96.774157,28.406943,Polygon,TX,Texas
+1333,-96.801542,28.226204,Polygon,TX,Texas
+1334,-97.026096,28.039988,Polygon,TX,Texas
+1335,-97.256128,27.694941,Polygon,TX,Texas
+1336,-97.404005,27.333463,Polygon,TX,Texas
+1337,-97.513544,27.360848,Polygon,TX,Texas
+1338,-97.540929,27.229401,Polygon,TX,Texas
+1339,-97.425913,27.262263,Polygon,TX,Texas
+1340,-97.480682,26.99937,Polygon,TX,Texas
+1341,-97.557359,26.988416,Polygon,TX,Texas
+1342,-97.562836,26.840538,Polygon,TX,Texas
+1343,-97.469728,26.758384,Polygon,TX,Texas
+1344,-97.442344,26.457153,Polygon,TX,Texas
+1345,-97.332805,26.353091,Polygon,TX,Texas
+1346,-97.30542,26.161398,Polygon,TX,Texas
+1347,-97.217789,25.991613,Polygon,TX,Texas
+1348,-97.524498,25.887551,Polygon,TX,Texas
+1349,-97.650467,26.018997,Polygon,TX,Texas
+1350,-97.885976,26.06829,Polygon,TX,Texas
+1351,-98.198161,26.057336,Polygon,TX,Texas
+1352,-98.466531,26.221644,Polygon,TX,Texas
+1353,-98.669178,26.238075,Polygon,TX,Texas
+1354,-98.822533,26.369522,Polygon,TX,Texas
+1355,-99.030656,26.413337,Polygon,TX,Texas
+1356,-99.173057,26.539307,Polygon,TX,Texas
+1357,-99.266165,26.840538,Polygon,TX,Texas
+1358,-99.446904,27.021277,Polygon,TX,Texas
+1359,-99.424996,27.174632,Polygon,TX,Texas
+1360,-99.50715,27.33894,Polygon,TX,Texas
+1361,-99.479765,27.48134,Polygon,TX,Texas
+1362,-99.605735,27.640172,Polygon,TX,Texas
+1363,-99.709797,27.656603,Polygon,TX,Texas
+1364,-99.879582,27.799003,Polygon,TX,Texas
+1365,-99.934351,27.979742,Polygon,TX,Texas
+1366,-100.082229,28.14405,Polygon,TX,Texas
+1367,-100.29583,28.280974,Polygon,TX,Texas
+1368,-100.399891,28.582205,Polygon,TX,Texas
+1369,-100.498476,28.66436,Polygon,TX,Texas
+1370,-100.629923,28.905345,Polygon,TX,Texas
+1371,-100.673738,29.102515,Polygon,TX,Texas
+1372,-100.799708,29.244915,Polygon,TX,Texas
+1373,-101.013309,29.370885,Polygon,TX,Texas
+1374,-101.062601,29.458516,Polygon,TX,Texas
+1375,-101.259771,29.535193,Polygon,TX,Texas
+1376,-101.413125,29.754271,Polygon,TX,Texas
+1377,-101.851281,29.803563,Polygon,TX,Texas
+1378,-102.114174,29.792609,Polygon,TX,Texas
+1379,-102.338728,29.869286,Polygon,TX,Texas
+1380,-102.388021,29.765225,Polygon,TX,Texas
+1381,-102.629006,29.732363,Polygon,TX,Texas
+1382,-102.809745,29.524239,Polygon,TX,Texas
+1383,-102.919284,29.190146,Polygon,TX,Texas
+1384,-102.97953,29.184669,Polygon,TX,Texas
+1385,-103.116454,28.987499,Polygon,TX,Texas
+1386,-103.280762,28.982022,Polygon,TX,Texas
+1387,-103.527224,29.135376,Polygon,TX,Texas
+1388,-104.146119,29.381839,Polygon,TX,Texas
+1389,-104.266611,29.513285,Polygon,TX,Texas
+1390,-104.507597,29.639255,Polygon,TX,Texas
+1391,-104.677382,29.924056,Polygon,TX,Texas
+1392,-104.688336,30.181472,Polygon,TX,Texas
+1393,-104.858121,30.389596,Polygon,TX,Texas
+1394,-104.896459,30.570335,Polygon,TX,Texas
+1395,-105.005998,30.685351,Polygon,TX,Texas
+1396,-105.394861,30.855136,Polygon,TX,Texas
+1397,-105.602985,31.085167,Polygon,TX,Texas
+1398,-105.77277,31.167321,Polygon,TX,Texas
+1399,-105.953509,31.364491,Polygon,TX,Texas
+1400,-106.205448,31.468553,Polygon,TX,Texas
+1401,-106.38071,31.731446,Polygon,TX,Texas
+1402,-106.528588,31.786216,Polygon,TX,Texas
+1403,-106.643603,31.901231,Polygon,TX,Texas
+1404,-106.616219,31.999816,Polygon,TX,Texas
+1405,-103.067161,31.999816,Polygon,TX,Texas
+1406,-103.067161,33.002096,Polygon,TX,Texas
+1407,-103.045254,34.01533,Polygon,TX,Texas
+1408,-103.039777,36.501861,Polygon,TX,Texas
+1409,-103.001438,36.501861,Polygon,TX,Texas
+1410,-101.812942,36.501861,Polygon,TX,Texas
+1411,-73.053528,42.039048,Polygon,CT,Connecticut
+1412,-71.799309,42.022617,Polygon,CT,Connecticut
+1413,-71.799309,42.006186,Polygon,CT,Connecticut
+1414,-71.799309,41.414677,Polygon,CT,Connecticut
+1415,-71.859555,41.321569,Polygon,CT,Connecticut
+1416,-71.947186,41.338,Polygon,CT,Connecticut
+1417,-72.385341,41.261322,Polygon,CT,Connecticut
+1418,-72.905651,41.28323,Polygon,CT,Connecticut
+1419,-73.130205,41.146307,Polygon,CT,Connecticut
+1420,-73.371191,41.102491,Polygon,CT,Connecticut
+1421,-73.655992,40.987475,Polygon,CT,Connecticut
+1422,-73.727192,41.102491,Polygon,CT,Connecticut
+1423,-73.48073,41.21203,Polygon,CT,Connecticut
+1424,-73.55193,41.294184,Polygon,CT,Connecticut
+1425,-73.486206,42.050002,Polygon,CT,Connecticut
+1426,-73.053528,42.039048,Polygon,CT,Connecticut
+1427,-117.033359,49.000239,MultiPolygon,WA,Washington
+1428,-117.044313,47.762451,MultiPolygon,WA,Washington
+1429,-117.038836,46.426077,MultiPolygon,WA,Washington
+1430,-117.055267,46.343923,MultiPolygon,WA,Washington
+1431,-116.92382,46.168661,MultiPolygon,WA,Washington
+1432,-116.918344,45.993399,MultiPolygon,WA,Washington
+1433,-118.988627,45.998876,MultiPolygon,WA,Washington
+1434,-119.125551,45.933153,MultiPolygon,WA,Washington
+1435,-119.525367,45.911245,MultiPolygon,WA,Washington
+1436,-119.963522,45.823614,MultiPolygon,WA,Washington
+1437,-120.209985,45.725029,MultiPolygon,WA,Washington
+1438,-120.505739,45.697644,MultiPolygon,WA,Washington
+1439,-120.637186,45.746937,MultiPolygon,WA,Washington
+1440,-121.18488,45.604536,MultiPolygon,WA,Washington
+1441,-121.217742,45.670259,MultiPolygon,WA,Washington
+1442,-121.535404,45.725029,MultiPolygon,WA,Washington
+1443,-121.809251,45.708598,MultiPolygon,WA,Washington
+1444,-122.247407,45.549767,MultiPolygon,WA,Washington
+1445,-122.762239,45.659305,MultiPolygon,WA,Washington
+1446,-122.811531,45.960537,MultiPolygon,WA,Washington
+1447,-122.904639,46.08103,MultiPolygon,WA,Washington
+1448,-123.11824,46.185092,MultiPolygon,WA,Washington
+1449,-123.211348,46.174138,MultiPolygon,WA,Washington
+1450,-123.370179,46.146753,MultiPolygon,WA,Washington
+1451,-123.545441,46.261769,MultiPolygon,WA,Washington
+1452,-123.72618,46.300108,MultiPolygon,WA,Washington
+1453,-123.874058,46.239861,MultiPolygon,WA,Washington
+1454,-124.065751,46.327492,MultiPolygon,WA,Washington
+1455,-124.027412,46.464416,MultiPolygon,WA,Washington
+1456,-123.895966,46.535616,MultiPolygon,WA,Washington
+1457,-124.098612,46.74374,MultiPolygon,WA,Washington
+1458,-124.235536,47.285957,MultiPolygon,WA,Washington
+1459,-124.31769,47.357157,MultiPolygon,WA,Washington
+1460,-124.427229,47.740543,MultiPolygon,WA,Washington
+1461,-124.624399,47.88842,MultiPolygon,WA,Washington
+1462,-124.706553,48.184175,MultiPolygon,WA,Washington
+1463,-124.597014,48.381345,MultiPolygon,WA,Washington
+1464,-124.394367,48.288237,MultiPolygon,WA,Washington
+1465,-123.983597,48.162267,MultiPolygon,WA,Washington
+1466,-123.704273,48.167744,MultiPolygon,WA,Washington
+1467,-123.424949,48.118452,MultiPolygon,WA,Washington
+1468,-123.162056,48.167744,MultiPolygon,WA,Washington
+1469,-123.036086,48.080113,MultiPolygon,WA,Washington
+1470,-122.800578,48.08559,MultiPolygon,WA,Washington
+1471,-122.636269,47.866512,MultiPolygon,WA,Washington
+1472,-122.515777,47.882943,MultiPolygon,WA,Washington
+1473,-122.493869,47.587189,MultiPolygon,WA,Washington
+1474,-122.422669,47.318818,MultiPolygon,WA,Washington
+1475,-122.324084,47.346203,MultiPolygon,WA,Washington
+1476,-122.422669,47.576235,MultiPolygon,WA,Washington
+1477,-122.395284,47.800789,MultiPolygon,WA,Washington
+1478,-122.230976,48.030821,MultiPolygon,WA,Washington
+1479,-122.362422,48.123929,MultiPolygon,WA,Washington
+1480,-122.373376,48.288237,MultiPolygon,WA,Washington
+1481,-122.471961,48.468976,MultiPolygon,WA,Washington
+1482,-122.422669,48.600422,MultiPolygon,WA,Washington
+1483,-122.488392,48.753777,MultiPolygon,WA,Washington
+1484,-122.647223,48.775685,MultiPolygon,WA,Washington
+1485,-122.795101,48.8907,MultiPolygon,WA,Washington
+1486,-122.756762,49.000239,MultiPolygon,WA,Washington
+1487,-117.033359,49.000239,MultiPolygon,WA,Washington
+1488,-122.718423,48.310145,MultiPolygon,WA,Washington
+1489,-122.586977,48.35396,MultiPolygon,WA,Washington
+1490,-122.608885,48.151313,MultiPolygon,WA,Washington
+1491,-122.767716,48.227991,MultiPolygon,WA,Washington
+1492,-122.718423,48.310145,MultiPolygon,WA,Washington
+1493,-123.025132,48.583992,MultiPolygon,WA,Washington
+1494,-122.915593,48.715438,MultiPolygon,WA,Washington
+1495,-122.767716,48.556607,MultiPolygon,WA,Washington
+1496,-122.811531,48.419683,MultiPolygon,WA,Washington
+1497,-123.041563,48.458022,MultiPolygon,WA,Washington
+1498,-123.025132,48.583992,MultiPolygon,WA,Washington
+1499,-90.415429,46.568478,Polygon,WI,Wisconsin
+1500,-90.229213,46.508231,Polygon,WI,Wisconsin
+1501,-90.119674,46.338446,Polygon,WI,Wisconsin
+1502,-89.09001,46.135799,Polygon,WI,Wisconsin
+1503,-88.662808,45.987922,Polygon,WI,Wisconsin
+1504,-88.531362,46.020784,Polygon,WI,Wisconsin
+1505,-88.10416,45.922199,Polygon,WI,Wisconsin
+1506,-87.989145,45.796229,Polygon,WI,Wisconsin
+1507,-87.781021,45.675736,Polygon,WI,Wisconsin
+1508,-87.791975,45.500474,Polygon,WI,Wisconsin
+1509,-87.885083,45.363551,Polygon,WI,Wisconsin
+1510,-87.649574,45.341643,Polygon,WI,Wisconsin
+1511,-87.742682,45.199243,Polygon,WI,Wisconsin
+1512,-87.589328,45.095181,Polygon,WI,Wisconsin
+1513,-87.627666,44.974688,Polygon,WI,Wisconsin
+1514,-87.819359,44.95278,Polygon,WI,Wisconsin
+1515,-87.983668,44.722749,Polygon,WI,Wisconsin
+1516,-88.043914,44.563917,Polygon,WI,Wisconsin
+1517,-87.928898,44.536533,Polygon,WI,Wisconsin
+1518,-87.775544,44.640595,Polygon,WI,Wisconsin
+1519,-87.611236,44.837764,Polygon,WI,Wisconsin
+1520,-87.403112,44.914442,Polygon,WI,Wisconsin
+1521,-87.238804,45.166381,Polygon,WI,Wisconsin
+1522,-87.03068,45.22115,Polygon,WI,Wisconsin
+1523,-87.047111,45.089704,Polygon,WI,Wisconsin
+1524,-87.189511,44.969211,Polygon,WI,Wisconsin
+1525,-87.468835,44.552964,Polygon,WI,Wisconsin
+1526,-87.545512,44.322932,Polygon,WI,Wisconsin
+1527,-87.540035,44.158624,Polygon,WI,Wisconsin
+1528,-87.644097,44.103854,Polygon,WI,Wisconsin
+1529,-87.737205,43.8793,Polygon,WI,Wisconsin
+1530,-87.704344,43.687607,Polygon,WI,Wisconsin
+1531,-87.791975,43.561637,Polygon,WI,Wisconsin
+1532,-87.912467,43.249452,Polygon,WI,Wisconsin
+1533,-87.885083,43.002989,Polygon,WI,Wisconsin
+1534,-87.76459,42.783912,Polygon,WI,Wisconsin
+1535,-87.802929,42.493634,Polygon,WI,Wisconsin
+1536,-88.788778,42.493634,Polygon,WI,Wisconsin
+1537,-90.639984,42.510065,Polygon,WI,Wisconsin
+1538,-90.711184,42.636034,Polygon,WI,Wisconsin
+1539,-91.067185,42.75105,Polygon,WI,Wisconsin
+1540,-91.143862,42.909881,Polygon,WI,Wisconsin
+1541,-91.176724,43.134436,Polygon,WI,Wisconsin
+1542,-91.056231,43.254929,Polygon,WI,Wisconsin
+1543,-91.204109,43.353514,Polygon,WI,Wisconsin
+1544,-91.215062,43.501391,Polygon,WI,Wisconsin
+1545,-91.269832,43.616407,Polygon,WI,Wisconsin
+1546,-91.242447,43.775238,Polygon,WI,Wisconsin
+1547,-91.43414,43.994316,Polygon,WI,Wisconsin
+1548,-91.592971,44.032654,Polygon,WI,Wisconsin
+1549,-91.877772,44.202439,Polygon,WI,Wisconsin
+1550,-91.927065,44.333886,Polygon,WI,Wisconsin
+1551,-92.233773,44.443425,Polygon,WI,Wisconsin
+1552,-92.337835,44.552964,Polygon,WI,Wisconsin
+1553,-92.545959,44.569394,Polygon,WI,Wisconsin
+1554,-92.808852,44.750133,Polygon,WI,Wisconsin
+1555,-92.737652,45.117088,Polygon,WI,Wisconsin
+1556,-92.75956,45.286874,Polygon,WI,Wisconsin
+1557,-92.644544,45.440228,Polygon,WI,Wisconsin
+1558,-92.770513,45.566198,Polygon,WI,Wisconsin
+1559,-92.885529,45.577151,Polygon,WI,Wisconsin
+1560,-92.869098,45.719552,Polygon,WI,Wisconsin
+1561,-92.639067,45.933153,Polygon,WI,Wisconsin
+1562,-92.354266,46.015307,Polygon,WI,Wisconsin
+1563,-92.29402,46.075553,Polygon,WI,Wisconsin
+1564,-92.29402,46.667063,Polygon,WI,Wisconsin
+1565,-92.091373,46.749217,Polygon,WI,Wisconsin
+1566,-92.014696,46.705401,Polygon,WI,Wisconsin
+1567,-91.790141,46.694447,Polygon,WI,Wisconsin
+1568,-91.09457,46.864232,Polygon,WI,Wisconsin
+1569,-90.837154,46.95734,Polygon,WI,Wisconsin
+1570,-90.749522,46.88614,Polygon,WI,Wisconsin
+1571,-90.886446,46.754694,Polygon,WI,Wisconsin
+1572,-90.55783,46.584908,Polygon,WI,Wisconsin
+1573,-90.415429,46.568478,Polygon,WI,Wisconsin
+1574,-66.448338,17.984326,Polygon,PR,Puerto Rico
+1575,-66.771478,18.006234,Polygon,PR,Puerto Rico
+1576,-66.924832,17.929556,Polygon,PR,Puerto Rico
+1577,-66.985078,17.973372,Polygon,PR,Puerto Rico
+1578,-67.209633,17.956941,Polygon,PR,Puerto Rico
+1579,-67.154863,18.19245,Polygon,PR,Puerto Rico
+1580,-67.269879,18.362235,Polygon,PR,Puerto Rico
+1581,-67.094617,18.515589,Polygon,PR,Puerto Rico
+1582,-66.957694,18.488204,Polygon,PR,Puerto Rico
+1583,-66.409999,18.488204,Polygon,PR,Puerto Rico
+1584,-65.840398,18.433435,Polygon,PR,Puerto Rico
+1585,-65.632274,18.367712,Polygon,PR,Puerto Rico
+1586,-65.626797,18.203403,Polygon,PR,Puerto Rico
+1587,-65.730859,18.186973,Polygon,PR,Puerto Rico
+1588,-65.834921,18.017187,Polygon,PR,Puerto Rico
+1589,-66.234737,17.929556,Polygon,PR,Puerto Rico
+1590,-66.448338,17.984326,Polygon,PR,Puerto Rico
+1591,-70.917521,42.887974,Polygon,MA,Massachusetts
+1592,-70.818936,42.871543,Polygon,MA,Massachusetts
+1593,-70.780598,42.696281,Polygon,MA,Massachusetts
+1594,-70.824413,42.55388,Polygon,MA,Massachusetts
+1595,-70.983245,42.422434,Polygon,MA,Massachusetts
+1596,-70.988722,42.269079,Polygon,MA,Massachusetts
+1597,-70.769644,42.247172,Polygon,MA,Massachusetts
+1598,-70.638197,42.08834,Polygon,MA,Massachusetts
+1599,-70.660105,41.962371,Polygon,MA,Massachusetts
+1600,-70.550566,41.929509,Polygon,MA,Massachusetts
+1601,-70.539613,41.814493,Polygon,MA,Massachusetts
+1602,-70.260289,41.715908,Polygon,MA,Massachusetts
+1603,-69.937149,41.809016,Polygon,MA,Massachusetts
+1604,-70.008349,41.672093,Polygon,MA,Massachusetts
+1605,-70.484843,41.5516,Polygon,MA,Massachusetts
+1606,-70.660105,41.546123,Polygon,MA,Massachusetts
+1607,-70.764167,41.639231,Polygon,MA,Massachusetts
+1608,-70.928475,41.611847,Polygon,MA,Massachusetts
+1609,-70.933952,41.540646,Polygon,MA,Massachusetts
+1610,-71.120168,41.496831,Polygon,MA,Massachusetts
+1611,-71.196845,41.67757,Polygon,MA,Massachusetts
+1612,-71.22423,41.710431,Polygon,MA,Massachusetts
+1613,-71.328292,41.781632,Polygon,MA,Massachusetts
+1614,-71.383061,42.01714,Polygon,MA,Massachusetts
+1615,-71.530939,42.01714,Polygon,MA,Massachusetts
+1616,-71.799309,42.006186,Polygon,MA,Massachusetts
+1617,-71.799309,42.022617,Polygon,MA,Massachusetts
+1618,-73.053528,42.039048,Polygon,MA,Massachusetts
+1619,-73.486206,42.050002,Polygon,MA,Massachusetts
+1620,-73.508114,42.08834,Polygon,MA,Massachusetts
+1621,-73.267129,42.745573,Polygon,MA,Massachusetts
+1622,-72.456542,42.729142,Polygon,MA,Massachusetts
+1623,-71.29543,42.696281,Polygon,MA,Massachusetts
+1624,-71.185891,42.789389,Polygon,MA,Massachusetts
+1625,-70.917521,42.887974,Polygon,MA,Massachusetts
+1626,-94.473842,36.501861,Polygon,AR,Arkansas
+1627,-90.152536,36.496384,Polygon,AR,Arkansas
+1628,-90.064905,36.304691,Polygon,AR,Arkansas
+1629,-90.218259,36.184199,Polygon,AR,Arkansas
+1630,-90.377091,35.997983,Polygon,AR,Arkansas
+1631,-89.730812,35.997983,Polygon,AR,Arkansas
+1632,-89.763673,35.811767,Polygon,AR,Arkansas
+1633,-89.911551,35.756997,Polygon,AR,Arkansas
+1634,-89.944412,35.603643,Polygon,AR,Arkansas
+1635,-90.130628,35.439335,Polygon,AR,Arkansas
+1636,-90.114197,35.198349,Polygon,AR,Arkansas
+1637,-90.212782,35.023087,Polygon,AR,Arkansas
+1638,-90.311367,34.995703,Polygon,AR,Arkansas
+1639,-90.251121,34.908072,Polygon,AR,Arkansas
+1640,-90.409952,34.831394,Polygon,AR,Arkansas
+1641,-90.481152,34.661609,Polygon,AR,Arkansas
+1642,-90.585214,34.617794,Polygon,AR,Arkansas
+1643,-90.568783,34.420624,Polygon,AR,Arkansas
+1644,-90.749522,34.365854,Polygon,AR,Arkansas
+1645,-90.744046,34.300131,Polygon,AR,Arkansas
+1646,-90.952169,34.135823,Polygon,AR,Arkansas
+1647,-90.891923,34.026284,Polygon,AR,Arkansas
+1648,-91.072662,33.867453,Polygon,AR,Arkansas
+1649,-91.231493,33.560744,Polygon,AR,Arkansas
+1650,-91.056231,33.429298,Polygon,AR,Arkansas
+1651,-91.143862,33.347144,Polygon,AR,Arkansas
+1652,-91.089093,33.13902,Polygon,AR,Arkansas
+1653,-91.16577,33.002096,Polygon,AR,Arkansas
+1654,-93.608485,33.018527,Polygon,AR,Arkansas
+1655,-94.041164,33.018527,Polygon,AR,Arkansas
+1656,-94.041164,33.54979,Polygon,AR,Arkansas
+1657,-94.183564,33.593606,Polygon,AR,Arkansas
+1658,-94.380734,33.544313,Polygon,AR,Arkansas
+1659,-94.484796,33.637421,Polygon,AR,Arkansas
+1660,-94.430026,35.395519,Polygon,AR,Arkansas
+1661,-94.616242,36.501861,Polygon,AR,Arkansas
+1662,-94.473842,36.501861,Polygon,AR,Arkansas
+1663,-97.228743,49.000239,Polygon,ND,North Dakota
+1664,-97.097296,48.682577,Polygon,ND,North Dakota
+1665,-97.16302,48.545653,Polygon,ND,North Dakota
+1666,-97.130158,48.140359,Polygon,ND,North Dakota
+1667,-97.053481,47.948667,Polygon,ND,North Dakota
+1668,-96.856311,47.609096,Polygon,ND,North Dakota
+1669,-96.823449,46.968294,Polygon,ND,North Dakota
+1670,-96.785111,46.924479,Polygon,ND,North Dakota
+1671,-96.801542,46.656109,Polygon,ND,North Dakota
+1672,-96.719387,46.437031,Polygon,ND,North Dakota
+1673,-96.598895,46.332969,Polygon,ND,North Dakota
+1674,-96.560556,45.933153,Polygon,ND,North Dakota
+1675,-104.047534,45.944106,Polygon,ND,North Dakota
+1676,-104.042057,47.861036,Polygon,ND,North Dakota
+1677,-104.047534,49.000239,Polygon,ND,North Dakota
+1678,-97.228743,49.000239,Polygon,ND,North Dakota
+1679,-107.919731,41.003906,Polygon,CO,Colorado
+1680,-105.728954,40.998429,Polygon,CO,Colorado
+1681,-104.053011,41.003906,Polygon,CO,Colorado
+1682,-102.053927,41.003906,Polygon,CO,Colorado
+1683,-102.053927,40.001626,Polygon,CO,Colorado
+1684,-102.042974,36.994786,Polygon,CO,Colorado
+1685,-103.001438,37.000263,Polygon,CO,Colorado
+1686,-104.337812,36.994786,Polygon,CO,Colorado
+1687,-106.868158,36.994786,Polygon,CO,Colorado
+1688,-107.421329,37.000263,Polygon,CO,Colorado
+1689,-109.042503,37.000263,Polygon,CO,Colorado
+1690,-109.042503,38.166851,Polygon,CO,Colorado
+1691,-109.058934,38.27639,Polygon,CO,Colorado
+1692,-109.053457,39.125316,Polygon,CO,Colorado
+1693,-109.04798,40.998429,Polygon,CO,Colorado
+1694,-107.919731,41.003906,Polygon,CO,Colorado
+1695,-131.602021,55.117982,MultiPolygon,AK,Alaska
+1696,-131.569159,55.28229,MultiPolygon,AK,Alaska
+1697,-131.355558,55.183705,MultiPolygon,AK,Alaska
+1698,-131.38842,55.01392,MultiPolygon,AK,Alaska
+1699,-131.645836,55.035827,MultiPolygon,AK,Alaska
+1700,-131.602021,55.117982,MultiPolygon,AK,Alaska
+1701,-131.832052,55.42469,MultiPolygon,AK,Alaska
+1702,-131.645836,55.304197,MultiPolygon,AK,Alaska
+1703,-131.749898,55.128935,MultiPolygon,AK,Alaska
+1704,-131.832052,55.189182,MultiPolygon,AK,Alaska
+1705,-131.832052,55.42469,MultiPolygon,AK,Alaska
+1706,-132.976733,56.437924,MultiPolygon,AK,Alaska
+1707,-132.735747,56.459832,MultiPolygon,AK,Alaska
+1708,-132.631685,56.421493,MultiPolygon,AK,Alaska
+1709,-132.664547,56.273616,MultiPolygon,AK,Alaska
+1710,-132.878148,56.240754,MultiPolygon,AK,Alaska
+1711,-133.069841,56.333862,MultiPolygon,AK,Alaska
+1712,-132.976733,56.437924,MultiPolygon,AK,Alaska
+1713,-133.595627,56.350293,MultiPolygon,AK,Alaska
+1714,-133.162949,56.317431,MultiPolygon,AK,Alaska
+1715,-133.05341,56.125739,MultiPolygon,AK,Alaska
+1716,-132.620732,55.912138,MultiPolygon,AK,Alaska
+1717,-132.472854,55.780691,MultiPolygon,AK,Alaska
+1718,-132.4619,55.671152,MultiPolygon,AK,Alaska
+1719,-132.357838,55.649245,MultiPolygon,AK,Alaska
+1720,-132.341408,55.506844,MultiPolygon,AK,Alaska
+1721,-132.166146,55.364444,MultiPolygon,AK,Alaska
+1722,-132.144238,55.238474,MultiPolygon,AK,Alaska
+1723,-132.029222,55.276813,MultiPolygon,AK,Alaska
+1724,-131.97993,55.178228,MultiPolygon,AK,Alaska
+1725,-131.958022,54.789365,MultiPolygon,AK,Alaska
+1726,-132.029222,54.701734,MultiPolygon,AK,Alaska
+1727,-132.308546,54.718165,MultiPolygon,AK,Alaska
+1728,-132.385223,54.915335,MultiPolygon,AK,Alaska
+1729,-132.483808,54.898904,MultiPolygon,AK,Alaska
+1730,-132.686455,55.046781,MultiPolygon,AK,Alaska
+1731,-132.746701,54.997489,MultiPolygon,AK,Alaska
+1732,-132.916486,55.046781,MultiPolygon,AK,Alaska
+1733,-132.889102,54.898904,MultiPolygon,AK,Alaska
+1734,-132.73027,54.937242,MultiPolygon,AK,Alaska
+1735,-132.626209,54.882473,MultiPolygon,AK,Alaska
+1736,-132.675501,54.679826,MultiPolygon,AK,Alaska
+1737,-132.867194,54.701734,MultiPolygon,AK,Alaska
+1738,-133.157472,54.95915,MultiPolygon,AK,Alaska
+1739,-133.239626,55.090597,MultiPolygon,AK,Alaska
+1740,-133.223195,55.22752,MultiPolygon,AK,Alaska
+1741,-133.453227,55.216566,MultiPolygon,AK,Alaska
+1742,-133.453227,55.320628,MultiPolygon,AK,Alaska
+1743,-133.277964,55.331582,MultiPolygon,AK,Alaska
+1744,-133.102702,55.42469,MultiPolygon,AK,Alaska
+1745,-133.17938,55.588998,MultiPolygon,AK,Alaska
+1746,-133.387503,55.62186,MultiPolygon,AK,Alaska
+1747,-133.420365,55.884753,MultiPolygon,AK,Alaska
+1748,-133.497042,56.0162,MultiPolygon,AK,Alaska
+1749,-133.639442,55.923092,MultiPolygon,AK,Alaska
+1750,-133.694212,56.070969,MultiPolygon,AK,Alaska
+1751,-133.546335,56.142169,MultiPolygon,AK,Alaska
+1752,-133.666827,56.311955,MultiPolygon,AK,Alaska
+1753,-133.595627,56.350293,MultiPolygon,AK,Alaska
+1754,-133.738027,55.556137,MultiPolygon,AK,Alaska
+1755,-133.546335,55.490413,MultiPolygon,AK,Alaska
+1756,-133.414888,55.572568,MultiPolygon,AK,Alaska
+1757,-133.283441,55.534229,MultiPolygon,AK,Alaska
+1758,-133.420365,55.386352,MultiPolygon,AK,Alaska
+1759,-133.633966,55.430167,MultiPolygon,AK,Alaska
+1760,-133.738027,55.556137,MultiPolygon,AK,Alaska
+1761,-133.907813,56.930849,MultiPolygon,AK,Alaska
+1762,-134.050213,57.029434,MultiPolygon,AK,Alaska
+1763,-133.885905,57.095157,MultiPolygon,AK,Alaska
+1764,-133.343688,57.002049,MultiPolygon,AK,Alaska
+1765,-133.102702,57.007526,MultiPolygon,AK,Alaska
+1766,-132.932917,56.82131,MultiPolygon,AK,Alaska
+1767,-132.620732,56.667956,MultiPolygon,AK,Alaska
+1768,-132.653593,56.55294,MultiPolygon,AK,Alaska
+1769,-132.817901,56.492694,MultiPolygon,AK,Alaska
+1770,-133.042456,56.520078,MultiPolygon,AK,Alaska
+1771,-133.201287,56.448878,MultiPolygon,AK,Alaska
+1772,-133.420365,56.492694,MultiPolygon,AK,Alaska
+1773,-133.66135,56.448878,MultiPolygon,AK,Alaska
+1774,-133.710643,56.684386,MultiPolygon,AK,Alaska
+1775,-133.688735,56.837741,MultiPolygon,AK,Alaska
+1776,-133.869474,56.843218,MultiPolygon,AK,Alaska
+1777,-133.907813,56.930849,MultiPolygon,AK,Alaska
+1778,-134.115936,56.48174,MultiPolygon,AK,Alaska
+1779,-134.25286,56.558417,MultiPolygon,AK,Alaska
+1780,-134.400737,56.722725,MultiPolygon,AK,Alaska
+1781,-134.417168,56.848695,MultiPolygon,AK,Alaska
+1782,-134.296675,56.908941,MultiPolygon,AK,Alaska
+1783,-134.170706,56.848695,MultiPolygon,AK,Alaska
+1784,-134.143321,56.952757,MultiPolygon,AK,Alaska
+1785,-133.748981,56.772017,MultiPolygon,AK,Alaska
+1786,-133.710643,56.596755,MultiPolygon,AK,Alaska
+1787,-133.847566,56.574848,MultiPolygon,AK,Alaska
+1788,-133.935197,56.377678,MultiPolygon,AK,Alaska
+1789,-133.836612,56.322908,MultiPolygon,AK,Alaska
+1790,-133.957105,56.092877,MultiPolygon,AK,Alaska
+1791,-134.110459,56.142169,MultiPolygon,AK,Alaska
+1792,-134.132367,55.999769,MultiPolygon,AK,Alaska
+1793,-134.230952,56.070969,MultiPolygon,AK,Alaska
+1794,-134.291198,56.350293,MultiPolygon,AK,Alaska
+1795,-134.115936,56.48174,MultiPolygon,AK,Alaska
+1796,-134.636246,56.28457,MultiPolygon,AK,Alaska
+1797,-134.669107,56.169554,MultiPolygon,AK,Alaska
+1798,-134.806031,56.235277,MultiPolygon,AK,Alaska
+1799,-135.178463,56.67891,MultiPolygon,AK,Alaska
+1800,-135.413971,56.810356,MultiPolygon,AK,Alaska
+1801,-135.331817,56.914418,MultiPolygon,AK,Alaska
+1802,-135.424925,57.166357,MultiPolygon,AK,Alaska
+1803,-135.687818,57.369004,MultiPolygon,AK,Alaska
+1804,-135.419448,57.566174,MultiPolygon,AK,Alaska
+1805,-135.298955,57.48402,MultiPolygon,AK,Alaska
+1806,-135.063447,57.418296,MultiPolygon,AK,Alaska
+1807,-134.849846,57.407343,MultiPolygon,AK,Alaska
+1808,-134.844369,57.248511,MultiPolygon,AK,Alaska
+1809,-134.636246,56.728202,MultiPolygon,AK,Alaska
+1810,-134.636246,56.28457,MultiPolygon,AK,Alaska
+1811,-134.712923,58.223407,MultiPolygon,AK,Alaska
+1812,-134.373353,58.14673,MultiPolygon,AK,Alaska
+1813,-134.176183,58.157683,MultiPolygon,AK,Alaska
+1814,-134.187137,58.081006,MultiPolygon,AK,Alaska
+1815,-133.902336,57.807159,MultiPolygon,AK,Alaska
+1816,-134.099505,57.850975,MultiPolygon,AK,Alaska
+1817,-134.148798,57.757867,MultiPolygon,AK,Alaska
+1818,-133.935197,57.615466,MultiPolygon,AK,Alaska
+1819,-133.869474,57.363527,MultiPolygon,AK,Alaska
+1820,-134.083075,57.297804,MultiPolygon,AK,Alaska
+1821,-134.154275,57.210173,MultiPolygon,AK,Alaska
+1822,-134.499322,57.029434,MultiPolygon,AK,Alaska
+1823,-134.603384,57.034911,MultiPolygon,AK,Alaska
+1824,-134.6472,57.226604,MultiPolygon,AK,Alaska
+1825,-134.575999,57.341619,MultiPolygon,AK,Alaska
+1826,-134.608861,57.511404,MultiPolygon,AK,Alaska
+1827,-134.729354,57.719528,MultiPolygon,AK,Alaska
+1828,-134.707446,57.829067,MultiPolygon,AK,Alaska
+1829,-134.784123,58.097437,MultiPolygon,AK,Alaska
+1830,-134.91557,58.212453,MultiPolygon,AK,Alaska
+1831,-134.953908,58.409623,MultiPolygon,AK,Alaska
+1832,-134.712923,58.223407,MultiPolygon,AK,Alaska
+1833,-135.857603,57.330665,MultiPolygon,AK,Alaska
+1834,-135.715203,57.330665,MultiPolygon,AK,Alaska
+1835,-135.567326,57.149926,MultiPolygon,AK,Alaska
+1836,-135.633049,57.023957,MultiPolygon,AK,Alaska
+1837,-135.857603,56.996572,MultiPolygon,AK,Alaska
+1838,-135.824742,57.193742,MultiPolygon,AK,Alaska
+1839,-135.857603,57.330665,MultiPolygon,AK,Alaska
+1840,-136.279328,58.206976,MultiPolygon,AK,Alaska
+1841,-135.978096,58.201499,MultiPolygon,AK,Alaska
+1842,-135.780926,58.28913,MultiPolygon,AK,Alaska
+1843,-135.496125,58.168637,MultiPolygon,AK,Alaska
+1844,-135.64948,58.037191,MultiPolygon,AK,Alaska
+1845,-135.59471,57.987898,MultiPolygon,AK,Alaska
+1846,-135.45231,58.135776,MultiPolygon,AK,Alaska
+1847,-135.107263,58.086483,MultiPolygon,AK,Alaska
+1848,-134.91557,57.976944,MultiPolygon,AK,Alaska
+1849,-135.025108,57.779775,MultiPolygon,AK,Alaska
+1850,-134.937477,57.763344,MultiPolygon,AK,Alaska
+1851,-134.822462,57.500451,MultiPolygon,AK,Alaska
+1852,-135.085355,57.462112,MultiPolygon,AK,Alaska
+1853,-135.572802,57.675713,MultiPolygon,AK,Alaska
+1854,-135.556372,57.456635,MultiPolygon,AK,Alaska
+1855,-135.709726,57.369004,MultiPolygon,AK,Alaska
+1856,-135.890465,57.407343,MultiPolygon,AK,Alaska
+1857,-136.000004,57.544266,MultiPolygon,AK,Alaska
+1858,-136.208128,57.637374,MultiPolygon,AK,Alaska
+1859,-136.366959,57.829067,MultiPolygon,AK,Alaska
+1860,-136.569606,57.916698,MultiPolygon,AK,Alaska
+1861,-136.558652,58.075529,MultiPolygon,AK,Alaska
+1862,-136.421728,58.130299,MultiPolygon,AK,Alaska
+1863,-136.377913,58.267222,MultiPolygon,AK,Alaska
+1864,-136.279328,58.206976,MultiPolygon,AK,Alaska
+1865,-147.079854,60.200582,MultiPolygon,AK,Alaska
+1866,-147.501579,59.948643,MultiPolygon,AK,Alaska
+1867,-147.53444,59.850058,MultiPolygon,AK,Alaska
+1868,-147.874011,59.784335,MultiPolygon,AK,Alaska
+1869,-147.80281,59.937689,MultiPolygon,AK,Alaska
+1870,-147.435855,60.09652,MultiPolygon,AK,Alaska
+1871,-147.205824,60.271782,MultiPolygon,AK,Alaska
+1872,-147.079854,60.200582,MultiPolygon,AK,Alaska
+1873,-147.561825,60.578491,MultiPolygon,AK,Alaska
+1874,-147.616594,60.370367,MultiPolygon,AK,Alaska
+1875,-147.758995,60.156767,MultiPolygon,AK,Alaska
+1876,-147.956165,60.227967,MultiPolygon,AK,Alaska
+1877,-147.791856,60.474429,MultiPolygon,AK,Alaska
+1878,-147.561825,60.578491,MultiPolygon,AK,Alaska
+1879,-147.786379,70.245291,MultiPolygon,AK,Alaska
+1880,-147.682318,70.201475,MultiPolygon,AK,Alaska
+1881,-147.162008,70.15766,MultiPolygon,AK,Alaska
+1882,-146.888161,70.185044,MultiPolygon,AK,Alaska
+1883,-146.510252,70.185044,MultiPolygon,AK,Alaska
+1884,-146.099482,70.146706,MultiPolygon,AK,Alaska
+1885,-145.858496,70.168614,MultiPolygon,AK,Alaska
+1886,-145.622988,70.08646,MultiPolygon,AK,Alaska
+1887,-145.195787,69.993352,MultiPolygon,AK,Alaska
+1888,-144.620708,69.971444,MultiPolygon,AK,Alaska
+1889,-144.461877,70.026213,MultiPolygon,AK,Alaska
+1890,-144.078491,70.059075,MultiPolygon,AK,Alaska
+1891,-143.914183,70.130275,MultiPolygon,AK,Alaska
+1892,-143.497935,70.141229,MultiPolygon,AK,Alaska
+1893,-143.503412,70.091936,MultiPolygon,AK,Alaska
+1894,-143.25695,70.119321,MultiPolygon,AK,Alaska
+1895,-142.747594,70.042644,MultiPolygon,AK,Alaska
+1896,-142.402547,69.916674,MultiPolygon,AK,Alaska
+1897,-142.079408,69.856428,MultiPolygon,AK,Alaska
+1898,-142.008207,69.801659,MultiPolygon,AK,Alaska
+1899,-141.712453,69.790705,MultiPolygon,AK,Alaska
+1900,-141.433129,69.697597,MultiPolygon,AK,Alaska
+1901,-141.378359,69.63735,MultiPolygon,AK,Alaska
+1902,-141.208574,69.686643,MultiPolygon,AK,Alaska
+1903,-141.00045,69.648304,MultiPolygon,AK,Alaska
+1904,-141.00045,60.304644,MultiPolygon,AK,Alaska
+1905,-140.53491,60.22249,MultiPolygon,AK,Alaska
+1906,-140.474664,60.310121,MultiPolygon,AK,Alaska
+1907,-139.987216,60.184151,MultiPolygon,AK,Alaska
+1908,-139.696939,60.342983,MultiPolygon,AK,Alaska
+1909,-139.088998,60.359413,MultiPolygon,AK,Alaska
+1910,-139.198537,60.091043,MultiPolygon,AK,Alaska
+1911,-139.045183,59.997935,MultiPolygon,AK,Alaska
+1912,-138.700135,59.910304,MultiPolygon,AK,Alaska
+1913,-138.623458,59.767904,MultiPolygon,AK,Alaska
+1914,-137.604747,59.242118,MultiPolygon,AK,Alaska
+1915,-137.445916,58.908024,MultiPolygon,AK,Alaska
+1916,-137.265177,59.001132,MultiPolygon,AK,Alaska
+1917,-136.827022,59.159963,MultiPolygon,AK,Alaska
+1918,-136.580559,59.16544,MultiPolygon,AK,Alaska
+1919,-136.465544,59.285933,MultiPolygon,AK,Alaska
+1920,-136.476498,59.466672,MultiPolygon,AK,Alaska
+1921,-136.301236,59.466672,MultiPolygon,AK,Alaska
+1922,-136.25742,59.625503,MultiPolygon,AK,Alaska
+1923,-135.945234,59.663842,MultiPolygon,AK,Alaska
+1924,-135.479694,59.800766,MultiPolygon,AK,Alaska
+1925,-135.025108,59.565257,MultiPolygon,AK,Alaska
+1926,-135.068924,59.422857,MultiPolygon,AK,Alaska
+1927,-134.959385,59.280456,MultiPolygon,AK,Alaska
+1928,-134.701969,59.247595,MultiPolygon,AK,Alaska
+1929,-134.378829,59.033994,MultiPolygon,AK,Alaska
+1930,-134.400737,58.973748,MultiPolygon,AK,Alaska
+1931,-134.25286,58.858732,MultiPolygon,AK,Alaska
+1932,-133.842089,58.727285,MultiPolygon,AK,Alaska
+1933,-133.173903,58.152206,MultiPolygon,AK,Alaska
+1934,-133.075318,57.998852,MultiPolygon,AK,Alaska
+1935,-132.867194,57.845498,MultiPolygon,AK,Alaska
+1936,-132.560485,57.505928,MultiPolygon,AK,Alaska
+1937,-132.253777,57.21565,MultiPolygon,AK,Alaska
+1938,-132.368792,57.095157,MultiPolygon,AK,Alaska
+1939,-132.05113,57.051341,MultiPolygon,AK,Alaska
+1940,-132.127807,56.876079,MultiPolygon,AK,Alaska
+1941,-131.870391,56.804879,MultiPolygon,AK,Alaska
+1942,-131.837529,56.602232,MultiPolygon,AK,Alaska
+1943,-131.580113,56.613186,MultiPolygon,AK,Alaska
+1944,-131.087188,56.405062,MultiPolygon,AK,Alaska
+1945,-130.78048,56.366724,MultiPolygon,AK,Alaska
+1946,-130.621648,56.268139,MultiPolygon,AK,Alaska
+1947,-130.468294,56.240754,MultiPolygon,AK,Alaska
+1948,-130.424478,56.142169,MultiPolygon,AK,Alaska
+1949,-130.101339,56.114785,MultiPolygon,AK,Alaska
+1950,-130.002754,55.994292,MultiPolygon,AK,Alaska
+1951,-130.150631,55.769737,MultiPolygon,AK,Alaska
+1952,-130.128724,55.583521,MultiPolygon,AK,Alaska
+1953,-129.986323,55.276813,MultiPolygon,AK,Alaska
+1954,-130.095862,55.200136,MultiPolygon,AK,Alaska
+1955,-130.336847,54.920812,MultiPolygon,AK,Alaska
+1956,-130.687372,54.718165,MultiPolygon,AK,Alaska
+1957,-130.785957,54.822227,MultiPolygon,AK,Alaska
+1958,-130.917403,54.789365,MultiPolygon,AK,Alaska
+1959,-131.010511,54.997489,MultiPolygon,AK,Alaska
+1960,-130.983126,55.08512,MultiPolygon,AK,Alaska
+1961,-131.092665,55.189182,MultiPolygon,AK,Alaska
+1962,-130.862634,55.298721,MultiPolygon,AK,Alaska
+1963,-130.928357,55.337059,MultiPolygon,AK,Alaska
+1964,-131.158389,55.200136,MultiPolygon,AK,Alaska
+1965,-131.284358,55.287767,MultiPolygon,AK,Alaska
+1966,-131.426759,55.238474,MultiPolygon,AK,Alaska
+1967,-131.843006,55.457552,MultiPolygon,AK,Alaska
+1968,-131.700606,55.698537,MultiPolygon,AK,Alaska
+1969,-131.963499,55.616383,MultiPolygon,AK,Alaska
+1970,-131.974453,55.49589,MultiPolygon,AK,Alaska
+1971,-132.182576,55.588998,MultiPolygon,AK,Alaska
+1972,-132.226392,55.704014,MultiPolygon,AK,Alaska
+1973,-132.083991,55.829984,MultiPolygon,AK,Alaska
+1974,-132.127807,55.955953,MultiPolygon,AK,Alaska
+1975,-132.324977,55.851892,MultiPolygon,AK,Alaska
+1976,-132.522147,56.076446,MultiPolygon,AK,Alaska
+1977,-132.642639,56.032631,MultiPolygon,AK,Alaska
+1978,-132.719317,56.218847,MultiPolygon,AK,Alaska
+1979,-132.527624,56.339339,MultiPolygon,AK,Alaska
+1980,-132.341408,56.339339,MultiPolygon,AK,Alaska
+1981,-132.396177,56.487217,MultiPolygon,AK,Alaska
+1982,-132.297592,56.67891,MultiPolygon,AK,Alaska
+1983,-132.450946,56.673433,MultiPolygon,AK,Alaska
+1984,-132.768609,56.837741,MultiPolygon,AK,Alaska
+1985,-132.993164,57.034911,MultiPolygon,AK,Alaska
+1986,-133.51895,57.177311,MultiPolygon,AK,Alaska
+1987,-133.507996,57.577128,MultiPolygon,AK,Alaska
+1988,-133.677781,57.62642,MultiPolygon,AK,Alaska
+1989,-133.639442,57.790728,MultiPolygon,AK,Alaska
+1990,-133.814705,57.834544,MultiPolygon,AK,Alaska
+1991,-134.072121,58.053622,MultiPolygon,AK,Alaska
+1992,-134.143321,58.168637,MultiPolygon,AK,Alaska
+1993,-134.586953,58.206976,MultiPolygon,AK,Alaska
+1994,-135.074401,58.502731,MultiPolygon,AK,Alaska
+1995,-135.282525,59.192825,MultiPolygon,AK,Alaska
+1996,-135.38111,59.033994,MultiPolygon,AK,Alaska
+1997,-135.337294,58.891593,MultiPolygon,AK,Alaska
+1998,-135.140124,58.617746,MultiPolygon,AK,Alaska
+1999,-135.189417,58.573931,MultiPolygon,AK,Alaska
+2000,-135.05797,58.349376,MultiPolygon,AK,Alaska
+2001,-135.085355,58.201499,MultiPolygon,AK,Alaska
+2002,-135.277048,58.234361,MultiPolygon,AK,Alaska
+2003,-135.430402,58.398669,MultiPolygon,AK,Alaska
+2004,-135.633049,58.426053,MultiPolygon,AK,Alaska
+2005,-135.91785,58.382238,MultiPolygon,AK,Alaska
+2006,-135.912373,58.617746,MultiPolygon,AK,Alaska
+2007,-136.087635,58.814916,MultiPolygon,AK,Alaska
+2008,-136.246466,58.75467,MultiPolygon,AK,Alaska
+2009,-136.876314,58.962794,MultiPolygon,AK,Alaska
+2010,-136.931084,58.902547,MultiPolygon,AK,Alaska
+2011,-136.586036,58.836824,MultiPolygon,AK,Alaska
+2012,-136.317666,58.672516,MultiPolygon,AK,Alaska
+2013,-136.213604,58.667039,MultiPolygon,AK,Alaska
+2014,-136.180743,58.535592,MultiPolygon,AK,Alaska
+2015,-136.043819,58.382238,MultiPolygon,AK,Alaska
+2016,-136.388867,58.294607,MultiPolygon,AK,Alaska
+2017,-136.591513,58.349376,MultiPolygon,AK,Alaska
+2018,-136.59699,58.212453,MultiPolygon,AK,Alaska
+2019,-136.859883,58.316515,MultiPolygon,AK,Alaska
+2020,-136.947514,58.393192,MultiPolygon,AK,Alaska
+2021,-137.111823,58.393192,MultiPolygon,AK,Alaska
+2022,-137.566409,58.590362,MultiPolygon,AK,Alaska
+2023,-137.900502,58.765624,MultiPolygon,AK,Alaska
+2024,-137.933364,58.869686,MultiPolygon,AK,Alaska
+2025,-138.11958,59.02304,MultiPolygon,AK,Alaska
+2026,-138.634412,59.132579,MultiPolygon,AK,Alaska
+2027,-138.919213,59.247595,MultiPolygon,AK,Alaska
+2028,-139.417615,59.379041,MultiPolygon,AK,Alaska
+2029,-139.746231,59.505011,MultiPolygon,AK,Alaska
+2030,-139.718846,59.641934,MultiPolygon,AK,Alaska
+2031,-139.625738,59.598119,MultiPolygon,AK,Alaska
+2032,-139.5162,59.68575,MultiPolygon,AK,Alaska
+2033,-139.625738,59.88292,MultiPolygon,AK,Alaska
+2034,-139.488815,59.992458,MultiPolygon,AK,Alaska
+2035,-139.554538,60.041751,MultiPolygon,AK,Alaska
+2036,-139.801,59.833627,MultiPolygon,AK,Alaska
+2037,-140.315833,59.696704,MultiPolygon,AK,Alaska
+2038,-140.92925,59.745996,MultiPolygon,AK,Alaska
+2039,-141.444083,59.871966,MultiPolygon,AK,Alaska
+2040,-141.46599,59.970551,MultiPolygon,AK,Alaska
+2041,-141.706976,59.948643,MultiPolygon,AK,Alaska
+2042,-141.964392,60.019843,MultiPolygon,AK,Alaska
+2043,-142.539471,60.085566,MultiPolygon,AK,Alaska
+2044,-142.873564,60.091043,MultiPolygon,AK,Alaska
+2045,-143.623905,60.036274,MultiPolygon,AK,Alaska
+2046,-143.892275,59.997935,MultiPolygon,AK,Alaska
+2047,-144.231845,60.140336,MultiPolygon,AK,Alaska
+2048,-144.65357,60.206059,MultiPolygon,AK,Alaska
+2049,-144.785016,60.29369,MultiPolygon,AK,Alaska
+2050,-144.834309,60.441568,MultiPolygon,AK,Alaska
+2051,-145.124586,60.430614,MultiPolygon,AK,Alaska
+2052,-145.223171,60.299167,MultiPolygon,AK,Alaska
+2053,-145.738004,60.474429,MultiPolygon,AK,Alaska
+2054,-145.820158,60.551106,MultiPolygon,AK,Alaska
+2055,-146.351421,60.408706,MultiPolygon,AK,Alaska
+2056,-146.608837,60.238921,MultiPolygon,AK,Alaska
+2057,-146.718376,60.397752,MultiPolygon,AK,Alaska
+2058,-146.608837,60.485383,MultiPolygon,AK,Alaska
+2059,-146.455483,60.463475,MultiPolygon,AK,Alaska
+2060,-145.951604,60.578491,MultiPolygon,AK,Alaska
+2061,-146.017328,60.666122,MultiPolygon,AK,Alaska
+2062,-146.252836,60.622307,MultiPolygon,AK,Alaska
+2063,-146.345944,60.737322,MultiPolygon,AK,Alaska
+2064,-146.565022,60.753753,MultiPolygon,AK,Alaska
+2065,-146.784099,61.044031,MultiPolygon,AK,Alaska
+2066,-146.866253,60.972831,MultiPolygon,AK,Alaska
+2067,-147.172962,60.934492,MultiPolygon,AK,Alaska
+2068,-147.271547,60.972831,MultiPolygon,AK,Alaska
+2069,-147.375609,60.879723,MultiPolygon,AK,Alaska
+2070,-147.758995,60.912584,MultiPolygon,AK,Alaska
+2071,-147.775426,60.808523,MultiPolygon,AK,Alaska
+2072,-148.032842,60.781138,MultiPolygon,AK,Alaska
+2073,-148.153334,60.819476,MultiPolygon,AK,Alaska
+2074,-148.065703,61.005692,MultiPolygon,AK,Alaska
+2075,-148.175242,61.000215,MultiPolygon,AK,Alaska
+2076,-148.350504,60.803046,MultiPolygon,AK,Alaska
+2077,-148.109519,60.737322,MultiPolygon,AK,Alaska
+2078,-148.087611,60.594922,MultiPolygon,AK,Alaska
+2079,-147.939734,60.441568,MultiPolygon,AK,Alaska
+2080,-148.027365,60.277259,MultiPolygon,AK,Alaska
+2081,-148.219058,60.332029,MultiPolygon,AK,Alaska
+2082,-148.273827,60.249875,MultiPolygon,AK,Alaska
+2083,-148.087611,60.217013,MultiPolygon,AK,Alaska
+2084,-147.983549,59.997935,MultiPolygon,AK,Alaska
+2085,-148.251919,59.95412,MultiPolygon,AK,Alaska
+2086,-148.399797,59.997935,MultiPolygon,AK,Alaska
+2087,-148.635305,59.937689,MultiPolygon,AK,Alaska
+2088,-148.755798,59.986981,MultiPolygon,AK,Alaska
+2089,-149.067984,59.981505,MultiPolygon,AK,Alaska
+2090,-149.05703,60.063659,MultiPolygon,AK,Alaska
+2091,-149.204907,60.008889,MultiPolygon,AK,Alaska
+2092,-149.287061,59.904827,MultiPolygon,AK,Alaska
+2093,-149.418508,59.997935,MultiPolygon,AK,Alaska
+2094,-149.582816,59.866489,MultiPolygon,AK,Alaska
+2095,-149.511616,59.806242,MultiPolygon,AK,Alaska
+2096,-149.741647,59.729565,MultiPolygon,AK,Alaska
+2097,-149.949771,59.718611,MultiPolygon,AK,Alaska
+2098,-150.031925,59.61455,MultiPolygon,AK,Alaska
+2099,-150.25648,59.521442,MultiPolygon,AK,Alaska
+2100,-150.409834,59.554303,MultiPolygon,AK,Alaska
+2101,-150.579619,59.444764,MultiPolygon,AK,Alaska
+2102,-150.716543,59.450241,MultiPolygon,AK,Alaska
+2103,-151.001343,59.225687,MultiPolygon,AK,Alaska
+2104,-151.308052,59.209256,MultiPolygon,AK,Alaska
+2105,-151.406637,59.280456,MultiPolygon,AK,Alaska
+2106,-151.592853,59.159963,MultiPolygon,AK,Alaska
+2107,-151.976239,59.253071,MultiPolygon,AK,Alaska
+2108,-151.888608,59.422857,MultiPolygon,AK,Alaska
+2109,-151.636669,59.483103,MultiPolygon,AK,Alaska
+2110,-151.47236,59.472149,MultiPolygon,AK,Alaska
+2111,-151.423068,59.537872,MultiPolygon,AK,Alaska
+2112,-151.127313,59.669319,MultiPolygon,AK,Alaska
+2113,-151.116359,59.778858,MultiPolygon,AK,Alaska
+2114,-151.505222,59.63098,MultiPolygon,AK,Alaska
+2115,-151.828361,59.718611,MultiPolygon,AK,Alaska
+2116,-151.8667,59.778858,MultiPolygon,AK,Alaska
+2117,-151.702392,60.030797,MultiPolygon,AK,Alaska
+2118,-151.423068,60.211536,MultiPolygon,AK,Alaska
+2119,-151.379252,60.359413,MultiPolygon,AK,Alaska
+2120,-151.297098,60.386798,MultiPolygon,AK,Alaska
+2121,-151.264237,60.545629,MultiPolygon,AK,Alaska
+2122,-151.406637,60.720892,MultiPolygon,AK,Alaska
+2123,-151.06159,60.786615,MultiPolygon,AK,Alaska
+2124,-150.404357,61.038554,MultiPolygon,AK,Alaska
+2125,-150.245526,60.939969,MultiPolygon,AK,Alaska
+2126,-150.042879,60.912584,MultiPolygon,AK,Alaska
+2127,-149.741647,61.016646,MultiPolygon,AK,Alaska
+2128,-150.075741,61.15357,MultiPolygon,AK,Alaska
+2129,-150.207187,61.257632,MultiPolygon,AK,Alaska
+2130,-150.47008,61.246678,MultiPolygon,AK,Alaska
+2131,-150.656296,61.29597,MultiPolygon,AK,Alaska
+2132,-150.711066,61.252155,MultiPolygon,AK,Alaska
+2133,-151.023251,61.180954,MultiPolygon,AK,Alaska
+2134,-151.165652,61.044031,MultiPolygon,AK,Alaska
+2135,-151.477837,61.011169,MultiPolygon,AK,Alaska
+2136,-151.800977,60.852338,MultiPolygon,AK,Alaska
+2137,-151.833838,60.748276,MultiPolygon,AK,Alaska
+2138,-152.080301,60.693507,MultiPolygon,AK,Alaska
+2139,-152.13507,60.578491,MultiPolygon,AK,Alaska
+2140,-152.310332,60.507291,MultiPolygon,AK,Alaska
+2141,-152.392486,60.304644,MultiPolygon,AK,Alaska
+2142,-152.732057,60.173197,MultiPolygon,AK,Alaska
+2143,-152.567748,60.069136,MultiPolygon,AK,Alaska
+2144,-152.704672,59.915781,MultiPolygon,AK,Alaska
+2145,-153.022334,59.888397,MultiPolygon,AK,Alaska
+2146,-153.049719,59.691227,MultiPolygon,AK,Alaska
+2147,-153.345474,59.620026,MultiPolygon,AK,Alaska
+2148,-153.438582,59.702181,MultiPolygon,AK,Alaska
+2149,-153.586459,59.548826,MultiPolygon,AK,Alaska
+2150,-153.761721,59.543349,MultiPolygon,AK,Alaska
+2151,-153.72886,59.433811,MultiPolygon,AK,Alaska
+2152,-154.117723,59.368087,MultiPolygon,AK,Alaska
+2153,-154.1944,59.066856,MultiPolygon,AK,Alaska
+2154,-153.750768,59.050425,MultiPolygon,AK,Alaska
+2155,-153.400243,58.968271,MultiPolygon,AK,Alaska
+2156,-153.301658,58.869686,MultiPolygon,AK,Alaska
+2157,-153.444059,58.710854,MultiPolygon,AK,Alaska
+2158,-153.679567,58.612269,MultiPolygon,AK,Alaska
+2159,-153.898645,58.606793,MultiPolygon,AK,Alaska
+2160,-153.920553,58.519161,MultiPolygon,AK,Alaska
+2161,-154.062953,58.4863,MultiPolygon,AK,Alaska
+2162,-153.99723,58.376761,MultiPolygon,AK,Alaska
+2163,-154.145107,58.212453,MultiPolygon,AK,Alaska
+2164,-154.46277,58.059098,MultiPolygon,AK,Alaska
+2165,-154.643509,58.059098,MultiPolygon,AK,Alaska
+2166,-154.818771,58.004329,MultiPolygon,AK,Alaska
+2167,-154.988556,58.015283,MultiPolygon,AK,Alaska
+2168,-155.120003,57.955037,MultiPolygon,AK,Alaska
+2169,-155.081664,57.872883,MultiPolygon,AK,Alaska
+2170,-155.328126,57.829067,MultiPolygon,AK,Alaska
+2171,-155.377419,57.708574,MultiPolygon,AK,Alaska
+2172,-155.547204,57.785251,MultiPolygon,AK,Alaska
+2173,-155.73342,57.549743,MultiPolygon,AK,Alaska
+2174,-156.045606,57.566174,MultiPolygon,AK,Alaska
+2175,-156.023698,57.440204,MultiPolygon,AK,Alaska
+2176,-156.209914,57.473066,MultiPolygon,AK,Alaska
+2177,-156.34136,57.418296,MultiPolygon,AK,Alaska
+2178,-156.34136,57.248511,MultiPolygon,AK,Alaska
+2179,-156.549484,56.985618,MultiPolygon,AK,Alaska
+2180,-156.883577,56.952757,MultiPolygon,AK,Alaska
+2181,-157.157424,56.832264,MultiPolygon,AK,Alaska
+2182,-157.20124,56.766541,MultiPolygon,AK,Alaska
+2183,-157.376502,56.859649,MultiPolygon,AK,Alaska
+2184,-157.672257,56.607709,MultiPolygon,AK,Alaska
+2185,-157.754411,56.67891,MultiPolygon,AK,Alaska
+2186,-157.918719,56.657002,MultiPolygon,AK,Alaska
+2187,-157.957058,56.514601,MultiPolygon,AK,Alaska
+2188,-158.126843,56.459832,MultiPolygon,AK,Alaska
+2189,-158.32949,56.48174,MultiPolygon,AK,Alaska
+2190,-158.488321,56.339339,MultiPolygon,AK,Alaska
+2191,-158.208997,56.295524,MultiPolygon,AK,Alaska
+2192,-158.510229,55.977861,MultiPolygon,AK,Alaska
+2193,-159.375585,55.873799,MultiPolygon,AK,Alaska
+2194,-159.616571,55.594475,MultiPolygon,AK,Alaska
+2195,-159.676817,55.654722,MultiPolygon,AK,Alaska
+2196,-159.643955,55.829984,MultiPolygon,AK,Alaska
+2197,-159.813741,55.857368,MultiPolygon,AK,Alaska
+2198,-160.027341,55.791645,MultiPolygon,AK,Alaska
+2199,-160.060203,55.720445,MultiPolygon,AK,Alaska
+2200,-160.394296,55.605429,MultiPolygon,AK,Alaska
+2201,-160.536697,55.473983,MultiPolygon,AK,Alaska
+2202,-160.580512,55.567091,MultiPolygon,AK,Alaska
+2203,-160.668143,55.457552,MultiPolygon,AK,Alaska
+2204,-160.865313,55.528752,MultiPolygon,AK,Alaska
+2205,-161.232268,55.358967,MultiPolygon,AK,Alaska
+2206,-161.506115,55.364444,MultiPolygon,AK,Alaska
+2207,-161.467776,55.49589,MultiPolygon,AK,Alaska
+2208,-161.588269,55.62186,MultiPolygon,AK,Alaska
+2209,-161.697808,55.517798,MultiPolygon,AK,Alaska
+2210,-161.686854,55.408259,MultiPolygon,AK,Alaska
+2211,-162.053809,55.074166,MultiPolygon,AK,Alaska
+2212,-162.179779,55.15632,MultiPolygon,AK,Alaska
+2213,-162.218117,55.03035,MultiPolygon,AK,Alaska
+2214,-162.470057,55.052258,MultiPolygon,AK,Alaska
+2215,-162.508395,55.249428,MultiPolygon,AK,Alaska
+2216,-162.661749,55.293244,MultiPolygon,AK,Alaska
+2217,-162.716519,55.222043,MultiPolygon,AK,Alaska
+2218,-162.579595,55.134412,MultiPolygon,AK,Alaska
+2219,-162.645319,54.997489,MultiPolygon,AK,Alaska
+2220,-162.847965,54.926289,MultiPolygon,AK,Alaska
+2221,-163.00132,55.079643,MultiPolygon,AK,Alaska
+2222,-163.187536,55.090597,MultiPolygon,AK,Alaska
+2223,-163.220397,55.03035,MultiPolygon,AK,Alaska
+2224,-163.034181,54.942719,MultiPolygon,AK,Alaska
+2225,-163.373752,54.800319,MultiPolygon,AK,Alaska
+2226,-163.14372,54.76198,MultiPolygon,AK,Alaska
+2227,-163.138243,54.696257,MultiPolygon,AK,Alaska
+2228,-163.329936,54.74555,MultiPolygon,AK,Alaska
+2229,-163.587352,54.614103,MultiPolygon,AK,Alaska
+2230,-164.085754,54.61958,MultiPolygon,AK,Alaska
+2231,-164.332216,54.531949,MultiPolygon,AK,Alaska
+2232,-164.354124,54.466226,MultiPolygon,AK,Alaska
+2233,-164.638925,54.389548,MultiPolygon,AK,Alaska
+2234,-164.847049,54.416933,MultiPolygon,AK,Alaska
+2235,-164.918249,54.603149,MultiPolygon,AK,Alaska
+2236,-164.710125,54.663395,MultiPolygon,AK,Alaska
+2237,-164.551294,54.88795,MultiPolygon,AK,Alaska
+2238,-164.34317,54.893427,MultiPolygon,AK,Alaska
+2239,-163.894061,55.041304,MultiPolygon,AK,Alaska
+2240,-163.532583,55.046781,MultiPolygon,AK,Alaska
+2241,-163.39566,54.904381,MultiPolygon,AK,Alaska
+2242,-163.291598,55.008443,MultiPolygon,AK,Alaska
+2243,-163.313505,55.128935,MultiPolygon,AK,Alaska
+2244,-163.105382,55.183705,MultiPolygon,AK,Alaska
+2245,-162.880827,55.183705,MultiPolygon,AK,Alaska
+2246,-162.579595,55.446598,MultiPolygon,AK,Alaska
+2247,-162.245502,55.682106,MultiPolygon,AK,Alaska
+2248,-161.807347,55.89023,MultiPolygon,AK,Alaska
+2249,-161.292514,55.983338,MultiPolygon,AK,Alaska
+2250,-161.078914,55.939523,MultiPolygon,AK,Alaska
+2251,-160.87079,55.999769,MultiPolygon,AK,Alaska
+2252,-160.816021,55.912138,MultiPolygon,AK,Alaska
+2253,-160.931036,55.813553,MultiPolygon,AK,Alaska
+2254,-160.805067,55.736876,MultiPolygon,AK,Alaska
+2255,-160.766728,55.857368,MultiPolygon,AK,Alaska
+2256,-160.509312,55.868322,MultiPolygon,AK,Alaska
+2257,-160.438112,55.791645,MultiPolygon,AK,Alaska
+2258,-160.27928,55.76426,MultiPolygon,AK,Alaska
+2259,-160.273803,55.857368,MultiPolygon,AK,Alaska
+2260,-160.536697,55.939523,MultiPolygon,AK,Alaska
+2261,-160.558604,55.994292,MultiPolygon,AK,Alaska
+2262,-160.383342,56.251708,MultiPolygon,AK,Alaska
+2263,-160.147834,56.399586,MultiPolygon,AK,Alaska
+2264,-159.830171,56.541986,MultiPolygon,AK,Alaska
+2265,-159.326293,56.667956,MultiPolygon,AK,Alaska
+2266,-158.959338,56.848695,MultiPolygon,AK,Alaska
+2267,-158.784076,56.782971,MultiPolygon,AK,Alaska
+2268,-158.641675,56.810356,MultiPolygon,AK,Alaska
+2269,-158.701922,56.925372,MultiPolygon,AK,Alaska
+2270,-158.658106,57.034911,MultiPolygon,AK,Alaska
+2271,-158.378782,57.264942,MultiPolygon,AK,Alaska
+2272,-157.995396,57.41282,MultiPolygon,AK,Alaska
+2273,-157.688688,57.609989,MultiPolygon,AK,Alaska
+2274,-157.705118,57.719528,MultiPolygon,AK,Alaska
+2275,-157.458656,58.497254,MultiPolygon,AK,Alaska
+2276,-157.07527,58.705377,MultiPolygon,AK,Alaska
+2277,-157.119086,58.869686,MultiPolygon,AK,Alaska
+2278,-158.039212,58.634177,MultiPolygon,AK,Alaska
+2279,-158.32949,58.661562,MultiPolygon,AK,Alaska
+2280,-158.40069,58.760147,MultiPolygon,AK,Alaska
+2281,-158.564998,58.803962,MultiPolygon,AK,Alaska
+2282,-158.619768,58.913501,MultiPolygon,AK,Alaska
+2283,-158.767645,58.864209,MultiPolygon,AK,Alaska
+2284,-158.860753,58.694424,MultiPolygon,AK,Alaska
+2285,-158.701922,58.480823,MultiPolygon,AK,Alaska
+2286,-158.893615,58.387715,MultiPolygon,AK,Alaska
+2287,-159.0634,58.420577,MultiPolygon,AK,Alaska
+2288,-159.392016,58.760147,MultiPolygon,AK,Alaska
+2289,-159.616571,58.929932,MultiPolygon,AK,Alaska
+2290,-159.731586,58.929932,MultiPolygon,AK,Alaska
+2291,-159.808264,58.803962,MultiPolygon,AK,Alaska
+2292,-159.906848,58.782055,MultiPolygon,AK,Alaska
+2293,-160.054726,58.886116,MultiPolygon,AK,Alaska
+2294,-160.235465,58.902547,MultiPolygon,AK,Alaska
+2295,-160.317619,59.072332,MultiPolygon,AK,Alaska
+2296,-160.854359,58.88064,MultiPolygon,AK,Alaska
+2297,-161.33633,58.743716,MultiPolygon,AK,Alaska
+2298,-161.374669,58.667039,MultiPolygon,AK,Alaska
+2299,-161.752577,58.552023,MultiPolygon,AK,Alaska
+2300,-161.938793,58.656085,MultiPolygon,AK,Alaska
+2301,-161.769008,58.776578,MultiPolygon,AK,Alaska
+2302,-161.829255,59.061379,MultiPolygon,AK,Alaska
+2303,-161.955224,59.36261,MultiPolygon,AK,Alaska
+2304,-161.703285,59.48858,MultiPolygon,AK,Alaska
+2305,-161.911409,59.740519,MultiPolygon,AK,Alaska
+2306,-162.092148,59.88292,MultiPolygon,AK,Alaska
+2307,-162.234548,60.091043,MultiPolygon,AK,Alaska
+2308,-162.448149,60.178674,MultiPolygon,AK,Alaska
+2309,-162.502918,59.997935,MultiPolygon,AK,Alaska
+2310,-162.760334,59.959597,MultiPolygon,AK,Alaska
+2311,-163.171105,59.844581,MultiPolygon,AK,Alaska
+2312,-163.66403,59.795289,MultiPolygon,AK,Alaska
+2313,-163.9324,59.806242,MultiPolygon,AK,Alaska
+2314,-164.162431,59.866489,MultiPolygon,AK,Alaska
+2315,-164.189816,60.02532,MultiPolygon,AK,Alaska
+2316,-164.386986,60.074613,MultiPolygon,AK,Alaska
+2317,-164.699171,60.29369,MultiPolygon,AK,Alaska
+2318,-164.962064,60.337506,MultiPolygon,AK,Alaska
+2319,-165.268773,60.578491,MultiPolygon,AK,Alaska
+2320,-165.060649,60.68803,MultiPolygon,AK,Alaska
+2321,-165.016834,60.890677,MultiPolygon,AK,Alaska
+2322,-165.175665,60.846861,MultiPolygon,AK,Alaska
+2323,-165.197573,60.972831,MultiPolygon,AK,Alaska
+2324,-165.120896,61.076893,MultiPolygon,AK,Alaska
+2325,-165.323543,61.170001,MultiPolygon,AK,Alaska
+2326,-165.34545,61.071416,MultiPolygon,AK,Alaska
+2327,-165.591913,61.109754,MultiPolygon,AK,Alaska
+2328,-165.624774,61.279539,MultiPolygon,AK,Alaska
+2329,-165.816467,61.301447,MultiPolygon,AK,Alaska
+2330,-165.920529,61.416463,MultiPolygon,AK,Alaska
+2331,-165.915052,61.558863,MultiPolygon,AK,Alaska
+2332,-166.106745,61.49314,MultiPolygon,AK,Alaska
+2333,-166.139607,61.630064,MultiPolygon,AK,Alaska
+2334,-165.904098,61.662925,MultiPolygon,AK,Alaska
+2335,-166.095791,61.81628,MultiPolygon,AK,Alaska
+2336,-165.756221,61.827233,MultiPolygon,AK,Alaska
+2337,-165.756221,62.013449,MultiPolygon,AK,Alaska
+2338,-165.674067,62.139419,MultiPolygon,AK,Alaska
+2339,-165.044219,62.539236,MultiPolygon,AK,Alaska
+2340,-164.912772,62.659728,MultiPolygon,AK,Alaska
+2341,-164.819664,62.637821,MultiPolygon,AK,Alaska
+2342,-164.874433,62.807606,MultiPolygon,AK,Alaska
+2343,-164.633448,63.097884,MultiPolygon,AK,Alaska
+2344,-164.425324,63.212899,MultiPolygon,AK,Alaska
+2345,-164.036462,63.262192,MultiPolygon,AK,Alaska
+2346,-163.73523,63.212899,MultiPolygon,AK,Alaska
+2347,-163.313505,63.037637,MultiPolygon,AK,Alaska
+2348,-163.039658,63.059545,MultiPolygon,AK,Alaska
+2349,-162.661749,63.22933,MultiPolygon,AK,Alaska
+2350,-162.272887,63.486746,MultiPolygon,AK,Alaska
+2351,-162.075717,63.514131,MultiPolygon,AK,Alaska
+2352,-162.026424,63.448408,MultiPolygon,AK,Alaska
+2353,-161.555408,63.448408,MultiPolygon,AK,Alaska
+2354,-161.13916,63.503177,MultiPolygon,AK,Alaska
+2355,-160.766728,63.771547,MultiPolygon,AK,Alaska
+2356,-160.766728,63.837271,MultiPolygon,AK,Alaska
+2357,-160.952944,64.08921,MultiPolygon,AK,Alaska
+2358,-160.974852,64.237087,MultiPolygon,AK,Alaska
+2359,-161.26513,64.395918,MultiPolygon,AK,Alaska
+2360,-161.374669,64.532842,MultiPolygon,AK,Alaska
+2361,-161.078914,64.494503,MultiPolygon,AK,Alaska
+2362,-160.79959,64.609519,MultiPolygon,AK,Alaska
+2363,-160.783159,64.719058,MultiPolygon,AK,Alaska
+2364,-161.144637,64.921705,MultiPolygon,AK,Alaska
+2365,-161.413007,64.762873,MultiPolygon,AK,Alaska
+2366,-161.664946,64.790258,MultiPolygon,AK,Alaska
+2367,-161.900455,64.702627,MultiPolygon,AK,Alaska
+2368,-162.168825,64.680719,MultiPolygon,AK,Alaska
+2369,-162.234548,64.620473,MultiPolygon,AK,Alaska
+2370,-162.541257,64.532842,MultiPolygon,AK,Alaska
+2371,-162.634365,64.384965,MultiPolygon,AK,Alaska
+2372,-162.787719,64.324718,MultiPolygon,AK,Alaska
+2373,-162.858919,64.49998,MultiPolygon,AK,Alaska
+2374,-163.045135,64.538319,MultiPolygon,AK,Alaska
+2375,-163.176582,64.401395,MultiPolygon,AK,Alaska
+2376,-163.253259,64.467119,MultiPolygon,AK,Alaska
+2377,-163.598306,64.565704,MultiPolygon,AK,Alaska
+2378,-164.304832,64.560227,MultiPolygon,AK,Alaska
+2379,-164.80871,64.450688,MultiPolygon,AK,Alaska
+2380,-165.000403,64.434257,MultiPolygon,AK,Alaska
+2381,-165.411174,64.49998,MultiPolygon,AK,Alaska
+2382,-166.188899,64.576658,MultiPolygon,AK,Alaska
+2383,-166.391546,64.636904,MultiPolygon,AK,Alaska
+2384,-166.484654,64.735489,MultiPolygon,AK,Alaska
+2385,-166.413454,64.872412,MultiPolygon,AK,Alaska
+2386,-166.692778,64.987428,MultiPolygon,AK,Alaska
+2387,-166.638008,65.113398,MultiPolygon,AK,Alaska
+2388,-166.462746,65.179121,MultiPolygon,AK,Alaska
+2389,-166.517516,65.337952,MultiPolygon,AK,Alaska
+2390,-166.796839,65.337952,MultiPolygon,AK,Alaska
+2391,-167.026871,65.381768,MultiPolygon,AK,Alaska
+2392,-167.47598,65.414629,MultiPolygon,AK,Alaska
+2393,-167.711489,65.496784,MultiPolygon,AK,Alaska
+2394,-168.072967,65.578938,MultiPolygon,AK,Alaska
+2395,-168.105828,65.682999,MultiPolygon,AK,Alaska
+2396,-167.541703,65.819923,MultiPolygon,AK,Alaska
+2397,-166.829701,66.049954,MultiPolygon,AK,Alaska
+2398,-166.3313,66.186878,MultiPolygon,AK,Alaska
+2399,-166.046499,66.110201,MultiPolygon,AK,Alaska
+2400,-165.756221,66.09377,MultiPolygon,AK,Alaska
+2401,-165.690498,66.203309,MultiPolygon,AK,Alaska
+2402,-165.86576,66.21974,MultiPolygon,AK,Alaska
+2403,-165.88219,66.312848,MultiPolygon,AK,Alaska
+2404,-165.186619,66.466202,MultiPolygon,AK,Alaska
+2405,-164.403417,66.581218,MultiPolygon,AK,Alaska
+2406,-163.981692,66.592172,MultiPolygon,AK,Alaska
+2407,-163.751661,66.553833,MultiPolygon,AK,Alaska
+2408,-163.872153,66.389525,MultiPolygon,AK,Alaska
+2409,-163.828338,66.274509,MultiPolygon,AK,Alaska
+2410,-163.915969,66.192355,MultiPolygon,AK,Alaska
+2411,-163.768091,66.060908,MultiPolygon,AK,Alaska
+2412,-163.494244,66.082816,MultiPolygon,AK,Alaska
+2413,-163.149197,66.060908,MultiPolygon,AK,Alaska
+2414,-162.749381,66.088293,MultiPolygon,AK,Alaska
+2415,-162.634365,66.039001,MultiPolygon,AK,Alaska
+2416,-162.371472,66.028047,MultiPolygon,AK,Alaska
+2417,-162.14144,66.077339,MultiPolygon,AK,Alaska
+2418,-161.840208,66.02257,MultiPolygon,AK,Alaska
+2419,-161.549931,66.241647,MultiPolygon,AK,Alaska
+2420,-161.341807,66.252601,MultiPolygon,AK,Alaska
+2421,-161.199406,66.208786,MultiPolygon,AK,Alaska
+2422,-161.128206,66.334755,MultiPolygon,AK,Alaska
+2423,-161.528023,66.395002,MultiPolygon,AK,Alaska
+2424,-161.911409,66.345709,MultiPolygon,AK,Alaska
+2425,-161.87307,66.510017,MultiPolygon,AK,Alaska
+2426,-162.174302,66.68528,MultiPolygon,AK,Alaska
+2427,-162.502918,66.740049,MultiPolygon,AK,Alaska
+2428,-162.601503,66.89888,MultiPolygon,AK,Alaska
+2429,-162.344087,66.937219,MultiPolygon,AK,Alaska
+2430,-162.015471,66.778388,MultiPolygon,AK,Alaska
+2431,-162.075717,66.652418,MultiPolygon,AK,Alaska
+2432,-161.916886,66.553833,MultiPolygon,AK,Alaska
+2433,-161.571838,66.438817,MultiPolygon,AK,Alaska
+2434,-161.489684,66.55931,MultiPolygon,AK,Alaska
+2435,-161.884024,66.718141,MultiPolygon,AK,Alaska
+2436,-161.714239,67.002942,MultiPolygon,AK,Alaska
+2437,-161.851162,67.052235,MultiPolygon,AK,Alaska
+2438,-162.240025,66.991988,MultiPolygon,AK,Alaska
+2439,-162.639842,67.008419,MultiPolygon,AK,Alaska
+2440,-162.700088,67.057712,MultiPolygon,AK,Alaska
+2441,-162.902735,67.008419,MultiPolygon,AK,Alaska
+2442,-163.740707,67.128912,MultiPolygon,AK,Alaska
+2443,-163.757138,67.254881,MultiPolygon,AK,Alaska
+2444,-164.009077,67.534205,MultiPolygon,AK,Alaska
+2445,-164.211724,67.638267,MultiPolygon,AK,Alaska
+2446,-164.534863,67.725898,MultiPolygon,AK,Alaska
+2447,-165.192096,67.966884,MultiPolygon,AK,Alaska
+2448,-165.493328,68.059992,MultiPolygon,AK,Alaska
+2449,-165.794559,68.081899,MultiPolygon,AK,Alaska
+2450,-166.243668,68.246208,MultiPolygon,AK,Alaska
+2451,-166.681824,68.339316,MultiPolygon,AK,Alaska
+2452,-166.703731,68.372177,MultiPolygon,AK,Alaska
+2453,-166.375115,68.42147,MultiPolygon,AK,Alaska
+2454,-166.227238,68.574824,MultiPolygon,AK,Alaska
+2455,-166.216284,68.881533,MultiPolygon,AK,Alaska
+2456,-165.329019,68.859625,MultiPolygon,AK,Alaska
+2457,-164.255539,68.930825,MultiPolygon,AK,Alaska
+2458,-163.976215,68.985595,MultiPolygon,AK,Alaska
+2459,-163.532583,69.138949,MultiPolygon,AK,Alaska
+2460,-163.110859,69.374457,MultiPolygon,AK,Alaska
+2461,-163.023228,69.609966,MultiPolygon,AK,Alaska
+2462,-162.842489,69.812613,MultiPolygon,AK,Alaska
+2463,-162.470057,69.982398,MultiPolygon,AK,Alaska
+2464,-162.311225,70.108367,MultiPolygon,AK,Alaska
+2465,-161.851162,70.311014,MultiPolygon,AK,Alaska
+2466,-161.779962,70.256245,MultiPolygon,AK,Alaska
+2467,-161.396576,70.239814,MultiPolygon,AK,Alaska
+2468,-160.837928,70.343876,MultiPolygon,AK,Alaska
+2469,-160.487404,70.453415,MultiPolygon,AK,Alaska
+2470,-159.649432,70.792985,MultiPolygon,AK,Alaska
+2471,-159.33177,70.809416,MultiPolygon,AK,Alaska
+2472,-159.298908,70.760123,MultiPolygon,AK,Alaska
+2473,-158.975769,70.798462,MultiPolygon,AK,Alaska
+2474,-158.658106,70.787508,MultiPolygon,AK,Alaska
+2475,-158.033735,70.831323,MultiPolygon,AK,Alaska
+2476,-157.420318,70.979201,MultiPolygon,AK,Alaska
+2477,-156.812377,71.285909,MultiPolygon,AK,Alaska
+2478,-156.565915,71.351633,MultiPolygon,AK,Alaska
+2479,-156.522099,71.296863,MultiPolygon,AK,Alaska
+2480,-155.585543,71.170894,MultiPolygon,AK,Alaska
+2481,-155.508865,71.083263,MultiPolygon,AK,Alaska
+2482,-155.832005,70.968247,MultiPolygon,AK,Alaska
+2483,-155.979882,70.96277,MultiPolygon,AK,Alaska
+2484,-155.974405,70.809416,MultiPolygon,AK,Alaska
+2485,-155.503388,70.858708,MultiPolygon,AK,Alaska
+2486,-155.476004,70.940862,MultiPolygon,AK,Alaska
+2487,-155.262403,71.017539,MultiPolygon,AK,Alaska
+2488,-155.191203,70.973724,MultiPolygon,AK,Alaska
+2489,-155.032372,71.148986,MultiPolygon,AK,Alaska
+2490,-154.566832,70.990155,MultiPolygon,AK,Alaska
+2491,-154.643509,70.869662,MultiPolygon,AK,Alaska
+2492,-154.353231,70.8368,MultiPolygon,AK,Alaska
+2493,-154.183446,70.7656,MultiPolygon,AK,Alaska
+2494,-153.931507,70.880616,MultiPolygon,AK,Alaska
+2495,-153.487874,70.886093,MultiPolygon,AK,Alaska
+2496,-153.235935,70.924431,MultiPolygon,AK,Alaska
+2497,-152.589656,70.886093,MultiPolygon,AK,Alaska
+2498,-152.26104,70.842277,MultiPolygon,AK,Alaska
+2499,-152.419871,70.606769,MultiPolygon,AK,Alaska
+2500,-151.817408,70.546523,MultiPolygon,AK,Alaska
+2501,-151.773592,70.486276,MultiPolygon,AK,Alaska
+2502,-151.187559,70.382214,MultiPolygon,AK,Alaska
+2503,-151.182082,70.431507,MultiPolygon,AK,Alaska
+2504,-150.760358,70.49723,MultiPolygon,AK,Alaska
+2505,-150.355064,70.491753,MultiPolygon,AK,Alaska
+2506,-150.349588,70.436984,MultiPolygon,AK,Alaska
+2507,-150.114079,70.431507,MultiPolygon,AK,Alaska
+2508,-149.867617,70.508184,MultiPolygon,AK,Alaska
+2509,-149.462323,70.519138,MultiPolygon,AK,Alaska
+2510,-149.177522,70.486276,MultiPolygon,AK,Alaska
+2511,-148.78866,70.404122,MultiPolygon,AK,Alaska
+2512,-148.607921,70.420553,MultiPolygon,AK,Alaska
+2513,-148.350504,70.305537,MultiPolygon,AK,Alaska
+2514,-148.202627,70.349353,MultiPolygon,AK,Alaska
+2515,-147.961642,70.316491,MultiPolygon,AK,Alaska
+2516,-147.786379,70.245291,MultiPolygon,AK,Alaska
+2517,-152.94018,58.026237,MultiPolygon,AK,Alaska
+2518,-152.945657,57.982421,MultiPolygon,AK,Alaska
+2519,-153.290705,58.048145,MultiPolygon,AK,Alaska
+2520,-153.044242,58.305561,MultiPolygon,AK,Alaska
+2521,-152.819688,58.327469,MultiPolygon,AK,Alaska
+2522,-152.666333,58.562977,MultiPolygon,AK,Alaska
+2523,-152.496548,58.354853,MultiPolygon,AK,Alaska
+2524,-152.354148,58.426053,MultiPolygon,AK,Alaska
+2525,-152.080301,58.311038,MultiPolygon,AK,Alaska
+2526,-152.080301,58.152206,MultiPolygon,AK,Alaska
+2527,-152.480117,58.130299,MultiPolygon,AK,Alaska
+2528,-152.655379,58.059098,MultiPolygon,AK,Alaska
+2529,-152.94018,58.026237,MultiPolygon,AK,Alaska
+2530,-153.958891,57.538789,MultiPolygon,AK,Alaska
+2531,-153.67409,57.670236,MultiPolygon,AK,Alaska
+2532,-153.931507,57.69762,MultiPolygon,AK,Alaska
+2533,-153.936983,57.812636,MultiPolygon,AK,Alaska
+2534,-153.723383,57.889313,MultiPolygon,AK,Alaska
+2535,-153.570028,57.834544,MultiPolygon,AK,Alaska
+2536,-153.548121,57.719528,MultiPolygon,AK,Alaska
+2537,-153.46049,57.796205,MultiPolygon,AK,Alaska
+2538,-153.455013,57.96599,MultiPolygon,AK,Alaska
+2539,-153.268797,57.889313,MultiPolygon,AK,Alaska
+2540,-153.235935,57.998852,MultiPolygon,AK,Alaska
+2541,-153.071627,57.933129,MultiPolygon,AK,Alaska
+2542,-152.874457,57.933129,MultiPolygon,AK,Alaska
+2543,-152.721103,57.993375,MultiPolygon,AK,Alaska
+2544,-152.469163,57.889313,MultiPolygon,AK,Alaska
+2545,-152.469163,57.599035,MultiPolygon,AK,Alaska
+2546,-152.151501,57.620943,MultiPolygon,AK,Alaska
+2547,-152.359625,57.42925,MultiPolygon,AK,Alaska
+2548,-152.74301,57.505928,MultiPolygon,AK,Alaska
+2549,-152.60061,57.379958,MultiPolygon,AK,Alaska
+2550,-152.710149,57.275896,MultiPolygon,AK,Alaska
+2551,-152.907319,57.325188,MultiPolygon,AK,Alaska
+2552,-152.912796,57.128019,MultiPolygon,AK,Alaska
+2553,-153.214027,57.073249,MultiPolygon,AK,Alaska
+2554,-153.312612,56.991095,MultiPolygon,AK,Alaska
+2555,-153.498828,57.067772,MultiPolygon,AK,Alaska
+2556,-153.695998,56.859649,MultiPolygon,AK,Alaska
+2557,-153.849352,56.837741,MultiPolygon,AK,Alaska
+2558,-154.013661,56.744633,MultiPolygon,AK,Alaska
+2559,-154.073907,56.969187,MultiPolygon,AK,Alaska
+2560,-154.303938,56.848695,MultiPolygon,AK,Alaska
+2561,-154.314892,56.919895,MultiPolygon,AK,Alaska
+2562,-154.523016,56.991095,MultiPolygon,AK,Alaska
+2563,-154.539447,57.193742,MultiPolygon,AK,Alaska
+2564,-154.742094,57.275896,MultiPolygon,AK,Alaska
+2565,-154.627078,57.511404,MultiPolygon,AK,Alaska
+2566,-154.227261,57.659282,MultiPolygon,AK,Alaska
+2567,-153.980799,57.648328,MultiPolygon,AK,Alaska
+2568,-153.958891,57.538789,MultiPolygon,AK,Alaska
+2569,-154.53397,56.602232,MultiPolygon,AK,Alaska
+2570,-154.742094,56.399586,MultiPolygon,AK,Alaska
+2571,-154.807817,56.432447,MultiPolygon,AK,Alaska
+2572,-154.53397,56.602232,MultiPolygon,AK,Alaska
+2573,-155.634835,55.923092,MultiPolygon,AK,Alaska
+2574,-155.476004,55.912138,MultiPolygon,AK,Alaska
+2575,-155.530773,55.704014,MultiPolygon,AK,Alaska
+2576,-155.793666,55.731399,MultiPolygon,AK,Alaska
+2577,-155.837482,55.802599,MultiPolygon,AK,Alaska
+2578,-155.634835,55.923092,MultiPolygon,AK,Alaska
+2579,-159.890418,55.28229,MultiPolygon,AK,Alaska
+2580,-159.950664,55.068689,MultiPolygon,AK,Alaska
+2581,-160.257373,54.893427,MultiPolygon,AK,Alaska
+2582,-160.109495,55.161797,MultiPolygon,AK,Alaska
+2583,-160.005433,55.134412,MultiPolygon,AK,Alaska
+2584,-159.890418,55.28229,MultiPolygon,AK,Alaska
+2585,-160.520266,55.358967,MultiPolygon,AK,Alaska
+2586,-160.33405,55.358967,MultiPolygon,AK,Alaska
+2587,-160.339527,55.249428,MultiPolygon,AK,Alaska
+2588,-160.525743,55.128935,MultiPolygon,AK,Alaska
+2589,-160.690051,55.211089,MultiPolygon,AK,Alaska
+2590,-160.794113,55.134412,MultiPolygon,AK,Alaska
+2591,-160.854359,55.320628,MultiPolygon,AK,Alaska
+2592,-160.79959,55.380875,MultiPolygon,AK,Alaska
+2593,-160.520266,55.358967,MultiPolygon,AK,Alaska
+2594,-162.256456,54.981058,MultiPolygon,AK,Alaska
+2595,-162.234548,54.893427,MultiPolygon,AK,Alaska
+2596,-162.349564,54.838658,MultiPolygon,AK,Alaska
+2597,-162.437195,54.931766,MultiPolygon,AK,Alaska
+2598,-162.256456,54.981058,MultiPolygon,AK,Alaska
+2599,-162.415287,63.634624,MultiPolygon,AK,Alaska
+2600,-162.563165,63.536039,MultiPolygon,AK,Alaska
+2601,-162.612457,63.62367,MultiPolygon,AK,Alaska
+2602,-162.415287,63.634624,MultiPolygon,AK,Alaska
+2603,-162.80415,54.488133,MultiPolygon,AK,Alaska
+2604,-162.590549,54.449795,MultiPolygon,AK,Alaska
+2605,-162.612457,54.367641,MultiPolygon,AK,Alaska
+2606,-162.782242,54.373118,MultiPolygon,AK,Alaska
+2607,-162.80415,54.488133,MultiPolygon,AK,Alaska
+2608,-165.548097,54.29644,MultiPolygon,AK,Alaska
+2609,-165.476897,54.181425,MultiPolygon,AK,Alaska
+2610,-165.630251,54.132132,MultiPolygon,AK,Alaska
+2611,-165.685021,54.252625,MultiPolygon,AK,Alaska
+2612,-165.548097,54.29644,MultiPolygon,AK,Alaska
+2613,-165.73979,54.15404,MultiPolygon,AK,Alaska
+2614,-166.046499,54.044501,MultiPolygon,AK,Alaska
+2615,-166.112222,54.121178,MultiPolygon,AK,Alaska
+2616,-165.980775,54.219763,MultiPolygon,AK,Alaska
+2617,-165.73979,54.15404,MultiPolygon,AK,Alaska
+2618,-166.364161,60.359413,MultiPolygon,AK,Alaska
+2619,-166.13413,60.397752,MultiPolygon,AK,Alaska
+2620,-166.084837,60.326552,MultiPolygon,AK,Alaska
+2621,-165.88219,60.342983,MultiPolygon,AK,Alaska
+2622,-165.685021,60.277259,MultiPolygon,AK,Alaska
+2623,-165.646682,59.992458,MultiPolygon,AK,Alaska
+2624,-165.750744,59.89935,MultiPolygon,AK,Alaska
+2625,-166.00816,59.844581,MultiPolygon,AK,Alaska
+2626,-166.062929,59.745996,MultiPolygon,AK,Alaska
+2627,-166.440838,59.855535,MultiPolygon,AK,Alaska
+2628,-166.6161,59.850058,MultiPolygon,AK,Alaska
+2629,-166.994009,59.992458,MultiPolygon,AK,Alaska
+2630,-167.125456,59.992458,MultiPolygon,AK,Alaska
+2631,-167.344534,60.074613,MultiPolygon,AK,Alaska
+2632,-167.421211,60.206059,MultiPolygon,AK,Alaska
+2633,-167.311672,60.238921,MultiPolygon,AK,Alaska
+2634,-166.93924,60.206059,MultiPolygon,AK,Alaska
+2635,-166.763978,60.310121,MultiPolygon,AK,Alaska
+2636,-166.577762,60.321075,MultiPolygon,AK,Alaska
+2637,-166.495608,60.392275,MultiPolygon,AK,Alaska
+2638,-166.364161,60.359413,MultiPolygon,AK,Alaska
+2639,-166.375115,54.01164,MultiPolygon,AK,Alaska
+2640,-166.210807,53.934962,MultiPolygon,AK,Alaska
+2641,-166.5449,53.748746,MultiPolygon,AK,Alaska
+2642,-166.539423,53.715885,MultiPolygon,AK,Alaska
+2643,-166.117699,53.852808,MultiPolygon,AK,Alaska
+2644,-166.112222,53.776131,MultiPolygon,AK,Alaska
+2645,-166.282007,53.683023,MultiPolygon,AK,Alaska
+2646,-166.555854,53.622777,MultiPolygon,AK,Alaska
+2647,-166.583239,53.529669,MultiPolygon,AK,Alaska
+2648,-166.878994,53.431084,MultiPolygon,AK,Alaska
+2649,-167.13641,53.425607,MultiPolygon,AK,Alaska
+2650,-167.306195,53.332499,MultiPolygon,AK,Alaska
+2651,-167.623857,53.250345,MultiPolygon,AK,Alaska
+2652,-167.793643,53.337976,MultiPolygon,AK,Alaska
+2653,-167.459549,53.442038,MultiPolygon,AK,Alaska
+2654,-167.355487,53.425607,MultiPolygon,AK,Alaska
+2655,-167.103548,53.513238,MultiPolygon,AK,Alaska
+2656,-167.163794,53.611823,MultiPolygon,AK,Alaska
+2657,-167.021394,53.715885,MultiPolygon,AK,Alaska
+2658,-166.807793,53.666592,MultiPolygon,AK,Alaska
+2659,-166.785886,53.732316,MultiPolygon,AK,Alaska
+2660,-167.015917,53.754223,MultiPolygon,AK,Alaska
+2661,-167.141887,53.825424,MultiPolygon,AK,Alaska
+2662,-167.032348,53.945916,MultiPolygon,AK,Alaska
+2663,-166.643485,54.017116,MultiPolygon,AK,Alaska
+2664,-166.561331,53.880193,MultiPolygon,AK,Alaska
+2665,-166.375115,54.01164,MultiPolygon,AK,Alaska
+2666,-168.790446,53.157237,MultiPolygon,AK,Alaska
+2667,-168.40706,53.34893,MultiPolygon,AK,Alaska
+2668,-168.385152,53.431084,MultiPolygon,AK,Alaska
+2669,-168.237275,53.524192,MultiPolygon,AK,Alaska
+2670,-168.007243,53.568007,MultiPolygon,AK,Alaska
+2671,-167.886751,53.518715,MultiPolygon,AK,Alaska
+2672,-167.842935,53.387268,MultiPolygon,AK,Alaska
+2673,-168.270136,53.244868,MultiPolygon,AK,Alaska
+2674,-168.500168,53.036744,MultiPolygon,AK,Alaska
+2675,-168.686384,52.965544,MultiPolygon,AK,Alaska
+2676,-168.790446,53.157237,MultiPolygon,AK,Alaska
+2677,-169.74891,52.894344,MultiPolygon,AK,Alaska
+2678,-169.705095,52.795759,MultiPolygon,AK,Alaska
+2679,-169.962511,52.790282,MultiPolygon,AK,Alaska
+2680,-169.989896,52.856005,MultiPolygon,AK,Alaska
+2681,-169.74891,52.894344,MultiPolygon,AK,Alaska
+2682,-170.148727,57.221127,MultiPolygon,AK,Alaska
+2683,-170.28565,57.128019,MultiPolygon,AK,Alaska
+2684,-170.313035,57.221127,MultiPolygon,AK,Alaska
+2685,-170.148727,57.221127,MultiPolygon,AK,Alaska
+2686,-170.669036,52.697174,MultiPolygon,AK,Alaska
+2687,-170.603313,52.604066,MultiPolygon,AK,Alaska
+2688,-170.789529,52.538343,MultiPolygon,AK,Alaska
+2689,-170.816914,52.636928,MultiPolygon,AK,Alaska
+2690,-170.669036,52.697174,MultiPolygon,AK,Alaska
+2691,-171.742517,63.716778,MultiPolygon,AK,Alaska
+2692,-170.94836,63.5689,MultiPolygon,AK,Alaska
+2693,-170.488297,63.69487,MultiPolygon,AK,Alaska
+2694,-170.280174,63.683916,MultiPolygon,AK,Alaska
+2695,-170.093958,63.612716,MultiPolygon,AK,Alaska
+2696,-170.044665,63.492223,MultiPolygon,AK,Alaska
+2697,-169.644848,63.4265,MultiPolygon,AK,Alaska
+2698,-169.518879,63.366254,MultiPolygon,AK,Alaska
+2699,-168.99857,63.338869,MultiPolygon,AK,Alaska
+2700,-168.686384,63.295053,MultiPolygon,AK,Alaska
+2701,-168.856169,63.147176,MultiPolygon,AK,Alaska
+2702,-169.108108,63.180038,MultiPolygon,AK,Alaska
+2703,-169.376478,63.152653,MultiPolygon,AK,Alaska
+2704,-169.513402,63.08693,MultiPolygon,AK,Alaska
+2705,-169.639372,62.939052,MultiPolygon,AK,Alaska
+2706,-169.831064,63.075976,MultiPolygon,AK,Alaska
+2707,-170.055619,63.169084,MultiPolygon,AK,Alaska
+2708,-170.263743,63.180038,MultiPolygon,AK,Alaska
+2709,-170.362328,63.2841,MultiPolygon,AK,Alaska
+2710,-170.866206,63.415546,MultiPolygon,AK,Alaska
+2711,-171.101715,63.421023,MultiPolygon,AK,Alaska
+2712,-171.463193,63.306007,MultiPolygon,AK,Alaska
+2713,-171.73704,63.366254,MultiPolygon,AK,Alaska
+2714,-171.852055,63.486746,MultiPolygon,AK,Alaska
+2715,-171.742517,63.716778,MultiPolygon,AK,Alaska
+2716,-172.432611,52.390465,MultiPolygon,AK,Alaska
+2717,-172.41618,52.275449,MultiPolygon,AK,Alaska
+2718,-172.607873,52.253542,MultiPolygon,AK,Alaska
+2719,-172.569535,52.352127,MultiPolygon,AK,Alaska
+2720,-172.432611,52.390465,MultiPolygon,AK,Alaska
+2721,-173.626584,52.14948,MultiPolygon,AK,Alaska
+2722,-173.495138,52.105664,MultiPolygon,AK,Alaska
+2723,-173.122706,52.111141,MultiPolygon,AK,Alaska
+2724,-173.106275,52.07828,MultiPolygon,AK,Alaska
+2725,-173.549907,52.028987,MultiPolygon,AK,Alaska
+2726,-173.626584,52.14948,MultiPolygon,AK,Alaska
+2727,-174.322156,52.280926,MultiPolygon,AK,Alaska
+2728,-174.327632,52.379511,MultiPolygon,AK,Alaska
+2729,-174.185232,52.41785,MultiPolygon,AK,Alaska
+2730,-173.982585,52.319265,MultiPolygon,AK,Alaska
+2731,-174.059262,52.226157,MultiPolygon,AK,Alaska
+2732,-174.179755,52.231634,MultiPolygon,AK,Alaska
+2733,-174.141417,52.127572,MultiPolygon,AK,Alaska
+2734,-174.333109,52.116618,MultiPolygon,AK,Alaska
+2735,-174.738403,52.007079,MultiPolygon,AK,Alaska
+2736,-174.968435,52.039941,MultiPolygon,AK,Alaska
+2737,-174.902711,52.116618,MultiPolygon,AK,Alaska
+2738,-174.656249,52.105664,MultiPolygon,AK,Alaska
+2739,-174.322156,52.280926,MultiPolygon,AK,Alaska
+2740,-176.469116,51.853725,MultiPolygon,AK,Alaska
+2741,-176.288377,51.870156,MultiPolygon,AK,Alaska
+2742,-176.288377,51.744186,MultiPolygon,AK,Alaska
+2743,-176.518409,51.760617,MultiPolygon,AK,Alaska
+2744,-176.80321,51.61274,MultiPolygon,AK,Alaska
+2745,-176.912748,51.80991,MultiPolygon,AK,Alaska
+2746,-176.792256,51.815386,MultiPolygon,AK,Alaska
+2747,-176.775825,51.963264,MultiPolygon,AK,Alaska
+2748,-176.627947,51.968741,MultiPolygon,AK,Alaska
+2749,-176.627947,51.859202,MultiPolygon,AK,Alaska
+2750,-176.469116,51.853725,MultiPolygon,AK,Alaska
+2751,-177.153734,51.946833,MultiPolygon,AK,Alaska
+2752,-177.044195,51.897541,MultiPolygon,AK,Alaska
+2753,-177.120872,51.727755,MultiPolygon,AK,Alaska
+2754,-177.274226,51.678463,MultiPolygon,AK,Alaska
+2755,-177.279703,51.782525,MultiPolygon,AK,Alaska
+2756,-177.153734,51.946833,MultiPolygon,AK,Alaska
+2757,-178.123152,51.919448,MultiPolygon,AK,Alaska
+2758,-177.953367,51.913971,MultiPolygon,AK,Alaska
+2759,-177.800013,51.793479,MultiPolygon,AK,Alaska
+2760,-177.964321,51.651078,MultiPolygon,AK,Alaska
+2761,-178.123152,51.919448,MultiPolygon,AK,Alaska
+2762,-109.080842,45.002073,Polygon,WY,Wyoming
+2763,-105.91517,45.002073,Polygon,WY,Wyoming
+2764,-104.058488,44.996596,Polygon,WY,Wyoming
+2765,-104.053011,43.002989,Polygon,WY,Wyoming
+2766,-104.053011,41.003906,Polygon,WY,Wyoming
+2767,-105.728954,40.998429,Polygon,WY,Wyoming
+2768,-107.919731,41.003906,Polygon,WY,Wyoming
+2769,-109.04798,40.998429,Polygon,WY,Wyoming
+2770,-111.047063,40.998429,Polygon,WY,Wyoming
+2771,-111.047063,42.000709,Polygon,WY,Wyoming
+2772,-111.047063,44.476286,Polygon,WY,Wyoming
+2773,-111.05254,45.002073,Polygon,WY,Wyoming
+2774,-109.080842,45.002073,Polygon,WY,Wyoming
+2775,-87.359296,35.00118,Polygon,AL,Alabama
+2776,-85.606675,34.984749,Polygon,AL,Alabama
+2777,-85.431413,34.124869,Polygon,AL,Alabama
+2778,-85.184951,32.859696,Polygon,AL,Alabama
+2779,-85.069935,32.580372,Polygon,AL,Alabama
+2780,-84.960397,32.421541,Polygon,AL,Alabama
+2781,-85.004212,32.322956,Polygon,AL,Alabama
+2782,-84.889196,32.262709,Polygon,AL,Alabama
+2783,-85.058981,32.13674,Polygon,AL,Alabama
+2784,-85.053504,32.01077,Polygon,AL,Alabama
+2785,-85.141136,31.840985,Polygon,AL,Alabama
+2786,-85.042551,31.539753,Polygon,AL,Alabama
+2787,-85.113751,31.27686,Polygon,AL,Alabama
+2788,-85.004212,31.003013,Polygon,AL,Alabama
+2789,-85.497137,30.997536,Polygon,AL,Alabama
+2790,-87.600282,30.997536,Polygon,AL,Alabama
+2791,-87.633143,30.86609,Polygon,AL,Alabama
+2792,-87.408589,30.674397,Polygon,AL,Alabama
+2793,-87.446927,30.510088,Polygon,AL,Alabama
+2794,-87.37025,30.427934,Polygon,AL,Alabama
+2795,-87.518128,30.280057,Polygon,AL,Alabama
+2796,-87.655051,30.247195,Polygon,AL,Alabama
+2797,-87.90699,30.411504,Polygon,AL,Alabama
+2798,-87.934375,30.657966,Polygon,AL,Alabama
+2799,-88.011052,30.685351,Polygon,AL,Alabama
+2800,-88.10416,30.499135,Polygon,AL,Alabama
+2801,-88.137022,30.318396,Polygon,AL,Alabama
+2802,-88.394438,30.367688,Polygon,AL,Alabama
+2803,-88.471115,31.895754,Polygon,AL,Alabama
+2804,-88.241084,33.796253,Polygon,AL,Alabama
+2805,-88.098683,34.891641,Polygon,AL,Alabama
+2806,-88.202745,34.995703,Polygon,AL,Alabama
+2807,-87.359296,35.00118,Polygon,AL,Alabama
+2808,-74.236547,41.14083,Polygon,NJ,New Jersey
+2809,-73.902454,40.998429,Polygon,NJ,New Jersey
+2810,-74.022947,40.708151,Polygon,NJ,New Jersey
+2811,-74.187255,40.642428,Polygon,NJ,New Jersey
+2812,-74.274886,40.489074,Polygon,NJ,New Jersey
+2813,-74.001039,40.412397,Polygon,NJ,New Jersey
+2814,-73.979131,40.297381,Polygon,NJ,New Jersey
+2815,-74.099624,39.760641,Polygon,NJ,New Jersey
+2816,-74.411809,39.360824,Polygon,NJ,New Jersey
+2817,-74.614456,39.245808,Polygon,NJ,New Jersey
+2818,-74.795195,38.993869,Polygon,NJ,New Jersey
+2819,-74.888303,39.158177,Polygon,NJ,New Jersey
+2820,-75.178581,39.240331,Polygon,NJ,New Jersey
+2821,-75.534582,39.459409,Polygon,NJ,New Jersey
+2822,-75.55649,39.607286,Polygon,NJ,New Jersey
+2823,-75.561967,39.629194,Polygon,NJ,New Jersey
+2824,-75.507197,39.683964,Polygon,NJ,New Jersey
+2825,-75.414089,39.804456,Polygon,NJ,New Jersey
+2826,-75.145719,39.88661,Polygon,NJ,New Jersey
+2827,-75.129289,39.963288,Polygon,NJ,New Jersey
+2828,-74.82258,40.127596,Polygon,NJ,New Jersey
+2829,-74.773287,40.215227,Polygon,NJ,New Jersey
+2830,-75.058088,40.417874,Polygon,NJ,New Jersey
+2831,-75.069042,40.543843,Polygon,NJ,New Jersey
+2832,-75.195012,40.576705,Polygon,NJ,New Jersey
+2833,-75.205966,40.691721,Polygon,NJ,New Jersey
+2834,-75.052611,40.866983,Polygon,NJ,New Jersey
+2835,-75.134765,40.971045,Polygon,NJ,New Jersey
+2836,-74.882826,41.179168,Polygon,NJ,New Jersey
+2837,-74.828057,41.288707,Polygon,NJ,New Jersey
+2838,-74.69661,41.359907,Polygon,NJ,New Jersey
+2839,-74.236547,41.14083,Polygon,NJ,New Jersey
+2840,-75.994645,37.95325,MultiPolygon,MD,Maryland
+2841,-76.016553,37.95325,MultiPolygon,MD,Maryland
+2842,-76.043938,37.95325,MultiPolygon,MD,Maryland
+2843,-75.994645,37.95325,MultiPolygon,MD,Maryland
+2844,-79.477979,39.722302,MultiPolygon,MD,Maryland
+2845,-75.786521,39.722302,MultiPolygon,MD,Maryland
+2846,-75.693413,38.462606,MultiPolygon,MD,Maryland
+2847,-75.047134,38.451652,MultiPolygon,MD,Maryland
+2848,-75.244304,38.029928,MultiPolygon,MD,Maryland
+2849,-75.397659,38.013497,MultiPolygon,MD,Maryland
+2850,-75.671506,37.95325,MultiPolygon,MD,Maryland
+2851,-75.885106,37.909435,MultiPolygon,MD,Maryland
+2852,-75.879629,38.073743,MultiPolygon,MD,Maryland
+2853,-75.961783,38.139466,MultiPolygon,MD,Maryland
+2854,-75.846768,38.210667,MultiPolygon,MD,Maryland
+2855,-76.000122,38.374975,MultiPolygon,MD,Maryland
+2856,-76.049415,38.303775,MultiPolygon,MD,Maryland
+2857,-76.257538,38.320205,MultiPolygon,MD,Maryland
+2858,-76.328738,38.500944,MultiPolygon,MD,Maryland
+2859,-76.263015,38.500944,MultiPolygon,MD,Maryland
+2860,-76.257538,38.736453,MultiPolygon,MD,Maryland
+2861,-76.191815,38.829561,MultiPolygon,MD,Maryland
+2862,-76.279446,39.147223,MultiPolygon,MD,Maryland
+2863,-76.169907,39.333439,MultiPolygon,MD,Maryland
+2864,-76.000122,39.366301,MultiPolygon,MD,Maryland
+2865,-75.972737,39.557994,MultiPolygon,MD,Maryland
+2866,-76.098707,39.536086,MultiPolygon,MD,Maryland
+2867,-76.104184,39.437501,MultiPolygon,MD,Maryland
+2868,-76.367077,39.311532,MultiPolygon,MD,Maryland
+2869,-76.443754,39.196516,MultiPolygon,MD,Maryland
+2870,-76.460185,38.906238,MultiPolygon,MD,Maryland
+2871,-76.55877,38.769315,MultiPolygon,MD,Maryland
+2872,-76.514954,38.539283,MultiPolygon,MD,Maryland
+2873,-76.383508,38.380452,MultiPolygon,MD,Maryland
+2874,-76.399939,38.259959,MultiPolygon,MD,Maryland
+2875,-76.317785,38.139466,MultiPolygon,MD,Maryland
+2876,-76.3616,38.057312,MultiPolygon,MD,Maryland
+2877,-76.591632,38.216144,MultiPolygon,MD,Maryland
+2878,-76.920248,38.292821,MultiPolygon,MD,Maryland
+2879,-77.018833,38.446175,MultiPolygon,MD,Maryland
+2880,-77.205049,38.358544,MultiPolygon,MD,Maryland
+2881,-77.276249,38.479037,MultiPolygon,MD,Maryland
+2882,-77.128372,38.632391,MultiPolygon,MD,Maryland
+2883,-77.040741,38.791222,MultiPolygon,MD,Maryland
+2884,-76.909294,38.895284,MultiPolygon,MD,Maryland
+2885,-77.035264,38.993869,MultiPolygon,MD,Maryland
+2886,-77.117418,38.933623,MultiPolygon,MD,Maryland
+2887,-77.248864,39.026731,MultiPolygon,MD,Maryland
+2888,-77.456988,39.076023,MultiPolygon,MD,Maryland
+2889,-77.456988,39.223901,MultiPolygon,MD,Maryland
+2890,-77.566527,39.306055,MultiPolygon,MD,Maryland
+2891,-77.719881,39.322485,MultiPolygon,MD,Maryland
+2892,-77.834897,39.601809,MultiPolygon,MD,Maryland
+2893,-78.004682,39.601809,MultiPolygon,MD,Maryland
+2894,-78.174467,39.694917,MultiPolygon,MD,Maryland
+2895,-78.267575,39.61824,MultiPolygon,MD,Maryland
+2896,-78.431884,39.623717,MultiPolygon,MD,Maryland
+2897,-78.470222,39.514178,MultiPolygon,MD,Maryland
+2898,-78.765977,39.585379,MultiPolygon,MD,Maryland
+2899,-78.963147,39.437501,MultiPolygon,MD,Maryland
+2900,-79.094593,39.470363,MultiPolygon,MD,Maryland
+2901,-79.291763,39.300578,MultiPolygon,MD,Maryland
+2902,-79.488933,39.20747,MultiPolygon,MD,Maryland
+2903,-79.477979,39.722302,MultiPolygon,MD,Maryland
+2904,-83.109191,35.00118,Polygon,GA,Georgia
+2905,-83.322791,34.787579,Polygon,GA,Georgia
+2906,-83.339222,34.683517,Polygon,GA,Georgia
+2907,-83.005129,34.469916,Polygon,GA,Georgia
+2908,-82.901067,34.486347,Polygon,GA,Georgia
+2909,-82.747713,34.26727,Polygon,GA,Georgia
+2910,-82.714851,34.152254,Polygon,GA,Georgia
+2911,-82.55602,33.94413,Polygon,GA,Georgia
+2912,-82.325988,33.81816,Polygon,GA,Georgia
+2913,-82.194542,33.631944,Polygon,GA,Georgia
+2914,-81.926172,33.462159,Polygon,GA,Georgia
+2915,-81.937125,33.347144,Polygon,GA,Georgia
+2916,-81.761863,33.160928,Polygon,GA,Georgia
+2917,-81.493493,33.007573,Polygon,GA,Georgia
+2918,-81.42777,32.843265,Polygon,GA,Georgia
+2919,-81.416816,32.629664,Polygon,GA,Georgia
+2920,-81.279893,32.558464,Polygon,GA,Georgia
+2921,-81.121061,32.290094,Polygon,GA,Georgia
+2922,-81.115584,32.120309,Polygon,GA,Georgia
+2923,-80.885553,32.032678,Polygon,GA,Georgia
+2924,-81.132015,31.693108,Polygon,GA,Georgia
+2925,-81.175831,31.517845,Polygon,GA,Georgia
+2926,-81.279893,31.364491,Polygon,GA,Georgia
+2927,-81.290846,31.20566,Polygon,GA,Georgia
+2928,-81.400385,31.13446,Polygon,GA,Georgia
+2929,-81.444201,30.707258,Polygon,GA,Georgia
+2930,-81.718048,30.745597,Polygon,GA,Georgia
+2931,-81.948079,30.827751,Polygon,GA,Georgia
+2932,-82.041187,30.751074,Polygon,GA,Georgia
+2933,-82.002849,30.564858,Polygon,GA,Georgia
+2934,-82.046664,30.362211,Polygon,GA,Georgia
+2935,-82.167157,30.356734,Polygon,GA,Georgia
+2936,-82.216449,30.570335,Polygon,GA,Georgia
+2937,-83.498053,30.647012,Polygon,GA,Georgia
+2938,-84.867289,30.712735,Polygon,GA,Georgia
+2939,-85.004212,31.003013,Polygon,GA,Georgia
+2940,-85.113751,31.27686,Polygon,GA,Georgia
+2941,-85.042551,31.539753,Polygon,GA,Georgia
+2942,-85.141136,31.840985,Polygon,GA,Georgia
+2943,-85.053504,32.01077,Polygon,GA,Georgia
+2944,-85.058981,32.13674,Polygon,GA,Georgia
+2945,-84.889196,32.262709,Polygon,GA,Georgia
+2946,-85.004212,32.322956,Polygon,GA,Georgia
+2947,-84.960397,32.421541,Polygon,GA,Georgia
+2948,-85.069935,32.580372,Polygon,GA,Georgia
+2949,-85.184951,32.859696,Polygon,GA,Georgia
+2950,-85.431413,34.124869,Polygon,GA,Georgia
+2951,-85.606675,34.984749,Polygon,GA,Georgia
+2952,-84.319594,34.990226,Polygon,GA,Georgia
+2953,-83.618546,34.984749,Polygon,GA,Georgia
+2954,-83.109191,35.00118,Polygon,GA,Georgia
+2955,-107.421329,37.000263,Polygon,NM,New Mexico
+2956,-106.868158,36.994786,Polygon,NM,New Mexico
+2957,-104.337812,36.994786,Polygon,NM,New Mexico
+2958,-103.001438,37.000263,Polygon,NM,New Mexico
+2959,-103.001438,36.501861,Polygon,NM,New Mexico
+2960,-103.039777,36.501861,Polygon,NM,New Mexico
+2961,-103.045254,34.01533,Polygon,NM,New Mexico
+2962,-103.067161,33.002096,Polygon,NM,New Mexico
+2963,-103.067161,31.999816,Polygon,NM,New Mexico
+2964,-106.616219,31.999816,Polygon,NM,New Mexico
+2965,-106.643603,31.901231,Polygon,NM,New Mexico
+2966,-106.528588,31.786216,Polygon,NM,New Mexico
+2967,-108.210008,31.786216,Polygon,NM,New Mexico
+2968,-108.210008,31.331629,Polygon,NM,New Mexico
+2969,-109.04798,31.331629,Polygon,NM,New Mexico
+2970,-109.042503,37.000263,Polygon,NM,New Mexico
+2971,-107.421329,37.000263,Polygon,NM,New Mexico
+2972,-100.087706,37.000263,Polygon,OK,Oklahoma
+2973,-94.616242,37.000263,Polygon,OK,Oklahoma
+2974,-94.616242,36.501861,Polygon,OK,Oklahoma
+2975,-94.430026,35.395519,Polygon,OK,Oklahoma
+2976,-94.484796,33.637421,Polygon,OK,Oklahoma
+2977,-94.868182,33.74696,Polygon,OK,Oklahoma
+2978,-94.966767,33.861976,Polygon,OK,Oklahoma
+2979,-95.224183,33.960561,Polygon,OK,Oklahoma
+2980,-95.289906,33.87293,Polygon,OK,Oklahoma
+2981,-95.547322,33.878407,Polygon,OK,Oklahoma
+2982,-95.602092,33.933176,Polygon,OK,Oklahoma
+2983,-95.8376,33.834591,Polygon,OK,Oklahoma
+2984,-95.936185,33.889361,Polygon,OK,Oklahoma
+2985,-96.149786,33.840068,Polygon,OK,Oklahoma
+2986,-96.346956,33.686714,Polygon,OK,Oklahoma
+2987,-96.423633,33.774345,Polygon,OK,Oklahoma
+2988,-96.631756,33.845545,Polygon,OK,Oklahoma
+2989,-96.850834,33.845545,Polygon,OK,Oklahoma
+2990,-96.922034,33.960561,Polygon,OK,Oklahoma
+2991,-97.173974,33.736006,Polygon,OK,Oklahoma
+2992,-97.256128,33.861976,Polygon,OK,Oklahoma
+2993,-97.371143,33.823637,Polygon,OK,Oklahoma
+2994,-97.458774,33.905791,Polygon,OK,Oklahoma
+2995,-97.694283,33.982469,Polygon,OK,Oklahoma
+2996,-97.869545,33.851022,Polygon,OK,Oklahoma
+2997,-97.946222,33.987946,Polygon,OK,Oklahoma
+2998,-98.088623,34.004376,Polygon,OK,Oklahoma
+2999,-98.170777,34.113915,Polygon,OK,Oklahoma
+3000,-98.36247,34.157731,Polygon,OK,Oklahoma
+3001,-98.488439,34.064623,Polygon,OK,Oklahoma
+3002,-98.570593,34.146777,Polygon,OK,Oklahoma
+3003,-98.767763,34.135823,Polygon,OK,Oklahoma
+3004,-98.986841,34.223454,Polygon,OK,Oklahoma
+3005,-99.189488,34.2125,Polygon,OK,Oklahoma
+3006,-99.260688,34.404193,Polygon,OK,Oklahoma
+3007,-99.57835,34.415147,Polygon,OK,Oklahoma
+3008,-99.698843,34.382285,Polygon,OK,Oklahoma
+3009,-99.923398,34.573978,Polygon,OK,Oklahoma
+3010,-100.000075,34.563024,Polygon,OK,Oklahoma
+3011,-100.000075,36.501861,Polygon,OK,Oklahoma
+3012,-101.812942,36.501861,Polygon,OK,Oklahoma
+3013,-103.001438,36.501861,Polygon,OK,Oklahoma
+3014,-103.001438,37.000263,Polygon,OK,Oklahoma
+3015,-102.042974,36.994786,Polygon,OK,Oklahoma
+3016,-100.087706,37.000263,Polygon,OK,Oklahoma
+3017,-117.027882,42.000709,Polygon,NV,Nevada
+3018,-114.04295,41.995232,Polygon,NV,Nevada
+3019,-114.048427,37.000263,Polygon,NV,Nevada
+3020,-114.048427,36.195153,Polygon,NV,Nevada
+3021,-114.152489,36.025367,Polygon,NV,Nevada
+3022,-114.251074,36.01989,Polygon,NV,Nevada
+3023,-114.371566,36.140383,Polygon,NV,Nevada
+3024,-114.738521,36.102045,Polygon,NV,Nevada
+3025,-114.678275,35.516012,Polygon,NV,Nevada
+3026,-114.596121,35.324319,Polygon,NV,Nevada
+3027,-114.574213,35.138103,Polygon,NV,Nevada
+3028,-114.634459,35.00118,Polygon,NV,Nevada
+3029,-115.85034,35.970598,Polygon,NV,Nevada
+3030,-116.540435,36.501861,Polygon,NV,Nevada
+3031,-117.498899,37.21934,Polygon,NV,Nevada
+3032,-118.71478,38.101128,Polygon,NV,Nevada
+3033,-120.001861,38.999346,Polygon,NV,Nevada
+3034,-119.996384,40.264519,Polygon,NV,Nevada
+3035,-120.001861,41.995232,Polygon,NV,Nevada
+3036,-118.698349,41.989755,Polygon,NV,Nevada
+3037,-117.027882,42.000709,Polygon,NV,Nevada
+3038,-77.035264,38.993869,Polygon,DC,District of Columbia
+3039,-76.909294,38.895284,Polygon,DC,District of Columbia
+3040,-77.040741,38.791222,Polygon,DC,District of Columbia
+3041,-77.117418,38.933623,Polygon,DC,District of Columbia
+3042,-77.035264,38.993869,Polygon,DC,District of Columbia
+3043,-123.233256,42.006186,Polygon,CA,California
+3044,-122.378853,42.011663,Polygon,CA,California
+3045,-121.037003,41.995232,Polygon,CA,California
+3046,-120.001861,41.995232,Polygon,CA,California
+3047,-119.996384,40.264519,Polygon,CA,California
+3048,-120.001861,38.999346,Polygon,CA,California
+3049,-118.71478,38.101128,Polygon,CA,California
+3050,-117.498899,37.21934,Polygon,CA,California
+3051,-116.540435,36.501861,Polygon,CA,California
+3052,-115.85034,35.970598,Polygon,CA,California
+3053,-114.634459,35.00118,Polygon,CA,California
+3054,-114.634459,34.87521,Polygon,CA,California
+3055,-114.470151,34.710902,Polygon,CA,California
+3056,-114.333228,34.448009,Polygon,CA,California
+3057,-114.136058,34.305608,Polygon,CA,California
+3058,-114.256551,34.174162,Polygon,CA,California
+3059,-114.415382,34.108438,Polygon,CA,California
+3060,-114.535874,33.933176,Polygon,CA,California
+3061,-114.497536,33.697668,Polygon,CA,California
+3062,-114.524921,33.54979,Polygon,CA,California
+3063,-114.727567,33.40739,Polygon,CA,California
+3064,-114.661844,33.034958,Polygon,CA,California
+3065,-114.524921,33.029481,Polygon,CA,California
+3066,-114.470151,32.843265,Polygon,CA,California
+3067,-114.524921,32.755634,Polygon,CA,California
+3068,-114.72209,32.717295,Polygon,CA,California
+3069,-116.04751,32.624187,Polygon,CA,California
+3070,-117.126467,32.536556,Polygon,CA,California
+3071,-117.24696,32.668003,Polygon,CA,California
+3072,-117.252437,32.876127,Polygon,CA,California
+3073,-117.329114,33.122589,Polygon,CA,California
+3074,-117.471515,33.297851,Polygon,CA,California
+3075,-117.7837,33.538836,Polygon,CA,California
+3076,-118.183517,33.763391,Polygon,CA,California
+3077,-118.260194,33.703145,Polygon,CA,California
+3078,-118.413548,33.741483,Polygon,CA,California
+3079,-118.391641,33.840068,Polygon,CA,California
+3080,-118.566903,34.042715,Polygon,CA,California
+3081,-118.802411,33.998899,Polygon,CA,California
+3082,-119.218659,34.146777,Polygon,CA,California
+3083,-119.278905,34.26727,Polygon,CA,California
+3084,-119.558229,34.415147,Polygon,CA,California
+3085,-119.875891,34.40967,Polygon,CA,California
+3086,-120.138784,34.475393,Polygon,CA,California
+3087,-120.472878,34.448009,Polygon,CA,California
+3088,-120.64814,34.579455,Polygon,CA,California
+3089,-120.609801,34.858779,Polygon,CA,California
+3090,-120.670048,34.902595,Polygon,CA,California
+3091,-120.631709,35.099764,Polygon,CA,California
+3092,-120.894602,35.247642,Polygon,CA,California
+3093,-120.905556,35.450289,Polygon,CA,California
+3094,-121.004141,35.461243,Polygon,CA,California
+3095,-121.168449,35.636505,Polygon,CA,California
+3096,-121.283465,35.674843,Polygon,CA,California
+3097,-121.332757,35.784382,Polygon,CA,California
+3098,-121.716143,36.195153,Polygon,CA,California
+3099,-121.896882,36.315645,Polygon,CA,California
+3100,-121.935221,36.638785,Polygon,CA,California
+3101,-121.858544,36.6114,Polygon,CA,California
+3102,-121.787344,36.803093,Polygon,CA,California
+3103,-121.929744,36.978355,Polygon,CA,California
+3104,-122.105006,36.956447,Polygon,CA,California
+3105,-122.335038,37.115279,Polygon,CA,California
+3106,-122.417192,37.241248,Polygon,CA,California
+3107,-122.400761,37.361741,Polygon,CA,California
+3108,-122.515777,37.520572,Polygon,CA,California
+3109,-122.515777,37.783465,Polygon,CA,California
+3110,-122.329561,37.783465,Polygon,CA,California
+3111,-122.406238,38.15042,Polygon,CA,California
+3112,-122.488392,38.112082,Polygon,CA,California
+3113,-122.504823,37.931343,Polygon,CA,California
+3114,-122.701993,37.893004,Polygon,CA,California
+3115,-122.937501,38.029928,Polygon,CA,California
+3116,-122.97584,38.265436,Polygon,CA,California
+3117,-123.129194,38.451652,Polygon,CA,California
+3118,-123.331841,38.566668,Polygon,CA,California
+3119,-123.44138,38.698114,Polygon,CA,California
+3120,-123.737134,38.95553,Polygon,CA,California
+3121,-123.687842,39.032208,Polygon,CA,California
+3122,-123.824765,39.366301,Polygon,CA,California
+3123,-123.764519,39.552517,Polygon,CA,California
+3124,-123.85215,39.831841,Polygon,CA,California
+3125,-124.109566,40.105688,Polygon,CA,California
+3126,-124.361506,40.259042,Polygon,CA,California
+3127,-124.410798,40.439781,Polygon,CA,California
+3128,-124.158859,40.877937,Polygon,CA,California
+3129,-124.109566,41.025814,Polygon,CA,California
+3130,-124.158859,41.14083,Polygon,CA,California
+3131,-124.065751,41.442061,Polygon,CA,California
+3132,-124.147905,41.715908,Polygon,CA,California
+3133,-124.257444,41.781632,Polygon,CA,California
+3134,-124.213628,42.000709,Polygon,CA,California
+3135,-123.233256,42.006186,Polygon,CA,California
+3136,-79.76278,42.252649,Polygon,PA,Pennsylvania
+3137,-79.76278,42.000709,Polygon,PA,Pennsylvania
+3138,-75.35932,42.000709,Polygon,PA,Pennsylvania
+3139,-75.249781,41.863786,Polygon,PA,Pennsylvania
+3140,-75.173104,41.869263,Polygon,PA,Pennsylvania
+3141,-75.052611,41.754247,Polygon,PA,Pennsylvania
+3142,-75.074519,41.60637,Polygon,PA,Pennsylvania
+3143,-74.89378,41.436584,Polygon,PA,Pennsylvania
+3144,-74.740426,41.431108,Polygon,PA,Pennsylvania
+3145,-74.69661,41.359907,Polygon,PA,Pennsylvania
+3146,-74.828057,41.288707,Polygon,PA,Pennsylvania
+3147,-74.882826,41.179168,Polygon,PA,Pennsylvania
+3148,-75.134765,40.971045,Polygon,PA,Pennsylvania
+3149,-75.052611,40.866983,Polygon,PA,Pennsylvania
+3150,-75.205966,40.691721,Polygon,PA,Pennsylvania
+3151,-75.195012,40.576705,Polygon,PA,Pennsylvania
+3152,-75.069042,40.543843,Polygon,PA,Pennsylvania
+3153,-75.058088,40.417874,Polygon,PA,Pennsylvania
+3154,-74.773287,40.215227,Polygon,PA,Pennsylvania
+3155,-74.82258,40.127596,Polygon,PA,Pennsylvania
+3156,-75.129289,39.963288,Polygon,PA,Pennsylvania
+3157,-75.145719,39.88661,Polygon,PA,Pennsylvania
+3158,-75.414089,39.804456,Polygon,PA,Pennsylvania
+3159,-75.616736,39.831841,Polygon,PA,Pennsylvania
+3160,-75.786521,39.722302,Polygon,PA,Pennsylvania
+3161,-79.477979,39.722302,Polygon,PA,Pennsylvania
+3162,-80.518598,39.722302,Polygon,PA,Pennsylvania
+3163,-80.518598,40.636951,Polygon,PA,Pennsylvania
+3164,-80.518598,41.978802,Polygon,PA,Pennsylvania
+3165,-80.518598,41.978802,Polygon,PA,Pennsylvania
+3166,-80.332382,42.033571,Polygon,PA,Pennsylvania
+3167,-79.76278,42.269079,Polygon,PA,Pennsylvania
+3168,-79.76278,42.252649,Polygon,PA,Pennsylvania
+3169,-75.397659,38.013497,MultiPolygon,VA,Virginia
+3170,-75.244304,38.029928,MultiPolygon,VA,Virginia
+3171,-75.375751,37.860142,MultiPolygon,VA,Virginia
+3172,-75.512674,37.799896,MultiPolygon,VA,Virginia
+3173,-75.594828,37.569865,MultiPolygon,VA,Virginia
+3174,-75.802952,37.197433,MultiPolygon,VA,Virginia
+3175,-75.972737,37.120755,MultiPolygon,VA,Virginia
+3176,-76.027507,37.257679,MultiPolygon,VA,Virginia
+3177,-75.939876,37.564388,MultiPolygon,VA,Virginia
+3178,-75.671506,37.95325,MultiPolygon,VA,Virginia
+3179,-75.397659,38.013497,MultiPolygon,VA,Virginia
+3180,-76.016553,37.95325,MultiPolygon,VA,Virginia
+3181,-75.994645,37.95325,MultiPolygon,VA,Virginia
+3182,-76.043938,37.95325,MultiPolygon,VA,Virginia
+3183,-76.016553,37.95325,MultiPolygon,VA,Virginia
+3184,-78.349729,39.464886,MultiPolygon,VA,Virginia
+3185,-77.82942,39.130793,MultiPolygon,VA,Virginia
+3186,-77.719881,39.322485,MultiPolygon,VA,Virginia
+3187,-77.566527,39.306055,MultiPolygon,VA,Virginia
+3188,-77.456988,39.223901,MultiPolygon,VA,Virginia
+3189,-77.456988,39.076023,MultiPolygon,VA,Virginia
+3190,-77.248864,39.026731,MultiPolygon,VA,Virginia
+3191,-77.117418,38.933623,MultiPolygon,VA,Virginia
+3192,-77.040741,38.791222,MultiPolygon,VA,Virginia
+3193,-77.128372,38.632391,MultiPolygon,VA,Virginia
+3194,-77.248864,38.588575,MultiPolygon,VA,Virginia
+3195,-77.325542,38.446175,MultiPolygon,VA,Virginia
+3196,-77.281726,38.342113,MultiPolygon,VA,Virginia
+3197,-77.013356,38.374975,MultiPolygon,VA,Virginia
+3198,-76.964064,38.216144,MultiPolygon,VA,Virginia
+3199,-76.613539,38.15042,MultiPolygon,VA,Virginia
+3200,-76.514954,38.024451,MultiPolygon,VA,Virginia
+3201,-76.235631,37.887527,MultiPolygon,VA,Virginia
+3202,-76.3616,37.608203,MultiPolygon,VA,Virginia
+3203,-76.246584,37.389126,MultiPolygon,VA,Virginia
+3204,-76.383508,37.285064,MultiPolygon,VA,Virginia
+3205,-76.399939,37.159094,MultiPolygon,VA,Virginia
+3206,-76.273969,37.082417,MultiPolygon,VA,Virginia
+3207,-76.410893,36.961924,MultiPolygon,VA,Virginia
+3208,-76.619016,37.120755,MultiPolygon,VA,Virginia
+3209,-76.668309,37.065986,MultiPolygon,VA,Virginia
+3210,-76.48757,36.95097,MultiPolygon,VA,Virginia
+3211,-75.994645,36.923586,MultiPolygon,VA,Virginia
+3212,-75.868676,36.551154,MultiPolygon,VA,Virginia
+3213,-79.510841,36.5402,MultiPolygon,VA,Virginia
+3214,-80.294043,36.545677,MultiPolygon,VA,Virginia
+3215,-80.978661,36.562108,MultiPolygon,VA,Virginia
+3216,-81.679709,36.589492,MultiPolygon,VA,Virginia
+3217,-83.673316,36.600446,MultiPolygon,VA,Virginia
+3218,-83.136575,36.742847,MultiPolygon,VA,Virginia
+3219,-83.070852,36.852385,MultiPolygon,VA,Virginia
+3220,-82.879159,36.890724,MultiPolygon,VA,Virginia
+3221,-82.868205,36.978355,MultiPolygon,VA,Virginia
+3222,-82.720328,37.044078,MultiPolygon,VA,Virginia
+3223,-82.720328,37.120755,MultiPolygon,VA,Virginia
+3224,-82.353373,37.268633,MultiPolygon,VA,Virginia
+3225,-81.969987,37.537003,MultiPolygon,VA,Virginia
+3226,-81.986418,37.454849,MultiPolygon,VA,Virginia
+3227,-81.849494,37.285064,MultiPolygon,VA,Virginia
+3228,-81.679709,37.20291,MultiPolygon,VA,Virginia
+3229,-81.55374,37.208387,MultiPolygon,VA,Virginia
+3230,-81.362047,37.339833,MultiPolygon,VA,Virginia
+3231,-81.225123,37.235771,MultiPolygon,VA,Virginia
+3232,-80.967707,37.290541,MultiPolygon,VA,Virginia
+3233,-80.513121,37.482234,MultiPolygon,VA,Virginia
+3234,-80.474782,37.421987,MultiPolygon,VA,Virginia
+3235,-80.29952,37.509618,MultiPolygon,VA,Virginia
+3236,-80.294043,37.690357,MultiPolygon,VA,Virginia
+3237,-80.184505,37.849189,MultiPolygon,VA,Virginia
+3238,-79.998289,37.997066,MultiPolygon,VA,Virginia
+3239,-79.921611,38.177805,MultiPolygon,VA,Virginia
+3240,-79.724442,38.364021,MultiPolygon,VA,Virginia
+3241,-79.647764,38.594052,MultiPolygon,VA,Virginia
+3242,-79.477979,38.457129,MultiPolygon,VA,Virginia
+3243,-79.313671,38.413313,MultiPolygon,VA,Virginia
+3244,-79.209609,38.495467,MultiPolygon,VA,Virginia
+3245,-78.996008,38.851469,MultiPolygon,VA,Virginia
+3246,-78.870039,38.763838,MultiPolygon,VA,Virginia
+3247,-78.404499,39.169131,MultiPolygon,VA,Virginia
+3248,-78.349729,39.464886,MultiPolygon,VA,Virginia
+3249,-104.047534,45.944106,Polygon,SD,South Dakota
+3250,-96.560556,45.933153,Polygon,SD,South Dakota
+3251,-96.582464,45.818137,Polygon,SD,South Dakota
+3252,-96.856311,45.604536,Polygon,SD,South Dakota
+3253,-96.681049,45.412843,Polygon,SD,South Dakota
+3254,-96.451017,45.297827,Polygon,SD,South Dakota
+3255,-96.451017,43.501391,Polygon,SD,South Dakota
+3256,-96.582464,43.479483,Polygon,SD,South Dakota
+3257,-96.527695,43.397329,Polygon,SD,South Dakota
+3258,-96.560556,43.222067,Polygon,SD,South Dakota
+3259,-96.434587,43.123482,Polygon,SD,South Dakota
+3260,-96.511264,43.052282,Polygon,SD,South Dakota
+3261,-96.544125,42.855112,Polygon,SD,South Dakota
+3262,-96.631756,42.707235,Polygon,SD,South Dakota
+3263,-96.44554,42.488157,Polygon,SD,South Dakota
+3264,-96.626279,42.515542,Polygon,SD,South Dakota
+3265,-96.692003,42.657942,Polygon,SD,South Dakota
+3266,-97.217789,42.844158,Polygon,SD,South Dakota
+3267,-97.688806,42.844158,Polygon,SD,South Dakota
+3268,-97.831206,42.866066,Polygon,SD,South Dakota
+3269,-97.951699,42.767481,Polygon,SD,South Dakota
+3270,-98.466531,42.94822,Polygon,SD,South Dakota
+3271,-98.499393,42.997512,Polygon,SD,South Dakota
+3272,-101.626726,42.997512,Polygon,SD,South Dakota
+3273,-103.324578,43.002989,Polygon,SD,South Dakota
+3274,-104.053011,43.002989,Polygon,SD,South Dakota
+3275,-104.058488,44.996596,Polygon,SD,South Dakota
+3276,-104.042057,44.996596,Polygon,SD,South Dakota
+3277,-104.047534,45.944106,Polygon,SD,South Dakota
+3278,-103.324578,43.002989,Polygon,NE,Nebraska
+3279,-101.626726,42.997512,Polygon,NE,Nebraska
+3280,-98.499393,42.997512,Polygon,NE,Nebraska
+3281,-98.466531,42.94822,Polygon,NE,Nebraska
+3282,-97.951699,42.767481,Polygon,NE,Nebraska
+3283,-97.831206,42.866066,Polygon,NE,Nebraska
+3284,-97.688806,42.844158,Polygon,NE,Nebraska
+3285,-97.217789,42.844158,Polygon,NE,Nebraska
+3286,-96.692003,42.657942,Polygon,NE,Nebraska
+3287,-96.626279,42.515542,Polygon,NE,Nebraska
+3288,-96.44554,42.488157,Polygon,NE,Nebraska
+3289,-96.264801,42.039048,Polygon,NE,Nebraska
+3290,-96.127878,41.973325,Polygon,NE,Nebraska
+3291,-96.062155,41.798063,Polygon,NE,Nebraska
+3292,-96.122401,41.67757,Polygon,NE,Nebraska
+3293,-96.095016,41.540646,Polygon,NE,Nebraska
+3294,-95.919754,41.453015,Polygon,NE,Nebraska
+3295,-95.925231,41.201076,Polygon,NE,Nebraska
+3296,-95.826646,40.976521,Polygon,NE,Nebraska
+3297,-95.881416,40.719105,Polygon,NE,Nebraska
+3298,-95.7664,40.587659,Polygon,NE,Nebraska
+3299,-95.552799,40.264519,Polygon,NE,Nebraska
+3300,-95.306337,40.001626,Polygon,NE,Nebraska
+3301,-101.90605,40.001626,Polygon,NE,Nebraska
+3302,-102.053927,40.001626,Polygon,NE,Nebraska
+3303,-102.053927,41.003906,Polygon,NE,Nebraska
+3304,-104.053011,41.003906,Polygon,NE,Nebraska
+3305,-104.053011,43.002989,Polygon,NE,Nebraska
+3306,-103.324578,43.002989,Polygon,NE,Nebraska
+3307,-91.833957,40.609566,Polygon,MO,Missouri
+3308,-91.729895,40.615043,Polygon,MO,Missouri
+3309,-91.527248,40.412397,Polygon,MO,Missouri
+3310,-91.417709,40.379535,Polygon,MO,Missouri
+3311,-91.50534,40.237135,Polygon,MO,Missouri
+3312,-91.494386,40.034488,Polygon,MO,Missouri
+3313,-91.368417,39.727779,Polygon,MO,Missouri
+3314,-91.061708,39.470363,Polygon,MO,Missouri
+3315,-90.727615,39.256762,Polygon,MO,Missouri
+3316,-90.661891,38.928146,Polygon,MO,Missouri
+3317,-90.585214,38.867899,Polygon,MO,Missouri
+3318,-90.470199,38.961007,Polygon,MO,Missouri
+3319,-90.251121,38.917192,Polygon,MO,Missouri
+3320,-90.10872,38.845992,Polygon,MO,Missouri
+3321,-90.207305,38.725499,Polygon,MO,Missouri
+3322,-90.179921,38.632391,Polygon,MO,Missouri
+3323,-90.349706,38.374975,Polygon,MO,Missouri
+3324,-90.355183,38.216144,Polygon,MO,Missouri
+3325,-90.059428,38.013497,Polygon,MO,Missouri
+3326,-89.949889,37.88205,Polygon,MO,Missouri
+3327,-89.84035,37.903958,Polygon,MO,Missouri
+3328,-89.517211,37.690357,Polygon,MO,Missouri
+3329,-89.517211,37.537003,Polygon,MO,Missouri
+3330,-89.435057,37.34531,Polygon,MO,Missouri
+3331,-89.517211,37.279587,Polygon,MO,Missouri
+3332,-89.292656,36.994786,Polygon,MO,Missouri
+3333,-89.133825,36.983832,Polygon,MO,Missouri
+3334,-89.215979,36.578538,Polygon,MO,Missouri
+3335,-89.363857,36.622354,Polygon,MO,Missouri
+3336,-89.418626,36.496384,Polygon,MO,Missouri
+3337,-89.484349,36.496384,Polygon,MO,Missouri
+3338,-89.539119,36.496384,Polygon,MO,Missouri
+3339,-89.533642,36.249922,Polygon,MO,Missouri
+3340,-89.730812,35.997983,Polygon,MO,Missouri
+3341,-90.377091,35.997983,Polygon,MO,Missouri
+3342,-90.218259,36.184199,Polygon,MO,Missouri
+3343,-90.064905,36.304691,Polygon,MO,Missouri
+3344,-90.152536,36.496384,Polygon,MO,Missouri
+3345,-94.473842,36.501861,Polygon,MO,Missouri
+3346,-94.616242,36.501861,Polygon,MO,Missouri
+3347,-94.616242,37.000263,Polygon,MO,Missouri
+3348,-94.610765,39.158177,Polygon,MO,Missouri
+3349,-94.824366,39.20747,Polygon,MO,Missouri
+3350,-94.983197,39.442978,Polygon,MO,Missouri
+3351,-95.109167,39.541563,Polygon,MO,Missouri
+3352,-94.884612,39.831841,Polygon,MO,Missouri
+3353,-95.207752,39.908518,Polygon,MO,Missouri
+3354,-95.306337,40.001626,Polygon,MO,Missouri
+3355,-95.552799,40.264519,Polygon,MO,Missouri
+3356,-95.7664,40.587659,Polygon,MO,Missouri
+3357,-94.632673,40.571228,Polygon,MO,Missouri
+3358,-93.257961,40.582182,Polygon,MO,Missouri
+3359,-91.833957,40.609566,Polygon,MO,Missouri
+3360,-88.471115,34.995703,Polygon,MS,Mississippi
+3361,-88.202745,34.995703,Polygon,MS,Mississippi
+3362,-88.098683,34.891641,Polygon,MS,Mississippi
+3363,-88.241084,33.796253,Polygon,MS,Mississippi
+3364,-88.471115,31.895754,Polygon,MS,Mississippi
+3365,-88.394438,30.367688,Polygon,MS,Mississippi
+3366,-88.503977,30.323872,Polygon,MS,Mississippi
+3367,-88.744962,30.34578,Polygon,MS,Mississippi
+3368,-88.843547,30.411504,Polygon,MS,Mississippi
+3369,-89.084533,30.367688,Polygon,MS,Mississippi
+3370,-89.418626,30.252672,Polygon,MS,Mississippi
+3371,-89.522688,30.181472,Polygon,MS,Mississippi
+3372,-89.643181,30.285534,Polygon,MS,Mississippi
+3373,-89.681519,30.449842,Polygon,MS,Mississippi
+3374,-89.845827,30.66892,Polygon,MS,Mississippi
+3375,-89.747242,30.997536,Polygon,MS,Mississippi
+3376,-91.636787,30.997536,Polygon,MS,Mississippi
+3377,-91.565587,31.068736,Polygon,MS,Mississippi
+3378,-91.636787,31.265906,Polygon,MS,Mississippi
+3379,-91.516294,31.27686,Polygon,MS,Mississippi
+3380,-91.499863,31.643815,Polygon,MS,Mississippi
+3381,-91.401278,31.621907,Polygon,MS,Mississippi
+3382,-91.341032,31.846462,Polygon,MS,Mississippi
+3383,-91.105524,31.988862,Polygon,MS,Mississippi
+3384,-90.985031,32.218894,Polygon,MS,Mississippi
+3385,-91.006939,32.514649,Polygon,MS,Mississippi
+3386,-91.154816,32.640618,Polygon,MS,Mississippi
+3387,-91.143862,32.843265,Polygon,MS,Mississippi
+3388,-91.072662,32.887081,Polygon,MS,Mississippi
+3389,-91.16577,33.002096,Polygon,MS,Mississippi
+3390,-91.089093,33.13902,Polygon,MS,Mississippi
+3391,-91.143862,33.347144,Polygon,MS,Mississippi
+3392,-91.056231,33.429298,Polygon,MS,Mississippi
+3393,-91.231493,33.560744,Polygon,MS,Mississippi
+3394,-91.072662,33.867453,Polygon,MS,Mississippi
+3395,-90.891923,34.026284,Polygon,MS,Mississippi
+3396,-90.952169,34.135823,Polygon,MS,Mississippi
+3397,-90.744046,34.300131,Polygon,MS,Mississippi
+3398,-90.749522,34.365854,Polygon,MS,Mississippi
+3399,-90.568783,34.420624,Polygon,MS,Mississippi
+3400,-90.585214,34.617794,Polygon,MS,Mississippi
+3401,-90.481152,34.661609,Polygon,MS,Mississippi
+3402,-90.409952,34.831394,Polygon,MS,Mississippi
+3403,-90.251121,34.908072,Polygon,MS,Mississippi
+3404,-90.311367,34.995703,Polygon,MS,Mississippi
+3405,-88.471115,34.995703,Polygon,MS,Mississippi
+3406,-70.703921,43.057759,Polygon,ME,Maine
+3407,-70.824413,43.128959,Polygon,ME,Maine
+3408,-70.807983,43.227544,Polygon,ME,Maine
+3409,-70.966814,43.34256,Polygon,ME,Maine
+3410,-71.032537,44.657025,Polygon,ME,Maine
+3411,-71.08183,45.303304,Polygon,ME,Maine
+3412,-70.649151,45.440228,Polygon,ME,Maine
+3413,-70.720352,45.511428,Polygon,ME,Maine
+3414,-70.556043,45.664782,Polygon,ME,Maine
+3415,-70.386258,45.735983,Polygon,ME,Maine
+3416,-70.41912,45.796229,Polygon,ME,Maine
+3417,-70.260289,45.889337,Polygon,ME,Maine
+3418,-70.309581,46.064599,Polygon,ME,Maine
+3419,-70.210996,46.327492,Polygon,ME,Maine
+3420,-70.057642,46.415123,Polygon,ME,Maine
+3421,-69.997395,46.694447,Polygon,ME,Maine
+3422,-69.225147,47.461219,Polygon,ME,Maine
+3423,-69.044408,47.428357,Polygon,ME,Maine
+3424,-69.033454,47.242141,Polygon,ME,Maine
+3425,-68.902007,47.176418,Polygon,ME,Maine
+3426,-68.578868,47.285957,Polygon,ME,Maine
+3427,-68.376221,47.285957,Polygon,ME,Maine
+3428,-68.233821,47.357157,Polygon,ME,Maine
+3429,-67.954497,47.198326,Polygon,ME,Maine
+3430,-67.790188,47.066879,Polygon,ME,Maine
+3431,-67.779235,45.944106,Polygon,ME,Maine
+3432,-67.801142,45.675736,Polygon,ME,Maine
+3433,-67.456095,45.604536,Polygon,ME,Maine
+3434,-67.505388,45.48952,Polygon,ME,Maine
+3435,-67.417757,45.379982,Polygon,ME,Maine
+3436,-67.488957,45.281397,Polygon,ME,Maine
+3437,-67.346556,45.128042,Polygon,ME,Maine
+3438,-67.16034,45.160904,Polygon,ME,Maine
+3439,-66.979601,44.804903,Polygon,ME,Maine
+3440,-67.187725,44.646072,Polygon,ME,Maine
+3441,-67.308218,44.706318,Polygon,ME,Maine
+3442,-67.406803,44.596779,Polygon,ME,Maine
+3443,-67.549203,44.624164,Polygon,ME,Maine
+3444,-67.565634,44.531056,Polygon,ME,Maine
+3445,-67.75185,44.54201,Polygon,ME,Maine
+3446,-68.047605,44.328409,Polygon,ME,Maine
+3447,-68.118805,44.476286,Polygon,ME,Maine
+3448,-68.222867,44.48724,Polygon,ME,Maine
+3449,-68.173574,44.328409,Polygon,ME,Maine
+3450,-68.403606,44.251732,Polygon,ME,Maine
+3451,-68.458375,44.377701,Polygon,ME,Maine
+3452,-68.567914,44.311978,Polygon,ME,Maine
+3453,-68.82533,44.311978,Polygon,ME,Maine
+3454,-68.830807,44.459856,Polygon,ME,Maine
+3455,-68.984161,44.426994,Polygon,ME,Maine
+3456,-68.956777,44.322932,Polygon,ME,Maine
+3457,-69.099177,44.103854,Polygon,ME,Maine
+3458,-69.071793,44.043608,Polygon,ME,Maine
+3459,-69.258008,43.923115,Polygon,ME,Maine
+3460,-69.444224,43.966931,Polygon,ME,Maine
+3461,-69.553763,43.840961,Polygon,ME,Maine
+3462,-69.707118,43.82453,Polygon,ME,Maine
+3463,-69.833087,43.720469,Polygon,ME,Maine
+3464,-69.986442,43.742376,Polygon,ME,Maine
+3465,-70.030257,43.851915,Polygon,ME,Maine
+3466,-70.254812,43.676653,Polygon,ME,Maine
+3467,-70.194565,43.567114,Polygon,ME,Maine
+3468,-70.358873,43.528776,Polygon,ME,Maine
+3469,-70.369827,43.435668,Polygon,ME,Maine
+3470,-70.556043,43.320652,Polygon,ME,Maine
+3471,-70.703921,43.057759,Polygon,ME,Maine
+3472,-80.518598,41.978802,Polygon,OH,Ohio
+3473,-80.518598,40.636951,Polygon,OH,Ohio
+3474,-80.666475,40.582182,Polygon,OH,Ohio
+3475,-80.595275,40.472643,Polygon,OH,Ohio
+3476,-80.600752,40.319289,Polygon,OH,Ohio
+3477,-80.737675,40.078303,Polygon,OH,Ohio
+3478,-80.830783,39.711348,Polygon,OH,Ohio
+3479,-81.219646,39.388209,Polygon,OH,Ohio
+3480,-81.345616,39.344393,Polygon,OH,Ohio
+3481,-81.455155,39.410117,Polygon,OH,Ohio
+3482,-81.57017,39.267716,Polygon,OH,Ohio
+3483,-81.685186,39.273193,Polygon,OH,Ohio
+3484,-81.811156,39.0815,Polygon,OH,Ohio
+3485,-81.783771,38.966484,Polygon,OH,Ohio
+3486,-81.887833,38.873376,Polygon,OH,Ohio
+3487,-82.03571,39.026731,Polygon,OH,Ohio
+3488,-82.221926,38.785745,Polygon,OH,Ohio
+3489,-82.172634,38.632391,Polygon,OH,Ohio
+3490,-82.293127,38.577622,Polygon,OH,Ohio
+3491,-82.331465,38.446175,Polygon,OH,Ohio
+3492,-82.594358,38.424267,Polygon,OH,Ohio
+3493,-82.731282,38.561191,Polygon,OH,Ohio
+3494,-82.846298,38.588575,Polygon,OH,Ohio
+3495,-82.890113,38.758361,Polygon,OH,Ohio
+3496,-83.032514,38.725499,Polygon,OH,Ohio
+3497,-83.142052,38.626914,Polygon,OH,Ohio
+3498,-83.519961,38.703591,Polygon,OH,Ohio
+3499,-83.678792,38.632391,Polygon,OH,Ohio
+3500,-83.903347,38.769315,Polygon,OH,Ohio
+3501,-84.215533,38.807653,Polygon,OH,Ohio
+3502,-84.231963,38.895284,Polygon,OH,Ohio
+3503,-84.43461,39.103408,Polygon,OH,Ohio
+3504,-84.817996,39.103408,Polygon,OH,Ohio
+3505,-84.801565,40.500028,Polygon,OH,Ohio
+3506,-84.807042,41.694001,Polygon,OH,Ohio
+3507,-83.454238,41.732339,Polygon,OH,Ohio
+3508,-83.065375,41.595416,Polygon,OH,Ohio
+3509,-82.933929,41.513262,Polygon,OH,Ohio
+3510,-82.835344,41.589939,Polygon,OH,Ohio
+3511,-82.616266,41.431108,Polygon,OH,Ohio
+3512,-82.479343,41.381815,Polygon,OH,Ohio
+3513,-82.013803,41.513262,Polygon,OH,Ohio
+3514,-81.739956,41.485877,Polygon,OH,Ohio
+3515,-81.444201,41.672093,Polygon,OH,Ohio
+3516,-81.011523,41.852832,Polygon,OH,Ohio
+3517,-80.518598,41.978802,Polygon,OH,Ohio
+3518,-80.518598,41.978802,Polygon,OH,Ohio
+3519,-101.90605,40.001626,Polygon,KS,Kansas
+3520,-95.306337,40.001626,Polygon,KS,Kansas
+3521,-95.207752,39.908518,Polygon,KS,Kansas
+3522,-94.884612,39.831841,Polygon,KS,Kansas
+3523,-95.109167,39.541563,Polygon,KS,Kansas
+3524,-94.983197,39.442978,Polygon,KS,Kansas
+3525,-94.824366,39.20747,Polygon,KS,Kansas
+3526,-94.610765,39.158177,Polygon,KS,Kansas
+3527,-94.616242,37.000263,Polygon,KS,Kansas
+3528,-100.087706,37.000263,Polygon,KS,Kansas
+3529,-102.042974,36.994786,Polygon,KS,Kansas
+3530,-102.053927,40.001626,Polygon,KS,Kansas
+3531,-101.90605,40.001626,Polygon,KS,Kansas

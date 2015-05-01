@@ -1,0 +1,183 @@
+#!/usr/bin/env python
+##############################################################################
+#
+# Copyright 2015 KPMG N.V. (unless otherwise stated)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+##############################################################################
+"""
+The KaveInstall
+
+This python script uses config/DefaultConfig.py to read the configuration of all components,
+reads /etc/kave/CustomInstall.py if it exists to overwrite those components, reads /etc/kave/mirrors if it exists for
+where to find our software.
+
+/etc/kave/CustomInstall.py should be used to logically overwrite any property of a service appearing in
+DefaultConfig.py and will not be over-written on re-install/upgrade.
+
+/etc/kave/mirrors should be used to add a list of nearside cache directories or nearside mirrors of the KPMG
+repository. This list can be as long as you like.
+All "mirrors" listed here must follow the same directory structure as the main repository, this looks like:
+<mirror>/<os-version(s)>/KaveToolbox/<toolbox-version(s)>/<files.ext>
+
+The default creates accessible directories for all users.
+
+The installer verifies you have a recognised linux distro first before attempting the install.
+
+Should be run as root with sudo, see the README.md for more details.
+
+options:
+   --quiet : suppress printing of output
+   --node or -n: install as node rather than workstation, will skip firefox vnc X and eclipse
+   --help or -h: print this message and exit
+
+if installation fails, it may be due to conflicts with a previous install, try touch ~/.nokaveEnv (remove after
+successful install)
+if installation fails due to something like 'end of file not at end of line' in compilation, you don't have enough
+vmem for root installation,
+in this case, switch the root installation to the 'low memory mode'
+
+Example configuration for CustomInstall.py
+
+#-----------------
+import DefaultConfig as cnf
+
+# overwrite top install directory
+cnf.li.InstallTopDir='/wheretostartinstall'
+
+# add an additional step in the pre-install for the toolbox itself
+cnf.toolbox.pre['Centos6'].append("yum -y install lynx")
+
+# never install Eclipse
+cnf.eclipse.doInstall=False
+
+# install anaconda into a different subdirectory
+cnf.conda.installSubDir='whatever_bro'
+
+# change the configuration options of ROOT to add C++11 support if the latest version of gcc is available:
+cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11
+--fail-on-missing""
+#-----------------
+
+"""
+
+import os
+import sys
+import tempfile
+
+quieter = ("--quiet" in sys.argv)
+if not quieter:
+    print "Welcome to the KAVE installer"
+
+if "--help" in sys.argv or "-h" in sys.argv:
+    print __doc__
+    sys.exit(0)
+
+installfrom = os.path.realpath(os.sep.join(__file__.split(os.sep)[:-2]))
+if installfrom == "":
+    installfrom = ".."
+if installfrom.endswith("scripts"):
+    installfrom = installfrom[:-len("scripts")]
+conflocation = installfrom + os.sep + "config" + os.sep
+conflocation = os.path.realpath(conflocation)
+sys.path.append(conflocation)
+topdir = os.getcwd()
+
+import libInstall as li
+
+#check against list of supported platforms
+supportedversions = ["Centos6", "Centos7", "Ubuntu"]
+if li.linuxVersion not in supportedversions:
+    raise SystemError(
+        "Cannot recognise linux version from " + cnf.li.linuxVersion + " we only support " +
+        supportedversions.__str__())
+
+#
+# Install curl and wget!
+#
+preinstall = {"Centos6": ["yum -y install wget curl zip unzip tar gzip"],
+              "Centos7": ["yum -y install wget curl zip unzip tar gzip"],
+              "Ubuntu": ["apt-get -y install wget curl zip unzip tar gzip"]}
+
+for cmd in preinstall[li.linuxVersion]:
+    stat, out, err = li.mycmd(cmd)
+    if stat:
+        raise SystemError(
+            "Could not run preinstall: " + cmd + " : are you running as sudo? Or maybe you have no access to a "
+                                                 "package repo? \n" + out + "\n" + err)
+
+repotest = li.fromKPMGrepo("", "noarch")
+if repotest is None:
+    raise IOError(
+        "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
+        "settings (did you ensure your su inherits your proxys settings?)")
+
+#try:
+import DefaultConfig as cnf
+
+print "Default config from", cnf.__file__
+if os.path.exists('/etc/kave/CustomInstall.py'):
+    print "Applying custom configuration from: /etc/kave/CustomInstall.py"
+    execfile('/etc/kave/CustomInstall.py')
+else:
+    print "no custom configuration found, using defaults"
+
+#except:
+#  raise ImportError("Could not import the configuration file, verify all edits in the file and try again
+# "+conflocation+"DefaultConfig")
+
+kind = "workstation"
+workstation = True
+if "--node" in sys.argv or "-n" in sys.argv:
+    workstation = False
+    kind = "node"
+
+if workstation:
+    print "configuring workstation"
+else:
+    print "configuring node"
+
+everything = [cnf.toolbox, cnf.eclipse, cnf.conda, cnf.hpy, cnf.root, cnf.kettle, cnf.r]
+
+if not quieter:
+    print "options read from configuration file"
+    print "------------------------------------"
+    print "InstallTopDir:", cnf.InstallTopDir
+    for thing in everything:
+        thing.summary()
+    print "------------------------------------"
+
+tempdir = tempfile.mkdtemp()
+os.chdir(tempdir)
+
+#create the top level install directory if it does not exist
+if not os.path.exists(cnf.InstallTopDir):
+    os.system("mkdir -p " + cnf.InstallTopDir)
+
+for component in everything:
+    component.install(kind=kind, tmpdir=tempdir, loud=(not quieter))
+
+#final cleanup
+os.chdir(topdir)
+if os.path.exists(tempdir) and len(tempdir)>4:
+    os.system("rm -rf "+tempdir)
+
+print "========================================"
+print "Successful install"
+if cnf.toolbox.doInstall:
+    print "The KAVE environment should now be added for most users automatically through etc/profile.d, if they use " \
+          "the bash shell. If this is not working, try $ . " + cnf.toolbox.envscript() + " manually and enjoy your " \
+                                                                                         "software"
+else:
+    print "Since you opted not to install this KaveToolbox itself, Try, try $ source " + installfrom + "/scripts/KaveEnv.sh and enjoy your software"
