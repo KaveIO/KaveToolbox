@@ -1,6 +1,9 @@
 KaveToolbox
 ===========
 
+Data analytics toolkit part of the KAVE, installed with [AmbariKave](http://github.com/KaveIO/AmbariKave), and also installable stand-alone http://beta.kave.io, a wiki for the entire KAVE is maintained on the cluster installer, [AmbariKave wiki](http://github.com/KaveIO/AmbariKave/wiki)
+
+
 Installing more modules on top of kave toolbox as the root user:
 ----------------------------------------------------------------
 
