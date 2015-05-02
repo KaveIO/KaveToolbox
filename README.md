@@ -158,6 +158,7 @@ And/or visit http://nbviewer.ipython.org/
   * A list of mirrors of where to locate our software can be added to /etc/kave/mirror .
   * The "mirror" file will be interpreted line-by-line should be used to add a list of nearside cache directories or nearside mirrors of the KPMG repository.
   * All mirrors listed here must follow the same directory structure as the main repository, this looks like: **mirror/os-version(s)/KaveToolbox/toolbox-version(s)/files.ext**
+  * See more details below in setting up such a cache
 
 Troubleshooting:
 
@@ -263,7 +264,7 @@ First either copy the entire repository website to your own internal apache serv
 ```
 mkdir -p /my/shared/dir
 cd  /my/shared/dir
-wget -R http://repos.kave.io/
+wget -R http://repos:kaverepos@repos.kave.io/
 ```
 
 Then create a /etc/kave/mirror file on each node with the new top-level directory to try first before looking for our website:
