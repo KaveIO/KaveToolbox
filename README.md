@@ -123,14 +123,14 @@ Remember the help at this stage  [--help]
 ( NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks
   this password is intended to be widely known and is used here as an extension of the URL )
 
-* 2: Installing the head from git, To install the HEAD you will need ssh access to our gitlabs repo. For that you need to have already configured ssh keys.
+* 2: Installing the head from git, Example given using ssh.
 ```
 #test ssh keys with
-ssh -T git@gitlab-nl.dna.kpmglab.com
+ssh -T git@github.com
 #if this works,
-git clone git@gitlab-nl.dna.kpmglab.com:kave/kavetoolbox.git
+git clone git@github.com:KaveIO/KaveToolbox.git
 #then install with
-sudo ./kavetoolbox/scripts/KaveInstall [--quiet]
+sudo ./KaveToolbox/scripts/KaveInstall [--quiet]
 ```
 (--quiet is for a quieter install, remove the brackets!)
 Remember the help at this stage [--help]
