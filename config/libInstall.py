@@ -44,7 +44,7 @@ import subprocess as sub
 #  this password is intended to be widely known and is used here as an extension of the URL
 #
 __repo_url__="http://repos:kaverepos@repos.kave.io"
-__version__="1.1-Beta"
+__version__="1.2-Beta"
 __main_dir__="KaveToolbox"
 __arch__="Centos6"
 __mirror_list_file__="/etc/kave/mirror"
