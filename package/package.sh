@@ -12,6 +12,7 @@
 #
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
 BUILD_DIR=$PROJECT_DIR/build
+TMP_DIR=/tmp/tempbuild
 
 cd $PROJECT_DIR
 TAG=`git name-rev --tags --name-only $(git rev-parse HEAD) | sed s'/.$//'`
@@ -29,12 +30,15 @@ RELEASE_PACKAGE="kavetoolbox-$TAG.tar.gz"
 echo "Building $RELEASE_PACKAGE"
 #mkdir -p $BUILD_DIR/package/kavetoolbox/
 #cp -r $SRC_DIR/HDP $BUILD_DIR/package/ambari-server/resources/stacks/
-mkdir -p /tmp/tempbuild/
+if [ -d $TMP_DIR ]; then
+	rm -rf $TMP_DIR/*
+fi
+mkdir -p $TMP_DIR
 
 # Tar autocollapses. If I'm not in the same path as I'm taring than my tarball
 # contains the full path.
 cd $PROJECT_DIR/..
-cp -r `basename $PROJECT_DIR` /tmp/tempbuild/KaveToolbox
+cp -r `basename $PROJECT_DIR` $TMP_DIR/KaveToolbox
 cd /tmp/tempbuild/
 #remove pyc files!
 find . -name "*.pyc" -exec rm '{}' ';'
