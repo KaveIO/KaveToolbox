@@ -458,7 +458,7 @@ root.options = {"Strategy": "Default",
                 "pip": ["root_numpy", "git+https://github.com/ibab/root_pandas"]
                 }
 root.src_from = "ftp://root.cern.ch/root/"
-root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries"',
+root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         #"wget https://oss.oracle.com/ol6/RPM-GPG-KEY-oracle",
                         #"rpm --import RPM-GPG-KEY-oracle",
@@ -466,7 +466,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
                         "libxml2-devel ftgl-devel glew glew-devel qt qt-devel"
                         ],
-            "Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries"',
+            "Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         #"wget https://oss.oracle.com/ol6/RPM-GPG-KEY-oracle",
                         #"rpm --import RPM-GPG-KEY-oracle",

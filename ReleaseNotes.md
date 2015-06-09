@@ -5,7 +5,7 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
-## v1.2-Beta
+## v1.1-Beta
 
 * Reworking of the postalmap package to be more generic
 * Minor updates in the installer to install curl and wget

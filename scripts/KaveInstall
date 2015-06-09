@@ -117,6 +117,19 @@ for cmd in preinstall[li.linuxVersion]:
             "Could not run preinstall: " + cmd + " : are you running as sudo? Or maybe you have no access to a "
                                                  "package repo? \n" + out + "\n" + err)
 
+#check if there are group lists including X and Development
+stat, out, err = li.mycmd("yum grouplist")
+if "x window system" not in out.lower() or "development tools" not in out.lower():
+    group_warning="""Problem with yum groups! KaveToolbox Will not be able to install correctly. You can manually try and install the three groups
+    'X Window System', 'Development Tools' and 'Additional Development', or find what the contents should be and
+    install manually those packages. To ignore this warning and continue set the arguement --ignore-missing-groups
+    """
+    if "--ignore-missing-groups" not in sys.argv:
+        raise SystemError(group_warning)
+    else:
+        print group_warning
+        print "Continuing ..."
+
 repotest = li.fromKPMGrepo("", "noarch")
 if repotest is None:
     raise IOError(
