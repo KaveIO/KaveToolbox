@@ -5,6 +5,14 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
+## v1.2-Beta
+
+* Minor bugfixes in packaging and installer script
+
+* Installer now checks that yum groups exist since it was noticed groups are fragile on many centos6 systems
+* Packaged installer now fails on the first encountered error rather than proceeding blindly
+* Installer now less sensitive to trailing '/' in /etc/kave/mirror which previously could cause failures in some wget calls
+
 ## v1.1-Beta
 
 * Reworking of the postalmap package to be more generic

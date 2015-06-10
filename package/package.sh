@@ -80,7 +80,12 @@ if [ -f /etc/kave/mirror ]; then
 		#echo \$line
 		if [ -z "\$line" ]; then
 			continue
-		elif [[ ! "\$line" =~ "http" ]]; then
+		fi
+		#always add a trailing /
+		if [ "\${line: -1}" != '/' ]; then
+			line=\${line}/
+		fi
+		if [[ ! "\$line" =~ "http" ]]; then
 			if [ -d "\$line" ]; then
 				checkout="cp"
 				repos_server=\${line}

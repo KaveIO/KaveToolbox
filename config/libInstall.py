@@ -54,11 +54,13 @@ def repoURL(filename, repo=__repo_url__, arch=__arch__, dir=__main_dir__, ver=__
     """
     Construct the repository address for our code
     """
-    return repo + "/" + arch.lower() + "/" + dir + "/" + ver + "/" + filename
+    if repo[-1]!="/":
+        repo=repo+'/'
+    return repo + arch.lower() + "/" + dir + "/" + ver + "/" + filename
 
 #
 # Automatically load mirror list
-#
+# Always add a '/' if there is no trailing '/'
 
 if os.path.exists(__mirror_list_file__):
     f = open(__mirror_list_file__)
@@ -68,6 +70,8 @@ if os.path.exists(__mirror_list_file__):
         mirror = mirror.strip()
         if not len(mirror):
             continue
+        if mirror[-1]!="/":
+            mirror=mirror+'/'
         __mirror_list__.append(mirror)
 #
 # Wrappers around subprocess
