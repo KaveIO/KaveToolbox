@@ -10,6 +10,11 @@
 #     5. download the source tarball from git and upload to the correct noarch directory, with the correct name
 #
 #
+
+#abort at first failure
+set -e
+#set -o pipefail #not a good idea, causes failures even in actual successful situations
+
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../" && pwd )"
 BUILD_DIR=$PROJECT_DIR/build
 TMP_DIR=/tmp/tempbuild
@@ -54,10 +59,14 @@ echo "Writing the noarch installer: $RELEASE_INSTALLER"
 
 echo '#!/bin/bash' > $BUILD_DIR/$RELEASE_INSTALLER
 cat $PROJECT_DIR/LICENSE >> $BUILD_DIR/$RELEASE_INSTALLER
+echo '' >> $BUILD_DIR/$RELEASE_INSTALLER
+echo '# abort at first failure' >> $BUILD_DIR/$RELEASE_INSTALLER
+echo 'set -e' >> $BUILD_DIR/$RELEASE_INSTALLER
+#echo 'set -o pipefail' >> $BUILD_DIR/$RELEASE_INSTALLER #not a good idea, causes failures even in actual successful situations
 
 cat << EOF >> $BUILD_DIR/$RELEASE_INSTALLER
 #
-# The auto install script, passes all arguements to the KaveInstall.sh script. For more details on the arguments, try --help
+# The auto install script, passes all arguements to the KaveInstall script. For more details on the arguments, try --help
 #
 #
 # NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks
