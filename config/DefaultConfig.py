@@ -161,9 +161,9 @@ fi
 toolbox = Toolbox("KaveToolbox")
 toolbox.doInstall = True
 toolbox.installSubDir = "KaveToolbox"
-toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"',
+toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox'],
-                             "Centos7": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"',
+                             "Centos7": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox']
                              }
 
