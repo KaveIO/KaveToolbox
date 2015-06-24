@@ -116,7 +116,7 @@ We recommend to install with the default configurations, but in case you want to
 
 * 1: Installing the released version, for example, 1.2-Beta
 ```
-yum -y install wget cur tar zip unzip gzip
+yum -y install wget curl tar zip unzip gzip
 wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/1.2-Beta/kavetoolbox-installer-1.2-Beta.sh
 sudo bash kavetoolbox-installer-1.2-Beta.sh [--quiet]
 ```
