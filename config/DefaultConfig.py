@@ -451,10 +451,11 @@ root.options = {"Strategy": "Default",
                 "LowMemoryMode": False,
                 "conf": {
                     "Centos7": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
-                               "--fail-on-missing",
-                    "Centos6": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --fail-on-missing",
+                               "--enable-mathmore --fail-on-missing",
+                    "Centos6": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit  "
+                               "--enable-mathmore --fail-on-missing",
                     "Ubuntu": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
-                              "--fail-on-missing"},
+                              "--enable-mathmore --fail-on-missing"},
                 "pip": ["root_numpy", "git+https://github.com/ibab/root_pandas"]
                 }
 root.src_from = "ftp://root.cern.ch/root/"
@@ -464,7 +465,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                         #"rpm --import RPM-GPG-KEY-oracle",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
-                        "libxml2-devel ftgl-devel glew glew-devel qt qt-devel"
+                        "libxml2-devel ftgl-devel glew glew-devel qt qt-devel gsl gsl-devel"
                         ],
             "Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
@@ -472,7 +473,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                         #"rpm --import RPM-GPG-KEY-oracle",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
-                        "libxml2-devel ftgl-devel libglew glew glew-devel qt qt-devel",
+                        "libxml2-devel ftgl-devel libglew glew glew-devel qt qt-devel gsl gsl-devel",
                         "wget " + li.fromKPMGrepo("glew-1.5.5-1.el6.x86_64.rpm", arch="centos6"),
                         #http://dl.fedoraproject.org/pub/epel/6/x86_64/glew-1.5.5-1.el6.x86_64.rpm
                         "wget " + li.fromKPMGrepo("glew-devel-1.5.5-1.el6.x86_64.rpm", arch="centos6"),
