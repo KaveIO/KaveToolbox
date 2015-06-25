@@ -45,7 +45,7 @@ cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-min
 """
 import os
 import sys
-import libInstall as li
+import libInstall as lil
 from libInstall import InstallTopDir, Component, linuxVersion
 
 #top level directory under where to keep all KAVE software
@@ -486,7 +486,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                 "libxft-dev g++ gfortran build-essential g++ libjpeg-turbo8-dev libjpeg8-dev libjpeg8-dev libjpeg-dev "
                 " libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev libldap2-dev libkrb5-dev "
                 "freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev libiodbc2 libiodbc2-dev "
-                "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils"]
+                "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386"]
             }
 
 root.registerToolbox(toolbox)
@@ -576,7 +576,10 @@ fi
 #######################  R  ############################
 class RComponent(Component):
     def script(self):
-        self.run("bash -c 'source " + toolbox.envscript() + "; conda update conda --yes; pip install rpy2 '")
+        if linuxVersion.startswith("Centos"):
+            self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; pip install rpy2 '")
+        else:
+            self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; conda install -c asmeurer rpy2 '")
 
 
 r = RComponent("R")
@@ -593,7 +596,7 @@ r.pre = {"Centos6": ["rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm"
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  #skip broken, just in case ...
                      ],
-         "Ubuntu": ["apt-get -y install libreadline6 libreadline6-dev",
+         "Ubuntu": ["apt-get -y install libreadline6 libreadline6-dev libc6-dev-i386",
                     "apt-get -y install r-base-dev",
                     "apt-get -y install python-rpy2"
                     ]
