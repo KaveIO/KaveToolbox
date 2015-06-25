@@ -265,6 +265,8 @@ class Conda(Component):
         self.buildEnv()
         self.run("bash -c 'source " + envscript + " > /dev/null ; conda update conda --yes'")
         self.run("bash -c 'source " + envscript + "> /dev/null ; conda install pip --yes'")
+        for pip in self.pip:
+            self.run("bash -c 'source " + envscript + "> /dev/null ; pip install "+pip+"'")
 
 
 conda = Conda(cname="anaconda")
@@ -283,6 +285,8 @@ if [ -d ${ana}  ]; then
     fi
 fi
 """
+
+conda.pip=["delorean", "seaborn", "pygal", "mpld3", "cairosvg"]
 #######################  Hadoop modules  ############################
 
 class HadoopPy(Component):
@@ -579,7 +583,7 @@ class RComponent(Component):
         if linuxVersion.startswith("Centos"):
             self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; pip install rpy2 '")
         else:
-            self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; conda install -c asmeurer rpy2 '")
+            self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; conda --yes install -c asmeurer rpy2 '")
 
 
 r = RComponent("R")
