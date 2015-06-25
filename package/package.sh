@@ -108,7 +108,7 @@ fi
 
 if [ ! -f $RELEASE_PACKAGE ]; then
 	#echo \${checkout} \${repos_server}
-	\${checkout} \${repos_server}/noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE
+	\${checkout} \${repos_server}noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE
 fi
 tar -xzf $RELEASE_PACKAGE
 #try to cope with the annoying way the git-generated tarball contains something with .git at the end!
