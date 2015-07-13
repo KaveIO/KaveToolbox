@@ -7,6 +7,11 @@ Contains a list of the released versions with a summary of the main changes in e
 
 ## v1.2-Beta
 
+* Major fixes for Ubuntu and Centos7
+
+
+## v1.2-Beta
+
 * Minor bugfixes in packaging and installer script
 
 * Installer now checks that yum groups exist since it was noticed groups are fragile on many centos6 systems
