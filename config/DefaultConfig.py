@@ -45,7 +45,7 @@ cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-min
 """
 import os
 import sys
-import libInstall as lil
+import libInstall as li
 from libInstall import InstallTopDir, Component, linuxVersion
 
 #top level directory under where to keep all KAVE software
