@@ -259,17 +259,14 @@ class Conda(Component):
         self.copy(self.src_from, dest)
         os.system("chmod a+x " + dest)
         #install in batch mode to the requested directory
-        #install python modules
-        envscript = self.toolbox.envscript()
         self.run(dest + " -b -p " + self.installDir)
         self.buildEnv()
-        self.run("bash -c 'source " + envscript + " > /dev/null ; conda update conda --yes'")
-        self.run("bash -c 'source " + envscript + "> /dev/null ; conda install pip --yes'")
-        for pip in self.pip:
-            self.run("bash -c 'source " + envscript + "> /dev/null ; pip install "+pip+"'")
-
 
 conda = Conda(cname="anaconda")
+conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
+                                "pip install delorean seaborn pygal mpld3 cairosvg"]}
+conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
+conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
 conda.installSubDir = "anaconda"
 conda.registerToolbox(toolbox)
@@ -286,7 +283,6 @@ if [ -d ${ana}  ]; then
 fi
 """
 
-conda.pip=["delorean", "seaborn", "pygal", "mpld3", "cairosvg"]
 #######################  Hadoop modules  ############################
 
 class HadoopPy(Component):
@@ -580,10 +576,7 @@ fi
 #######################  R  ############################
 class RComponent(Component):
     def script(self):
-        if linuxVersion.startswith("Centos"):
-            self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; pip install rpy2 '")
-        else:
-            self.run("bash -c 'source " + self.toolbox.envscript() + "; conda update conda --yes; conda --yes install -c asmeurer rpy2 '")
+        return True
 
 
 r = RComponent("R")
@@ -605,4 +598,7 @@ r.pre = {"Centos6": ["rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm"
                     "apt-get -y install python-rpy2"
                     ]
          }
+r.postwithenv={"Centos6":["conda update conda --yes; pip install rpy2"]}
+r.postwithenv["Centos7"]=r.postwithenv["Centos6"]
+r.postwithenv["Ubuntu"]=["conda update conda --yes; conda --yes install -c asmeurer rpy2"]
 r.registerToolbox(toolbox)

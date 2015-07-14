@@ -276,7 +276,9 @@ class Component(object):
         self.cname = cname
         self.loud = True
         self.pre = {}
+        self.prewithenv = {}
         self.post = {}
+        self.postwithenv = {}
         self.doInstall = True
         self.installSubDir = None
         self.installDir = None
@@ -381,7 +383,11 @@ class Component(object):
         if self.pre is not None and linuxVersion in self.pre:
             for cmd in self.pre[linuxVersion]:
                 self.run(cmd)
-        #run prerequisites
+        #run prerequisites that require the environment
+        if self.prewithenv is not None and linuxVersion in self.prewithenv:
+            for cmd in self.prewithenv[linuxVersion]:
+                self.run("bash -c 'source "+self.toolbox.envscript()+" > /dev/null ;" +cmd+";'")
+        #run workstation extras
         if self.kind is "workstation" and self.workstationExtras is not None and linuxVersion in self.workstationExtras:
             for cmd in self.workstationExtras[linuxVersion]:
                 self.run(cmd)
@@ -393,6 +399,10 @@ class Component(object):
         if self.post is not None and linuxVersion in self.post:
             for cmd in self.post[linuxVersion]:
                 self.run(cmd)
+        #run post actions that require the environment
+        if self.postwithenv is not None and linuxVersion in self.postwithenv:
+            for cmd in self.postwithenv[linuxVersion]:
+                self.run("bash -c 'source "+self.toolbox.envscript()+" > /dev/null ;" +cmd+";'")
         os.chdir(self.odir)
         self.buildEnv()
         if self.installDir is not None and self.installDir.count('/') > 1 and os.path.exists(self.installDir):
