@@ -317,11 +317,18 @@ class Component(object):
         print "    Workstations?:", self.workstation
         print "    Workstations Extras:", self.workstationExtras
         print "    Pre:", self.pre
+        print "    Pre with environment file:", self.prewithenv
         print "    Post:", self.post
+        print "    Post with environment file:", self.postwithenv
         print "    Options:", self.options
         print "----------------------------"
 
     def script(self):
+        """
+        Script method, if self.src_from is set then download it from the repo
+        execute downloaded shell scripts or python files, that is all
+        Complicated installs will overwrite this class.
+        """
         if self.src_from is None:
             return False
         afrom = self.src_from
@@ -342,6 +349,9 @@ class Component(object):
         return True
 
     def todir(self):
+        """
+        It's often complex to interpret exactly where a component will be installed, this method does just that and caches the result.
+        """
         if self.installDir is not None:
             return self.installDir
         if self.installSubDir is not None and self.topdir is not None:
@@ -357,7 +367,8 @@ class Component(object):
 
     def install(self, kind="node", tmpdir=None, loud=True):
         """
-        Used by the installer, eventually calls the script
+        Used by the installer, eventually calls the script method
+        It is not usual for component derived classes to override this method, since they override the pre, post and script() classes instead
         """
         self.odir = os.path.realpath(os.curdir)
         self.kind = kind
@@ -410,9 +421,19 @@ class Component(object):
         return True
 
     def registerToolbox(self, toolbox):
+        """
+        The method of finding the env script must be known by components, and so the Component which installs
+        KaveToolbox itself needs to be remembered and resolved at runtime
+        """
         self.toolbox = toolbox
 
     def buildEnv(self):
+        """
+        Build env adds to the standard environment script the contents of self.env
+        in order to build a static env file (fastest approach) this method can autoreplace the key
+        to determine the installed package directory
+        self.env.replace("%%INSTALLDIR%%", self.todir())
+        """
         if self.toolbox is None:
             return
         if not len(self.env):
@@ -457,6 +478,9 @@ class Component(object):
         self._exitIfFailure(cmd)
 
     def bauk(self, reason):
+        """
+        Exit and raise runtime error after cleaning my temporary directory
+        """
         if self.tmpdir is not None:
             if os.path.exists(self.tmpdir) and len(self.tmpdir)>4:
                 os.system("rm -rf "+self.tmpdir)
