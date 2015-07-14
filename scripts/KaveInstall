@@ -121,9 +121,9 @@ for cmd in preinstall[li.linuxVersion]:
 groupsok=True
 if li.linuxVersion.startswith("Centos"):
     stat, out, err = li.mycmd("yum groupinfo 'Development Tools'")
-    groupsok=("Group: Development Tools" in out.lower())
+    groupsok=("Group: Development Tools" in out)
     stat, out, err = li.mycmd("yum groupinfo 'X Window System'")
-    groupsok=(groupsok and ("Group: X Window System" in out.lower()))
+    groupsok=(groupsok and ("Group: X Window System" in out))
 
 
 if not groupsok:
