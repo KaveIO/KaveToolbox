@@ -263,6 +263,9 @@ class Conda(Component):
         self.buildEnv()
 
 conda = Conda(cname="anaconda")
+conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"']}
+conda.pre["Centos7"]=conda.pre["Centos6"]
+conda.pre["Ubuntu"]=["apt-get -y install build-essential g++"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
                                 "pip install delorean seaborn pygal mpld3 cairosvg"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
@@ -582,18 +585,21 @@ class RComponent(Component):
 r = RComponent("R")
 r.doInstall = True
 r.pre = {"Centos6": ["rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm", arch="centos6"),
+                     'yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                      #http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm",
                      "yum -y install readline-devel",
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  #not everything installs on Centos6!
                      ],
          "Centos7": ["rpm -Uvh " + li.fromKPMGrepo("epel-release-7-5.noarch.rpm", arch="centos7"),
+                     'yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                      #http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm ",
                      "yum -y install readline-devel",
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  #skip broken, just in case ...
                      ],
          "Ubuntu": ["apt-get -y install libreadline6 libreadline6-dev libc6-dev-i386",
+                    "apt-get -y install build-essential g++",
                     "apt-get -y install r-base-dev",
                     "apt-get -y install python-rpy2"
                     ]
