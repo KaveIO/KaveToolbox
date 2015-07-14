@@ -267,7 +267,7 @@ conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libr
 conda.pre["Centos7"]=conda.pre["Centos6"]
 conda.pre["Ubuntu"]=["apt-get -y install build-essential g++"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
-                                "pip install delorean seaborn pygal mpld3 cairosvg"]}
+                                "pip install delorean seaborn pygal mpld3"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
