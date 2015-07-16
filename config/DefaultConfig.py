@@ -492,8 +492,8 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                 "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386",
                 "wget " + li.fromKPMGrepo("libpng-1.5.22.tar.gz", arch="ubuntu"),
                 "tar xzf libpng-1.5.22.tar.gz",
-                "bash -c 'cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;'",
-                "ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15"
+                ("bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
+                 + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi'")
                 ]
             }
 
