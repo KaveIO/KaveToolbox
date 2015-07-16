@@ -263,9 +263,9 @@ class Conda(Component):
         self.buildEnv()
 
 conda = Conda(cname="anaconda")
-conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"']}
+conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"','yum -y install libffi*']}
 conda.pre["Centos7"]=conda.pre["Centos6"]
-conda.pre["Ubuntu"]=["apt-get -y install build-essential g++"]
+conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi*"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
                                 "pip install delorean seaborn pygal mpld3"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
@@ -489,7 +489,12 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                 "libxft-dev g++ gfortran build-essential g++ libjpeg-turbo8-dev libjpeg8-dev libjpeg8-dev libjpeg-dev "
                 " libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev libldap2-dev libkrb5-dev "
                 "freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev libiodbc2 libiodbc2-dev "
-                "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386"]
+                "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386",
+                "wget " + li.fromKPMGrepo("libpng-1.5.22.tar.gz", arch="ubuntu"),
+                "tar xzf libpng-1.5.22.tar.gz",
+                "bash -c 'cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;'",
+                "ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15"
+                ]
             }
 
 root.registerToolbox(toolbox)
