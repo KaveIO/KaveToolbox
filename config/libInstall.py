@@ -44,7 +44,7 @@ import subprocess as sub
 #  this password is intended to be widely known and is used here as an extension of the URL
 #
 __repo_url__="http://repos:kaverepos@repos.kave.io"
-__version__="1.1-Beta"
+__version__="2.0-Beta"
 __main_dir__="KaveToolbox"
 __arch__="Centos6"
 __mirror_list_file__="/etc/kave/mirror"
@@ -302,6 +302,7 @@ class Component(object):
                 except RuntimeError, IOError:
                     print "Failed to copy from", afrom, "retry next source"
                     continue
+            raise RuntimeError("Failed to copy from any source "+str(optional_froms))
         afrom = optional_froms
         self.run(copymethods(afrom, dest))
         if not os.path.exists(dest):
