@@ -606,5 +606,5 @@ r.pre = {"Centos6": ["rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm"
          }
 r.postwithenv={"Centos6":["conda update conda --yes; pip install rpy2"]}
 r.postwithenv["Centos7"]=r.postwithenv["Centos6"]
-r.postwithenv["Ubuntu"]=["conda update conda --yes; conda --yes install -c asmeurer rpy2"]
+r.postwithenv["Ubuntu"]=["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.registerToolbox(toolbox)
