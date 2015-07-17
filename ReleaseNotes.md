@@ -26,6 +26,7 @@ Bugfixes:
 * automatic testing on centos6 and ubuntu 14 performed
 * Accidental inclusion of specific developer environment in eclipse distribution removed
 * fix mistake in KaveEnv source statement for ROOT causing failures on ubuntu and centos7
+* fix mistake in default download directory from the repo
 
 
 ## v1.2-Beta
