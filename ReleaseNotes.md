@@ -5,9 +5,27 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
-## v1.2-Beta
+## v2.0-Beta
 
 * Major fixes for Ubuntu and Centos7
+
+New features:
+
+* improved the customizability of the DefaultInstall parameters to enable simpler future hotfixes
+* additional python visualization libraries installed by default (pygal, mpd3, seaborn, cairosvg) new example notebook
+* install pyhs2 by default (python hive client)
+* add mathmore and gsl for ROOT
+* JSON highlighting in eclipse
+
+
+Bugfixes:
+
+* libpng15 installation added for centos7 and ubuntu platforms
+* ROOT rebuilt on latest centos 7 and ubuntu 14 platforms
+* missing yum groups no longer causes spurious failures or false positives on ubuntu and centos7
+* automatic testing on centos6 and ubuntu 14 performed
+* Accidental inclusion of specific developer environment in eclipse distribution removed
+* fix mistake in KaveEnv source statement for ROOT causing failures on ubuntu and centos7
 
 
 ## v1.2-Beta
