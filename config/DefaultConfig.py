@@ -267,7 +267,7 @@ conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libr
 conda.pre["Centos7"]=conda.pre["Centos6"]
 conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi*"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
-                                "pip install delorean seaborn pygal mpld3"]}
+                                "pip install delorean seaborn pygal mpld3 cairosvg"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
@@ -493,7 +493,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                 "wget " + li.fromKPMGrepo("libpng-1.5.22.tar.gz", arch="ubuntu"),
                 "tar xzf libpng-1.5.22.tar.gz",
                 ("bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
-                 + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi'")
+                 + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'")
                 ]
             }
 
