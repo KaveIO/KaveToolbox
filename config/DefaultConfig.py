@@ -263,11 +263,12 @@ class Conda(Component):
         self.buildEnv()
 
 conda = Conda(cname="anaconda")
-conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"','yum -y install libffi*']}
+conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
+                      'yum -y install libffi* cyrus-sasl*']}
 conda.pre["Centos7"]=conda.pre["Centos6"]
-conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi*"]
+conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi* libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit*"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
-                                "pip install delorean seaborn pygal mpld3 cairosvg"]}
+                                "pip install delorean seaborn pygal mpld3 cairosvg pyhs2"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
@@ -324,16 +325,14 @@ class HadoopPy(Component):
             for ezmodule in self.options["easy_install"]:
                 self.run(
                     "bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; export HADOOP_VERSION=" + hdv +
-                    "; export JAVA_HOME=" + jdk + "; export HADOOP_HOME=" + hdh + "; export "
-                                                                                  "CLASSPATH=$CLASSPATH:`hadoop "
-                                                                                  "classpath`; easy_install " +
+                    "; export JAVA_HOME=" + jdk + "; export HADOOP_HOME=" + hdh
+                    + "; export CLASSPATH=$CLASSPATH:`hadoop classpath`; easy_install " +
                     ezmodule + "'")
             for pipmodule in self.options["pip"]:
                 self.run(
                     "bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; export HADOOP_VERSION=" + hdv +
-                    "; export JAVA_HOME=" + jdk + "; export HADOOP_HOME=" + hdh + "; export "
-                                                                                  "CLASSPATH=$CLASSPATH:`hadoop "
-                                                                                  "classpath`; pip install " +
+                    "; export JAVA_HOME=" + jdk + "; export HADOOP_HOME=" + hdh
+                    + "; export CLASSPATH=$CLASSPATH:`hadoop classpath`; pip install " +
                     pipmodule + "'")
         return
 
