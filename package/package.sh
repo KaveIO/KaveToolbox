@@ -20,7 +20,7 @@ BUILD_DIR=$PROJECT_DIR/build
 TMP_DIR=/tmp/tempbuild
 
 cd $PROJECT_DIR
-TAG=`git name-rev --tags --name-only $(git rev-parse HEAD) | sed s'/.$//'`
+TAG=`git name-rev --tags --name-only $(git rev-parse HEAD)`
 TAG=`echo ${TAG} | sed s'/\^0//' | sed s'/\^//'`
 echo $TAG
 
