@@ -5,9 +5,9 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
-## v2.0-Beta
+## v1.3-Beta
 
-* Major fixes for Ubuntu and Centos7
+* Bugfix release with high-impact fixes for Ubuntu and Centos7
 
 New features:
 
