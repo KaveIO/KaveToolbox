@@ -15,6 +15,7 @@ New features:
 * additional python visualization libraries installed by default (pygal, mpd3, seaborn, cairosvg) new example notebook
 * install pyhs2 by default (python hive client)
 * add mathmore and gsl for ROOT
+* add rootpy library in case ROOT is installed
 * JSON highlighting in eclipse
 
 
