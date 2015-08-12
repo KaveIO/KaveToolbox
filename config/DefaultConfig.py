@@ -506,6 +506,9 @@ elif [ -e %%INSTALLDIR%%/bin/thisroot.sh ]; then
     source %%INSTALLDIR%%/bin/thisroot.sh
 fi
 """
+root.postwithenv={"Centos6" : ["pip install rootpy"]}
+root.postwithenv["Centos7"]=root.postwithenv["Centos6"]
+root.postwithenv["Ubuntu"]=root.postwithenv["Centos6"]
 
 #######################  KETTLE  ############################
 class Kettle(Component):
