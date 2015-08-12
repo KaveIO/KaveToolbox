@@ -411,12 +411,12 @@ class Component(object):
         if self.post is not None and linuxVersion in self.post:
             for cmd in self.post[linuxVersion]:
                 self.run(cmd)
+        self.buildEnv()
         #run post actions that require the environment
         if self.postwithenv is not None and linuxVersion in self.postwithenv:
             for cmd in self.postwithenv[linuxVersion]:
                 self.run("bash -c 'source "+self.toolbox.envscript()+" > /dev/null ;" +cmd+";'")
         os.chdir(self.odir)
-        self.buildEnv()
         if self.installDir is not None and self.installDir.count('/') > 1 and os.path.exists(self.installDir):
             self.run("chmod -R a+rx " + self.installDir)
         return True
