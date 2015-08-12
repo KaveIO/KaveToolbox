@@ -164,7 +164,8 @@ toolbox.installSubDir = "KaveToolbox"
 toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox'],
                              "Centos7": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\*',
-                                         'yum -y install tigervnc-server firefox']
+                                         'yum -y install tigervnc-server firefox'],
+                             "Ubuntu": ['apt-get -y install xfce4 xfce4-goodies tightvncserver firefox']
                              }
 
 toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
