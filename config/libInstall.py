@@ -419,6 +419,10 @@ class Component(object):
         os.chdir(self.odir)
         if self.installDir is not None and self.installDir.count('/') > 1 and os.path.exists(self.installDir):
             self.run("chmod -R a+rx " + self.installDir)
+        #clean the temporary directory of files I created
+        if self.tmpdir is not None:
+            if os.path.exists(self.tmpdir) and len(self.tmpdir)>4:
+                os.system("rm -rf "+self.tmpdir+'/*')
         return True
 
     def registerToolbox(self, toolbox):
