@@ -165,12 +165,16 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                                          'yum -y install tigervnc-server firefox'],
                              "Centos7": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox'],
-                             "Ubuntu": ['apt-get -y install xfce4 xfce4-goodies tightvncserver firefox']
+                             "Ubuntu": ['apt-get -y install dictionaries-common',
+                                        '/usr/share/debconf/fix_db.pl',
+                                        'apt-get -y install -f',
+                                        'apt-get -y tightvncserver firefox']
                              }
 
 toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Centos7": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
-               "Ubuntu": ["apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
+               "Ubuntu": ['apt-get -y install dictionaries-common',
+                          "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
 toolbox.registerToolbox(toolbox)
 toolbox.env = """
