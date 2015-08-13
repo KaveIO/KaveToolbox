@@ -168,7 +168,7 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                              "Ubuntu": ['if ! type vncserver 2>&1 > /dev/null ; '# then apt-get -y install dictionaries-common; '
                                         #+'/usr/share/debconf/fix_db.pl; '#apt-get -y install -f; '
                                         +'apt-get -y install gnome-core xfce4 firefox;'
-                                        + 'apt-get -y install vnc4server; ',
+                                        + 'apt-get -y install vnc4server; '
                                         +'fi;']
                              }
 
