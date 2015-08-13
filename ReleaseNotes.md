@@ -12,8 +12,8 @@ Contains a list of the released versions with a summary of the main changes in e
 New features:
 
 * improved the customizability of the DefaultInstall parameters to enable simpler future hotfixes
-* additional python visualization libraries installed by default (pygal, mpd3, seaborn, cairosvg) new example notebooks
-* additional python geometry libraries installed by default (shapely, pyproj, descartes)
+* additional python visualization libraries installed by default (pygal, mpd3, seaborn, cairosvg, vincent) new example notebooks
+* additional python geometry/geography libraries installed by default (shapely, pyproj, descartes, folium)
 * install pyhs2 by default (python hive client)
 * add mathmore and gsl for ROOT
 * add rootpy library in case ROOT is installed
