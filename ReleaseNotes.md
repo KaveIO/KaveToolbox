@@ -29,6 +29,8 @@ Bugfixes:
 * Accidental inclusion of specific developer environment in eclipse distribution removed
 * fix mistake in KaveEnv source statement for ROOT causing failures on ubuntu and centos7
 * fix mistake in default download directory from the repo
+* add installation of vncserver to ubuntu if not already installed to avoid gnome/kde issues
+* clean tmpdir at the end of each step to save space during install (saves up to 3 GB)
 
 
 ## v1.2-Beta
