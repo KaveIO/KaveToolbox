@@ -66,7 +66,7 @@ ETCDIR="/etc"
 ROOTDIR="${ETCDIR}/ipython/"
 DEPLOYDIR=${USERDIR}
 
-if [ ${USER} == 'root' ] or [ ${uid} == 0 ] or [ -w  ${ETCDIR} ]; then
+if [ ${USER} == 'root' ] or [ ${UID} == 0 ] or [ -w  ${ETCDIR} ]; then
 	DEPLOYDIR=${ROOTDIR}
 fi
 
