@@ -274,7 +274,7 @@ conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libr
 conda.pre["Centos7"]=conda.pre["Centos6"]
 conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi* libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
-                                "pip install delorean seaborn pygal mpld3 cairosvg pyhs2 shapely descartes pyproj folium vincent"]}
+                                "pip install delorean seaborn pygal mpld3 cairosvg pyhs2 shapely descartes pyproj folium vincent pam"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
