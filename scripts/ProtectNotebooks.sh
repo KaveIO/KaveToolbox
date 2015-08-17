@@ -17,58 +17,53 @@
 #
 ##############################################################################
 
-help='ProtectNotebooks.sh, append to ipython_notebook_config.py, add password protection to notebooks and
-set default port number to a semi-unique hash of the username
-If run as root or sudoer, will set the system wide ipython notebook config, else will set the user-specific one
-
-In order to correctly protect, first you should create a valid ssl certificate for the server, for example
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem #self-signed certificate
-
-usage ProtectNotebooks.sh /path/to/ssl/certificate [profilename] [--help]
-
-positional args: /path/to/ssl/certificate, must be set to the path of a valid ssl certificate for this domain (localhost)
-			profilename=default (optional) if given will append to a different profile. Only applies when run as not a root user.
-
-optional args: --help: print this help and exit'
+mhelp='ProtectNotebooks.sh,\n\tappend to ipython_notebook_config.py,\n\tadd password protection to notebooks\n\tset default port number to a semi-unique hash of the username\n\n\tIf run as root or sudoer, will set the system wide ipython notebook config,\n\t\telse will set the user-specific one\n\n\tIn order to correctly protect, first you should create a valid ssl certificate for the server, for example\n\topenssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem #self-signed certificate\n\nusage ProtectNotebooks.sh /path/to/ssl/certificate [profilename] [--help]\n\tpositional args: /path/to/ssl/certificate, must be set to the path of a valid ssl certificate for this domain (localhost)\n\tprofilename=default (optional) if given will append to a different profile. Only applies when run as not a root user.\n\toptional args: --help: print this help and exit'
 
 # Parse Arguements
 
-if [ "--help" ~= "$@" ]; then
-	echo ${help}
-	exit 0
-fi
+for i in "$@" ; do
+    if [[ ${i} == "--help" ]] ; then
+        echo -e ${mhelp}
+        exit 0
+    fi
+done
 
 if [ -z "$1" ]; then
-	echo ${help}
-	echo "Error: Not enough arguements specified" 1>&2
-	exit 1
+    echo -e ${help}
+    echo "Error: Not enough arguements specified" 1>&2
+    exit 1
 fi
 
 CERTFILE=${1}
 
 if [ ! -e "$CERTFILE" ]; then
-	echo ${help}
-	echo "Error: Certificate directory/file does not exist" 1>&2
-	exit 2
+    echo -e ${help}
+    echo "Error: Certificate directory/file does not exist" 1>&2
+    exit 2
 fi
 
 PROFILE="default"
 
 if [ ! -z "$2" ]; then
-	PROFILE="$2"
+    PROFILE="$2"
 fi
 
 # Find directory to write to
 
-UID=`id -u $USER`
+MUID=`id -u $USER`
 USERDIR="${HOME}/.ipython/profile_${PROFILE}/"
 ETCDIR="/etc"
 ROOTDIR="${ETCDIR}/ipython/"
 DEPLOYDIR=${USERDIR}
+URL=`hostname -f`
 
-if [ ${USER} == 'root' ] or [ ${UID} == 0 ] or [ -w  ${ETCDIR} ]; then
-	DEPLOYDIR=${ROOTDIR}
+
+if [[ ${USER} == 'root' ]] || [[ ${MUID} == 0 ]] || [ -w  ${ETCDIR} ]; then
+    DEPLOYDIR=${ROOTDIR}
 fi
+
+#echo $DEPLOYDIR $CERTFILE
+#exit 0
 
 # Deploy
 
@@ -80,7 +75,7 @@ cat << EOF >> ${DEPLOYDIR}/ipython_notebook_config.py
 # each user forced to re-enter login credentials on starting a server
 #
 import getpass
-import os,sys
+import os,sys,socket
 from IPython.lib import passwd
 import pam, signal
 
@@ -89,7 +84,7 @@ user=getpass.getuser()
 uid=os.geteuid()
 
 def forcequit():
-	"""IPython configuration captures all exceptions thrown.
+    """IPython configuration captures all exceptions thrown.
 I need to force kill the parent program in case the wrong password is entered too often
 """
     pid=os.getpid()
@@ -104,7 +99,7 @@ I need to force kill the parent program in case the wrong password is entered to
 
 
 def setpass(user):
-	"""Ask the user for a login password, match it against the unix login password
+    """Ask the user for a login password, match it against the unix login password
 set this password to ipython notebooks, or quit after three failures
 """
     prompt='password:'
@@ -132,8 +127,17 @@ except Exception as e:
 #
 # Set the notebook's certificate
 #
-c.NotebookApp.certfile = ${CERTFILE}
+c.NotebookApp.certfile = "${CERTFILE}"
 
+#
+# Use localhost's fqdn for certificate
+#
+c.NotebookApp.ip=socket.getfqdn()
+
+#
+# Add username into the URL for extra obvious URL
+#
+c.NotebookApp.base_url=user.lower()
 
 #
 # Set an intelligent semi-unique default port for all users
@@ -147,5 +151,5 @@ EOF
 # Chmod result in case user is root
 
 if [ ${DEPLOYDIR} == ${ROOTDIR} ]; then
-	chmod -R a+rx ${ROOTDIR}
+    chmod -R a+rx ${ROOTDIR}
 fi
