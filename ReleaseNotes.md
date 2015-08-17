@@ -11,6 +11,9 @@ Contains a list of the released versions with a summary of the main changes in e
 
 New features:
 
+* ProtectNotebooks.sh script: if run as root, will add a system-wide ipython\_notebook\_config.py file
+                              if run as a user will add a user-level ipython\_notebook\_config.py file
+                              this file chooses a default port based on username and protects notebooks with the user's login password
 * improved the customizability of the DefaultInstall parameters to enable simpler future hotfixes
 * additional python visualization libraries installed by default (pygal, mpd3, seaborn, cairosvg, vincent) new example notebooks
 * additional python geometry/geography libraries installed by default (shapely, pyproj, descartes, folium)

@@ -165,6 +165,14 @@ Troubleshooting:
 * "Warning: end of file not at end of line" during installation: this means you don't have enough virtual memory for the compilation of root. Modify configuration file for "low memory mode"
 * Other errors in root or python installation: if installation fails, it may be due to conflicts with a previous install, try touch ~/.nokaveEnv and then obtain a clean shell, possibly via ssh
 
+
+Post-installation:
+------------------
+
+* **ProtectNotebooks.sh script:** if run as root, will add a system-wide ipython\_notebook\_config.py file
+                              if run as a user will add a user-level ipython\_notebook\_config.py file
+                              this file chooses a default port based on username and protects notebooks with the user's login password
+
 Re-installing:
 --------------
 
