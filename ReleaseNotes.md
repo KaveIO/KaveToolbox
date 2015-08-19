@@ -21,6 +21,7 @@ New features:
 * add mathmore and gsl for ROOT
 * add rootpy library in case ROOT is installed
 * JSON highlighting in eclipse
+* KAVE wallpapers in KaveToolbox/figs
 
 
 Bugfixes:
