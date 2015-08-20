@@ -84,3 +84,49 @@ def display_canvas(canvas):
     file = tempfile.NamedTemporaryFile(suffix=".png")
     canvas.SaveAs(file.name)
     display.display(display.Image(filename=file.name, format='png', embed=True))
+
+def _display_any(obj):
+    file = tempfile.NamedTemporaryFile(suffix=".png")
+    obj.Draw()
+    ROOT.gPad.SaveAs(file.name)
+    ip_img = display.Image(filename=file.name, format='png', embed=True)
+    return ip_img._repr_png_()
+
+# register display function with PNG formatter:
+png_formatter = get_ipython().display_formatter.formatters['image/png'] # noqa
+
+# Register ROOT types in ipython
+#
+# In [1]: canvas = rootnotes.canvas()
+# In [2]: canvas
+# Out [2]: [image will be here]
+png_formatter.for_type(ROOT.TCanvas, display_canvas)
+png_formatter.for_type(ROOT.TF1, _display_any)
+
+from IPython.core.magic import (Magics, magics_class, cell_magic)
+
+@magics_class
+class RootMagics(Magics):
+    """Magics related to Root.
+    %%rootprint  - Capture Root stdout output and show in result cell
+    """
+
+    def __init__(self, shell):
+        super(RootMagics, self).__init__(shell)
+
+    @cell_magic
+    def rootprint(self, line, cell):
+        """Capture Root stdout output and print in ipython notebook."""
+
+        with tempfile.NamedTemporaryFile() as tmpFile:
+
+            ROOT.gSystem.RedirectOutput(tmpFile.name, "w")
+            # ns = {}
+            # exec cell in self.shell.user_ns, ns
+            exec cell in self.shell.user_ns
+            ROOT.gROOT.ProcessLine("gSystem->RedirectOutput(0);")
+            print tmpFile.read()
+
+# Register
+ip = get_ipython()
+ip.register_magics(RootMagics)
