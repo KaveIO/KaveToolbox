@@ -155,6 +155,13 @@ if [ -e /etc/profile.d/kave.sh ]; then
 fi
 """)
             f.close()
+        #set wallpaper on workstations
+        if self.setwallpaper is True or (self.kind=='workspace' and self.setwallpaper in ['default','workspace']):
+            self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
+                     +'--set /desktop/gnome/background/picture_filename '+self.todir()+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
+            self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
+                     +' --set /desktop/gnome/background/picture_option centered')
+
         return True
 
 
@@ -171,7 +178,8 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                                         + 'apt-get -y install vnc4server; '
                                         +'fi;']
                              }
-
+toolbox.setwallpaper='default' #wallpaper if it is a workstation type
+toolbox.wallpaperselect=0 #a number between 0 and 9
 toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Centos7": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Ubuntu": ['apt-get -y install dictionaries-common',
