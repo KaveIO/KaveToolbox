@@ -157,10 +157,11 @@ fi
             f.close()
         #set wallpaper on workstations
         if self.setwallpaper is True or (self.kind=='workspace' and self.setwallpaper in ['default','workspace']):
-            self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
-                     +'--set /desktop/gnome/background/picture_filename '+self.todir()+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
-            self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
-                     +' --set /desktop/gnome/background/picture_option centered')
+            if linuxVersion.lower().startswith("centos"):
+                self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
+                         +'--set /desktop/gnome/background/picture_filename '+self.todir()+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
+                self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
+                         +' --set /desktop/gnome/background/picture_option centered')
 
         return True
 
