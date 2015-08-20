@@ -156,12 +156,12 @@ fi
 """)
             f.close()
         #set wallpaper on workstations
-        if self.setwallpaper is True or (self.kind=='workspace' and self.setwallpaper in ['default','workspace']):
+        if self.setwallpaper is True or (self.kind=='workstation' and self.setwallpaper in ['default','workstation']):
             if linuxVersion.lower().startswith("centos"):
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +'--set /desktop/gnome/background/picture_filename '+self.todir()+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
-                         +' --set /desktop/gnome/background/picture_option centered')
+                         +' --set /desktop/gnome/background/picture_options centered')
 
         return True
 
@@ -327,7 +327,7 @@ class HadoopPy(Component):
                 stat, hdh, err = li.mycmd(" readlink -f $(which hadoop)")
                 hdh = hdh.strip()
                 if stat or not hdh.endswith("/bin/hadoop"):
-                    print "ERROR: could not detect hadoop installation, probably you don't have a local hadoop " \
+                    print "INFO: could not detect hadoop installation, probably you don't have a local hadoop " \
                           "client, so I'm skipping  hadoop python libraries, try setting HADOOP_HOME manually"
                     hdh = None
                 else:
