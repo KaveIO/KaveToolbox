@@ -11,17 +11,18 @@ Contains a list of the released versions with a summary of the main changes in e
 
 New features:
 
+* 10 KAVE wallpapers in KaveToolbox/figs (applied automatically for Centos6 workstation installs)
 * ProtectNotebooks.sh script: if run as root, will add a system-wide ipython\_notebook\_config.py file
                               if run as a user will add a user-level ipython\_notebook\_config.py file
                               this file chooses a default port based on username and protects notebooks with the user's login password
 * improved the customizability of the DefaultInstall parameters to enable simpler future hotfixes
 * additional python visualization libraries installed by default (pygal, mpd3, seaborn, cairosvg, vincent) new example notebooks
-* additional python geometry/geography libraries installed by default (shapely, pyproj, descartes, folium)
+* additional python geometry/geography libraries installed by default (shapely, pyproj, descartes, folium) new example notebooks
 * install pyhs2 by default (python hive client)
 * add mathmore and gsl for ROOT
-* add rootpy library in case ROOT is installed
+* add rootpy library in case ROOT is installed (allows pickling python objects and storing in root files)
 * JSON highlighting in eclipse
-* KAVE wallpapers in KaveToolbox/figs
+* Additional features to rootnotes including IPython magic functions
 
 
 Bugfixes:
@@ -33,6 +34,7 @@ Bugfixes:
 * Accidental inclusion of specific developer environment in eclipse distribution removed
 * fix mistake in KaveEnv source statement for ROOT causing failures on ubuntu and centos7
 * fix mistake in default download directory from the repo
+* fix rpy installation on Ubuntu
 * add installation of vncserver to ubuntu if not already installed to avoid gnome/kde issues
 * clean tmpdir at the end of each step to save space during install (saves up to 3 GB)
 
