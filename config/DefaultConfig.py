@@ -279,7 +279,8 @@ class Conda(Component):
 
 conda = Conda(cname="anaconda")
 conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
-                      'yum -y install epel-release libffi* cyrus-sasl* geos*']}
+                      'yum -y install epel-release',
+                      'yum -y install libffi* cyrus-sasl* geos*']}
 conda.pre["Centos7"]=conda.pre["Centos6"]
 conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi* libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
