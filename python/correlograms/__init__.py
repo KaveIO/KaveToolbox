@@ -19,7 +19,15 @@
  Small library to make correlograms. Pandas contains autocorrelations, but not general cross-correlations.
  Use autocorrelation_plot and crosscorrelation_plot to make plots
 
- Authored by: Lodewijk Nauta for KPMG, 2015-09-11
+ The formula for the implemented version of cross-correlate is found here: 
+ https://en.wikipedia.org/wiki/Cross-correlation#Time_series_analysis
+
+ .. math:: 
+     \\ro_{XX}(\\tau) = E[(X_t - \mu_X)(Y_{t+\\tau} - \mu_Y)] / (\sigma_X \sigma_Y) 
+ 
+ This is the statistical method of calculating cross-correlations.
+
+ Authored by: Lodewijk Nauta for KPMG, 2015-09-15
 """
 
 import numpy as _np
