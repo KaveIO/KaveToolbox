@@ -51,15 +51,19 @@ fi
 # Find directory to write to
 
 MUID=`id -u $USER`
-USERDIR="${HOME}/.ipython/profile_${PROFILE}/"
+USERIDIR="${HOME}/.ipython/profile_${PROFILE}"
+USERJDIR="${HOME}/.jupyter"
 ETCDIR="/etc"
-ROOTDIR="${ETCDIR}/ipython/"
-DEPLOYDIR=${USERDIR}
+ROOTIDIR="${ETCDIR}/ipython"
+ROOTJDIR="${ETCDIR}/jupyter"
+DEPLOYIDIR=${USERIDIR}
+DEPLOYJDIR=${USERJDIR}
 URL=`hostname -f`
 
 
 if [[ ${USER} == 'root' ]] || [[ ${MUID} == 0 ]] || [ -w  ${ETCDIR} ]; then
-    DEPLOYDIR=${ROOTDIR}
+    DEPLOYIDIR=${ROOTIDIR}
+    DEPLOYJDIR=${ROOTJDIR}
 fi
 
 #echo $DEPLOYDIR $CERTFILE
@@ -67,9 +71,9 @@ fi
 
 # Deploy
 
-mkdir -p ${DEPLOYDIR}
+mkdir -p ${DEPLOYIDIR}
 
-cat << EOF >> ${DEPLOYDIR}/ipython_notebook_config.py
+cat << EOF >> ${DEPLOYIDIR}/ipython_notebook_config.py
 #
 # Password protect ipython notebooks with user's login password
 # each user forced to re-enter login credentials on starting a server
@@ -148,8 +152,18 @@ user=user.lower()
 c.NotebookApp.port =int(8288+5*((len(user)%8)+(8*string.ascii_lowercase.index(user[0]))+2*(26-string.ascii_lowercase.index(user[-2]))))
 EOF
 
+#now copy to the jupyter config location also.
+
+mkdir -p ${DEPLOYJDIR}
+
+cp ${DEPLOYIDIR}/ipython_notebook_config.py ${DEPLOYJDIR}/jupyter_notebook_config.py
+
 # Chmod result in case user is root
 
-if [ ${DEPLOYDIR} == ${ROOTDIR} ]; then
-    chmod -R a+rx ${ROOTDIR}
+if [ ${DEPLOYIDIR} == ${ROOTIDIR} ]; then
+    chmod -R a+rx ${ROOTIDIR}
+fi
+
+if [ ${DEPLOYJDIR} == ${ROOTJDIR} ]; then
+    chmod -R a+rx ${ROOTJDIR}
 fi
