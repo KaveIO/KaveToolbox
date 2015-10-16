@@ -166,7 +166,7 @@ fi
                 cfpath='/etc/xdg/xfce4/xfconf/xfce-perchannel-xml'
                 if not os.path.exists(cfpath):
                     os.makedirs(cfpath,0755)
-                self.run('cp -f '+os.path.join(os.path.realpath(__file__),'xfce4-desktop.xml')+ ' ' + cfpath)
+                self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),'xfce4-desktop.xml')+ ' ' + cfpath)
         return True
 
 
