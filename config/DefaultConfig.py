@@ -163,8 +163,10 @@ fi
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +' --set /desktop/gnome/background/picture_options centered')
             if linuxVersion.lower().startswith("ubuntu"):
-                os.makedirs('/etc/xdg/xfce4/xfconf/xfce-perchannel-xml',0755)
-                self.run('cp '+os.path.join(os.path.realpath(__file__),'xfce4-desktop.xml')+ ' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/')
+                cfpath='/etc/xdg/xfce4/xfconf/xfce-perchannel-xml'
+                if not os.path.exists(cfpath):
+                    os.makedirs(cfpath,0755)
+                self.run('cp -f '+os.path.join(os.path.realpath(__file__),'xfce4-desktop.xml')+ ' ' + cfpath)
         return True
 
 
@@ -177,7 +179,7 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                                          'yum -y install tigervnc-server firefox'],
                              "Ubuntu": ['if ! type vncserver 2>&1 > /dev/null ; then '# apt-get -y install dictionaries-common; '
                                         #+'/usr/share/debconf/fix_db.pl; '#apt-get -y install -f; '
-                                        +'apt-get -y install gnome-core xfce4 xfce4-goodies firefox;'
+                                        +'apt-get -y install xfce4 xfce4-goodies firefox;'
                                         + 'apt-get -y install tightvncserver; '
                                         +'fi;']
                              }
