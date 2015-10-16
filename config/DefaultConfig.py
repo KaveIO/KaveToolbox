@@ -175,8 +175,8 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                                          'yum -y install tigervnc-server firefox'],
                              "Ubuntu": ['if ! type vncserver 2>&1 > /dev/null ; then '# apt-get -y install dictionaries-common; '
                                         #+'/usr/share/debconf/fix_db.pl; '#apt-get -y install -f; '
-                                        +'apt-get -y install gnome-core xfce4 firefox;'
-                                        + 'apt-get -y install vnc4server; '
+                                        +'apt-get -y install gnome-core xfce4 xfce4-goodies firefox;'
+                                        + 'apt-get -y install tightvncserver; '
                                         +'fi;']
                              }
 toolbox.setwallpaper='default' #wallpaper if it is a workstation type
@@ -214,7 +214,7 @@ else
     export PATH=%%INSTALLDIR%%"/bin:"%%INSTALLDIR%%"/scripts:"${PATH}
 fi
 
-if [[ ":$PATH:" == *":%%INSTALLDIR%%/python:"* ]]; then
+if [[ ":$PYTHONPATH:" == *":%%INSTALLDIR%%/python:"* ]]; then
     true
 else
     export PYTHONPATH=%%INSTALLDIR%%"/python:"${PYTHONPATH}
