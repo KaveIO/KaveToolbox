@@ -167,6 +167,8 @@ fi
                 if not os.path.exists(cfpath):
                     os.makedirs(cfpath,0755)
                 self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),'xfce4-desktop.xml')+ ' ' + cfpath)
+                self.run("sed -i 's/%%INSTALLDIR%%/"+self.todir().replace('\\','\\\\')+"/g'  "+ os.path.join(cfpath,'xfce4-desktop.xml'))
+                self.run("sed -i 's/%%WPNUM%%/"+str(self.wallpaperselect)+"/g'  "+ os.path.join(cfpath,'xfce4-desktop.xml'))
         return True
 
 
@@ -177,9 +179,11 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                                          'yum -y install tigervnc-server firefox'],
                              "Centos7": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox'],
-                             "Ubuntu": ['if ! type vncserver 2>&1 > /dev/null ; then '# apt-get -y install dictionaries-common; '
-                                        #+'/usr/share/debconf/fix_db.pl; '#apt-get -y install -f; '
-                                        +'apt-get -y install xfce4 xfce4-goodies firefox;'
+                             "Ubuntu": ['apt-get -y install firefox',
+                                        'if ! type vncserver 2>&1 > /dev/null ; then ' # Only install x and vnc if not yet installed
+                                        + 'if -l xserver-xorg-core 2>/dev/null > /dev/null ; then '# Only install x if x not installed
+                                        +'apt-get -y install xfce4 xfce4-goodies;'
+                                        +'fi;'
                                         + 'apt-get -y install tightvncserver; '
                                         +'fi;']
                              }
