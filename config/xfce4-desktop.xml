@@ -12,6 +12,7 @@
     </property>
     <property name="single-workspace-mode" type="bool" value="true"/>
     <property name="single-workspace-number" type="int" value="1"/>
+    </property>
   </property>
   <property name="last" type="empty">
     <property name="window-width" type="int" value="544"/>
