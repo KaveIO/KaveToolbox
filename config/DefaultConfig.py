@@ -155,14 +155,16 @@ if [ -e /etc/profile.d/kave.sh ]; then
 fi
 """)
             f.close()
-        #set wallpaper on workstations
+        #set default wallpaper on workstations
         if self.setwallpaper is True or (self.kind=='workstation' and self.setwallpaper in ['default','workstation']):
             if linuxVersion.lower().startswith("centos"):
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +'--set /desktop/gnome/background/picture_filename '+self.todir()+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +' --set /desktop/gnome/background/picture_options centered')
-
+            if linuxVersion.lower().startswith("ubuntu"):
+                os.makedirs('/etc/xdg/xfce4/xfconf/xfce-perchannel-xml',0755)
+                self.run('cp '+os.path.join(os.path.realpath(__file__),'xfce4-desktop.xml')+ ' /etc/xdg/xfce4/xfconf/xfce-perchannel-xml/')
         return True
 
 
