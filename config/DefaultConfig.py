@@ -167,8 +167,8 @@ fi
                 if not os.path.exists(cfpath):
                     os.makedirs(cfpath,0755)
                 self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),'xfce4-desktop.xml')+ ' ' + cfpath)
-                self.run("sed -i 's/%%INSTALLDIR%%/"+self.todir().replace('\\','\\\\')+"/g'  "+ os.path.join(cfpath,'xfce4-desktop.xml'))
-                self.run("sed -i 's/%%WPNUM%%/"+str(self.wallpaperselect)+"/g'  "+ os.path.join(cfpath,'xfce4-desktop.xml'))
+                self.run('sed -i "s/%%INSTALLDIR%%/'+self.todir().replace('/','\\/')+'/g"  '+ os.path.join(cfpath,'xfce4-desktop.xml'))
+                self.run('sed -i "s/%%WPNUM%%/'+str(self.wallpaperselect)+'/g"  '+os.path.join(cfpath,'xfce4-desktop.xml'))
         return True
 
 
@@ -180,12 +180,11 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                              "Centos7": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox'],
                              "Ubuntu": ['apt-get -y install firefox',
-                                        'if ! type vncserver 2>&1 > /dev/null ; then ' # Only install x and vnc if not yet installed
-                                        + 'if -l xserver-xorg-core 2>/dev/null > /dev/null ; then '# Only install x if x not installed
+                                        'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ; then true; else '# Only install x if x not installed
                                         +'apt-get -y install xfce4 xfce4-goodies;'
-                                        +'fi;'
-                                        + 'apt-get -y install tightvncserver; '
-                                        +'fi;']
+                                        +'fi;',
+                                        'apt-get -y install tightvncserver'
+                                        ]
                              }
 toolbox.setwallpaper='default' #wallpaper if it is a workstation type
 toolbox.wallpaperselect=0 #a number between 0 and 9
