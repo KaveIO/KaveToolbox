@@ -5,6 +5,10 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
+## v1.4-Beta
+
+* Minor release with incremental fixes to installer on centos6 and mover anaconda version
+
 ## v1.3-Beta
 
 * Bugfix release with high-impact fixes for Ubuntu and Centos7
