@@ -168,7 +168,7 @@ if workstation:
 else:
     print "configuring node"
 
-everything = [cnf.toolbox, cnf.eclipse, cnf.conda, cnf.hpy, cnf.root, cnf.kettle, cnf.r]
+everything = [cnf.toolbox, cnf.eclipse, cnf.conda, cnf.gsl, cnf.hpy, cnf.root, cnf.kettle, cnf.r]
 
 if not quieter:
     print "options read from configuration file"
