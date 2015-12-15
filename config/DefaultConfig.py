@@ -294,7 +294,8 @@ conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --
                                 "pip install delorean seaborn pygal mpld3 ",
                                 "pip install cairosvg pyhs2 shapely descartes",
                                 "pip install pyproj folium vincent pam",
-                                "pip install py4j"]}
+                                "pip install py4j",
+                                " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; fi "]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
