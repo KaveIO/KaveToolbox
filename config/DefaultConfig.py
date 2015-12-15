@@ -293,7 +293,8 @@ conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi* libsasl2-de
 conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
                                 "pip install delorean seaborn pygal mpld3 ",
                                 "pip install cairosvg pyhs2 shapely descartes",
-                                "pip install pyproj folium vincent pam"]}
+                                "pip install pyproj folium vincent pam",
+                                "pip install py4j"]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
@@ -311,6 +312,24 @@ if [ -d ${ana}  ]; then
     fi
 fi
 """
+
+#######################  pygsl  ############################
+
+class pygsl(Component):
+    pass
+
+gsl = pygsl("pygsl")
+gsl.doInstall = True
+gsl.src_from=[li.fromKPMGrepo("pygsl-2.1.1.tar.gz", arch="noarch"),
+              "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
+gsl.pre = {"Centos6": ["yum -y install gsl gsl-dev"]}
+gsl.pre["Centos7"]=gsl.pre["Centos6"]
+gsl.pre["Ubuntu"]=["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
+gsl.postwithenv={"Centos6":["cd "+self.cname+"; python setup.py build ",
+                            "cd "+self.cname+"; python setup.py install "]}
+gsl.postwithenv["Centos7"]=gsl.postwithenv["Centos6"]
+gsl.postwithenv["Ubuntu"]=gsl.postwithenv["Centos6"]
+gsl.registerToolbox(toolbox)
 
 #######################  Hadoop modules  ############################
 

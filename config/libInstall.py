@@ -347,6 +347,10 @@ class Component(object):
             self.run("./" + dest)
         elif ext.endswith(".py"):
             self.run("python ./" + dest)
+        elif ext.endswith(".tar.gz"):
+            self.run("tar -xzf ./" + dest)
+        elif ext.endswith(".tar"):
+            self.run("tar -xf ./" + dest)
         return True
 
     def todir(self):
