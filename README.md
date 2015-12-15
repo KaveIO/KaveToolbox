@@ -341,3 +341,18 @@ unset SSH_ASKPASS
 ## Is it possible to install the software without root/superuser privilages?
 
 So long as the pre-requisites are already installed (see the yum install commands in the Configuration.py) it is possible to install all the software we package into a local directory, however that is not implemented yet and will not permit seamless integration of all users and machines in a network, and it will not be possible to automatically source the environment for all users.
+
+## Javascript elements of d3js, geomaps, or vincent will not display
+
+This is usually your local browser which is blocking things:
+
+* Not allowed to run unsafe/unverified scripts (look for the tell-tale icon in the browser toolbar)
+* Not allowed to display mixed content (if the trying to display https, look for the tell-tale icon in the browser toolbar)
+
+In the first case, you can simply permit scripts running, by clicking on the correct icon and choosing the correct option.
+
+In the second case, there are tow solutions. Best is to restart/modify mpld3 options with the correct options to switch to https for the javascript part aswell. The other option is to allow mixed content in your browser for ipython notebooks.
+
+http://stackoverflow.com/questions/21089935/unable-plot-with-vincent-in-ipython
+https://mpld3.github.io/modules/API.html
+https://mpld3.github.io/modules/API.html#mpld3.enable_notebook
