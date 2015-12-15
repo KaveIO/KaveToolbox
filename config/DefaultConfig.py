@@ -300,8 +300,8 @@ conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
 conda.installSubDir = "anaconda"
 conda.registerToolbox(toolbox)
-conda.src_from = [li.fromKPMGrepo("Anaconda-2.2.0-Linux-x86_64.sh", arch="noarch"),
-                  "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda-2.2.0-Linux-x86_64.sh"]
+conda.src_from = [li.fromKPMGrepo("Anaconda-2.4.1-Linux-x86_64.sh", arch="noarch"),
+                  "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIR%%"
 if [ -d ${ana}  ]; then
@@ -325,8 +325,8 @@ gsl.src_from=[li.fromKPMGrepo("pygsl-2.1.1.tar.gz", arch="noarch"),
 gsl.pre = {"Centos6": ["yum -y install gsl gsl-dev"]}
 gsl.pre["Centos7"]=gsl.pre["Centos6"]
 gsl.pre["Ubuntu"]=["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
-gsl.postwithenv={"Centos6":["cd "+gsl.cname+"; python setup.py build ",
-                            "cd "+gsl.cname+"; python setup.py install "]}
+gsl.postwithenv={"Centos6":[" cd pygsl-2.1.1; python setup.py build ",
+                            " cd pygsl-2.1.1; python setup.py install "]}
 gsl.postwithenv["Centos7"]=gsl.postwithenv["Centos6"]
 gsl.postwithenv["Ubuntu"]=gsl.postwithenv["Centos6"]
 gsl.registerToolbox(toolbox)
