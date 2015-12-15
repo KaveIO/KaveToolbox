@@ -325,8 +325,8 @@ gsl.src_from=[li.fromKPMGrepo("pygsl-2.1.1.tar.gz", arch="noarch"),
 gsl.pre = {"Centos6": ["yum -y install gsl gsl-dev"]}
 gsl.pre["Centos7"]=gsl.pre["Centos6"]
 gsl.pre["Ubuntu"]=["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
-gsl.postwithenv={"Centos6":["cd "+self.cname+"; python setup.py build ",
-                            "cd "+self.cname+"; python setup.py install "]}
+gsl.postwithenv={"Centos6":["cd "+gsl.cname+"; python setup.py build ",
+                            "cd "+gsl.cname+"; python setup.py install "]}
 gsl.postwithenv["Centos7"]=gsl.postwithenv["Centos6"]
 gsl.postwithenv["Ubuntu"]=gsl.postwithenv["Centos6"]
 gsl.registerToolbox(toolbox)
