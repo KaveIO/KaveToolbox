@@ -335,7 +335,7 @@ gsl = pygsl("pygsl")
 gsl.doInstall = True
 gsl.src_from=[li.fromKPMGrepo("pygsl-2.1.1.tar.gz", arch="noarch"),
               "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
-gsl.pre = {"Centos6": ["yum -y install gsl gsl-dev"]}
+gsl.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl.pre["Centos7"]=gsl.pre["Centos6"]
 gsl.pre["Ubuntu"]=["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
 gsl.postwithenv={"Centos6":[" cd pygsl-2.1.1; python setup.py build ",
