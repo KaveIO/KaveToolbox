@@ -228,7 +228,7 @@ else
 fi
 
 #Add spark if spark is installed
-if type pyspark; then
+if type pyspark >/dev/null 2>/dev/null; then
   export SPARK_HOME=`readlink -f \`which pyspark\``
   export SPARK_HOME=`dirname \`dirname $SPARK_HOME\``
   if [[ ":$PYTHONPATH:" == *":$SPARK_HOME/python:"* ]]; then
