@@ -1,23 +1,34 @@
-# -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <codecell>
+##############################################################################
+#
+# Copyright 2015 KPMG N.V. (unless otherwise stated)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+##############################################################################
+import numpy
+import scipy.stats
+import math
+import matplotlib.pyplot as plt
+import numpy as np
 
 def HypergeometricVariableMinimum(N, K, n):
     "Return the minimum value the variable can take"
     return long(n - N + K if n - N + K > 0 else 0)
 
 
-# <codecell>
-
 def HypergeometricVariableMaximum(N, K, n):
     "Return the maximum value the variable can take"
     return long(n if n < K else K)
-
-# <codecell>
-
-import numpy
-import scipy.stats
 
 
 def HypergeometricSumOfLargerProbabilities(N, K, n, k):
@@ -25,7 +36,7 @@ def HypergeometricSumOfLargerProbabilities(N, K, n, k):
     Determines how unlikely it is that given a total sample of N elements with K elements of a specific type,
     a random subsample of n elements contains k elements of the specific type.
     Returns a value between 0 and 1, where 1 indicates very unlikely and 0 very likely.
-    If the subsample is truly drawn in a random way from the total sample, then this 
+    If the subsample is truly drawn in a random way from the total sample, then this
     HypergeometricSumOfLargerProbabilities has a uniform distribution.
     """
     if n == 0 or K == 0:
@@ -58,19 +69,12 @@ def HypergeometricSumOfLargerProbabilities(N, K, n, k):
             result = result + prob
     return result
 
-
-# <codecell>
-
-import numpy
-import scipy.stats
-
-
 def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
     """
     Determines how unlikely it is that after a first sample of N elements with n elements of a specific type,
     a second sample of M elements contains m elements of the specific type.
     Returns a value between 0 and 1, where 1 indicates very unlikely and 0 very likely.
-    If the second sample is truly drawn from the same collection as the first sample, then this 
+    If the second sample is truly drawn from the same collection as the first sample, then this
     InverseHypergeometricSumOfLargerProbabilities has a uniform distribution.
     """
     sampleprobability = scipy.stats.hypergeom.pmf(m, N + M, n + m, M)
@@ -99,9 +103,6 @@ def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
             result = result + prob
     return result * float(N + 1) / float(N + M + 1)
 
-# <codecell>
-
-import numpy, math
 
 
 def Hypergeometric2DHistogramCorrelationQuantisation(H2D):
@@ -110,8 +111,8 @@ def Hypergeometric2DHistogramCorrelationQuantisation(H2D):
     and determines if the two variables/axes are uncorrelated,
     i.e. if the probability to get an x and y is the product of
     probabilities to get x and y separately p(x,y) = p(x)p(y).
-    It does so by calculating for each bin a p-value, whether 
-    entries in bin (x,y) can be expected from all entries in x 
+    It does so by calculating for each bin a p-value, whether
+    entries in bin (x,y) can be expected from all entries in x
     and all entries in y.
     Returns a 2D histogram of p-values for each bin
     """
@@ -127,40 +128,9 @@ def Hypergeometric2DHistogramCorrelationQuantisation(H2D):
             SOLP[j][i] = p
     return SOLP
 
-# <codecell>
-
-"Shows that the hypergeometric sum of larger probabilities (SOLP) acts as a p-value,"
-"i.e. that for a random hypergeometric variable the SOLP has uniform distribution."
-% matplotlib
-inline
-import matplotlib.pyplot as plt
-import numpy as np
-
-NRANDOM = 10000
-N = 100
-K = 10
-n = 90
-l = []
-for i in range(0, NRANDOM):
-    k = scipy.stats.hypergeom.rvs(N, K, n)
-    l.append(HypergeometricSumOfLargerProbabilities(N, K, n, k))
-fig = plt.figure()
-ax = fig.add_subplot(111)
-bs = ax.hist(l, 1000, range=(0, 1), normed=True, color='red')
-
-# <codecell>
-
-"Shows that the inverse hypergeometric sum of larger probabilities (SOLP) acts as a p-value,"
-"i.e. that for a random inverse hypergeometric variable the SOLP has uniform distribution."
-% matplotlib
-inline
-import matplotlib.pyplot as plt
-import numpy as np
-
-"Helper function that generates a random inverse hypergeometric variable"
-
 
 def InverseHypergeometricRandomVariable(M, N, n):
+    """Helper function that generates a random inverse hypergeometric variable"""
     p = np.random.uniform()
     prob = scipy.stats.hypergeom.pmf(0, N + M, n, M) * float(N + 1) / float(N + M + 1)
     sumprob = prob
@@ -169,55 +139,4 @@ def InverseHypergeometricRandomVariable(M, N, n):
         prob = prob * float((n + m + 1) * (M - m)) / float((m + 1) * (N + M - n - m))
         sumprob += prob
     return m
-
-
-"Make some plots"
-NRANDOM = 10000
-N = 100
-n = 50
-M = 200
-a = []
-l = []
-for i in range(0, NRANDOM):
-    k = InverseHypergeometricRandomVariable(M, N, n)
-    a.append(k)
-    l.append(InverseHypergeometricSumOfLargerProbabilities(k, M, n, N))
-
-fig = plt.figure()
-ax1 = fig.add_subplot(121)
-bs = ax1.hist(a, 1000, range=(0, M), normed=True, color='red')
-ax2 = fig.add_subplot(122)
-bs = ax2.hist(l, 1000, range=(0, 1), normed=True, color='red')
-
-# <codecell>
-
-import matplotlib.pyplot as plt
-
-xuncorr = numpy.random.normal(0, 1, 10000)
-yuncorr = numpy.random.normal(3, 2, 10000)
-xcorr = numpy.zeros(10000)
-ycorr = numpy.zeros(10000)
-for i in range(0, 10000):
-    a = numpy.random.normal(0, 1, 1)
-    ycorr[i] = a
-    xcorr[i] = (numpy.random.normal(0, 1 + 4 * abs(a),
-                                    1))  # We introduce a correlation between x and y in the width/sigma of the
-    # x-variable
-H2Duncorr, xeuncorr, yeuncorr = numpy.histogram2d(xuncorr, yuncorr, bins=100)
-H2Dcorr, xecorr, yecorr = numpy.histogram2d(xcorr, ycorr, bins=100)
-SOLP2Duncorr = Hypergeometric2DHistogramCorrelationQuantisation(H2Duncorr)
-SOLP2Dcorr = Hypergeometric2DHistogramCorrelationQuantisation(H2Dcorr)
-extentuncorr = [xeuncorr[0], xeuncorr[-1], yeuncorr[0], yeuncorr[-1]]
-extentcorr = [xecorr[0], xecorr[-1], yecorr[0], yecorr[-1]]
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(20, 6))
-ax1.imshow(H2Duncorr.T, interpolation='nearest', origin='lower', extent=extentuncorr)
-ax2.imshow(SOLP2Duncorr.T, interpolation='nearest', origin='lower', extent=extentuncorr)
-ax3.imshow(H2Dcorr.T, interpolation='nearest', origin='lower', extent=extentcorr)
-ax4.imshow(SOLP2Dcorr.T, interpolation='nearest', origin='lower', extent=extentcorr)
-meanuncorr = SOLP2Duncorr.mean()
-meancorr = SOLP2Dcorr.mean()
-print 'The mean value for the uncorrelated histogram = %f, which is %f standard deviations away from 1/2' % (
-    meanuncorr, (meanuncorr - 0.5) * math.sqrt(12 * SOLP2Duncorr.size))
-print 'The mean value for the correlated histogram = %f, which is %f standard deviations away from 1/2' % (
-    meancorr, (meancorr - 0.5) * math.sqrt(12 * SOLP2Dcorr.size))
 

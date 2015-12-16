@@ -1,49 +1,30 @@
-from confidenceCalc import quantileCalc
+##############################################################################
+#
+# Copyright 2015 KPMG N.V. (unless otherwise stated)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+##############################################################################
+"""
+Stattools is a collection of statistical methods which don't otherwise appear in numpy/root/r
 
+At the moment, we have two sub modules:
+- confidencecalc: calculate a multi-edge configence window based on confidence levels
+   finds an area around the peak containing x% of the points
+   by gradually lowering a watershed line through the data
+   Copes with none monotonous data.
+   See the example notebook for more information and usage
 
-def testVerticalQuantile():
-    """
-    This is the test method for the vertical Quantile class
-    """
-
-    import numpy as np
-    # generating data:
-    x = np.arange(-10 * np.pi, 10 * np.pi, 0.01)
-    ygaus = np.exp(-0.5 * ((x)) ** 2)
-    qc = quantileCalc(x, ygaus)
-    ygauslvl, intervals = qc.getVerticalQuantile()
-    print '====Simple Gaussian===='
-    print 'Mean = 0, Sigma = 1'
-    print 'The 68% confidence interval:'
-    print 'Interval found at y = %f' % ygauslvl
-    print 'The interval is: ', intervals
-    print 'Plotting....'
-    qc.plot()
-
-    # generating data:
-    ygaus = np.exp(-0.5 * ((x - 5) / 3) ** 2) + np.exp(-0.5 * ((x + 5)) ** 2)
-    qc = quantileCalc(x, ygaus)
-    ygauslvl, intervals = qc.getVerticalQuantile()
-    print '\n====Double Gaussian===='
-    print 'Mean1 = +5, Sigma1 = 3'
-    print 'Mean2 = -5, Sigma2 = 1'
-    print 'The 68% confidence interval:'
-    print 'Interval found at y = %f' % ygauslvl
-    print 'The intervals are: ', intervals
-    print 'Plotting....'
-    qc.plot()
-
-    #a complicated function:
-    ycomp = np.sin(x) ** 2 * x ** 2
-    qc = quantileCalc(x, ycomp)
-    ycomplvl, intervals = qc.getVerticalQuantile()
-    print '\n====Sin^2(x) * x^2 ===='
-    print 'The 68% confidence interval:'
-    print 'Interval found at y = %f' % ygauslvl
-    print 'The intervals are: ', intervals
-    print 'Plotting....'
-    qc.plot()
-
-
-if __name__ == "__main__":
-    testVerticalQuantile()
+- hypergeometrictools: simple helper functions for hypergeometric calculations
+"""
+from confidencecalc import quantileCalc

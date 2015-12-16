@@ -1,3 +1,20 @@
+##############################################################################
+#
+# Copyright 2015 KPMG N.V. (unless otherwise stated)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+##############################################################################
 from scipy.interpolate import InterpolatedUnivariateSpline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,7 +25,7 @@ class quantileCalc:
     """
     This class is built for calculating the confidence intervals from the y-direction. The result will be a list of
     intervals of which the combined integral under the normalized curve reaches the desired confidence interval.
-    
+
     USAGE:
     -Generate x-points-
     x = np.arange(-10*np.pi,10*np.pi,0.01)
@@ -28,10 +45,10 @@ class quantileCalc:
         """
         The constructor:
         It takes the input variables and stores them. It also normalizes the data and computes the vertical quantiles.
-        
+
         - xpts: a numpy array with the x points of the data
         - ypts: a numpy array with the y points of the data
-        - lvl: the requested confidence interval 
+        - lvl: the requested confidence interval
         - numiter: the number of iterations
         """
         self.x = xpts
@@ -98,7 +115,7 @@ class quantileCalc:
             #print step, ylow, diff
 
             if prevdiff > diff:
-                #wrong direction: go back and take a smaller step  
+                #wrong direction: go back and take a smaller step
                 ylow = prevylow
                 step = step / 2.0
                 points = self.__getPoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)

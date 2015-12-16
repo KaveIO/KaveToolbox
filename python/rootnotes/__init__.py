@@ -21,6 +21,11 @@ Manipulated by Fabian Jansen for KPMG.
 
 More examples: http://mazurov.github.io/webfest2013/
 
+rootnotes is a small library which aids in the integration of ROOT with python
+and especially helps with ipython notebooks
+
+see also the root_pandas and the root_numpy libraries
+
 @author jansen.fabian@kpmg.nl
 @date 2014-07-01
 """
@@ -34,7 +39,9 @@ HISTOCOUNTER = 0
 
 
 def TH1D(nbinsx=40, xmin=0, xmax=1, title=None, name=None):
-    """Helper method for creating 1D histograms"""
+    """Helper method for creating 1D histograms
+    Returns a TH1D object, each named TH1D is
+    a singleton unique by name"""
     if title is None:
         title = ''
     if name is not None:
@@ -51,7 +58,9 @@ def TH1D(nbinsx=40, xmin=0, xmax=1, title=None, name=None):
 
 
 def TH2D(nbinsx=40, xmin=0, xmax=1, nbinsy=40, ymin=0, ymax=1, title=None, name=None):
-    """Helper method for creating 2D histograms"""
+    """Helper method for creating 2D histograms
+    Returns a TH2D object, each named TH2D is
+    a singleton unique by name"""
     if title is None:
         title = ''
     if name is not None:
@@ -68,7 +77,9 @@ def TH2D(nbinsx=40, xmin=0, xmax=1, nbinsy=40, ymin=0, ymax=1, title=None, name=
 
 
 def canvas(name="icanvas", size=(800, 600)):
-    """Helper method for creating ROOT canvas"""
+    """Helper method for creating ROOT canvas
+    Returns a TCanvas object, each named TCanvas is
+    a singleton unique by name"""
     # Check if icanvas already exists
     canvas = ROOT.gROOT.FindObject(name)
     assert len(size) == 2
@@ -80,12 +91,13 @@ def canvas(name="icanvas", size=(800, 600)):
 
 
 def display_canvas(canvas):
-    """Helper method for drawing a ROOT canvas inline"""
+    """Helper method for drawing a ROOT canvas inline, used with python magic functions"""
     file = tempfile.NamedTemporaryFile(suffix=".png")
     canvas.SaveAs(file.name)
     display.display(display.Image(filename=file.name, format='png', embed=True))
 
 def _display_any(obj):
+    """Helper method for drawing a ROOT canvas inline, used with python magic functions"""
     file = tempfile.NamedTemporaryFile(suffix=".png")
     obj.Draw()
     ROOT.gPad.SaveAs(file.name)
