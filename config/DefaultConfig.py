@@ -227,6 +227,17 @@ else
     export PYTHONPATH=%%INSTALLDIR%%"/python:"${PYTHONPATH}
 fi
 
+#Add spark if spark is installed
+if type pyspark; then
+  export SPARK_HOME=`readlink -f \`which pyspark\``
+  export SPARK_HOME=`dirname \`dirname $SPARK_HOME\``
+  if [[ ":$PYTHONPATH:" == *":$SPARK_HOME/python:"* ]]; then
+    true
+  else
+    export PYTHONPATH=${SPARK_HOME}"/python:"${PYTHONPATH}
+  fi
+fi
+
 """
 
 
