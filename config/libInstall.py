@@ -393,6 +393,8 @@ class Component(object):
             print "Skipping", self.cname, "because it is already installed"
             print "remove", self.installDir, "if you want to install"
             return self.buildEnv()
+        else:
+            print "Installing", self.cname
         if self.tmpdir is not None:
             os.chdir(self.tmpdir)
         #run prerequisites
