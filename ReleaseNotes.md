@@ -7,7 +7,16 @@ Contains a list of the released versions with a summary of the main changes in e
 
 ## v1.4-Beta
 
-* Minor release with incremental fixes to installer on centos6 and mover anaconda version
+* Minor release with incremental fixes and small version updates
+
+* Update to Anaconda 2.4
+* Update to ROOT 5.34.34
+* add pygsl and py4j
+* add spark python to python path if spark is available
+* Fix some issues with x-installation on ubuntu (would always re-install X)
+* Rename a lot of examples
+* Code review of modules in our python directory
+* Adjust ProtectNotebooks.py to work with Jupyter as well as old ipython
 
 ## v1.3-Beta
 
