@@ -505,7 +505,7 @@ root = RootComponent("root")
 root.doInstall = True
 root.installSubDir = "root"
 root.options = {"Strategy": "Default",
-                "Version": "v5.34.21",
+                "Version": "v5.34.34",
                 "UpdateSoftlink": True,
                 "LowMemoryMode": False,
                 "conf": {
