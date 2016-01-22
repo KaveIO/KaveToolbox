@@ -17,6 +17,7 @@ Contains a list of the released versions with a summary of the main changes in e
 * Rename a lot of examples
 * Code review of modules in our python directory
 * Adjust ProtectNotebooks.py to work with Jupyter as well as old ipython
+* Fix packaging/installation script so that it copes with missing repositories in the mirrors file
 
 ## v1.3-Beta
 
