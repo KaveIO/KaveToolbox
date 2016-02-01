@@ -515,7 +515,7 @@ root.options = {"Strategy": "Default",
                                "--enable-mathmore --fail-on-missing",
                     "Ubuntu": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
                               "--enable-mathmore --fail-on-missing"},
-                "pip": ["root_numpy", "git+https://github.com/ibab/root_pandas"]
+                "pip": ["root_numpy", "git+https://github.com/ibab/root_pandas", "rootpy"]
                 }
 root.src_from = "ftp://root.cern.ch/root/"
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
@@ -563,9 +563,9 @@ elif [ -e %%INSTALLDIR%%/bin/thisroot.sh ]; then
     source %%INSTALLDIR%%/bin/thisroot.sh
 fi
 """
-root.postwithenv={"Centos6" : ["pip install rootpy"]}
-root.postwithenv["Centos7"]=root.postwithenv["Centos6"]
-root.postwithenv["Ubuntu"]=root.postwithenv["Centos6"]
+#root.postwithenv={"Centos6" : ["pip install rootpy"]}
+#root.postwithenv["Centos7"]=root.postwithenv["Centos6"]
+#root.postwithenv["Ubuntu"]=root.postwithenv["Centos6"]
 
 #######################  KETTLE  ############################
 class Kettle(Component):
