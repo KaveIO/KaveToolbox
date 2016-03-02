@@ -398,7 +398,7 @@ class HadoopPy(Component):
 hpy = HadoopPy("hadoop_python_modules")
 hpy.doInstall = True
 hpy.options = {"pip": ["pymongo_hadoop", "pyleus", "mrjob"],  #no pydoop yet, doesn't work very well
-               "easy_install": ["-z dumbo"],
+               "easy_install": [], #"-z dumbo"], # dumbo is broken at the moment via easy_install
                "JavaHome": None,
                "HadoopHome": None
                }
