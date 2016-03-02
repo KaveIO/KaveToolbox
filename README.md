@@ -114,11 +114,11 @@ You have two choices:
 
 We recommend to install with the default configurations, but in case you want to modify the configurations you can create a file in /etc/kave/CustomInstall.py,For an example and more information run the installer with --help
 
-* 1: Installing the released version, for example, 1.4-Beta
+* 1: Installing the released version, for example, 2.0-Beta-Pre
 ```
 yum -y install wget curl tar zip unzip gzip
-wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/1.4-Beta/kavetoolbox-installer-1.4-Beta.sh
-sudo bash kavetoolbox-installer-1.4-Beta.sh [--quiet]
+wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.0-Beta-Pre/kavetoolbox-installer-2.0-Beta-Pre.sh
+sudo bash kavetoolbox-installer-2.0-Beta-Pre.sh [--quiet]
 ```
 (--quiet is for a quieter install, remove the brackets!)
 Remember the help at this stage  [--help]
@@ -206,8 +206,8 @@ sudo ./scripts/KaveInstall [--quiet]
 Or, similarly for some new released version:
 ```
 sudo rm -rf /opt/KaveToolbox
-wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/1.4-Beta/kavetoolbox-installer-1.4-Beta.sh
-sudo bash kavetoolbox-installer-1.4-Beta.sh [--quiet]
+wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.0-Beta-Pre/kavetoolbox-installer-2.0-Beta-Pre.sh
+sudo bash kavetoolbox-installer-2.0-Beta-Pre.sh [--quiet]
 ```
 
 ( NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks

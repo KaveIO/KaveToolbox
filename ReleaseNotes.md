@@ -5,6 +5,10 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
+## v2.0-Beta
+
+Major version change, mirroring the version increase of AmbariKave
+
 ## v1.4-Beta
 
 * Minor release with incremental fixes and small version updates
