@@ -176,10 +176,10 @@ toolbox = Toolbox("KaveToolbox")
 toolbox.doInstall = True
 toolbox.installSubDir = "KaveToolbox"
 toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\*',
-                                         'yum -y install tigervnc-server firefox'],
+                                         'yum -y install tigervnc-server firefox xpdf'],
                              "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\* --skip-broken',
-                                         'yum -y install tigervnc-server firefox pixman pixman-devel libXfont'],
-                             "Ubuntu": ['apt-get -y install firefox',
+                                         'yum -y install tigervnc-server firefox pixman pixman-devel libXfont xpdf'],
+                             "Ubuntu": ['apt-get -y install firefox xpdf',
                                         'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ; then true; else '# Only install x if x not installed
                                         +'apt-get -y install xfce4 xfce4-goodies;'
                                         +'fi;',
