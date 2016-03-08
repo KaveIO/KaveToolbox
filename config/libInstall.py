@@ -182,7 +182,7 @@ def detectLinuxVersion():
 
 def df(filename, options=[]):
     filename = os.path.realpath(filename)
-    if not os.path.exists(filename):
+    while not os.path.exists(filename) and len(filename)>1:
         filename = os.path.realpath(filename+'/../')
     if not os.path.exists(filename):
         raise OSError("File does not exist so I cannot check anything for "+filename)
@@ -307,8 +307,9 @@ class Component(object):
         self.tmpdir = None
         self.topdir = None
         self.toolbox = None
-        self.freespace = 0 # size requirement in mb
-        self.tempspace = 0 # size requirement in mb
+        self.freespace = 0 # /installdir size requirement in mb
+        self.tempspace = 0 # /tmp size requirement in mb
+        self.usrspace = 0 # /usr size requirement in mb
         self.env = ""
 
     def copy(self, optional_froms, dest):
@@ -388,6 +389,22 @@ class Component(object):
             return InstallTopDir
         return None
 
+    def checkadisk(self, disk, space):
+        """
+        Check that so much space is available on a disk containing a given directory
+        """
+        # check inodes
+        free_inodes = df(disk, ['-i'])
+        free = int(free_inodes[3])
+        if free < 100:
+            raise OSError("No free inodes on mount point "+free_inodes[-1]+" to install "+self.cname)
+        free_space = df(disk, ['-m'])
+        free = int(free_inodes[3])
+        if free < space:
+            raise OSError("Not enough space on mount point "+free_space[-1]+" to install "+self.cname
+                          + " skip the installation, cleanup, or add more disk space")
+        return free_space[-1]
+
 
     def install(self, kind="node", tmpdir=None, loud=True):
         """
@@ -412,50 +429,36 @@ class Component(object):
             print "Skipping", self.cname, "because it is already installed"
             print "remove", self.installDir, "if you want to force re-install"
             return self.buildEnv()
+        ##############################
         # Check disk space
+        ##############################
         free_disk = None
+        mounts={}
         if self.freespace:
-            free_disk = 0
             if self.installDir:
-                free_disk = df(self.installDir, ['-m'])
+                mounts[self.installDir]=self.freespace
             else:
-                free_disk = df('/', ['-m'])
-            free = int(free_disk[3])
-            if free < self.freespace:
-                raise OSError("Not enough disk space in "+res[-1]+" to install "+self.cname
-                              +" modify the install directories, skip installing this component, or add more disk space "
-                              + "needed: " + str(self.freespace-free) + " extra MB")
-            free_inodes = 0
-            if self.installDir:
-                free_inodes = df(self.installDir, ['-i'])
+                mounts['/']=self.freespace
+        if self.tempspace:
+            if self.tmpdir:
+                mounts[self.tmpdir]=self.freespace
             else:
-                free_inodes = df('/', ['-i'])
-            free = int(free_inodes[3])
-            if free < 100:
-                raise OSError("No free inodes on mount point "+res[-1]+" to install "+self.cname)
-        # Check temp space
-        if self.tmpdir is not None:
-            if self.tempspace:
-                free_inodes = df(self.tmpdir, ['-i'])
-                free = int(free_inodes[3])
-                if free < 100:
-                    raise OSError("No free inodes on mount point "+res[-1]+" to download/unpack "+self.cname)
-                res = df(self.tmpdir, ['-m'])
-                free = int(res[3])
-                if free < self.tempspace:
-                    raise OSError("Not enough temp space in "+res[-1]+" to download/unpack "+self.cname
-                                  +" skip installing this component, or add more disk space "
-                                  + "needed: " + str(self.tempspace-free) + " extra MB")
-                # If the tempdir resides on the same place as the installDir, I need the sum of the space
-                if free_disk is not None:
-                    if free_disk[-1]==res[-1]:
-                        if free < self.tempspace+self.freespace:
-                            raise OSError("Not enough space in "+res[-1]+" to download/unpack/install "+self.cname
-                                          +" /tmp is on the same partition as the install dir"
-                                          + " skip installing this component, or add more disk space "
-                                          + "needed: " + str(self.freespace+self.tempspace-free) + " extra MB")
-            os.chdir(self.tmpdir)
+                mounts['/tmp']=self.freespace
+        if self.usrspace:
+            mounts['/usr']=self.usrspace
+        # Check and also combine in the case that they sit on the same mountpoint
+        checked_mounts = {}
+        for k,v in mounts.iteritems():
+            mnt=self.checkadisk(k,v)
+            try:
+                checked_mounts[mnt]=checked_mounts[mnt]+v
+            except KeyError:
+                checked_mounts[mnt]=v
+        if len(checked_mounts) < len(mounts):
+            [self.checkadisk(k,v) for k,v in checked_mounts.iteritems()]
+        ##############################
         #run prerequisites
+        ##############################
         if self.pre is not None and linuxVersion in self.pre:
             for cmd in self.pre[linuxVersion]:
                 self.run(cmd)
