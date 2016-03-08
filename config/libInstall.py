@@ -399,7 +399,7 @@ class Component(object):
         if free < 100:
             raise OSError("No free inodes on mount point "+free_inodes[-1]+" to install "+self.cname)
         free_space = df(disk, ['-m'])
-        free = int(free_inodes[3])
+        free = int(free_space[3])
         if free < space:
             raise OSError("Not enough space on mount point "+free_space[-1]+" to install "+self.cname
                           + " skip the installation, cleanup, or add more disk space")
