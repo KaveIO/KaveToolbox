@@ -684,7 +684,7 @@ r.pre = {"Centos6": ['yum -y install epel-release',
 r.pre["Centos7"]=r.pre["Centos6"]
 r.postwithenv={"Centos6":["conda update conda --yes; pip install rpy2"]}
 r.postwithenv["Centos7"]=r.postwithenv["Centos6"]
+r.postwithenv["Ubuntu"]=["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.usrspace = 150
 r.tempspace = 1
-r.postwithenv["Ubuntu"]=["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.registerToolbox(toolbox)
