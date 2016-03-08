@@ -442,9 +442,9 @@ class Component(object):
                 mounts['/']=self.freespace
         if self.tempspace:
             if self.tmpdir:
-                mounts[self.tmpdir]=self.freespace
+                mounts[self.tmpdir]=self.tempspace
             else:
-                mounts['/tmp']=self.freespace
+                mounts['/tmp']=self.tempspace
         if self.usrspace:
             mounts['/usr']=self.usrspace
         # Check and also combine in the case that they sit on the same mountpoint
