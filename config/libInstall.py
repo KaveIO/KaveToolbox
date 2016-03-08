@@ -180,6 +180,19 @@ def detectLinuxVersion():
             return "Ubuntu"
     return output
 
+def df(filename, options=[]):
+    filename = os.path.fullpath(filename)
+    if not os.path.exists(filename):
+        filename = os.path.fullpath(filename+'/../')
+    if not os.path.exists(filename):
+        raise OSError("File does not exist so I cannot check anything for "+filename)
+    _df = sub.Popen(["df", filename]+options, stdout=sub.PIPE)
+    try:
+        output = _df.communicate()[0]
+    except:
+        raise OSError("Problem retrieving diskspace for "+filename)
+    return output.split("\n")[1].split()
+
 
 def installfrom():
     minstallfrom = os.path.realpath(os.sep.join(__file__.split(os.sep)[:-2]))
@@ -234,6 +247,10 @@ def fromKPMGrepo(filename, arch=linuxVersion):
     find the file for the given os/architecture in a KPMG repo or local mirror
          returns string url if found
          returns None if not found and prints where it looked
+    arch = linux architecture/version to find default current OS
+    version = version of software
+    ext = file extension, used to create filename
+    filename + version + extension = filename
     """
     #default goes last
     sources = []
@@ -290,6 +307,8 @@ class Component(object):
         self.tmpdir = None
         self.topdir = None
         self.toolbox = None
+        self.freespace = 0 # size requirement in mb
+        self.tempspace = 0 # size requirement in mb
         self.env = ""
 
     def copy(self, optional_froms, dest):
@@ -391,11 +410,50 @@ class Component(object):
             return False
         if self.installDir is not None and os.path.exists(self.installDir) and (self.installDir != self.topdir):
             print "Skipping", self.cname, "because it is already installed"
-            print "remove", self.installDir, "if you want to install"
+            print "remove", self.installDir, "if you want to force re-install"
             return self.buildEnv()
-        else:
-            print "Installing", self.cname
+        # Check disk space
+        free_disk = None
+        if self.freespace:
+            free_disk = 0
+            if self.installDir:
+                free_disk = df(self.installDir, ['-m'])
+            else:
+                free_disk = df('/', ['-m'])
+            free = int(free_disk[3])
+            if free < self.freespace:
+                raise OSError("Not enough disk space in "+res[-1]+" to install "+self.cname
+                              +" modify the install directories, skip installing this component, or add more disk space "
+                              + "needed: " + str(self.freespace-free) + " extra MB")
+            free_inodes = 0
+            if self.installDir:
+                free_inodes = df(self.installDir, ['-i'])
+            else:
+                free_inodes = df('/', ['-i'])
+            free = int(free_inodes[3])
+            if free < 100:
+                raise OSError("No free inodes on mount point "+res[-1]+" to install "+self.cname)
+        # Check temp space
         if self.tmpdir is not None:
+            if self.tempspace:
+                free_inodes = df(self.tmpdir, ['-i'])
+                free = int(free_inodes[3])
+                if free < 100:
+                    raise OSError("No free inodes on mount point "+res[-1]+" to download/unpack "+self.cname)
+                res = df(self.tmpdir, ['-m'])
+                free = int(res[3])
+                if free < self.tempspace:
+                    raise OSError("Not enough temp space in "+res[-1]+" to download/unpack "+self.cname
+                                  +" skip installing this component, or add more disk space "
+                                  + "needed: " + str(self.tempspace-free) + " extra MB")
+                # If the tempdir resides on the same place as the installDir, I need the sum of the space
+                if free_disk is not None:
+                    if free_disk[-1]==res[-1]:
+                        if free < self.tempspace+self.freespace:
+                            raise OSError("Not enough space in "+res[-1]+" to download/unpack/install "+self.cname
+                                          +" /tmp is on the same partition as the install dir"
+                                          + " skip installing this component, or add more disk space "
+                                          + "needed: " + str(self.freespace+self.tempspace-free) + " extra MB")
             os.chdir(self.tmpdir)
         #run prerequisites
         if self.pre is not None and linuxVersion in self.pre:

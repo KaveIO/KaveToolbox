@@ -175,6 +175,8 @@ fi
 toolbox = Toolbox("KaveToolbox")
 toolbox.doInstall = True
 toolbox.installSubDir = "KaveToolbox"
+toolbox.freespace = 100
+toolbox.tempspace = 100
 toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\*',
                                          'yum -y install tigervnc-server firefox xpdf'],
                              "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\* --skip-broken',
@@ -272,6 +274,8 @@ eclipse.pre = {"Centos6": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk
                }
 eclipse.installSubDir = "eclipse"
 eclipse.src_from = li.fromKPMGrepo("eclipse.tar.gz", arch="noarch")
+eclipse.freespace = 500
+eclipse.tempspace = 1000
 eclipse.registerToolbox(toolbox)
 eclipse.env = """
 ecl="%%INSTALLDIR%%"
@@ -312,6 +316,8 @@ conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
 conda.doInstall = True
+conda.freespace = 1500
+conda.tempspace = 300
 conda.installSubDir = "anaconda"
 conda.registerToolbox(toolbox)
 conda.src_from = [li.fromKPMGrepo("Anaconda-2.4.1-Linux-x86_64.sh", arch="noarch"),
@@ -343,6 +349,8 @@ gsl.postwithenv={"Centos6":[" cd pygsl-2.1.1; python setup.py build ",
                             " cd pygsl-2.1.1; python setup.py install "]}
 gsl.postwithenv["Centos7"]=gsl.postwithenv["Centos6"]
 gsl.postwithenv["Ubuntu"]=gsl.postwithenv["Centos6"]
+gsl.freespace = 3
+gsl.tempspace = 2
 gsl.registerToolbox(toolbox)
 
 #######################  Hadoop modules  ############################
@@ -556,6 +564,8 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
             }
 
 root.registerToolbox(toolbox)
+root.freespace = 750
+root.tempspace = 500
 root.env = """
 #enable the most recent root installation
 topd="/opt"
@@ -619,6 +629,8 @@ class Kettle(Component):
 
 kettle = Kettle("Kettle")
 kettle.doInstall = True
+kettle.freespace = 700
+kettle.tempspace = 1500
 kettle.installSubDir = "kettle"
 kettle.src_from = [li.fromKPMGrepo("pdi-ce-5.2.0.0-209.zip", arch="noarch"),
                    "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.2/pdi-ce-5.2.0.0-209.zip?r"
@@ -672,5 +684,7 @@ r.pre = {"Centos6": ["rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm"
          }
 r.postwithenv={"Centos6":["conda update conda --yes; pip install rpy2"]}
 r.postwithenv["Centos7"]=r.postwithenv["Centos6"]
+r.freespace = 10
+r.tempspace = 1
 r.postwithenv["Ubuntu"]=["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.registerToolbox(toolbox)
