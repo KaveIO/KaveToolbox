@@ -181,9 +181,9 @@ def detectLinuxVersion():
     return output
 
 def df(filename, options=[]):
-    filename = os.path.fullpath(filename)
+    filename = os.path.realpath(filename)
     if not os.path.exists(filename):
-        filename = os.path.fullpath(filename+'/../')
+        filename = os.path.realpath(filename+'/../')
     if not os.path.exists(filename):
         raise OSError("File does not exist so I cannot check anything for "+filename)
     _df = sub.Popen(["df", filename]+options, stdout=sub.PIPE)

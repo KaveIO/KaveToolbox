@@ -141,9 +141,8 @@ repotest = li.fromKPMGrepo("", "noarch")
 if repotest is None:
     raise IOError(
         "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
-        "settings (did you ensure your su inherits your proxys settings?)")
+        "settings (did you ensure your su inherits your proxy settings?)")
 
-#try:
 import DefaultConfig as cnf
 
 print "Default config from", cnf.__file__
@@ -152,10 +151,6 @@ if os.path.exists('/etc/kave/CustomInstall.py'):
     execfile('/etc/kave/CustomInstall.py')
 else:
     print "no custom configuration found, using defaults"
-
-#except:
-#  raise ImportError("Could not import the configuration file, verify all edits in the file and try again
-# "+conflocation+"DefaultConfig")
 
 kind = "workstation"
 workstation = True
