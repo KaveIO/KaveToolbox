@@ -635,7 +635,7 @@ kettle = Kettle("Kettle")
 kettle.doInstall = True
 kettle.freespace = 700
 kettle.usrspace = 150
-kettle.tempspace = 1500
+kettle.tempspace = 1300
 kettle.installSubDir = "kettle"
 kettle.src_from = [li.fromKPMGrepo("pdi-ce-5.2.0.0-209.zip", arch="noarch"),
                    "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.2/pdi-ce-5.2.0.0-209.zip?r"
