@@ -402,8 +402,8 @@ class Component(object):
         free = int(free_space[3])
         if free < space:
             raise OSError("Not enough space on mount point "+free_space[-1]+" to install "+self.cname
-                          + ". Skip the installation, cleanup, or add more disk space, "
-                          + str(space - free) + " MB needed")
+                          + " (" + disk + "). Skip the installation, cleanup, or add more disk space, an additional "
+                          + str(space - free) + " MB is needed")
         return free_space[-1]
 
 
