@@ -71,10 +71,7 @@ class Toolbox(Component):
         return minstallfrom
 
     def envscript(self):
-        try:
-            guess_installed = self.todir() + os.sep + "scripts" + os.sep + "KaveEnv.sh"
-        except TypeError:
-            guess_installed = self.todir() + os.sep + "scripts" + os.sep + "KaveEnv.sh"
+        guess_installed = self.installDirVersion + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_installed):
             return guess_installed
         installfrom = self.installfrom()
@@ -129,7 +126,7 @@ class Toolbox(Component):
         f = open(self.installfrom() + os.sep + "scripts" + os.sep + "autoKaveEnv.sh")
         l = f.read()
         f.close()
-        l = l.replace("%ENVSCRIPT%", self.envscript())
+        l = l.replace("%ENVSCRIPT%", self.installDirPro+'/scripts/KaveEnv.sh')
         #overwrite if it exists
         if not os.access("/etc/profile.d", os.W_OK):
             self.bauk(
@@ -159,7 +156,7 @@ fi
         if self.setwallpaper is True or (self.kind=='workstation' and self.setwallpaper in ['default','workstation']):
             if linuxVersion.lower().startswith("centos"):
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
-                         +'--set /desktop/gnome/background/picture_filename '+self.todir()+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
+                         +'--set /desktop/gnome/background/picture_filename '+self.installDirPro+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +' --set /desktop/gnome/background/picture_options centered')
             if linuxVersion.lower().startswith("ubuntu"):
