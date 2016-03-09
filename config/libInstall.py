@@ -563,7 +563,7 @@ class Component(object):
             return
         if not len(self.env):
             return
-        loc = self.toolbox.envscript()
+        loc = self.toolbox.envscript().split()[0]
         if not len(loc):
             return
         f = open(loc)

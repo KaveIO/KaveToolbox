@@ -73,16 +73,16 @@ class Toolbox(Component):
     def envscript(self):
         guess_installed = self.installDirVersion + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_installed):
-            return guess_installed
+            return guess_installed+" "+self.version
         installfrom = self.installfrom()
         return installfrom + os.sep + "scripts" + os.sep + "KaveEnv.sh"
 
     def buildEnv(self):
         prepend = False
         rest = []
-        scriptloc = self.envscript()
+        scriptloc = self.envscript().split()[0]
         #recreate env script in case it totally does not exist, or somehow is missing the intro...
-        if not os.path.exists(scriptloc) and os.path.exists(self.todir() + '/scripts/'):
+        if not os.path.exists(scriptloc) and os.path.exists(self.installDirVersion + '/scripts/'):
             prepend = True
         elif os.path.exists(scriptloc):
             f = open(scriptloc)
