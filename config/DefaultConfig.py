@@ -214,7 +214,7 @@ if [ -n "$1" ]; then
    fi
 fi
 
-if [ ${pro} == 'ýes' ]; then
+if [ ${pro} == 'yes' ]; then
     export KAVETOOLBOX=%%INSTALLDIRPRO%%
 else
     export KAVETOOLBOX=%%INSTALLDIRVERSION%%
