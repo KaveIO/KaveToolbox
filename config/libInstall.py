@@ -469,7 +469,7 @@ class Component(object):
                 print "remove", self.installDirVersion, "if you want to force re-install"
                 return self.buildEnv()
             # Detect previous KTB installation and skip
-            if not os.path.exists(self.installDirPro):
+            if not os.path.exists(self.installDirPro) and len(os.listdir(self.installDir)):
                 print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
                 print "remove", self.installDir, "if you want to force re-install"
                 return False
@@ -534,9 +534,10 @@ class Component(object):
             self.run("chmod -R a+rx " + self.installDir)
         #create pro softlink
         if self.installDir is not None:
-            if os.path.exists(self.installDirPro):
+            if os.path.exists(self.installDirPro) and os.path.exists(self.installDirVersion):
                 os.system("rm " + self.installDirPro)
-            os.system("ln -s " + self.installDirVersion + " " + self.installDirPro)
+            if os.path.exists(self.installDirVersion):
+                os.system("ln -s " + self.installDirVersion + " " + self.installDirPro)
 
         #clean the temporary directory of files I created
         if self.tmpdir is not None:

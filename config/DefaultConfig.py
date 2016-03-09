@@ -495,7 +495,7 @@ class RootComponent(Component):
 
     def script(self):
         # call prerequisite installs
-        for component in self.children[linuxVersion.lower()]:
+        for component in self.children[linuxVersion]:
             component.install(kind=self.kind, tmpdir=self.tmpdir, loud=self.loud)
         for ap in sys.path:
             if conda.installSubDir in ap:
