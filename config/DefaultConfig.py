@@ -276,9 +276,9 @@ class EclipseComponent(Component):
         self.copy(self.src_from, dest)
         self.run("tar xvzf " + dest)
         if os.path.exists("eclipse"):
-            os.system("mv eclipse " + self.installDir)
+            os.system("mv eclipse " + self.installDirVersion)
         elif os.path.exists("opt/eclipse"):
-            os.system("mv opt/eclipse " + self.installDir)
+            os.system("mv opt/eclipse " + self.installDirVersion)
         else:
             self.bauk("couldn't find eclipse directory to move!")
         if linuxVersion == "Centos6":
