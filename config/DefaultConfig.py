@@ -375,7 +375,7 @@ gsl.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl.pre["Centos7"]=gsl.pre["Centos6"]
 gsl.pre["Ubuntu"]=["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
 gsl.postwithenv={"Centos6":[' isinst=`python -c "import pkgutil; print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
-                            ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; python setup.py build; python setup.py install ; fi; ']
+                            ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; python setup.py build; python setup.py install ; fi ']
                  }
 gsl.postwithenv["Centos7"]=gsl.postwithenv["Centos6"]
 gsl.postwithenv["Ubuntu"]=gsl.postwithenv["Centos6"]
