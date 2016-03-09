@@ -196,8 +196,8 @@ toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzi
 toolbox.registerToolbox(toolbox)
 toolbox.env = """
 
-ktbv = %%VERSION%%
-pro = 'yes'
+ktbv='%%VERSION%%'
+pro='yes'
 
 # Choose the versioning to use
 # No arguments -- use all pro versioning
@@ -205,9 +205,9 @@ pro = 'yes'
 
 if [ -n "$1" ]; then
    if [ ${ktbv} == "$1" ]; then
-     pro = 'no'
+     pro='no'
    elif [ "$1" == 'pro' ]; then
-     pro = 'yes'
+     pro='yes'
    elif [ -d %%INSTALLDIR%%/${1} ]; then
      source %%INSTALLDIR%%/${1}/scripts/KaveEnv.sh $1
      exit 0
