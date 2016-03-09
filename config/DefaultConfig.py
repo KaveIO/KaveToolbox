@@ -121,7 +121,7 @@ class Toolbox(Component):
         self.run(
             "rsync -rv --exclude=.git --exclude=.project --exclude=.pydevproject --exclude=.pyc " + self.installfrom(
 
-            ) + "/ " + self.todir())
+            ) + "/ " + self.installDirVersion)
         #self.run("mv ./"+self.installfrom().rstrip('/').split('/')[-1]+" "+self.installDir)
         f = open(self.installfrom() + os.sep + "scripts" + os.sep + "autoKaveEnv.sh")
         l = f.read()
