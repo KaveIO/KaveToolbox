@@ -328,7 +328,7 @@ class Component(object):
         if type(self.src_from) is list:
             # fill version with self.version if suffix is specified but not version
             osf=[]
-            for s in src_from:
+            for s in self.src_from:
                 if type(s) is dict and 'version' not in s and 'suffix' in s:
                     s['version']=self.version
                 if type(s) is dict and 'filename' not in s:
