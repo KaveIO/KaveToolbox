@@ -302,7 +302,7 @@ eclipse.tempspace = 1000
 eclipse.registerToolbox(toolbox)
 eclipse.env = """
 ecl="%%INSTALLDIRVERSION%%"
-if [ pro == 'yes' ]; then
+if [ ${pro} == 'yes' ]; then
   ecl="%%INSTALLDIRPRO%%"
 fi
 
@@ -353,7 +353,7 @@ conda.src_from = [{"arch":"noarch","suffix":"-Linux-x86_64.sh"},
                   "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIRVERSION%%"
-if [ pro == 'yes' ]; then
+if [ ${pro} == 'yes' ]; then
   ana="%%INSTALLDIRPRO%%"
 fi
 if [ -d ${ana}  ]; then
@@ -594,7 +594,7 @@ root.tempspace = 500
 root.env = """
 #enable the most recent root installation
 rt="%%INSTALLDIRVERSION%%"
-if [ pro == 'yes' ]; then
+if [ ${pro} == 'yes' ]; then
   rt="%%INSTALLDIRPRO%%"
 fi
 if [ -e "$rt"/bin/thisroot.sh ]; then
@@ -670,7 +670,7 @@ kettle.pre = {"Centos6": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-
 kettle.registerToolbox(toolbox)
 kettle.env = """
 ket="%%INSTALLDIRVERSION%%"
-if [ pro == 'yes' ]; then
+if [ ${pro} == 'yes' ]; then
   ket="%%INSTALLDIRPRO%%"
 fi
 if [ -d ${ket}  ]; then
