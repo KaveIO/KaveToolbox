@@ -453,17 +453,20 @@ hpy.registerToolbox(toolbox)
 # Ubuntu fix libpng
 libpng=Component("libpng")
 libpng.version="1.5.22"
+libpng.doInstall = True
 libpng.src_from={"suffix":".tar.gz"}
 libpng.post={"Ubuntu" : ["bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
                          + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'"]}
 
 # Centos6 Glew Fix
 glew=Component("glew")
+glew.doInstall = True
 glew.version="1.5.5-1"
 glew.src_from={"suffix":".el6.x86_64.rpm"}
 
 # Centos6 GlewDev Fix
 glewdev=Component("glew-devel")
+glewdev.doInstall = True
 glewdev.version="1.5.5-1"
 glewdev.src_from={"suffix":".el6.x86_64.rpm"}
 
@@ -496,7 +499,7 @@ class RootComponent(Component):
     def script(self):
         # call prerequisite installs
         for component in self.children[linuxVersion.lower()]:
-            component.install(kind=self.kind, tmpdir=self.tempdir, loud=self.loud)
+            component.install(kind=self.kind, tmpdir=self.tmpdir, loud=self.loud)
         for ap in sys.path:
             if conda.installSubDir in ap:
                 self.bauk(
@@ -564,16 +567,12 @@ root.options = {"Strategy": "Default",
 root.src_from = "ftp://root.cern.ch/root/"
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
-                        #"wget https://oss.oracle.com/ol6/RPM-GPG-KEY-oracle",
-                        #"rpm --import RPM-GPG-KEY-oracle",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
                         "libxml2-devel ftgl-devel glew glew-devel qt qt-devel gsl gsl-devel"
                         ],
             "Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
-                        #"wget https://oss.oracle.com/ol6/RPM-GPG-KEY-oracle",
-                        #"rpm --import RPM-GPG-KEY-oracle",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
                         "libxml2-devel ftgl-devel libglew glew glew-devel qt qt-devel gsl gsl-devel"
@@ -604,9 +603,6 @@ if [ -e "$rt"/bin/thisroot.sh ]; then
     source "$rt"/bin/thisroot.sh
 fi
 """
-#root.postwithenv={"Centos6" : ["pip install rootpy"]}
-#root.postwithenv["Centos7"]=root.postwithenv["Centos6"]
-#root.postwithenv["Ubuntu"]=root.postwithenv["Centos6"]
 
 #######################  KETTLE  ############################
 class Kettle(Component):
@@ -652,7 +648,7 @@ class Kettle(Component):
         f.write(addition)
         f.write('\n'.join(lines[1:]))
         f.close()
-        self.run("mv data-integration " + self.installDir)
+        self.run("mv data-integration " + self.installDirVersion)
         return
 
 
