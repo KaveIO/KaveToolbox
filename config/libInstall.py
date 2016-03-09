@@ -334,13 +334,13 @@ class Component(object):
                 if type(s) is dict and 'filename' not in s:
                     s['filename']=self.cname
                 osf.append(s)
-            self.src_from=[fromKPMGRepo(**s) if type(s) is dict else s for s in osf]
+            self.src_from=[fromKPMGrepo(**s) if type(s) is dict else s for s in osf]
         elif type(self.src_from) is dict:
             if 'version' not in self.src_from and 'suffix' in self.src_from:
                     self.src_from['version']=self.version
             if 'filename' not in self.src_from:
                     self.src_from['filename']=self.cname
-            self.src_from = fromKPMGRepo(**self.src_from)
+            self.src_from = fromKPMGrepo(**self.src_from)
         return True
 
 
