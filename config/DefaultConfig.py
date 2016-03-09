@@ -587,7 +587,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
             }
 root.children = { "Centos6" : [glew, glewdev],
                  "Centos7" : [],
-                 "Ubuntu" : libpng
+                 "Ubuntu" : [libpng]
                  }
 root.registerToolbox(toolbox)
 root.freespace = 750
