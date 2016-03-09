@@ -323,7 +323,7 @@ class Conda(Component):
         self.copy(self.src_from, dest)
         os.system("chmod a+x " + dest)
         #install in batch mode to the requested directory
-        self.run(dest + " -b -p " + self.installDir)
+        self.run(dest + " -b -p " + self.installDirVersion)
         self.buildEnv()
 
 conda = Conda(cname="anaconda")
@@ -349,7 +349,7 @@ conda.tempspace = 300
 conda.installSubDir = "anaconda"
 conda.version = "2.4.1"
 conda.registerToolbox(toolbox)
-conda.src_from = [{"filename":"Anaconda", "arch":"noarch","suffix":"-Linux-x86_64.sh"},
+conda.src_from = [{"arch":"noarch","suffix":"-Linux-x86_64.sh"},
                   "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIRVERSION%%"
