@@ -7,7 +7,7 @@
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
           <property name="image-style" type="int" value="1"/>
-          <property name="last-image" type="string" value="%%INSTALLDIR%%/figs/KAVE_wp%%WPNUM%%.png"/>
+          <property name="last-image" type="string" value="%%INSTALLDIRPRO%%/figs/KAVE_wp%%WPNUM%%.png"/>
         </property>
     </property>
     <property name="single-workspace-mode" type="bool" value="true"/>

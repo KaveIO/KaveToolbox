@@ -241,7 +241,7 @@ def failoverSource(sources):
     raise IOError("no available sources detected from the options " + sources.__str__())
 
 
-def fromKPMGrepo(filename, arch=linuxVersion):
+def fromKPMGrepo(filename, arch=linuxVersion, version=None, suffix=None):
     """
     A very useful function for finding a file in our repository
     find the file for the given os/architecture in a KPMG repo or local mirror
@@ -253,6 +253,10 @@ def fromKPMGrepo(filename, arch=linuxVersion):
     filename + version + extension = filename
     """
     #default goes last
+    if version:
+        filename=filename+'-'+version
+    if suffix:
+        filename=filename+suffix
     sources = []
     for mirror in __mirror_list__:
         sources.append(repoURL(filename, arch=arch.lower(), repo=mirror))
@@ -299,6 +303,8 @@ class Component(object):
         self.doInstall = True
         self.installSubDir = None
         self.installDir = None
+        self.installDirVersion = None
+        self.installDirPro = None
         self.src_from = None
         self.node = True
         self.workstation = True
@@ -307,10 +313,36 @@ class Component(object):
         self.tmpdir = None
         self.topdir = None
         self.toolbox = None
+        self.version = __version__
         self.freespace = 0 # /installdir size requirement in mb
         self.tempspace = 0 # /tmp size requirement in mb
         self.usrspace = 0 # /usr size requirement in mb
         self.env = ""
+
+    def fillsrc(self):
+        """
+        Method to fill the src_from in case it must be logical
+        """
+        if self.src_from is None:
+            return False
+        if type(self.src_from) is list:
+            # fill version with self.version if suffix is specified but not version
+            osf=[]
+            for s in src_from:
+                if type(s) is dict and 'version' not in s and 'suffix' in s:
+                    s['version']=self.version
+                if type(s) is dict and 'filename' not in s:
+                    s['filename']=self.cname
+                osf.append(s)
+            self.src_from=[fromKPMGRepo(**s) if type(s) is dict else s for s in osf]
+        elif type(self.src_from) is dict:
+            if 'version' not in self.src_from and 'suffix' in self.src_from:
+                    self.src_from['version']=self.version
+            if 'filename' not in self.src_from:
+                    self.src_from['filename']=self.cname
+            self.src_from = fromKPMGRepo(**self.src_from)
+        return True
+
 
     def copy(self, optional_froms, dest):
         if type(optional_froms) is list:
@@ -333,6 +365,7 @@ class Component(object):
         print self.cname, " Summary :"
         print "    Installing?", self.doInstall
         print "    To:", self.topdir, self.installSubDir, "i.e.:", self.todir()
+        print "    Version:", self.version
         print "    From:", self.src_from
         print "    Nodes?:", self.node
         print "    Workstations?:", self.workstation
@@ -371,6 +404,8 @@ class Component(object):
             self.run("tar -xzf ./" + dest)
         elif ext.endswith(".tar"):
             self.run("tar -xf ./" + dest)
+        elif ext.endswith(".rpm"):
+            self.run("rpm -i ./" + dest)
         return True
 
     def todir(self):
@@ -420,6 +455,8 @@ class Component(object):
         self.loud = loud
         if self.installDir is None:
             self.installDir = self.todir()
+            self.installDirVersion = (self.installDir + os.sep +  self.version).replace("//","/")
+            self.installDirPro = (self.installDir + os.sep +  'pro').replace("//","/")
         if not self.doInstall:
             return False
         if self.kind is "node" and not self.node:
@@ -427,9 +464,15 @@ class Component(object):
         if self.kind is "workstation" and not self.workstation:
             return False
         if self.installDir is not None and os.path.exists(self.installDir) and (self.installDir != self.topdir):
-            print "Skipping", self.cname, "because it is already installed"
-            print "remove", self.installDir, "if you want to force re-install"
-            return self.buildEnv()
+            if os.path.isdir(self.installDirVersion):
+                print "Skipping", self.cname, "because this version is already installed"
+                print "remove", self.installDirVersion, "if you want to force re-install"
+                return self.buildEnv()
+            # Detect previous KTB installation and skip
+            if not os.path.exists(self.installDirPro):
+                print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
+                print "remove", self.installDir, "if you want to force re-install"
+                return False
         ##############################
         # Check disk space
         ##############################
@@ -471,8 +514,10 @@ class Component(object):
         if self.kind is "workstation" and self.workstationExtras is not None and linuxVersion in self.workstationExtras:
             for cmd in self.workstationExtras[linuxVersion]:
                 self.run(cmd)
-        if self.installDir is not None and self.installDir.count('/') > 1:
-            self.run("mkdir -p " + os.sep.join(self.installDir.split(os.sep)[:-1]))
+        if self.installDir is not None and self.installDirVersion.count('/') > 1:
+            self.run("mkdir -p " + os.sep.join(self.installDirVersion.split(os.sep)[:-1]))
+        # Find the places to download from
+        self.fillsrc()
         #run script :)
         self.script()
         #run post actions
@@ -487,6 +532,12 @@ class Component(object):
         os.chdir(self.odir)
         if self.installDir is not None and self.installDir.count('/') > 1 and os.path.exists(self.installDir):
             self.run("chmod -R a+rx " + self.installDir)
+        #create pro softlink
+        if self.installDir is not None:
+            if os.path.exists(self.installDirPro):
+                os.system("rm " + self.installDirPro)
+            os.system("ln -s " + self.installDirVersion + " " + self.installDirPro)
+
         #clean the temporary directory of files I created
         if self.tmpdir is not None:
             if os.path.exists(self.tmpdir) and len(self.tmpdir)>4:
@@ -535,7 +586,11 @@ class Component(object):
         f.write(''.join(beforelines))
         f.write("## Begin " + self.cname + '\n')
         f.write('#\n')
-        f.write(self.env.replace("%%INSTALLDIR%%", self.todir()))
+        f.write(self.env.replace("%%INSTALLDIR%%",
+                                 self.installDir).replace("%%INSTALLDIRPRO%%",
+                                                          self.installDirPro).replace("%%INSTALLDIRVERSION%%",
+                                                                                      self.installDirVersion).replace("%%VERSION%%",
+                                                                                                                      self.version))
         f.write('#\n')
         f.write("## End " + self.cname + '\n')
         f.write(''.join(afterlines))

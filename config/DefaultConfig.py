@@ -167,7 +167,7 @@ fi
                 if not os.path.exists(cfpath):
                     os.makedirs(cfpath,0755)
                 self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),'xfce4-desktop.xml')+ ' ' + cfpath)
-                self.run('sed -i "s/%%INSTALLDIR%%/'+self.todir().replace('/','\\/')+'/g"  '+ os.path.join(cfpath,'xfce4-desktop.xml'))
+                self.run('sed -i "s/%%INSTALLDIRPRO%%/'+self.installDirPro.replace('/','\\/')+'/g"  '+ os.path.join(cfpath,'xfce4-desktop.xml'))
                 self.run('sed -i "s/%%WPNUM%%/'+str(self.wallpaperselect)+'/g"  '+os.path.join(cfpath,'xfce4-desktop.xml'))
         return True
 
@@ -199,6 +199,30 @@ toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzi
 toolbox.registerToolbox(toolbox)
 toolbox.env = """
 
+ktbv = %%VERSION%%
+pro = 'yes'
+
+# Choose the versioning to use
+# No arguments -- use all pro versioning
+# X : use fixed versioning from version X install
+
+if [ -n "$1" ]; then
+   if [ ${ktbv} == "$1" ]; then
+     pro = 'no'
+   elif [ "$1" == 'pro' ]; then
+     pro = 'yes'
+   elif [ -d %%INSTALLDIR%%/${1} ]; then
+     source %%INSTALLDIR%%/${1}/scripts/KaveEnv.sh $1
+     exit 0
+   fi
+fi
+
+if [ ${pro} == 'ýes' ]; then
+    export KAVETOOLBOX=%%INSTALLDIRPRO%%
+else
+    export KAVETOOLBOX=%%INSTALLDIRVERSION%%
+fi
+
 ban='yes'
 if [ $TERM != "dumb" ]; then
     if [ ! -z "$HOME" ]; then
@@ -209,25 +233,24 @@ if [ $TERM != "dumb" ]; then
         fi
     fi
     if [ ${ban} == 'yes' ]; then
-        if [ -e %%INSTALLDIR%%/Welcome.banner ]; then
-            cat %%INSTALLDIR%%/Welcome.banner
+        if [ -e ${KAVETOOLBOX}/Welcome.banner ]; then
+            cat ${KAVETOOLBOX}/Welcome.banner
         fi
     fi
 fi
 
-export KAVETOOLBOX=%%INSTALLDIR%%
 
 #only add directories to path if they are not already there!
-if [[ ":$PATH:" == *":%%INSTALLDIR%%/bin:%%INSTALLDIR%%/scripts:"* ]]; then
+if [[ ":$PATH:" == *":$KAVETOOLBOX/bin:$KAVETOOLBOX/scripts:"* ]]; then
     true
 else
-    export PATH=%%INSTALLDIR%%"/bin:"%%INSTALLDIR%%"/scripts:"${PATH}
+    export PATH=$KAVETOOLBOX"/bin:"$KAVETOOLBOX"/scripts:"${PATH}
 fi
 
-if [[ ":$PYTHONPATH:" == *":%%INSTALLDIR%%/python:"* ]]; then
+if [[ ":$PYTHONPATH:" == *":$KAVETOOLBOX/python:"* ]]; then
     true
 else
-    export PYTHONPATH=%%INSTALLDIR%%"/python:"${PYTHONPATH}
+    export PYTHONPATH=$KAVETOOLBOX"/python:"${PYTHONPATH}
 fi
 
 #Add spark if spark is installed
@@ -274,13 +297,18 @@ eclipse.pre = {"Centos6": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk
                "Ubuntu": ["apt-get -y install default-jre default-jdk "]
                }
 eclipse.installSubDir = "eclipse"
+eclipse.version = "1.3"
 eclipse.src_from = li.fromKPMGrepo("eclipse.tar.gz", arch="noarch")
 eclipse.freespace = 500
 eclipse.usrspace = 150
 eclipse.tempspace = 1000
 eclipse.registerToolbox(toolbox)
 eclipse.env = """
-ecl="%%INSTALLDIR%%"
+ecl="%%INSTALLDIRVERSION%%"
+if [ pro == 'yes' ]; then
+  ecl="%%INSTALLDIRPRO%%"
+fi
+
 if [ -d ${ecl}  ]; then
     if [[ ":$PATH:" == *":$ecl:"* ]]; then
         true
@@ -322,11 +350,15 @@ conda.freespace = 1500
 conda.usrspace = 300
 conda.tempspace = 300
 conda.installSubDir = "anaconda"
+conda.version = "2.4.1"
 conda.registerToolbox(toolbox)
-conda.src_from = [li.fromKPMGrepo("Anaconda-2.4.1-Linux-x86_64.sh", arch="noarch"),
+conda.src_from = [{"filename":"Anaconda", "arch":"noarch","suffix":"-Linux-x86_64.sh"},
                   "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
 conda.env = """
-ana="%%INSTALLDIR%%"
+ana="%%INSTALLDIRVERSION%%"
+if [ pro == 'yes' ]; then
+  ana="%%INSTALLDIRPRO%%"
+fi
 if [ -d ${ana}  ]; then
     if [[ ":$PATH:" == *":$ana/bin:"* ]]; then
         true
@@ -337,13 +369,10 @@ fi
 """
 
 #######################  pygsl  ############################
-
-class pygsl(Component):
-    pass
-
-gsl = pygsl("pygsl")
+gsl = Component("pygsl")
 gsl.doInstall = True
-gsl.src_from=[li.fromKPMGrepo("pygsl-2.1.1.tar.gz", arch="noarch"),
+gsl.version = "2.1.1"
+gsl.src_from=[{"arch":"noarch","suffix":".tar.gz"},
               "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
 gsl.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl.pre["Centos7"]=gsl.pre["Centos6"]
@@ -421,6 +450,23 @@ hpy.registerToolbox(toolbox)
 
 #######################  ROOT  ############################
 
+# Ubuntu fix libpng
+libpng=Component("libpng")
+libpng.version="1.5.22"
+libpng.src_from={"suffix":".tar.gz"}
+libpng.post={"Ubuntu" : ["bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
+                         + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'"]}
+
+# Centos6 Glew Fix
+glew=Component("glew")
+glew.version="1.5.5-1"
+glew.src_from={"suffix":".el6.x86_64.rpm"}
+
+# Centos6 GlewDev Fix
+glewdev=Component("glew-devel")
+glewdev.version="1.5.5-1"
+glewdev.src_from={"suffix":".el6.x86_64.rpm"}
+
 class RootComponent(Component):
     def compile(self):
         """
@@ -446,28 +492,19 @@ class RootComponent(Component):
         self.run("bash -c 'source " + self.toolbox.envscript() + "; make'")
         return
 
-    def todir(self):
-        """
-        Override destination directory to insert version...
-        """
-        if self.installDir is not None:
-            return self.installDir
-        if self.installSubDir is not None and self.topdir is not None:
-            return self.topdir + os.sep + self.installSubDir + os.sep + self.options["Version"]
-        if self.topdir is not None:
-            return self.topdir + os.sep + self.options["Version"]
-        return None
-
 
     def script(self):
+        # call prerequisite installs
+        for component in self.children[linuxVersion.lower()]:
+            component.install(kind=self.kind, tmpdir=self.tempdir, loud=self.loud)
         for ap in sys.path:
             if conda.installSubDir in ap:
                 self.bauk(
                     "Cannot compile ROOT because you have already inserted anaconda onto your python path. Please "
                     "touch ~/.nokaveEnv, begin a new shell, and try again")
         #if not test:
-        arch_url = li.fromKPMGrepo("root_" + self.options["Version"] + "_" + linuxVersion.lower() + ".tar.gz")
-        noarch_url = li.fromKPMGrepo("root_" + self.options["Version"] + "_noarch.tar.gz", arch="noarch")
+        arch_url = li.fromKPMGrepo("root_" + self.version + "_" + linuxVersion.lower() + ".tar.gz")
+        noarch_url = li.fromKPMGrepo("root_" + self.version + "_noarch.tar.gz", arch="noarch")
         if self.options["Strategy"] == "Default" or self.options["Strategy"] == "Copy":
             if arch_url:
                 self.options["Strategy"] = "Copy"
@@ -493,22 +530,17 @@ class RootComponent(Component):
         self.copy(self.src_from, dest)
         #untar, move to correct location and clean
         self.run("tar xvzf " + dest)
-        os.system("mkdir -p " + os.sep.join(self.installDir.split(os.sep)[:-1]))
-        os.system("mv root " + self.installDir)
-        os.chdir(self.installDir)
+        os.system("mkdir -p " + os.sep.join(self.installDirVersion.split(os.sep)[:-1]))
+        os.system("mv root " + self.installDirVersion)
+        os.chdir(self.installDirVersion)
         if self.options["Strategy"] == "Compile":
             self.compile()
             os.chdir(self.tmpdir)
-        if self.options["UpdateSoftlink"]:
-            linkat = self.topdir + os.sep + 'root' + os.sep + "pro"
-            if os.path.exists(linkat):
-                os.system("rm " + linkat)
-            os.system("ln -s " + self.installDir + " " + linkat)
         os.chdir(self.tmpdir)
         for package in self.options["pip"]:
             self.run(
                 "bash -c 'source " + self.toolbox.envscript() + ";"
-                + " source " + self.installDir + "/bin/thisroot.sh;"
+                + " source " + self.installDirVersion + "/bin/thisroot.sh;"
                 + " pip install " + package + "'"
                 )
         return
@@ -517,9 +549,8 @@ class RootComponent(Component):
 root = RootComponent("root")
 root.doInstall = True
 root.installSubDir = "root"
+root.version = "v5.34.34"
 root.options = {"Strategy": "Default",
-                "Version": "v5.34.34",
-                "UpdateSoftlink": True,
                 "LowMemoryMode": False,
                 "conf": {
                     "Centos7": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
@@ -545,38 +576,32 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                         #"rpm --import RPM-GPG-KEY-oracle",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
-                        "libxml2-devel ftgl-devel libglew glew glew-devel qt qt-devel gsl gsl-devel",
-                        "wget " + li.fromKPMGrepo("glew-1.5.5-1.el6.x86_64.rpm", arch="centos6"),
-                        #http://dl.fedoraproject.org/pub/epel/6/x86_64/glew-1.5.5-1.el6.x86_64.rpm
-                        "wget " + li.fromKPMGrepo("glew-devel-1.5.5-1.el6.x86_64.rpm", arch="centos6"),
-                        #http://dl.fedoraproject.org/pub/epel/6/x86_64/glew-devel-1.5.5-1.el6.x86_64.rpm",
-                        "rpm -i glew-1.5.5-1.el6.x86_64.rpm",
-                        "rpm -i glew-devel-1.5.5-1.el6.x86_64.rpm"
+                        "libxml2-devel ftgl-devel libglew glew glew-devel qt qt-devel gsl gsl-devel"
                         ],
             "Ubuntu": [
                 "apt-get -y install x11-common libx11-6 x11-utils libX11-dev libgsl0-dev gsl-bin libxpm-dev "
                 "libxft-dev g++ gfortran build-essential g++ libjpeg-turbo8-dev libjpeg8-dev libjpeg8-dev libjpeg-dev "
                 " libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev libldap2-dev libkrb5-dev "
                 "freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev libiodbc2 libiodbc2-dev "
-                "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386",
-                "wget " + li.fromKPMGrepo("libpng-1.5.22.tar.gz", arch="ubuntu"),
-                "tar xzf libpng-1.5.22.tar.gz",
-                ("bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
-                 + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'")
+                "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386"
                 ]
             }
-
+root.children = { "Centos6" : [glew, glewdev],
+                 "Centos7" : [],
+                 "Ubuntu" : libpng
+                 }
 root.registerToolbox(toolbox)
 root.freespace = 750
 root.usrspace = 300
 root.tempspace = 500
 root.env = """
 #enable the most recent root installation
-topd="/opt"
-if [ -e ${topd}/root/pro/bin/thisroot.sh ]; then
-    source ${topd}/root/pro/bin/thisroot.sh
-elif [ -e %%INSTALLDIR%%/bin/thisroot.sh ]; then
-    source %%INSTALLDIR%%/bin/thisroot.sh
+rt="%%INSTALLDIRVERSION%%"
+if [ pro == 'yes' ]; then
+  rt="%%INSTALLDIRPRO%%"
+fi
+if [ -e "$rt"/bin/thisroot.sh ]; then
+    source "$rt"/bin/thisroot.sh
 fi
 """
 #root.postwithenv={"Centos6" : ["pip install rootpy"]}
@@ -636,8 +661,9 @@ kettle.doInstall = True
 kettle.freespace = 700
 kettle.usrspace = 150
 kettle.tempspace = 1300
+kettle.version = "5.2.0.0-209"
 kettle.installSubDir = "kettle"
-kettle.src_from = [li.fromKPMGrepo("pdi-ce-5.2.0.0-209.zip", arch="noarch"),
+kettle.src_from = [{'filename':"pdi-ce", 'suffix':".zip", 'arch':"noarch"},
                    "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.2/pdi-ce-5.2.0.0-209.zip?r"
                    "=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fpentaho%2Ffiles%2FData%2520Integration%2F5.2%2Fpdi-ce"
                    "-5.2.0.0-209.zip%2Fdownload&ts=1415797032&use_mirror=netcologne"]
@@ -649,7 +675,10 @@ kettle.pre = {"Centos6": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-
               }
 kettle.registerToolbox(toolbox)
 kettle.env = """
-ket="%%INSTALLDIR%%"
+ket="%%INSTALLDIRVERSION%%"
+if [ pro == 'yes' ]; then
+  ket="%%INSTALLDIRPRO%%"
+fi
 if [ -d ${ket}  ]; then
     if [[ ":$PATH:" == *":$ket:"* ]]; then
         true
