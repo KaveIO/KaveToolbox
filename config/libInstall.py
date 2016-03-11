@@ -512,7 +512,8 @@ class Component(object):
             if os.path.isdir(self.installDirVersion):
                 print "Skipping", self.cname, "because this version is already installed"
                 print "remove", self.installDirVersion, "if you want to force re-install"
-                return self.buildEnv()
+                self.buildEnv()
+                return self.__install_end_actions()
                 # Detect previous KTB installation and skip
             if (os.path.exists(self.installDir) and not os.path.exists(self.installDirPro)
                 and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir))):
@@ -583,6 +584,9 @@ class Component(object):
         os.chdir(self.odir)
         if self.installDir is not None and self.installDir.count('/') > 1 and os.path.exists(self.installDir):
             self.run("chmod -R a+rx " + self.installDir)
+        return self.__install_end_actions()
+
+    def __install_end_actions(self):
         #create pro softlink
         if self.installDir is not None:
             if ((os.path.exists(self.installDirPro) or os.path.islink(self.installDirPro))
@@ -599,6 +603,7 @@ class Component(object):
             if self.cleanAfter:
                 self.clean(others_only=True)
         return True
+
 
     def registerToolbox(self, toolbox):
         """
