@@ -449,7 +449,7 @@ class Component(object):
     def clean(self, others_only=False):
         if self.installDir is not None and os.path.exists(self.installDir):
             print "Force-cleaning installation directory as requested"
-            if not old_only:
+            if not others_only:
                 if len(self.installDirPro)>4 and os.path.islink(self.installDirPro):
                     self.run("rm -f "+self.installDirPro)
                 if len(self.installDirPro)>4 and os.path.exists(self.installDirPro):
@@ -514,7 +514,8 @@ class Component(object):
                 print "remove", self.installDirVersion, "if you want to force re-install"
                 return self.buildEnv()
                 # Detect previous KTB installation and skip
-            if not os.path.exists(self.installDirPro) and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir)):
+            if (os.path.exists(self.installDir) and not os.path.exists(self.installDirPro)
+                and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir))):
                 print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
                 print "remove", self.installDir, "if you want to force re-install"
                 return False
