@@ -175,7 +175,7 @@ toolbox.installSubDir = "KaveToolbox"
 toolbox.freespace = 100
 toolbox.usrspace = 200
 toolbox.tempspace = 100
-toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\* --exclude=pulseaudio\\*',
+toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server firefox xpdf'],
                              "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" "Desktop Platform" "X Window System" "Fonts"  --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server firefox pixman pixman-devel libXfont xpdf'],
