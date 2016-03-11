@@ -41,6 +41,14 @@ options:
    --quiet : suppress printing of output
    --node or -n: install as node rather than workstation, will skip firefox vnc X and eclipse
    --help or -h: print this message and exit
+   --skip-if-disk-full: skip these installations if the disk is too full
+   --ignore-missing-groups: workaround for missing yum groups, assume groups already installed
+
+   # Options that apply to disk space usage, for tools which install into specific, versioned locations
+   # i.e. eclipse, anaconda, root
+   --clean-if-disk-full: attempt to cleanup any KTB installations if the disk is full
+   --clean-before: always empty out installation directories before installing new software
+   --clean-after: always remove old ins
 
 if installation fails, it may be due to conflicts with a previous install, try touch ~/.nokaveEnv (remove after
 successful install)
@@ -77,6 +85,11 @@ import sys
 import tempfile
 
 quieter = ("--quiet" in sys.argv)
+skipIfDiskFull = ("--skip-if-disk-full" in sys.argv)
+cleanIfDiskFull = ("--clean-if-disk-full" in sys.argv)
+cleanBefore = ("--clean-before" in sys.argv)
+cleanAfter = ("--clean-after" in sys.argv)
+
 if not quieter:
     print "Welcome to the KAVE installer"
 
@@ -181,6 +194,16 @@ if not os.path.exists(cnf.InstallTopDir):
     os.system("mkdir -p " + cnf.InstallTopDir)
 
 for component in everything:
+    # If these flags are not set, leave the defaults in place
+    # If they are set then override the defaults
+    if cleanBefore:
+        component.cleanBefore=True
+    if cleanAfter:
+        component.cleanAfter=True
+    if skipIfDiskFull:
+        component.skipIfDiskFull=True
+    if cleanIfDiskFull:
+        component.cleanIfDiskFull=True
     component.install(kind=kind, tmpdir=tempdir, loud=(not quieter))
 
 #final cleanup

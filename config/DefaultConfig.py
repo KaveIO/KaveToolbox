@@ -274,7 +274,7 @@ class EclipseComponent(Component):
     def script(self):
         dest = "myeclipse.tar.gz"
         self.copy(self.src_from, dest)
-        self.run("tar xvzf " + dest)
+        self.run("tar xzf " + dest)
         if os.path.exists("eclipse"):
             os.system("mv eclipse " + self.installDirVersion)
         elif os.path.exists("opt/eclipse"):
@@ -530,7 +530,7 @@ class RootComponent(Component):
         #copy to tmp for unpacking
         self.copy(self.src_from, dest)
         #untar, move to correct location and clean
-        self.run("tar xvzf " + dest)
+        self.run("tar xzf " + dest)
         os.system("mkdir -p " + os.sep.join(self.installDirVersion.split(os.sep)[:-1]))
         os.system("mv root " + self.installDirVersion)
         os.chdir(self.installDirVersion)

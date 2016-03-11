@@ -305,6 +305,11 @@ class Component(object):
         self.installDir = None
         self.installDirVersion = None
         self.installDirPro = None
+        self.cleanBefore = False # remove install directory
+        self.cleanAfter = False # remove older installations
+        self.skipIfDiskFull = False # skip installation if disk is full
+        self.cleanIfDiskFull = False # skip installation if disk is full
+        self.installDirPro = None
         self.src_from = None
         self.node = True
         self.workstation = True
@@ -441,6 +446,44 @@ class Component(object):
                           + str(space - free) + " MB is needed")
         return free_space[-1]
 
+    def clean(self, others_only=False):
+        if self.installDir is not None and os.path.exists(self.installDir):
+            print "Force-cleaning installation directory as requested"
+            if not old_only:
+                if len(self.installDirPro)>4 and os.path.islink(self.installDirPro):
+                    self.run("rm -f "+self.installDirPro)
+                if len(self.installDirPro)>4 and os.path.exists(self.installDirPro):
+                    self.run("rm -rf "+self.installDirPro)
+                if len(self.installDirVersion)>4 and os.path.exists(self.installDirVersion):
+                    self.run("rm -rf "+self.installDirVersion)
+                if len(self.installDir)>4 and os.path.exists(self.installDir) and os.path.realpath(self.installDir)!=os.path.realpath(self.topdir):
+                    self.run("rm -rf "+self.installDir)
+            else:
+                import glob
+                dirs = glob.glob(self.installDir+'/*')
+                cleaning = [os.path.realpath(d) for d in dirs if os.path.realpath(d)
+                            not in [os.path.realpath(self.installDir),
+                                    os.path.realpath(self.installDirVersion),
+                                    os.path.realpath(self.installDirPro)]]
+                cleaning = [d for d in cleaning if len(d)>4 and os.path.isdir(d)]
+                [self.run("rm -rf "+d) for d in cleaning if os.path.isdir(d)]
+            return True
+        return False
+
+    def __checkdloop(self,mounts):
+        """
+        Loop to check for disk space, expect OSError if not enough space
+        """
+        checked_mounts={}
+        for k,v in mounts.iteritems():
+            mnt=self.checkadisk(k,v)
+            try:
+                checked_mounts[mnt]=checked_mounts[mnt]+v
+            except KeyError:
+                checked_mounts[mnt]=v
+        if len(checked_mounts) < len(mounts):
+            [self.checkadisk(k,v) for k,v in checked_mounts.iteritems()]
+        return checked_mounts
 
     def install(self, kind="node", tmpdir=None, loud=True):
         """
@@ -464,11 +507,13 @@ class Component(object):
         if self.kind is "workstation" and not self.workstation:
             return False
         if self.installDir is not None and os.path.exists(self.installDir) and (self.installDir != self.topdir):
+            if self.cleanBefore:
+                self.clean()
             if os.path.isdir(self.installDirVersion):
                 print "Skipping", self.cname, "because this version is already installed"
                 print "remove", self.installDirVersion, "if you want to force re-install"
                 return self.buildEnv()
-            # Detect previous KTB installation and skip
+                # Detect previous KTB installation and skip
             if not os.path.exists(self.installDirPro) and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir)):
                 print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
                 print "remove", self.installDir, "if you want to force re-install"
@@ -490,16 +535,21 @@ class Component(object):
                 mounts['/tmp']=self.tempspace
         if self.usrspace:
             mounts['/usr']=self.usrspace
-        # Check and also combine in the case that they sit on the same mountpoint
-        checked_mounts = {}
-        for k,v in mounts.iteritems():
-            mnt=self.checkadisk(k,v)
-            try:
-                checked_mounts[mnt]=checked_mounts[mnt]+v
-            except KeyError:
-                checked_mounts[mnt]=v
-        if len(checked_mounts) < len(mounts):
-            [self.checkadisk(k,v) for k,v in checked_mounts.iteritems()]
+        # Check these mountpoints and clean if requested
+        try:
+            self.__checkdloop(mounts)
+        except OSError as e:
+            if self.cleanIfDiskFull:
+                self.clean()
+        # Check again and skip if requested
+        try:
+            self.__checkdloop(mounts)
+        except OSError as e:
+            if self.skipIfDiskFull:
+                print "Skipping", self.cname, "because of insufficient disk space"
+                print e
+                return self.buildEnv()
+            raise e
         ##############################
         #run prerequisites
         ##############################
@@ -544,6 +594,9 @@ class Component(object):
         if self.tmpdir is not None:
             if os.path.exists(self.tmpdir) and len(self.tmpdir)>4:
                 os.system("rm -rf "+self.tmpdir+'/*')
+        if self.installDir is not None and os.path.exists(self.installDir) and (self.installDir != self.topdir):
+            if self.cleanAfter:
+                self.clean(others_only=True)
         return True
 
     def registerToolbox(self, toolbox):
