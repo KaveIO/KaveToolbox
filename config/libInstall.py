@@ -448,8 +448,8 @@ class Component(object):
 
     def clean(self, others_only=False):
         if self.installDir is not None and os.path.exists(self.installDir):
-            print "Force-cleaning installation directory as requested"
             if not others_only:
+                print "Force-cleaning installation directory as requested"
                 if len(self.installDirPro)>4 and os.path.islink(self.installDirPro):
                     self.run("rm -f "+self.installDirPro)
                 if len(self.installDirPro)>4 and os.path.exists(self.installDirPro):
@@ -459,6 +459,7 @@ class Component(object):
                 if len(self.installDir)>4 and os.path.exists(self.installDir) and os.path.realpath(self.installDir)!=os.path.realpath(self.topdir):
                     self.run("rm -rf "+self.installDir)
             else:
+                print "Force-cleaning obsolete installations as requested"
                 import glob
                 dirs = glob.glob(self.installDir+'/*')
                 cleaning = [os.path.realpath(d) for d in dirs if os.path.realpath(d)
