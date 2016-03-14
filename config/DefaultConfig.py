@@ -688,6 +688,23 @@ if [ -d ${ket}  ]; then
 fi
 """
 
+#######################  robomongo  ############################
+robo = Component("robomongo")
+robo.doInstall = True
+robo.node = False
+robo.workstation = True
+robo.version = "0.8.5"
+robo.src_from=[{"suffix":".tar.gz"}]
+robo.pre = {"Centos6": ["yum install -y glibc.i686 libstdc++.i686 libgcc.i686"]}
+robo.pre["Centos7"]=gsl.pre["Centos6"]
+robo.pre["Ubuntu"]=[]
+robo.post = {"Centos6": ["yum -y install robomongo-*.rpm"]}
+robo.post["Centos7"]=gsl.post["Centos6"]
+robo.post["Ubuntu"]=["dpkg -I robomongo-*.deb"]
+robo.usrspace = 40
+robo.tempspace = 20
+robo.registerToolbox(toolbox)
+
 #######################  R  ############################
 class RComponent(Component):
     def script(self):
