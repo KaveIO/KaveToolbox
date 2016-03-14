@@ -19,7 +19,7 @@ Major changes:
      with --clean-after, or --clean-if-disk-full, see the installation help for more new flags)
 
 Minor changes:
-* Add pymongo: python-mongo interaction tool
+* New pip packages for kave integration: pymongo and pykerberos
 
 * Note about Robomongo:
  - We have added the installation instructions for robomongo, but we do not install it by default
