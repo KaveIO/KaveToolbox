@@ -56,6 +56,7 @@ Installer for:
 * Pentaho kettle, graphical process and data management tool (http://community.pentaho.com/projects/data-integration/)
 * R with integration into iPython notebook (http://nbviewer.ipython.org/github/dboyliao/cookbook-code/blob/master/notebooks/chapter07_stats/08_r.ipynb)
 * Additional hadoopy-python modules, dumbo, mrjob, pyleus and pymongo_hadoop (if hadoop is available)
+* robomongo (only if specifically configured, see ReleaseNotes.md for details)
 
 Examples of:
 
@@ -160,6 +161,11 @@ And/or visit http://nbviewer.ipython.org/
   * All mirrors listed here must follow the same directory structure as the main repository, this looks like: **mirror/os-version(s)/KaveToolbox/toolbox-version(s)/files.ext**
   * See more details below in setting up such a cache
 
+* Optional: Additional installation options
+  * The installer script has more options to help steer the installation
+  * take a look at the --help for the KaveInstall script for more details. Examples include automatically cleaning old versions from /opt.
+
+
 Troubleshooting:
 
 * "Warning: end of file not at end of line" during installation: this means you don't have enough virtual memory for the compilation of root. Modify configuration file for "low memory mode"
@@ -177,9 +183,10 @@ Re-installing:
 --------------
 
 * Re-running the installer over a pre-existing installation will only install new software and pick up new configuration changes.
+* New software will be installed into versioned directories, to make it easier to track
 * In case of an error during installation the install will stop, to complete an incomplete installation, re-run the installer,
 * To fix some component within a broken installation, delete any installed directories in /opt (or whatever you specified them to be) and re-run the installer, it will only install those parts you either deleted or didn't work the first time.
-* To perform a complete re-install remove relevent directories from /opt, like /opt/root, /opt/kettle etc.
+* To perform a complete re-install remove relevent directories from /opt, like /opt/root, /opt/kettle etc. or add the --clean-before flag to the script
 * To re-install only the core KaveToolbox with any new features, see Updating
 
 
@@ -188,7 +195,8 @@ Updating:
 
 The updating procedure is the following:
 
-* Selectively remove software from /opt as you choose, remove at least /opt/KaveToolbox
+* Optional: Selectively remove software from /opt as you choose, to force re-installation of those components
+* Download and run the new installation script to install new software
 
 * If you used the git source update your local git checkout (either following original instructions or simply git pull)
 * Re-run the install following the original installation instructions, this will only install new components, or things you deleted
@@ -243,7 +251,6 @@ Test if it works?
 * take a look at the examples!
 
 ```
-  source [directory, e.g. /opt/root]/KaveEnv.sh
   cd $KAVETOOLBOX/examples
   ipython notebook
   --> Choose, for example, rootnotes.ipynb
@@ -254,7 +261,7 @@ Test if it works?
 Coming Soon
 -----------
 
-Additional graphical libraries into python for ipython notebooks, improvements to geomap for sub-selection
+No additional plans on the horizon
 
 Internet during installation, firewalls and nearside cache/mirror options
 -------------------------------------------------------------------------

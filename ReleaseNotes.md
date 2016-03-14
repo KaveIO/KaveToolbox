@@ -18,6 +18,9 @@ Major changes:
      (no need to delete /opt content yourself before the upgrade, if needed the script can do that for you
      with --clean-after, or --clean-if-disk-full, see the installation help for more new flags)
 
+Minor changes:
+* Add pymongo: python-mongo interaction tool
+
 * Note about Robomongo:
  - We have added the installation instructions for robomongo, but we do not install it by default
  - This is because Robomongo does not support Mongo 3.0, to which we are migrating
