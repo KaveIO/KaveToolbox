@@ -690,14 +690,14 @@ fi
 
 #######################  robomongo  ############################
 robo = Component("robomongo")
-robo.doInstall = True
+robo.doInstall = False # Don't install at the moment by default, because it doesn't work with mongo 3.0
 robo.node = False
-robo.workstation = True
-robo.version = "0.8.5"
+robo.workstation = False
+robo.version = "0.8.4"
 robo.src_from=[{"suffix":".tar.gz"}]
 robo.pre = {"Centos6": ["yum install -y glibc.i686 libstdc++.i686 libgcc.i686"]}
 robo.pre["Centos7"]=robo.pre["Centos6"]
-robo.pre["Ubuntu"]=[]
+robo.pre["Ubuntu"]=["apt-get -y install libxcb-icccm4 libxkbcommon-x11-0 libxcb-xkb1 libxcb-render-util0 libxcb-keysyms1 libxcb-image0"]
 robo.post = {"Centos6": ["yum -y install robomongo-*.rpm"]}
 robo.post["Centos7"]=robo.post["Centos6"]
 robo.post["Ubuntu"]=["dpkg -i robomongo-*.deb"]
