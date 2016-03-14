@@ -31,8 +31,8 @@ Minor changes:
 * Note about Gnome and Centos:
  - We install gnome in workstation mode Centos6/7 to get a good enough vnc session for most users
  - There are two gnome packages/plugins that I do not want to install/run: NetworkManager and PulseAudio
- - NetworkManager: problems seen within a VM trying to control the network config. It's not necessary.
- - PulseAudio: spams logfiles of VMs where there is no virtual soundcard installed. It's not necessary.
+ - NetworkManager: problems seen within a VM trying to control the network config. It's not necessary within a VM.
+ - PulseAudio: spams logfiles of VMs where there is no virtual soundcard installed. It's not necessary within a VM.
  - However, these two now have dependencies living within the gnome installation, so they are not skippable
  - I can skip NetworkManager on Centos6, but no further skipping options work right now.
  - Currently then I don't know how to install a sufficiently good desktop tool without these plugins
