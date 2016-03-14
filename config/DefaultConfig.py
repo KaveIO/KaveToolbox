@@ -19,7 +19,7 @@
 """
 Default configuration parameters and install scripts
 
-We don't recommend you to edit this file. Instead we suggest to create/add configurations to /etc/kave/CustomConfig.py
+We don't recommend you to edit this file. Instead we suggest to create/add configurations to /etc/kave/CustomInstall.py
 
 e.g. adding extra entries like:
 

@@ -9,13 +9,28 @@ Contains a list of the released versions with a summary of the main changes in e
 
 Major version change, mirroring the version increase of AmbariKave
 
-* Note about Gnome:
+Major changes:
+* Version numbering: for all the packages we install to /opt (default), we now add version subdirectories
+  This versioning scheme has several benefits.
+  a) Ability to have multiple KTB versions operating side-by-side
+     (to start a different KTB run the KaveEnv script with the version as a parameter, i.e. KaveEnv.sh 2.0-Beta)
+  b) Simpler upgrading
+     (no need to delete /opt content yourself before the upgrade, if needed the script can do that for you
+     with --clean-after, or --clean-if-disk-full, see the installation help for more new flags)
+
+* Note about Robomongo:
+ - We have added the installation instructions for robomongo, but we do not install it by default
+ - This is because Robomongo does not support Mongo 3.0, to which we are migrating
+ - Users can manually install robomongo 0.8.4 by setting the correct configuration flag in CustomInstall.py
+ - cnf.robo.doInstall=True,  cnf.robo.workstation=True
+
+* Note about Gnome and Centos:
  - We install gnome in workstation mode Centos6/7 to get a good enough vnc session for most users
  - There are two gnome packages/plugins that I do not want to install/run: NetworkManager and PulseAudio
- - NetworkManager: problems seen within a VM trying to control the network config
- - PulseAudio: spams logfiles of VMs where there is no virtual soundcard installed
+ - NetworkManager: problems seen within a VM trying to control the network config. It's not necessary.
+ - PulseAudio: spams logfiles of VMs where there is no virtual soundcard installed. It's not necessary.
  - However, these two now have dependencies living within the gnome installation, so they are not skippable
- - I can skip NetworkManager on Centos6, but nothing else works right now.
+ - I can skip NetworkManager on Centos6, but no further skipping options work right now.
  - Currently then I don't know how to install a sufficiently good desktop tool without these plugins
 
 ## v1.4-Beta
