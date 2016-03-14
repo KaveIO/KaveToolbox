@@ -363,3 +363,41 @@ In the second case, there are tow solutions. Best is to restart/modify mpld3 opt
 http://stackoverflow.com/questions/21089935/unable-plot-with-vincent-in-ipython
 https://mpld3.github.io/modules/API.html
 https://mpld3.github.io/modules/API.html#mpld3.enable_notebook
+
+## VNC opens to a black screen with just a small dialog box?
+
+On Centos7, for some reason the vnc installation/start does not be default recognise the gnome installation
+
+To fix this, edit your .vnc/xstartup file to contain:
+
+```
+#!/bin/sh
+
+[ -r /etc/sysconfig/i18n ] && . /etc/sysconfig/i18n
+export LANG
+export SYSFONT
+vncconfig -iconic &
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+OS=`uname -s`
+if [ $OS = 'Linux' ]; then
+  case "$WINDOWMANAGER" in
+    *gnome*)
+      if [ -e /etc/SuSE-release ]; then
+        PATH=$PATH:/opt/gnome/bin
+        export PATH
+      fi
+      ;;
+  esac
+fi
+if [ -x /etc/X11/xinit/xinitrc ]; then
+  exec /etc/X11/xinit/xinitrc
+fi
+if [ -f /etc/X11/xinit/xinitrc ]; then
+  exec sh /etc/X11/xinit/xinitrc
+fi
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+twm &
+```

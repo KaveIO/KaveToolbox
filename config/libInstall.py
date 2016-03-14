@@ -394,10 +394,13 @@ class Component(object):
         if type(afrom) is list:
             afrom = afrom[0]
         #default, get file, if it is a .sh file, run it
-        f = afrom.split("/")[-1].split('\\')[-1].split("?")[0]
         ext = ""
-        if '.' in f:
-            ext = '.'.join(f.split(".")[1:])
+        try:
+            f = afrom.split("/")[-1].split('\\')[-1].split("?")[0]
+            if '.' in f:
+                ext = '.'.join(f.split(".")[1:])
+        except AttributeError:
+            print "warning, could not determine file extension, does the download location exist?"
         dest = self.cname + '.' + ext
         self.copy(self.src_from, dest)
         if ext.endswith(".sh"):

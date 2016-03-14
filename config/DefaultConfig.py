@@ -154,18 +154,24 @@ fi
             f.close()
         #set default wallpaper on workstations
         if self.setwallpaper is True or (self.kind=='workstation' and self.setwallpaper in ['default','workstation']):
-            if linuxVersion.lower().startswith("centos"):
+            if linuxVersion.lower().startswith("centos6"):
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +'--set /desktop/gnome/background/picture_filename '+self.installDirPro+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
                          +' --set /desktop/gnome/background/picture_options centered')
-            if linuxVersion.lower().startswith("ubuntu"):
+            else:
                 cfpath='/etc/xdg/xfce4/xfconf/xfce-perchannel-xml'
+                template='xfce4-desktop.xml'
+                if linuxVersion.lower().startswith("centos7"):
+                    cfpath='/etc/dconf/db/local.d'
+                    template='00-background'
                 if not os.path.exists(cfpath):
                     os.makedirs(cfpath,0755)
-                self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),'xfce4-desktop.xml')+ ' ' + cfpath)
-                self.run('sed -i "s/%%INSTALLDIRPRO%%/'+self.installDirPro.replace('/','\\/')+'/g"  '+ os.path.join(cfpath,'xfce4-desktop.xml'))
-                self.run('sed -i "s/%%WPNUM%%/'+str(self.wallpaperselect)+'/g"  '+os.path.join(cfpath,'xfce4-desktop.xml'))
+                self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),template)+ ' ' + cfpath)
+                self.run('sed -i "s/%%INSTALLDIRPRO%%/'+self.installDirPro.replace('/','\\/')+'/g"  '+ os.path.join(cfpath,template))
+                self.run('sed -i "s/%%WPNUM%%/'+str(self.wallpaperselect)+'/g"  '+os.path.join(cfpath,template))
+                if linuxVersion.lower().startswith("centos7"):
+                    self.run('dconf update')
         return True
 
 
