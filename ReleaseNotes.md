@@ -20,6 +20,7 @@ Major changes:
 
 Minor changes:
 * New pip packages for kave integration: pymongo and pykerberos
+* Additional flags to the installation script, see the installation help
 
 * Note about Robomongo:
  - We have added the installation instructions for robomongo, but we do not install it by default
