@@ -700,7 +700,7 @@ robo.pre["Centos7"]=gsl.pre["Centos6"]
 robo.pre["Ubuntu"]=[]
 robo.post = {"Centos6": ["yum -y install robomongo-*.rpm"]}
 robo.post["Centos7"]=gsl.post["Centos6"]
-robo.post["Ubuntu"]=["dpkg -I robomongo-*.deb"]
+robo.post["Ubuntu"]=["dpkg -i robomongo-*.deb"]
 robo.usrspace = 40
 robo.tempspace = 20
 robo.registerToolbox(toolbox)
