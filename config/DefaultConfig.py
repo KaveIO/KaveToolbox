@@ -667,16 +667,16 @@ kettle.doInstall = True
 kettle.freespace = 700
 kettle.usrspace = 150
 kettle.tempspace = 1300
-kettle.version = "5.2.0.0-209"
+kettle.version = "6.0.1.0-386"
 kettle.installSubDir = "kettle"
 kettle.src_from = [{'filename':"pdi-ce", 'suffix':".zip", 'arch':"noarch"},
-                   "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.2/pdi-ce-5.2.0.0-209.zip?r"
-                   "=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fpentaho%2Ffiles%2FData%2520Integration%2F5.2%2Fpdi-ce"
-                   "-5.2.0.0-209.zip%2Fdownload&ts=1415797032&use_mirror=netcologne"]
+                   "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/6.0/pdi-ce-6.0.1.0-386.zip?r"
+                   "=http%3A%2F%2Fcommunity.pentaho.com%2Fprojects%2Fdata-integration%2F&ts=1460472289&use_mirror=iweb",
+                   ]
 kettle.node = False
 kettle.workstation = True
-kettle.pre = {"Centos6": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-devel"],
-              "Centos7": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-devel"],
+kettle.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
+              "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
               "Ubuntu": ["apt-get -y install default-jre default-jdk "]
               }
 kettle.registerToolbox(toolbox)
