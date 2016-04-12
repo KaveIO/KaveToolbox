@@ -664,14 +664,14 @@ class Kettle(Component):
 
 kettle = Kettle("Kettle")
 kettle.doInstall = True
-kettle.freespace = 700
+kettle.freespace = 800
 kettle.usrspace = 150
-kettle.tempspace = 1300
-kettle.version = "6.0.1.0-386"
+kettle.tempspace = 1600
+kettle.version = "5.4.0.1-130"
 kettle.installSubDir = "kettle"
 kettle.src_from = [{'filename':"pdi-ce", 'suffix':".zip", 'arch':"noarch"},
-                   "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/6.0/pdi-ce-6.0.1.0-386.zip?r"
-                   "=http%3A%2F%2Fcommunity.pentaho.com%2Fprojects%2Fdata-integration%2F&ts=1460472289&use_mirror=iweb",
+                   "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.4/pdi-ce-5.4.0.1-130.zip?r"
+                   "=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fpentaho%2Ffiles%2FData%2520Integration%2F5.4%2F&ts=1460476499&use_mirror=tenet"
                    ]
 kettle.node = False
 kettle.workstation = True
