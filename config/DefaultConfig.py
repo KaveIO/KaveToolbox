@@ -278,13 +278,13 @@ java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-de
                         "apt-get update",
                         "apt-get -y install openjdk-8-jre openjdk-8-jdk "]
             }
-java.post = {"Centos6": ["IFS=';' read -r jdir string <<< `ls -dt /usr/lib/jvm/java-1.8*-openjdk*`; export jdir; "
+java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /usr/lib/jvm/java-1.8*-openjdk*`; export jdir; "
                          "alternatives --install /usr/bin/java java ${jdir}/jre/bin/java 20000; "
                          "if [ -e ${jdir}/bin/javac ]; then alternatives --install /usr/bin/javac javac ${jdir}/bin/javac 20000; fi ;"
                          "if [ -e ${jdir}/jre/bin/javaws ]; then alternatives --install /usr/bin/javaws javaws ${jdir}/jre/bin/javaws 20000; fi; "
                          "alternatives --set java ${jdir}/jre/bin/java; "
                          "if [ -e ${jdir}/bin/javac ]; then alternatives --set javac ${jdir}/bin/javac; fi; "
-                         "if [ -e ${jdir}/jre/bin/javaws ]; then alternatives --set javaws ${jdir}/jre/bin/javaws; fi; "
+                         "if [ -e ${jdir}/jre/bin/javaws ]; then alternatives --set javaws ${jdir}/jre/bin/javaws; fi; '"
                          ]
              }
 java.post["Centos7"] = java.post["Centos6"]
