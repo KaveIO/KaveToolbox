@@ -315,10 +315,6 @@ class EclipseComponent(Component):
 eclipse = EclipseComponent("Eclipse")
 eclipse.workstation = True
 eclipse.node = False
-eclipse.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-               "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-               "Ubuntu": ["apt-get -y install default-jre default-jdk "]
-               }
 eclipse.children = {"Centos6" : [java],
                     "Centos7" : [java],
                     "Ubuntu" : [java]}
@@ -366,7 +362,8 @@ conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --
                                 "pip install cairosvg pyhs2 shapely descartes",
                                 "pip install pyproj folium vincent pam",
                                 "pip install py4j",
-                                "pip install pymongo pykerberos",
+                                "pip install pymongo",
+                                "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi",
                                 " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; pip install root_numpy;"
                                 + " pip install git+https://github.com/ibab/root_pandas; fi "]}
 conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
