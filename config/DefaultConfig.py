@@ -288,7 +288,7 @@ java.post = {"Centos6": ["IFS=';' read -r jdir string <<< `ls -dt /usr/lib/jvm/j
                          ]
              }
 java.post["Centos7"] = java.post["Centos6"]
-java.post["Ubuntu"] = java.post["Centos6"]
+java.post["Ubuntu"] = java.post["Centos6"].replace("alternatives","update-alternatives")
 
 #######################  ECLIPSE  ############################
 
