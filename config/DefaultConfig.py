@@ -694,7 +694,7 @@ kettle.node = False
 kettle.workstation = True
 kettle.pre = {"Centos6": ["yum -y install webkitgtk"],
               "Centos7": ["yum -y install webkitgtk"],
-              "Ubuntu": ["apt-get -y install webkitgtk"]
+              "Ubuntu": ["apt-get -y install libwebkitgtk"]
               }
 kettle.children = {"Centos6" : [java],
                    "Centos7" : [java],
