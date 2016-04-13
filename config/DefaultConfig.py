@@ -682,7 +682,7 @@ class Kettle(Component):
 kettle = Kettle("Kettle")
 kettle.doInstall = True
 kettle.freespace = 600
-kettle.usrspace = 150
+kettle.usrspace = 130
 kettle.tempspace = 1200
 kettle.version = "5.4.0.1-130"
 kettle.installSubDir = "kettle"
