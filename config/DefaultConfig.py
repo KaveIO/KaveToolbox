@@ -59,6 +59,22 @@ class Toolbox(Component):
     """
     Wrapper class for overwriting certain parts of the default installer
     """
+    def clean(self, others_only=False):
+        """
+        Special case of clean script, don't clean my own directory if this script is running *from* there!
+        """
+        if not others_only:
+            if self.installDir is not None and os.path.exists(self.installDir):
+                # if I'm in the right directory, OK
+                if os.path.dirname(__file__).startswith(self.installDir):
+                    if os.path.realpath(os.path.dirname(__file__)).startswith(self.installDirVersion):
+                        others_only = True
+                    else:
+                        # otherwise only clean afterwards
+                        self.cleanBefore = False
+                        self.cleanAfter = True
+                        return False
+        return super(Toolbox, self).clean(others_only)
 
     def installfrom(self):
         minstallfrom = os.path.realpath(os.sep.join(__file__.split(os.sep)[:-2]))
