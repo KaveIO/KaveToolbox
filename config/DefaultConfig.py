@@ -276,7 +276,7 @@ java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-de
             "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
             "Ubuntu" : ["add-apt-repository ppa:openjdk-r/ppa -y",
                         "apt-get update",
-                        "apt-get -y install openjdk-8-jre openjdk-8-jdk "]
+                        "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
             }
 java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /usr/lib/jvm/java-1.8*-openjdk*`; export jdir; "
                          "alternatives --install /usr/bin/java java ${jdir}/jre/bin/java 20000; "
@@ -681,9 +681,9 @@ class Kettle(Component):
 
 kettle = Kettle("Kettle")
 kettle.doInstall = True
-kettle.freespace = 800
+kettle.freespace = 600
 kettle.usrspace = 150
-kettle.tempspace = 1600
+kettle.tempspace = 1200
 kettle.version = "5.4.0.1-130"
 kettle.installSubDir = "kettle"
 kettle.src_from = [{'filename':"pdi-ce", 'suffix':".zip", 'arch':"noarch"},
