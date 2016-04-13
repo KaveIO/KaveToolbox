@@ -323,6 +323,7 @@ class Component(object):
         self.tempspace = 0 # /tmp size requirement in mb
         self.usrspace = 0 # /usr size requirement in mb
         self.env = ""
+        self.children = {}
         self.status = False
 
     def fillsrc(self):
