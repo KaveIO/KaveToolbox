@@ -274,7 +274,9 @@ java.version = '1.8'
 java.usrspace = 175
 java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
             "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-            "Ubuntu": ["apt-get -y install openjdk-8-jre openjdk-8-jdk "]
+            "Ubuntu" : ["add-apt-repository ppa:openjdk-r/ppa -y",
+                        "apt-get update",
+                        "apt-get -y install openjdk-8-jre openjdk-8-jdk "]
             }
 java.post = {"Centos6": ["IFS=';' read -r jdir string <<< `ls -dt /usr/lib/jvm/java-*-openjdk*`; "
                          "alternatives --install /usr/bin/java java ${jdir}/jre/bin/java 20000; "
