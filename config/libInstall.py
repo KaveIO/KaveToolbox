@@ -323,6 +323,7 @@ class Component(object):
         self.tempspace = 0 # /tmp size requirement in mb
         self.usrspace = 0 # /usr size requirement in mb
         self.env = ""
+        self.status = False
 
     def fillsrc(self):
         """
@@ -557,6 +558,13 @@ class Component(object):
                 return self.buildEnv()
             raise e
         ##############################
+        #Install children
+        ##############################
+        if self.children is not None and linuxVersion in self.children:
+            for child in self.children[linuxVersion]:
+                if not child.status:
+                    child.install(kind=self.kind, tmpdir=self.tmpdir, loud=self.loud)
+        ##############################
         #run prerequisites
         ##############################
         if self.pre is not None and linuxVersion in self.pre:
@@ -591,6 +599,7 @@ class Component(object):
         return self.__install_end_actions()
 
     def __install_end_actions(self):
+        self.status = True
         #create pro softlink
         if self.installDir is not None:
             if ((os.path.exists(self.installDirPro) or os.path.islink(self.installDirPro))

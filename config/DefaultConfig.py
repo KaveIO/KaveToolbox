@@ -269,6 +269,24 @@ fi
 
 """
 
+java = Component("java")
+java.version = '1.8'
+java.usrspace = 175
+java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
+            "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
+            "Ubuntu": ["apt-get -y install openjdk-8-jre openjdk-8-jdk "]
+            }
+java.post = {"Centos6": ["IFS=';' read -r jdir string <<< `ls -dt /usr/lib/jvm/java-*-openjdk*`; "
+                         "alternatives --install /usr/bin/java java ${jdir}/jre/bin/java 20000; "
+                         "alternatives --install /usr/bin/javac javac ${jdir}/bin/javac 20000; "
+                         "alternatives --install /usr/bin/javaws javaws ${jdir}/jre/bin/javaws 20000; "
+                         "alternatives --set java ${jdir}/jre/bin/java; "
+                         "alternatives --set javac ${jdir}/bin/javac; "
+                         "alternatives --set javaws ${jdir}/jre/bin/javaws; "
+                         ]
+             }
+java.post["Centos7"] = java.post["Centos6"]
+java.post["Ubuntu"] = java.post["Centos6"]
 
 #######################  ECLIPSE  ############################
 
@@ -295,10 +313,13 @@ class EclipseComponent(Component):
 eclipse = EclipseComponent("Eclipse")
 eclipse.workstation = True
 eclipse.node = False
-eclipse.pre = {"Centos6": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-devel"],
-               "Centos7": ["yum -y install java-1.7.0-openjdk java-1.7.0-openjdk-devel"],
+eclipse.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
+               "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
                "Ubuntu": ["apt-get -y install default-jre default-jdk "]
                }
+eclipse.children = {"Centos6" : [java],
+                    "Centos7" : [java],
+                    "Ubuntu" : [java]}
 eclipse.installSubDir = "eclipse"
 eclipse.version = "1.3"
 eclipse.src_from = li.fromKPMGrepo("eclipse.tar.gz", arch="noarch")
@@ -507,9 +528,6 @@ class RootComponent(Component):
 
 
     def script(self):
-        # call prerequisite installs
-        for component in self.children[linuxVersion]:
-            component.install(kind=self.kind, tmpdir=self.tmpdir, loud=self.loud)
         for ap in sys.path:
             if conda.installSubDir in ap:
                 self.bauk(
@@ -625,7 +643,7 @@ class Kettle(Component):
         lines = f.read()
         f.close()
         f = open("data-integration/plugins/pentaho-big-data-plugin/plugin.properties", "w")
-        f.write(lines.replace("active.hadoop.configuration=hadoop-20", "active.hadoop.configuration=cdh47"))
+        f.write(lines.replace("active.hadoop.configuration=hadoop-20", "active.hadoop.configuration=hdp22"))
         f.close()
         #default to not show the welcome screen
         addition = """
@@ -675,10 +693,13 @@ kettle.src_from = [{'filename':"pdi-ce", 'suffix':".zip", 'arch':"noarch"},
                    ]
 kettle.node = False
 kettle.workstation = True
-kettle.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-              "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-              "Ubuntu": ["apt-get -y install default-jre default-jdk "]
+kettle.pre = {"Centos6": ["yum -y install webkitgtk"],
+              "Centos7": ["yum -y install webkitgtk"],
+              "Ubuntu": ["apt-get -y install webkitgtk"]
               }
+kettle.children = {"Centos6" : [java],
+                   "Centos7" : [java],
+                   "Ubuntu" : [java]}
 kettle.registerToolbox(toolbox)
 kettle.env = """
 ket="%%INSTALLDIRVERSION%%"
