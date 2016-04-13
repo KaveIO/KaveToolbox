@@ -134,10 +134,11 @@ class Toolbox(Component):
             raise NameError(
                 "Sorry, I cannot be installed from a directory which includes '.git' in the name! Can you please "
                 "download/copy to a different directory and try again")
-        self.run(
-            "rsync -rv --exclude=.git --exclude=.project --exclude=.pydevproject --exclude=.pyc " + self.installfrom(
-
-            ) + "/ " + self.installDirVersion)
+        if os.path.realpath(self.installfrom()) != os.path.realpath(self.installDirVersion):
+            self.run(
+                     "rsync -rv --exclude=.git --exclude=.project --exclude=.pydevproject --exclude=.pyc "
+                     + self.installfrom()
+                     + "/ " + self.installDirVersion)
         #self.run("mv ./"+self.installfrom().rstrip('/').split('/')[-1]+" "+self.installDir)
         f = open(self.installfrom() + os.sep + "scripts" + os.sep + "autoKaveEnv.sh")
         l = f.read()
