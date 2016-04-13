@@ -63,17 +63,18 @@ class Toolbox(Component):
         """
         Special case of clean script, don't clean my own directory if this script is running *from* there!
         """
-        if not others_only:
-            if self.installDir is not None and os.path.exists(self.installDir):
-                # if I'm in the right directory, OK
-                if os.path.dirname(__file__).startswith(self.installDir):
-                    if os.path.realpath(os.path.dirname(__file__)).startswith(self.installDirVersion):
-                        others_only = True
-                    else:
-                        # otherwise only clean afterwards
-                        self.cleanBefore = False
-                        self.cleanAfter = True
-                        return False
+        # first case, clean before or after, and everything is OK
+        if self.cleanBefore and (not os.path.dirname(__file__).startswith(self.installDir)):
+            return super(Toolbox, self).clean(others_only)
+        # second case, I'm in the right directory, so OK so long as others_only is true
+        if self.cleanBefore and os.path.realpath(os.path.dirname(__file__)).startswith(self.installDirVersion):
+            super(Toolbox, self).clean(True)
+        # third case, any other cleanBefore combi is a definite no go
+        # The other two if statements will mostly aways activate before we get here
+        if self.cleanBefore:
+            self.cleanBefore = False
+            self.cleanAfter = True
+            return False
         return super(Toolbox, self).clean(others_only)
 
     def installfrom(self):
