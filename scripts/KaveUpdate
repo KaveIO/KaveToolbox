@@ -133,6 +133,21 @@ if repotest is None:
         "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
         "settings (did you ensure your su inherits your proxy settings?)")
 
+
+#
+# Install curl and wget!
+#
+preinstall = {"Centos6": ["yum -y install epel-release", "yum -y install python-pip", "pip install lxml"],
+              "Centos7": ["yum -y install epel-release", "yum -y install python-pip", "pip install lxml"],
+              "Ubuntu": ["apt-get install -y python-pip", "pip install lxml"]}
+
+for cmd in preinstall[li.linuxVersion]:
+    stat, out, err = li.mycmd(cmd)
+    if stat:
+        raise SystemError(
+            "Could not run preinstall: " + cmd + " : are you running as sudo? Or maybe you have no access to a "
+                                                 "package repo? \n" + out + "\n" + err)
+
 li.__version__ = version(vargs)
 
 # test that this version exists
