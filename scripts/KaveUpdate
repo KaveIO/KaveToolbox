@@ -95,7 +95,7 @@ if repotest is None:
 li.__version__ = version(vargs)
 
 # test that this version exists
-toget = li.fromKPMGrepo("kavetoolbox-installer", version=li.__version__, suffix=".sh", linuxVersion="noarch")
+toget = li.fromKPMGrepo("kavetoolbox-installer", version=li.__version__, suffix=".sh", arch="noarch")
 
 if toget is None:
     raise IOError("Could not find/download installer for version " + li.__version__ + " all available versions are: "
