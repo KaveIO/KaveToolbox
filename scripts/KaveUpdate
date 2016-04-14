@@ -105,9 +105,9 @@ if toget is None:
 tempdir = tempfile.mkdtemp()
 os.chdir(tempdir)
 # Download it
-li.cleanIfFailureLoud(li.copymethods(toget, "kavetoolbox-installer"+li.__version__+".sh"), tempdir)
+li.cleanIfFailureLoud(li.copymethods(toget, "kavetoolbox-installer-"+li.__version__+".sh"), tempdir)
 # Run it
-li.cleanIfFailureLoud("bash kavetoolbox-installer"+li.__version__+".sh "+" ".join(passargs), tempdir)
+li.cleanIfFailureLoud("bash kavetoolbox-installer-"+li.__version__+".sh "+" ".join(passargs), tempdir)
 
 #final cleanup
 os.chdir(topdir)

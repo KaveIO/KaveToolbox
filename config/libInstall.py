@@ -50,10 +50,12 @@ __arch__="Centos6"
 __mirror_list_file__="/etc/kave/mirror"
 __mirror_list__=[]
 
-def repoURL(filename, repo=__repo_url__, arch=__arch__, dir=__main_dir__, ver=__version__):
+def repoURL(filename, repo=__repo_url__, arch=__arch__, dir=__main_dir__, ver=None):
     """
     Construct the repository address for our code
     """
+    if ver is None:
+        ver = __version__
     if repo[-1]!="/":
         repo=repo+'/'
     return repo + arch.lower() + "/" + dir + "/" + ver + "/" + filename
