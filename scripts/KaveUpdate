@@ -92,7 +92,7 @@ if repotest is None:
         "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
         "settings (did you ensure your su inherits your proxy settings?)")
 
-li.__version__ = version()
+li.__version__ = version(vargs)
 
 # test that this version exists
 toget = li.fromKPMGrepo("kavetoolbox-installer", version=li.__version__, suffix=".sh", linuxVersion="noarch")
