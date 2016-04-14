@@ -27,11 +27,12 @@ http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.0-Beta/kavetoolbox-ins
 for each installation.
 
 usage:
-    KaveUpdate [<version> ...]
+    KaveUpdate [<version> --list ...]
 
 If no version is given, the latest version will be attempted.
+If --list is given the available versions will be printed and the program will exit
 
-All arguements that start with --/- are passed through to the downloaded script.
+All other arguements that start with --/- are passed through to the downloaded script.
 Only one arguement without a --/- is allowed, and that is the version number
 i.e. --clean-after is a common arguement when upgrading.
 """
@@ -47,8 +48,8 @@ if "--help" in sys.argv or "-h" in sys.argv:
 #
 # Check all arguements
 #
-passargs = [a for a in sys.argv[1:] if a.startswith('-')]
-vargs = [a for a in sys.argv[1:] if not a.startswith('-')]
+passargs = [a for a in sys.argv[1:] if a.startswith('-')  and a not in ["--list"]]
+vargs = [a for a in sys.argv[1:] if not a.startswith('-') and a not in ["--list"]]
 
 if len(vargs) > 1:
     print __doc__
@@ -150,6 +151,10 @@ except ImportError:
             raise SystemError(
                 "Could not run preinstall: " + cmd + " : are you running as sudo? Or maybe you have no access to a "
                                                      "package repo? \n" + out + "\n" + err)
+
+if "--list" in sys.argv[1:]:
+    print allversions().__str__()
+    sys.exit(0)
 
 li.__version__ = version(vargs)
 

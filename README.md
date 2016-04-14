@@ -163,7 +163,9 @@ And/or visit http://nbviewer.ipython.org/
 
 * Optional: Additional installation options
   * The installer script has more options to help steer the installation
-  * take a look at the --help for the KaveInstall script for more details. Examples include automatically cleaning old versions from /opt.
+  * take a look at the --help for the KaveInstall script for more details.
+  * Examples include automatically cleaning old versions from /opt. (--clean-after)
+  * Examples include completely cleaning directories before install from /opt (--clean-before)
 
 
 Troubleshooting:
@@ -193,33 +195,19 @@ Re-installing:
 Updating:
 ---------
 
-The updating procedure is the following:
+There are three possible update mechanisms
 
-* Optional: Selectively remove software from /opt as you choose, to force re-installation of those components
-* Download and run the new installation script to install new software
+* Downloading/rerunning the latest install script (from git or from the repository)
+* Running the KaveUpdate script
 
-* If you used the git source update your local git checkout (either following original instructions or simply git pull)
-* Re-run the install following the original installation instructions, this will only install new components, or things you deleted
-
-So, if you did a git checkout and simply want the latest environment and latest python modules, try:
 ```
-cd somegitdirectory/kavetoolbox
-git pull
-sudo rm -rf /opt/KaveToolbox
-sudo ./scripts/KaveInstall [--quiet]
+sudo /opt/KaveToolbox/pro/scripts/KaveUpdate --list
+sudo /opt/KaveToolbox/pro/scripts/KaveUpdate --help
+sudo /opt/KaveToolbox/pro/scripts/KaveUpdate --quiet
 ```
 
-  * (--quiet is an option which avoids printing loads of information to the screen, remove the square brackets if you want a quiet installation)
-
-Or, similarly for some new released version:
-```
-sudo rm -rf /opt/KaveToolbox
-wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.0-Beta-Pre/kavetoolbox-installer-2.0-Beta-Pre.sh
-sudo bash kavetoolbox-installer-2.0-Beta-Pre.sh [--quiet]
-```
-
-( NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks
-  this password is intended to be widely known and is used here as an extension of the URL )
+The update script works well for updating 2.X versions, and can also be used for 1.X, but only with the --clean-before flag.
+The --clean-after flag is a common addition to the update to remove deprecated software after install
 
 Usage
 -----
@@ -231,7 +219,7 @@ Usage
 
 * In other cases you will need to get/set environment manually
 
-  source [directory, e.g. /opt/KaveToolbox/scripts]/KaveEnv.sh
+  source [directory, e.g. /opt/KaveToolbox/pro/scripts]/KaveEnv.sh
 
 * the ASCII-art KAVE banner only shows up for interactive, non-dumb terminals, to turn off the KAVE banner even in that case do
 
