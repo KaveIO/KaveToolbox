@@ -54,8 +54,6 @@ if len(vargs) > 1:
     print __doc__
     raise AttributeError("You have sent too many arguements without '-' "+vargs.__str__() )
 
-import libInstall as li
-
 installfrom = os.path.realpath(os.sep.join(__file__.split(os.sep)[:-2]))
 if installfrom == "":
     installfrom = ".."
