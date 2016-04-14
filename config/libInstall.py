@@ -75,6 +75,7 @@ if os.path.exists(__mirror_list_file__):
         if mirror[-1]!="/":
             mirror=mirror+'/'
         __mirror_list__.append(mirror)
+
 #
 # Wrappers around subprocess
 #

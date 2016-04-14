@@ -66,22 +66,63 @@ topdir = os.getcwd()
 
 import libInstall as li
 
+
+def linkscraper(url):
+    """
+    Download a webpage and find all links in the page
+    """
+    links = []
+    import urllib
+    import lxml.html
+    connection = urllib.urlopen(url)
+
+    dom =  lxml.html.fromstring(connection.read())
+
+    for link in dom.xpath('//a/@href'): # select the url in href for all a tags(links)
+        links.append(link)
+    return links
+
+def mirrorsearch():
+    """
+    Search through all the options in the mirrors file for
+    installable KaveToolbox versions, accepts local directories
+    or websites (unsure about ftp)
+    """
+    results = []
+    alist = li.__mirror_list__[:]
+    alist.append(li.__repo_url__)
+    for mirror in alist:
+        # it's a directory
+        if mirror.startswith("/"):
+            mirror = os.path.realpath(mirror)
+            if os.path.isdir(mirror):
+                import glob
+                dirs = glob.glob(mirror+os.sep+"noarch"+os.sep+"KaveToolbox"+os.sep+"*")
+                results = results + [d.split(os.sep)[-1] for d in dirs if os.path.isdir(os.path.realpath(d))]
+                continue
+        elif mirror.startswith("http") or mirror.startswith("ftp:"):
+            links = linkscraper(mirror+"/noarch/KaveToolbox/")
+            results = results + [l[:-1] for l in links if l[0].isdigit() and l[-1]=="/"]
+    return sorted(list(set(results)))
+
+
 __allvs__ = None
 def allversions():
     """
     Return a sorted list of all available KTB versions
-    For the time being this is soft-coded, but it should be dynamic,
-    using the list of mirrors/local cache
+    dynamic using the list of mirrors/local cache
     """
     global __allvs__
     if not __allvs__ or not len(__allvs__):
-        __allvs__ = ["1.4-Beta","2.0-Beta-Pre"]
+        __allvs__ = mirrorsearch()
     return __allvs__
+
 
 def version(vargs):
     if len(vargs):
         return vargs[0]
-    return allversions()[-1]
+    # don' pick a 'Pre' version ...
+    return [v for v in allversions() if not v.endswith('-Pre')][-1]
 
 # Test that the repo is reachable
 
