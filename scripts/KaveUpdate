@@ -1,0 +1,117 @@
+#!/usr/bin/env python
+##############################################################################
+#
+# Copyright 2015 KPMG N.V. (unless otherwise stated)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+##############################################################################
+"""
+The KaveUpdate
+
+This python script downloads a new install script from the repository, and executes it for you.
+This should make it easier to perform updates of KAVE software into the future.
+
+There are installation scripts looking like:
+http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.0-Beta/kavetoolbox-installer-2.0-Beta.sh
+for each installation.
+
+usage:
+    KaveUpdate [<version> ...]
+
+If no version is given, the latest version will be attempted.
+
+All arguements that start with --/- are passed through to the downloaded script.
+Only one arguement without a --/- is allowed, and that is the version number
+i.e. --clean-after is a common arguement when upgrading.
+"""
+
+import os
+import sys
+import subprocess as subp
+import tempfile
+
+if "--help" in sys.argv or "-h" in sys.argv:
+    print __doc__
+
+#
+# Check all arguements
+#
+passargs = [a for a in sys.argv[1:] if a.startswith('-')]
+vargs = [a for a in sys.argv[1:] if not a.startswith('-')]
+
+if len(vargs) > 1:
+    print __doc__
+    raise AttributeError("You have sent too many arguements without '-' "+vargs.__str__() )
+
+import libInstall as li
+
+installfrom = os.path.realpath(os.sep.join(__file__.split(os.sep)[:-2]))
+if installfrom == "":
+    installfrom = ".."
+if installfrom.endswith("scripts"):
+    installfrom = installfrom[:-len("scripts")]
+conflocation = installfrom + os.sep + "config" + os.sep
+conflocation = os.path.realpath(conflocation)
+sys.path.append(conflocation)
+topdir = os.getcwd()
+
+import libInstall as li
+
+__allvs__ = None
+def allversions():
+    """
+    Return a sorted list of all available KTB versions
+    For the time being this is soft-coded, but it should be dynamic,
+    using the list of mirrors/local cache
+    """
+    global __allvs__
+    if not __allvs__ or not len(__allvs__):
+        __allvs__ = ["1.4-Beta","2.0-Beta-Pre"]
+    return __allvs__
+
+def version(vargs):
+    if len(vargs):
+        return vargs[0]
+    return allversions()[-1]
+
+# Test that the repo is reachable
+
+repotest = li.fromKPMGrepo("", "noarch")
+
+if repotest is None:
+    raise IOError(
+        "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
+        "settings (did you ensure your su inherits your proxy settings?)")
+
+li.__version__ = version()
+
+# test that this version exists
+toget = li.fromKPMGrepo("kavetoolbox-installer", version=li.__version__, suffix=".sh", linuxVersion="noarch")
+
+if toget is None:
+    raise IOError("Could not find/download installer for version " + li.__version__ + " all available versions are: "
+                  + allversions().__str__()
+                  )
+
+tempdir = tempfile.mkdtemp()
+os.chdir(tempdir)
+# Download it
+li.cleanIfFailureLoud(li.copymethods(toget, "kavetoolbox-installer"+li.__version__+".sh"), tempdir)
+# Run it
+li.cleanIfFailureLoud("bash kavetoolbox-installer"+li.__version__+".sh "+" ".join(passargs), tempdir)
+
+#final cleanup
+os.chdir(topdir)
+if os.path.exists(tempdir) and len(tempdir)>4:
+    os.system("rm -rf "+tempdir)
