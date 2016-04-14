@@ -135,18 +135,21 @@ if repotest is None:
 
 
 #
-# Install curl and wget!
+# Install lxml if not there!!
 #
-preinstall = {"Centos6": ["yum -y install epel-release", "yum -y install python-pip", "pip install lxml"],
-              "Centos7": ["yum -y install epel-release", "yum -y install python-pip", "pip install lxml"],
-              "Ubuntu": ["apt-get install -y python-pip", "pip install lxml"]}
+try:
+    import lxml
+except ImportError:
+    preinstall = {"Centos6": ["yum -y install epel-release", "yum -y install python-pip", "pip install lxml"],
+                  "Centos7": ["yum -y install epel-release", "yum -y install python-pip", "pip install lxml"],
+                  "Ubuntu": ["apt-get install -y python-pip", "pip install lxml"]}
 
-for cmd in preinstall[li.linuxVersion]:
-    stat, out, err = li.mycmd(cmd)
-    if stat:
-        raise SystemError(
-            "Could not run preinstall: " + cmd + " : are you running as sudo? Or maybe you have no access to a "
-                                                 "package repo? \n" + out + "\n" + err)
+    for cmd in preinstall[li.linuxVersion]:
+        stat, out, err = li.mycmd(cmd)
+        if stat:
+            raise SystemError(
+                "Could not run preinstall: " + cmd + " : are you running as sudo? Or maybe you have no access to a "
+                                                     "package repo? \n" + out + "\n" + err)
 
 li.__version__ = version(vargs)
 
