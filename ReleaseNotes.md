@@ -2,7 +2,6 @@
 
 Contains a list of the released versions with a summary of the main changes in each version.
 
-
 # Beta Releases
 
 ## v2.0-Beta
@@ -10,18 +9,38 @@ Contains a list of the released versions with a summary of the main changes in e
 Major version change, mirroring the version increase of AmbariKave
 
 Major changes:
-* Version numbering: for all the packages we install to /opt (default), we now add version subdirectories
-  This versioning scheme has several benefits.
+* Version numbering: for all the packages we install to the topdir (/opt by default), we now add version subdirectories
+  Each directory also has a pro softlink, which is created during install. Advanced users may wish to modify this softlink
+  This versioning scheme has several benefits:
   a) Ability to have multiple KTB versions operating side-by-side
      (to start a different KTB run the KaveEnv script with the version as a parameter, i.e. KaveEnv.sh 2.0-Beta)
   b) Simpler upgrading
      (no need to delete /opt content yourself before the upgrade, if needed the script can do that for you
      with --clean-after, or --clean-if-disk-full, see the installation help for more new flags)
+* Affect of version numbering on script locations: the KaveToolbox distribution used to be placed under
+  /topdir/KaveToolbox directly (e.g. /opt/KaveToolbox/scripts/KaveEnv.sh). Now it is moved to a versioned directory
+  (e.g. /opt/KaveToolbox/2.0-Beta/scripts/KaveEnv.sh). Scripts which explicitly source the env file or bind against
+  explicit directories will need to be updated accordingly, either to point to the new static location, or to point
+  to the new dynamic location (e.g.: /opt/KaveToolbox/2.0-Beta/pro/KaveEnv.sh)
+* We have created an update script can poll for latest versions from the repository.
+  The new KaveUpdate script will poll the repo server for latest versions and install what you request
+* KaveEnv script will now take a version arguement to enable a specific version (pro by default)
 
 Minor changes:
 * New pip packages for kave integration: pymongo and pykerberos
 * Additional flags to the installation script, see the installation help
-* I now install Java 1.8
+* pygsl protected against continuous re-install if it already exists
+* Consolodation of java versions, openjdk-1.8 is preferred
+* xpdf added to default workstation install
+* Installer is now aware of how much disk space is required and will warn you or fail
+  if insufficient disk space is available. You can choose from a broad list of options
+  on what to do in this case, e.g.: --clean-if-disk-full, or --clean-after, or
+  --skip-if-disk-full, or --clean-before
+
+Bugfixes:
+* pygsl protected against continuous re-install if it already exists
+* rootpy install issues (unreliable failures) fixed
+* Vnc install on Centos7 updated
 
 * Note about Robomongo:
  - We have added the installation instructions for robomongo, but we do not install it by default
@@ -29,12 +48,18 @@ Minor changes:
  - Users can manually install robomongo 0.8.4 by setting the correct configuration flag in CustomInstall.py
  - cnf.robo.doInstall=True,  cnf.robo.workstation=True
 
+* Note about pentaho kettle
+ - We have updated the installed version of Pentaho (Kettle) to 5.4
+   Pentaho DI 5.4 does not currently have native support for HDP 2.4 at the time of this release
+   Version 6 has been released but is not included in KaveToolbox yet, since there are several major
+   bugs preventing use, and the size of the kettle download has grown very very large in 6.0
+
 * Note about Gnome and Centos:
  - We install gnome in workstation mode Centos6/7 to get a good enough vnc session for most users
  - There are two gnome packages/plugins that I do not want to install/run: NetworkManager and PulseAudio
  - NetworkManager: problems seen within a VM trying to control the network config. It's not necessary within a VM.
  - PulseAudio: spams logfiles of VMs where there is no virtual soundcard installed. It's not necessary within a VM.
- - However, these two now have dependencies living within the gnome installation, so they are not skippable
+ - However, these two now are static forced dependencies within the gnome installation, so they are not skippable
  - I can skip NetworkManager on Centos6, but no further skipping options work right now.
  - Currently then I don't know how to install a sufficiently good desktop tool without these plugins
 

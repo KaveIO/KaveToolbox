@@ -26,14 +26,14 @@ What errors might I see?
 Fix:
 
 * sudo su #changes you to the root user
-* source /opt/KaveToolbox/scripts/KaveEnv.sh # the regular kave environment is not automatically fired for the root user
+* source /opt/KaveToolbox/pro/scripts/KaveEnv.sh # the regular kave environment is not automatically fired for the root user
 * #install as normal
 
 Example:
 
 ```
 sudo su
-source /opt/KaveToolbox/scripts/KaveEnv.sh
+source /opt/KaveToolbox/pro/scripts/KaveEnv.sh
 conda update conda
 pip install pymongo
 ```
@@ -142,7 +142,7 @@ Remember the help at this stage [--help]
 
 * Then to browse through examples
 ```
-cd /opt/KaveToolbox/examples
+cd /opt/KaveToolbox/pro/examples
 ipython notebook
 ```
 And/or visit http://nbviewer.ipython.org/
