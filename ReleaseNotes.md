@@ -41,6 +41,7 @@ Bugfixes:
 * pygsl protected against continuous re-install if it already exists
 * rootpy install issues (unreliable failures) fixed
 * Vnc install on Centos7 updated
+* eliminate unrealiable dumbo library from standard installation
 
 * Note about Robomongo:
  - We have added the installation instructions for robomongo, but we do not install it by default
