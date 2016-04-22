@@ -21,7 +21,7 @@ import pep8
 
 LINES_SKIP = 17
 
-ignoreList = []
+ignoreList = ["dummytest"]
 
 
 class PEP8(pep8.StyleGuide):
