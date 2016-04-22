@@ -33,9 +33,6 @@ import string
 import os
 import sys
 import tempfile
-#import urllib2
-#import httplib
-#import commands
 import subprocess as sub
 
 # defaults for the repository
@@ -426,7 +423,8 @@ class Component(object):
 
     def todir(self):
         """
-        It's often complex to interpret exactly where a component will be installed, this method does just that and caches the result.
+        It's often complex to interpret exactly where a component will be installed,
+        this method does just that and caches the result.
         """
         if self.installDir is not None:
             return self.installDir
@@ -467,7 +465,9 @@ class Component(object):
                     self.run("rm -rf " + self.installDirPro)
                 if len(self.installDirVersion) > 4 and os.path.exists(self.installDirVersion):
                     self.run("rm -rf " + self.installDirVersion)
-                if len(self.installDir) > 4 and os.path.exists(self.installDir) and os.path.realpath(self.installDir) != os.path.realpath(self.topdir):
+                if (len(self.installDir) > 4 and (os.path.exists(self.installDir)
+                                                  and (os.path.realpath(self.installDir)
+                                                       != os.path.realpath(self.topdir)))):
                     self.run("rm -rf " + self.installDir)
             else:
                 print "Force-cleaning obsolete installations as requested"
@@ -500,7 +500,8 @@ class Component(object):
     def install(self, kind="node", tmpdir=None, loud=True):
         """
         Used by the installer, eventually calls the script method
-        It is not usual for component derived classes to override this method, since they override the pre, post and script() classes instead
+        It is not usual for component derived classes to override this method,
+        since they override the pre, post and script() classes instead
         """
         self.odir = os.path.realpath(os.curdir)
         self.kind = kind
@@ -582,7 +583,8 @@ class Component(object):
             for cmd in self.prewithenv[linuxVersion]:
                 self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ;" + cmd + ";'")
         # run workstation extras
-        if self.kind is "workstation" and self.workstationExtras is not None and linuxVersion in self.workstationExtras:
+        if (self.kind is "workstation" and (self.workstationExtras is not None
+                                            and linuxVersion in self.workstationExtras)):
             for cmd in self.workstationExtras[linuxVersion]:
                 self.run(cmd)
         if self.installDir is not None and self.installDirVersion.count('/') > 1:
@@ -666,11 +668,11 @@ class Component(object):
         f.write(''.join(beforelines))
         f.write("## Begin " + self.cname + '\n')
         f.write('#\n')
-        f.write(self.env.replace("%%INSTALLDIR%%",
-                                 self.installDir).replace("%%INSTALLDIRPRO%%",
-                                                          self.installDirPro).replace("%%INSTALLDIRVERSION%%",
-                                                                                      self.installDirVersion).replace("%%VERSION%%",
-                                                                                                                      self.version))
+        e = self.env.replace("%%INSTALLDIR%%", self.installDir)
+        e = e.replace("%%INSTALLDIRPRO%%", self.installDirPro)
+        e = e.replace("%%INSTALLDIRVERSION%%", self.installDirVersion)
+        e = e.replace("%%VERSION%%", self.version)
+        f.write(e)
         f.write('#\n')
         f.write("## End " + self.cname + '\n')
         f.write(''.join(afterlines))

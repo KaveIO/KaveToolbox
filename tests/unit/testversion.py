@@ -59,7 +59,16 @@ class TestVersions(unittest.TestCase):
                 if f in self.ignore:
                     continue
                 found = found + self.findversion(os.path.join(root, f))
+        # if '-Pre' in number to check, the Welcome.banner is the only one allowed to be missing -Pre
         found = [i for i in found if i is not None and len(found)]
+        ifound = []
+        for f in found:
+            if (f[0].endswith("Welcome.banner") and (self.checkAgainst.endswith('-Pre')
+                                                     and not f[-1][0].endswith('-Pre'))):
+                ifound.append((f[0], f[1], (f[2][0] + '-Pre', '-Pre')))
+            else:
+                ifound.append(f)
+        found = ifound
         foundn = [i[-1][0] for i in found]
         self.assertTrue(len(set(foundn)) == 1, "Mis-matching version numbers found! \n\t" +
                         '\n\t'.join([str(i) for i in found]))

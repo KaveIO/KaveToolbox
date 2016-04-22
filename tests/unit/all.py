@@ -23,7 +23,7 @@ import testpythonimport
 import checkpep8
 import base
 
-mods = [checkpep8, testpythonimport, testversion, license, pyfilenames]
+mods = [testversion, checkpep8, testpythonimport, license, pyfilenames]
 
 if __name__ == "__main__":
     base.parallel(mods)

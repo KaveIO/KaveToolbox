@@ -20,8 +20,8 @@
 The KaveInstall
 
 This python script uses config/kavedefaults.py to read the configuration of all components,
-reads /etc/kave/CustomInstall.py if it exists to overwrite those components, reads /etc/kave/mirrors if it exists for
-where to find our software.
+reads /etc/kave/CustomInstall.py if it exists to overwrite those components,
+reads /etc/kave/mirrors if it exists for where to find our software.
 
 /etc/kave/CustomInstall.py should be used to logically overwrite any property of a service appearing in
 kavedefaults.py and will not be over-written on re-install/upgrade.
