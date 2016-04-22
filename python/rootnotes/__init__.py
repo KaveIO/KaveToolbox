@@ -96,6 +96,7 @@ def display_canvas(canvas):
     canvas.SaveAs(file.name)
     display.display(display.Image(filename=file.name, format='png', embed=True))
 
+
 def _display_any(obj):
     """Helper method for drawing a ROOT canvas inline, used with python magic functions"""
     file = tempfile.NamedTemporaryFile(suffix=".png")
@@ -105,7 +106,7 @@ def _display_any(obj):
     return ip_img._repr_png_()
 
 # register display function with PNG formatter:
-png_formatter = get_ipython().display_formatter.formatters['image/png'] # noqa
+png_formatter = get_ipython().display_formatter.formatters['image/png']  # noqa
 
 # Register ROOT types in ipython
 #
@@ -116,6 +117,7 @@ png_formatter.for_type(ROOT.TCanvas, display_canvas)
 png_formatter.for_type(ROOT.TF1, _display_any)
 
 from IPython.core.magic import (Magics, magics_class, cell_magic)
+
 
 @magics_class
 class RootMagics(Magics):

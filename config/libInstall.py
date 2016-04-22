@@ -38,17 +38,18 @@ import tempfile
 #import commands
 import subprocess as sub
 
-#defaults for the repository
+# defaults for the repository
 #
 # NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks
 #  this password is intended to be widely known and is used here as an extension of the URL
 #
-__repo_url__="http://repos:kaverepos@repos.kave.io"
-__version__="2.0-Beta-Pre"
-__main_dir__="KaveToolbox"
-__arch__="Centos6"
-__mirror_list_file__="/etc/kave/mirror"
-__mirror_list__=[]
+__repo_url__ = "http://repos:kaverepos@repos.kave.io"
+__version__ = "2.0-Beta-Pre"
+__main_dir__ = "KaveToolbox"
+__arch__ = "Centos6"
+__mirror_list_file__ = "/etc/kave/mirror"
+__mirror_list__ = []
+
 
 def repoURL(filename, repo=__repo_url__, arch=__arch__, dir=__main_dir__, ver=None):
     """
@@ -56,8 +57,8 @@ def repoURL(filename, repo=__repo_url__, arch=__arch__, dir=__main_dir__, ver=No
     """
     if ver is None:
         ver = __version__
-    if repo[-1]!="/":
-        repo=repo+'/'
+    if repo[-1] != "/":
+        repo = repo + '/'
     return repo + arch.lower() + "/" + dir + "/" + ver + "/" + filename
 
 #
@@ -72,13 +73,14 @@ if os.path.exists(__mirror_list_file__):
         mirror = mirror.strip()
         if not len(mirror):
             continue
-        if mirror[-1]!="/":
-            mirror=mirror+'/'
+        if mirror[-1] != "/":
+            mirror = mirror + '/'
         __mirror_list__.append(mirror)
 
 #
 # Wrappers around subprocess
 #
+
 
 def mycmd(cmd):
     proc = sub.Popen(cmd, shell=True, stdout=sub.PIPE, stderr=sub.PIPE)
@@ -95,10 +97,10 @@ def exitIfFailureQuiet(cmd):
     """
     status, output, err = mycmd(cmd)
     if status:
-        #exception for rpm -i if rpm is already installed
+        # exception for rpm -i if rpm is already installed
         if (status == 1 or status == 256) and cmd.startswith("rpm "):
             return status
-        #exception for prm -i if rpm is already installed
+        # exception for prm -i if rpm is already installed
         if status > 10 and cmd.startswith("wget "):
             return status
         raise RuntimeError(
@@ -114,10 +116,10 @@ def exitIfFailureLoud(cmd):
     """
     status = sub.call(cmd, shell=True)
     if status:
-        #exception for rpm -i if rpm is already installed
+        # exception for rpm -i if rpm is already installed
         if (status == 1 or status == 256) and cmd.startswith("rpm "):
             return status
-        #exception for prm -i if rpm is already installed
+        # exception for prm -i if rpm is already installed
         if status > 10 and cmd.startswith("wget "):
             return status
         raise RuntimeError("Problem running: \n" + cmd + "\n got:\n\t" + str(status))
@@ -133,15 +135,16 @@ def cleanIfFailureQuiet(cmd, directory):
     """
     status, output, err = mycmd(cmd)
     if status:
-        #exception for rpm -i if rpm is already installed
+        # exception for rpm -i if rpm is already installed
         if (status == 1 or status == 256) and cmd.startswith("rpm "):
             return output.strip()
-        #exception for prm -i if rpm is already installed
+        # exception for prm -i if rpm is already installed
         if status > 10 and cmd.startswith("wget "):
             return output.strip()
-        if len(directory)>4:
-            os.system("rm -rf "+directory)
-        raise RuntimeError("Problem running: \n"+cmd+"\n got:\n\t"+str(status)+"\n from: \n"+output+" stderr: \n"+err )
+        if len(directory) > 4:
+            os.system("rm -rf " + directory)
+        raise RuntimeError("Problem running: \n" + cmd + "\n got:\n\t" +
+                           str(status) + "\n from: \n" + output + " stderr: \n" + err)
     return output.strip()
 
 
@@ -154,7 +157,7 @@ def cleanIfFailureLoud(cmd, directory):
     """
     status = sub.call(cmd, shell=True)
     if status:
-        #exception for prm -i if rpm is already installed
+        # exception for prm -i if rpm is already installed
         if (status == 1 or status == 256) and cmd.startswith("rpm "):
             return status
         if status > 10 and cmd.startswith("wget "):
@@ -183,17 +186,18 @@ def detectLinuxVersion():
             return "Ubuntu"
     return output
 
+
 def df(filename, options=[]):
     filename = os.path.realpath(filename)
-    while not os.path.exists(filename) and len(filename)>1:
-        filename = os.path.realpath(filename+'/../')
+    while not os.path.exists(filename) and len(filename) > 1:
+        filename = os.path.realpath(filename + '/../')
     if not os.path.exists(filename):
-        raise OSError("File does not exist so I cannot check anything for "+filename)
-    _df = sub.Popen(["df", filename]+options, stdout=sub.PIPE)
+        raise OSError("File does not exist so I cannot check anything for " + filename)
+    _df = sub.Popen(["df", filename] + options, stdout=sub.PIPE)
     try:
         output = _df.communicate()[0]
     except:
-        raise OSError("Problem retrieving diskspace for "+filename)
+        raise OSError("Problem retrieving diskspace for " + filename)
     return output.split("\n")[1].split()
 
 
@@ -225,6 +229,7 @@ InstallTopDir = "/opt"
 # How to find our files
 #
 
+
 def failoverSource(sources):
     """
     try a list of locations where a file could be, one after the other
@@ -233,10 +238,10 @@ def failoverSource(sources):
         if source is None:
             continue
         if source.startswith("ftp:") or (source.startswith("http") and ":" in source):
-            #print "checking "+source
+            # print "checking "+source
             stat, stdout, stderr = mycmd("curl -i -I --keepalive-time 5 " + source)
             if "200 OK" not in stdout and "302 Found" not in stdout:
-                #print stdout, stderr, stat
+                # print stdout, stderr, stat
                 continue
             return source
         elif os.path.exists(os.path.expanduser(source)):
@@ -255,11 +260,11 @@ def fromKPMGrepo(filename, arch=linuxVersion, version=None, suffix=None):
     ext = file extension, used to create filename
     filename + version + extension = filename
     """
-    #default goes last
+    # default goes last
     if version:
-        filename=filename+'-'+version
+        filename = filename + '-' + version
     if suffix:
-        filename=filename+suffix
+        filename = filename + suffix
     sources = []
     for mirror in __mirror_list__:
         sources.append(repoURL(filename, arch=arch.lower(), repo=mirror))
@@ -272,7 +277,6 @@ def fromKPMGrepo(filename, arch=linuxVersion, version=None, suffix=None):
         print sources, "no file", filename, "found"
 
     return None
-
 
 
 #
@@ -308,10 +312,10 @@ class Component(object):
         self.installDir = None
         self.installDirVersion = None
         self.installDirPro = None
-        self.cleanBefore = False # remove install directory
-        self.cleanAfter = False # remove older installations
-        self.skipIfDiskFull = False # skip installation if disk is full
-        self.cleanIfDiskFull = False # skip installation if disk is full
+        self.cleanBefore = False  # remove install directory
+        self.cleanAfter = False  # remove older installations
+        self.skipIfDiskFull = False  # skip installation if disk is full
+        self.cleanIfDiskFull = False  # skip installation if disk is full
         self.installDirPro = None
         self.src_from = None
         self.node = True
@@ -322,9 +326,9 @@ class Component(object):
         self.topdir = None
         self.toolbox = None
         self.version = __version__
-        self.freespace = 0 # /installdir size requirement in mb
-        self.tempspace = 0 # /tmp size requirement in mb
-        self.usrspace = 0 # /usr size requirement in mb
+        self.freespace = 0  # /installdir size requirement in mb
+        self.tempspace = 0  # /tmp size requirement in mb
+        self.usrspace = 0  # /usr size requirement in mb
         self.env = ""
         self.children = {}
         self.status = False
@@ -337,22 +341,21 @@ class Component(object):
             return False
         if type(self.src_from) is list:
             # fill version with self.version if suffix is specified but not version
-            osf=[]
+            osf = []
             for s in self.src_from:
                 if type(s) is dict and 'version' not in s and 'suffix' in s:
-                    s['version']=self.version
+                    s['version'] = self.version
                 if type(s) is dict and 'filename' not in s:
-                    s['filename']=self.cname
+                    s['filename'] = self.cname
                 osf.append(s)
-            self.src_from=[fromKPMGrepo(**s) if type(s) is dict else s for s in osf]
+            self.src_from = [fromKPMGrepo(**s) if type(s) is dict else s for s in osf]
         elif type(self.src_from) is dict:
             if 'version' not in self.src_from and 'suffix' in self.src_from:
-                    self.src_from['version']=self.version
+                self.src_from['version'] = self.version
             if 'filename' not in self.src_from:
-                    self.src_from['filename']=self.cname
+                self.src_from['filename'] = self.cname
             self.src_from = fromKPMGrepo(**self.src_from)
         return True
-
 
     def copy(self, optional_froms, dest):
         if type(optional_froms) is list:
@@ -364,7 +367,7 @@ class Component(object):
                 except RuntimeError, IOError:
                     print "Failed to copy from", afrom, "retry next source"
                     continue
-            raise RuntimeError("Failed to copy from any source "+str(optional_froms))
+            raise RuntimeError("Failed to copy from any source " + str(optional_froms))
         afrom = optional_froms
         self.run(copymethods(afrom, dest))
         if not os.path.exists(dest):
@@ -398,7 +401,7 @@ class Component(object):
         afrom = self.src_from
         if type(afrom) is list:
             afrom = afrom[0]
-        #default, get file, if it is a .sh file, run it
+        # default, get file, if it is a .sh file, run it
         ext = ""
         try:
             f = afrom.split("/")[-1].split('\\')[-1].split("?")[0]
@@ -445,11 +448,11 @@ class Component(object):
         free_inodes = df(disk, ['-i'])
         free = int(free_inodes[3])
         if free < 100:
-            raise OSError("No free inodes on mount point "+free_inodes[-1]+" to install "+self.cname)
+            raise OSError("No free inodes on mount point " + free_inodes[-1] + " to install " + self.cname)
         free_space = df(disk, ['-m'])
         free = int(free_space[3])
         if free < space:
-            raise OSError("Not enough space on mount point "+free_space[-1]+" to install "+self.cname
+            raise OSError("Not enough space on mount point " + free_space[-1] + " to install " + self.cname
                           + " (" + disk + "). Skip the installation, cleanup, or add more disk space, an additional "
                           + str(space - free) + " MB is needed")
         return free_space[-1]
@@ -458,40 +461,40 @@ class Component(object):
         if self.installDir is not None and os.path.exists(self.installDir):
             if not others_only:
                 print "Force-cleaning installation directory as requested"
-                if len(self.installDirPro)>4 and os.path.islink(self.installDirPro):
-                    self.run("rm -f "+self.installDirPro)
-                if len(self.installDirPro)>4 and os.path.exists(self.installDirPro):
-                    self.run("rm -rf "+self.installDirPro)
-                if len(self.installDirVersion)>4 and os.path.exists(self.installDirVersion):
-                    self.run("rm -rf "+self.installDirVersion)
-                if len(self.installDir)>4 and os.path.exists(self.installDir) and os.path.realpath(self.installDir)!=os.path.realpath(self.topdir):
-                    self.run("rm -rf "+self.installDir)
+                if len(self.installDirPro) > 4 and os.path.islink(self.installDirPro):
+                    self.run("rm -f " + self.installDirPro)
+                if len(self.installDirPro) > 4 and os.path.exists(self.installDirPro):
+                    self.run("rm -rf " + self.installDirPro)
+                if len(self.installDirVersion) > 4 and os.path.exists(self.installDirVersion):
+                    self.run("rm -rf " + self.installDirVersion)
+                if len(self.installDir) > 4 and os.path.exists(self.installDir) and os.path.realpath(self.installDir) != os.path.realpath(self.topdir):
+                    self.run("rm -rf " + self.installDir)
             else:
                 print "Force-cleaning obsolete installations as requested"
                 import glob
-                dirs = glob.glob(self.installDir+'/*')
+                dirs = glob.glob(self.installDir + '/*')
                 cleaning = [os.path.realpath(d) for d in dirs if os.path.realpath(d)
                             not in [os.path.realpath(self.installDir),
                                     os.path.realpath(self.installDirVersion),
                                     os.path.realpath(self.installDirPro)]]
-                cleaning = [d for d in cleaning if len(d)>4 and os.path.isdir(d)]
-                [self.run("rm -rf "+d) for d in cleaning if os.path.isdir(d)]
+                cleaning = [d for d in cleaning if len(d) > 4 and os.path.isdir(d)]
+                [self.run("rm -rf " + d) for d in cleaning if os.path.isdir(d)]
             return True
         return False
 
-    def __checkdloop(self,mounts):
+    def __checkdloop(self, mounts):
         """
         Loop to check for disk space, expect OSError if not enough space
         """
-        checked_mounts={}
-        for k,v in mounts.iteritems():
-            mnt=self.checkadisk(k,v)
+        checked_mounts = {}
+        for k, v in mounts.iteritems():
+            mnt = self.checkadisk(k, v)
             try:
-                checked_mounts[mnt]=checked_mounts[mnt]+v
+                checked_mounts[mnt] = checked_mounts[mnt] + v
             except KeyError:
-                checked_mounts[mnt]=v
+                checked_mounts[mnt] = v
         if len(checked_mounts) < len(mounts):
-            [self.checkadisk(k,v) for k,v in checked_mounts.iteritems()]
+            [self.checkadisk(k, v) for k, v in checked_mounts.iteritems()]
         return checked_mounts
 
     def install(self, kind="node", tmpdir=None, loud=True):
@@ -507,8 +510,8 @@ class Component(object):
         self.loud = loud
         if self.installDir is None:
             self.installDir = self.todir()
-            self.installDirVersion = (self.installDir + os.sep +  self.version).replace("//","/")
-            self.installDirPro = (self.installDir + os.sep +  'pro').replace("//","/")
+            self.installDirVersion = (self.installDir + os.sep + self.version).replace("//", "/")
+            self.installDirPro = (self.installDir + os.sep + 'pro').replace("//", "/")
         if not self.doInstall:
             return False
         if self.kind is "node" and not self.node:
@@ -525,7 +528,7 @@ class Component(object):
                 return self.__install_end_actions()
                 # Detect previous KTB installation and skip
             if (os.path.exists(self.installDir) and not os.path.exists(self.installDirPro)
-                and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir))):
+                    and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir))):
                 print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
                 print "remove", self.installDir, "if you want to force re-install"
                 return False
@@ -533,19 +536,19 @@ class Component(object):
         # Check disk space
         ##############################
         free_disk = None
-        mounts={}
+        mounts = {}
         if self.freespace:
             if self.installDir:
-                mounts[self.installDir]=self.freespace
+                mounts[self.installDir] = self.freespace
             else:
-                mounts['/']=self.freespace
+                mounts['/'] = self.freespace
         if self.tempspace:
             if self.tmpdir:
-                mounts[self.tmpdir]=self.tempspace
+                mounts[self.tmpdir] = self.tempspace
             else:
-                mounts['/tmp']=self.tempspace
+                mounts['/tmp'] = self.tempspace
         if self.usrspace:
-            mounts['/usr']=self.usrspace
+            mounts['/usr'] = self.usrspace
         # Check these mountpoints and clean if requested
         try:
             self.__checkdloop(mounts)
@@ -562,23 +565,23 @@ class Component(object):
                 return self.buildEnv()
             raise e
         ##############################
-        #Install children
+        # Install children
         ##############################
         if self.children is not None and linuxVersion in self.children:
             for child in self.children[linuxVersion]:
                 if not child.status:
                     child.install(kind=self.kind, tmpdir=self.tmpdir, loud=self.loud)
         ##############################
-        #run prerequisites
+        # run prerequisites
         ##############################
         if self.pre is not None and linuxVersion in self.pre:
             for cmd in self.pre[linuxVersion]:
                 self.run(cmd)
-        #run prerequisites that require the environment
+        # run prerequisites that require the environment
         if self.prewithenv is not None and linuxVersion in self.prewithenv:
             for cmd in self.prewithenv[linuxVersion]:
-                self.run("bash -c 'source "+self.toolbox.envscript()+" > /dev/null ;" +cmd+";'")
-        #run workstation extras
+                self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ;" + cmd + ";'")
+        # run workstation extras
         if self.kind is "workstation" and self.workstationExtras is not None and linuxVersion in self.workstationExtras:
             for cmd in self.workstationExtras[linuxVersion]:
                 self.run(cmd)
@@ -586,17 +589,17 @@ class Component(object):
             self.run("mkdir -p " + os.sep.join(self.installDirVersion.split(os.sep)[:-1]))
         # Find the places to download from
         self.fillsrc()
-        #run script :)
+        # run script :)
         self.script()
-        #run post actions
+        # run post actions
         if self.post is not None and linuxVersion in self.post:
             for cmd in self.post[linuxVersion]:
                 self.run(cmd)
         self.buildEnv()
-        #run post actions that require the environment
+        # run post actions that require the environment
         if self.postwithenv is not None and linuxVersion in self.postwithenv:
             for cmd in self.postwithenv[linuxVersion]:
-                self.run("bash -c 'source "+self.toolbox.envscript()+" > /dev/null ;" +cmd+";'")
+                self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ;" + cmd + ";'")
         os.chdir(self.odir)
         if self.installDir is not None and self.installDir.count('/') > 1 and os.path.exists(self.installDir):
             self.run("chmod -R a+rx " + self.installDir)
@@ -604,23 +607,22 @@ class Component(object):
 
     def __install_end_actions(self):
         self.status = True
-        #create pro softlink
+        # create pro softlink
         if self.installDir is not None:
             if ((os.path.exists(self.installDirPro) or os.path.islink(self.installDirPro))
-                and os.path.exists(self.installDirVersion)):
+                    and os.path.exists(self.installDirVersion)):
                 os.system("rm " + self.installDirPro)
             if os.path.exists(self.installDirVersion):
                 os.system("ln -s " + self.installDirVersion + " " + self.installDirPro)
 
-        #clean the temporary directory of files I created
+        # clean the temporary directory of files I created
         if self.tmpdir is not None:
-            if os.path.exists(self.tmpdir) and len(self.tmpdir)>4:
-                os.system("rm -rf "+self.tmpdir+'/*')
+            if os.path.exists(self.tmpdir) and len(self.tmpdir) > 4:
+                os.system("rm -rf " + self.tmpdir + '/*')
         if self.installDir is not None and os.path.exists(self.installDir) and (self.installDir != self.topdir):
             if self.cleanAfter:
                 self.clean(others_only=True)
         return True
-
 
     def registerToolbox(self, toolbox):
         """
@@ -688,8 +690,8 @@ class Component(object):
         Exit and raise runtime error after cleaning my temporary directory
         """
         if self.tmpdir is not None:
-            if os.path.exists(self.tmpdir) and len(self.tmpdir)>4:
-                os.system("rm -rf "+self.tmpdir)
+            if os.path.exists(self.tmpdir) and len(self.tmpdir) > 4:
+                os.system("rm -rf " + self.tmpdir)
         raise RuntimeError(reason)
 
     def _exitIfFailure(self, cmd):

@@ -21,6 +21,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def HypergeometricVariableMinimum(N, K, n):
     "Return the minimum value the variable can take"
     return long(n - N + K if n - N + K > 0 else 0)
@@ -49,7 +50,7 @@ def HypergeometricSumOfLargerProbabilities(N, K, n, k):
     if (2 * K == N):
         # This part is in stead of the else part because for symmetric distributions (where N = 2K)
         # the '<=' and the '<' below do not sufficiently distinguish the symmetric probabilities
-        #left and right of the central value
+        # left and right of the central value
         for i in range(k, n - k - 1, +1):
             prob = prob * float((K - i) * (n - i)) / float((i + 1) * (N - K - n + i + 1))
             result = result + prob
@@ -60,14 +61,17 @@ def HypergeometricSumOfLargerProbabilities(N, K, n, k):
     else:
         for i in range(k, kmax, +1):
             prob = prob * float((K - i) * (n - i)) / float((i + 1) * (N - K - n + i + 1))
-            if prob <= sampleprobability: break
+            if prob <= sampleprobability:
+                break
             result = result + prob
         prob = sampleprobability
         for i in range(k, kmin, -1):
             prob = prob * float((i) * (N - K - n + i)) / float((n - i + 1) * (K - i + 1))
-            if prob < sampleprobability: break
+            if prob < sampleprobability:
+                break
             result = result + prob
     return result
+
 
 def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
     """
@@ -83,7 +87,7 @@ def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
     if (2 * n == N):
         # This part is in stead of the else part because for symmetric distributions (where N = 2n)
         # the '<=' and the '<' below do not sufficiently distinguish the symmetric probabilities
-        #left and right of the central value
+        # left and right of the central value
         for i in range(m, M - m - 1, +1):
             prob = prob * float((n + i + 1) * (M - i)) / float((i + 1) * (N + M - n - i))
             result = result + prob
@@ -94,15 +98,16 @@ def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
     else:
         for i in range(m, M, 1):
             prob = prob * float((n + i + 1) * (M - i)) / float((i + 1) * (N + M - n - i))
-            if prob <= sampleprobability: break
+            if prob <= sampleprobability:
+                break
             result = result + prob
         prob = sampleprobability
         for i in range(m, 0, -1):
             prob = prob * float((i) * (N + M - n - i + 1)) / float((n + i) * (M - i + 1))
-            if prob < sampleprobability: break
+            if prob < sampleprobability:
+                break
             result = result + prob
     return result * float(N + 1) / float(N + M + 1)
-
 
 
 def Hypergeometric2DHistogramCorrelationQuantisation(H2D):
@@ -135,8 +140,8 @@ def InverseHypergeometricRandomVariable(M, N, n):
     prob = scipy.stats.hypergeom.pmf(0, N + M, n, M) * float(N + 1) / float(N + M + 1)
     sumprob = prob
     for m in range(0, M, 1):
-        if sumprob > p: break
+        if sumprob > p:
+            break
         prob = prob * float((n + m + 1) * (M - m)) / float((m + 1) * (N + M - n - m))
         sumprob += prob
     return m
-

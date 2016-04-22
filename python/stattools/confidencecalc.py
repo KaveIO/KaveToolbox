@@ -58,7 +58,6 @@ class quantileCalc:
         self.__normalize()
         self.ylevel, self.intervals = self.__calcVerticalQuantile()
 
-
     def plot(self):
         Path = mpath.Path
         fig, ax = plt.subplots()
@@ -94,10 +93,10 @@ class quantileCalc:
         raiselvl = lambda ylvl, step: adjustlvl(ylvl, ymax, step)
         lowerlvl = lambda ylvl, step: adjustlvl(ylvl, ymax, -step)
 
-        #create the splined dataset representation
+        # create the splined dataset representation
         datarep = InterpolatedUnivariateSpline(self.x, self.y)
 
-        #walk downwards and compute integral
+        # walk downwards and compute integral
         step = 0.5
         ylow = raiselvl(ymin, step)
         points = []
@@ -107,24 +106,24 @@ class quantileCalc:
         prevylow = ylow
 
         for i in range(self.niter):
-            #create the splined dataset and solve for the roots
+            # create the splined dataset and solve for the roots
             points = self.__getPoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)
-            #print 'points', points
+            # print 'points', points
             integral = self.__computeIntegral(points, datarep)
             diff = abs(integral - self.level)
-            #print step, ylow, diff
+            # print step, ylow, diff
 
             if prevdiff > diff:
-                #wrong direction: go back and take a smaller step
+                # wrong direction: go back and take a smaller step
                 ylow = prevylow
                 step = step / 2.0
                 points = self.__getPoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)
                 integral = self.__computeIntegral(points, datarep)
 
-            #if integral larger than level, raise lower bound
+            # if integral larger than level, raise lower bound
             if integral > self.level:
                 ylow = raiselvl(ylow, step)
-                #if integral smaller than level, lower the lower bound
+                # if integral smaller than level, lower the lower bound
             else:
                 ylow = lowerlvl(ylow, step)
 
@@ -148,20 +147,20 @@ class quantileCalc:
         points = []
         # There must be a positive integral between two points
         # two cases:
-        #1) begin and end root are edge-values
+        # 1) begin and end root are edge-values
         theder = lambda x: thedata.derivatives(x)[1]
         if len(rootlist) == 0:
             return [(self.x.min(), self.x.max())]
         if (theder(rootlist[0]) < 0) & (theder(rootlist[-1]) < 0):
-            #only begin edge effects
+            # only begin edge effects
             points = [(self.x.min(), rootlist[0])]
             rootlist = np.delete(rootlist, 0)
         elif (theder(rootlist[0]) > 0) & (theder(rootlist[-1]) > 0):
-            #only end edge effects
+            # only end edge effects
             points = [(rootlist[-1], self.x.max())]
             rootlist = np.delete(rootlist, -1)
         elif (theder(rootlist[0]) > 0) & (theder(rootlist[-1]) > 0):
-            #both begin and end edge effects
+            # both begin and end edge effects
             points = [(self.x.min(), rootlist[0]), (rootlist[-1], self.x.max())]
             rootlist = np.delete(rootlist, 0)
             rootlist = np.delete(rootlist, -1)
@@ -201,24 +200,24 @@ def testVerticalQuantile():
     ygaus = np.exp(-0.5 * ((x)) ** 2)
     qc = quantileCalc(x, ygaus)
     ygauslvl, intervals = qc.getVerticalQuantile()
-    print  ygauslvl, intervals
+    print ygauslvl, intervals
     qc.plot()
 
     # generating data:
     ygaus = np.exp(-0.5 * ((x - 5)) ** 2) + np.exp(-0.5 * ((x + 5)) ** 2)
     qc = quantileCalc(x, ygaus)
     ygauslvl, intervals = qc.getVerticalQuantile()
-    print  ygauslvl, intervals
+    print ygauslvl, intervals
     qc.plot()
 
-    #a sin**2 function to test the edge effects
+    # a sin**2 function to test the edge effects
     ysin = np.sin(x) ** 2
     qc = quantileCalc(x, ysin)
     ysinlvl, intervals = qc.getVerticalQuantile()
     print ysinlvl, intervals
     qc.plot()
 
-    #a complicated function:
+    # a complicated function:
     ycomp = np.exp(-0.5 * (x / 10 ** 2)) * np.sin(x) ** 2 * x ** 2
     qc = quantileCalc(x, ycomp)
     ycomplvl, intervals = qc.getVerticalQuantile()

@@ -91,4 +91,4 @@ def crosscorrelation_plot(series1, series2, ax=None, **kwds):
     ax.grid()
     return ax
 
-__all__=['autocorrelation_plot','crosscorrelation_plot']
+__all__ = ['autocorrelation_plot', 'crosscorrelation_plot']

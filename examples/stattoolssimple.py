@@ -13,17 +13,17 @@ qc.plot()
 ygaus = np.exp(-0.5 * ((x - 5)) ** 2) + np.exp(-0.5 * ((x + 5)) ** 2)
 qc = quantileCalc(x, ygaus)
 ygauslvl, intervals = qc.getVerticalQuantile()
-print  ygauslvl, intervals
+print ygauslvl, intervals
 qc.plot()
 
-#a sin**2 function to test the edge effects
+# a sin**2 function to test the edge effects
 ysin = np.sin(x) ** 2
 qc = quantileCalc(x, ysin)
 ysinlvl, intervals = qc.getVerticalQuantile()
 print ysinlvl, intervals
 qc.plot()
 
-#a complicated function:
+# a complicated function:
 ycomp = np.exp(-0.5 * (x / 10 ** 2)) * np.sin(x) ** 2 * x ** 2
 qc = quantileCalc(x, ycomp)
 ycomplvl, intervals = qc.getVerticalQuantile()

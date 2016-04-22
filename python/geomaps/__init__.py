@@ -80,43 +80,43 @@ def NumberPlot(df_tmp, min, max, plot_col, item, **kwargs):
 
     missing = []
     df_tmp.reset_index(inplace=True)
-    ### The function below is needed to normalize the colors properly, since they go from x_min to x_max and need to
+    # The function below is needed to normalize the colors properly, since they go from x_min to x_max and need to
     # be mapped into 0 to 1.
-    ### The function has a feature: if the whole picture has only ONE value/color, it yields np.nan which in turn
+    # The function has a feature: if the whole picture has only ONE value/color, it yields np.nan which in turn
     # makes the whole plot grey and tells you there is only one color.
-    ### As soon as there is more than one value/color this does not happen, so in most cases it does not occur,
+    # As soon as there is more than one value/color this does not happen, so in most cases it does not occur,
     # but in rare cases it does.
     color_number = float(df_tmp[plot_col].values[0] - min_val) / (
-        max_val - min_val)  ### Cast as float because python2.7 does not do this.
+        max_val - min_val)  # Cast as float because python2.7 does not do this.
 
-    ### Defining the colorscheme.
+    # Defining the colorscheme.
     if 'color' in kwargs:
         themap = getattr(cm, kwargs['color'])
     else:
         themap = getattr(cm, 'Blues')
 
-    ### Color choosing for the polygon.
+    # Color choosing for the polygon.
     if np.isnan(color_number):
         missing.append(item)
         color = cm.Greys(0.3)
     else:
         color = themap(color_number)
 
-    ### The edgecolor of the polygon.
+    # The edgecolor of the polygon.
     if 'edgecolor' in kwargs:
         edgecolor = kwargs['edgecolor']
     else:
         edgecolor = 'black'
 
-    ### Define the polygon and add it to the plot.
-    ### Is it a multipolygon face or a polygon face? This gives different plot styles.
+    # Define the polygon and add it to the plot.
+    # Is it a multipolygon face or a polygon face? This gives different plot styles.
     if df_tmp['type'].ix[0] == 'MultiPolygon':
         i = 0
         for j in range(len(df_tmp)):
             if (df_tmp['X'].ix[j] == df_tmp['X'].ix[i]) and (df_tmp['Y'].ix[j] == df_tmp['Y'].ix[i]) and (j > i):
                 df_tmp2 = df_tmp.ix[range(i, j + 1)]
                 i = j + 1
-                ### Plot the polygons
+                # Plot the polygons
                 poly = plt.Polygon(df_tmp2[['X', 'Y']],
                                    facecolor=color,
                                    edgecolor=edgecolor,
@@ -151,24 +151,24 @@ def ColorPlot(df_tmp, plot_col, item, **kwargs):
     missing = []
     df_tmp.reset_index(inplace=True)
     color = df_tmp[plot_col][0]
-    ### The edgecolor of the polygon.
+    # The edgecolor of the polygon.
     if 'edgecolor' in kwargs:
         edgecolor = kwargs['edgecolor']
     else:
         edgecolor = 'black'
-    ### Check if the color is defined and adjust color if it is not.
+    # Check if the color is defined and adjust color if it is not.
     if not isinstance(color, str):
         if np.isnan(color):
             missing.append(item)
             color = cm.Greys(0.3)
-    ### Define the polygon and add it to the plot.
+    # Define the polygon and add it to the plot.
     if df_tmp['type'].ix[0] == 'MultiPolygon':
         i = 0
         for j in range(len(df_tmp)):
             if (df_tmp['X'].ix[j] == df_tmp['X'].ix[i]) and (df_tmp['Y'].ix[j] == df_tmp['Y'].ix[i]) and (j > i):
                 df_tmp2 = df_tmp.ix[range(i, j + 1)]
                 i = j + 1
-                ### Plot the polygons.
+                # Plot the polygons.
                 poly = plt.Polygon(df_tmp2[['X', 'Y']],
                                    facecolor=color,
                                    edgecolor=edgecolor,
@@ -179,7 +179,7 @@ def ColorPlot(df_tmp, plot_col, item, **kwargs):
                     poly.set_linewidth(kwargs['linewidth'])
                 plt.gca().add_patch(poly)
     elif df_tmp['type'].ix[0] == 'Polygon':
-        ### Plot the polygons.
+        # Plot the polygons.
         poly = plt.Polygon(df_tmp[['X', 'Y']],
                            facecolor=color,
                            edgecolor=edgecolor,
@@ -221,7 +221,7 @@ def Plotter(df_merge, iter_column, plot_col, **kwargs):
                 return_val = 0
     if missing:
         print 'Warning: missing data at:', missing
-    ### NB!!! Now it only returns the last return_val, thats not optimal.
+    # NB!!! Now it only returns the last return_val, thats not optimal.
     return return_val
 
 
@@ -400,17 +400,17 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
     This adds a 'Geodan' source on the plot. If the flag is
     absent, there will be no copyright stamp.
     """
-    ### Grab the data.
+    # Grab the data.
     df = pd.DataFrame()
     df['postalcodes'] = postcodes
     df['vals'] = values
     merge_col = 'postalcodes'
     plot_col = 'vals'
 
-    ### Postcode polygon data.
+    # Postcode polygon data.
     postalPolyData = pd.read_csv(postcode_gd_polygons)
 
-    ### Check the postalcode level and merge on the right level.
+    # Check the postalcode level and merge on the right level.
     df_tmp = df.copy()
     df_tmp['len'] = df_tmp[merge_col].apply(lambda x: len(str(int(x))))
     level = str(int(np.ceil(df_tmp.len.mean())))
@@ -424,7 +424,7 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
         pc_merge = pd.merge(postalPolyData, df_av, how='outer', left_on='PC' + pc_level + 'CODE',
                             right_on='PC' + pc_level + 'CODE')
 
-    ### Location slicing.
+    # Location slicing.
     if location.upper() != 'NL':
         print 'INFO: Applying selection on location:', location.title()
         if location.title() in ['Utrecht', 'Groningen']:
@@ -441,16 +441,16 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
             else:
                 print 'Warning: Invalid location used. Location is ignored.'
 
-    ### Range for the plot.
+    # Range for the plot.
     minx = pc_merge['X'].min()
     maxx = pc_merge['X'].max()
     miny = pc_merge['Y'].min()
     maxy = pc_merge['Y'].max()
 
-    ### Figure size and axes.
-    ### Because of the smaller sized axes we get a non-unity aspect ratio. This has to be adjusted to get the proper
+    # Figure size and axes.
+    # Because of the smaller sized axes we get a non-unity aspect ratio. This has to be adjusted to get the proper
     # aspect ratio on the maps.
-    ### This is done by multiplying with 1.25. (=1/0.8, since the ratio is x:y)
+    # This is done by multiplying with 1.25. (=1/0.8, since the ratio is x:y)
     if 'ax' not in kwargs:
         if 'size' in kwargs:
             size = kwargs['size']
@@ -461,27 +461,27 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
     else:
         ax1 = kwargs['ax']
 
-    ### Plot the polygons.
+    # Plot the polygons.
     plotReturn = Plotter(pc_merge, 'PC4CODE', plot_col, **kwargs)
 
-    ### Plot range options.
+    # Plot range options.
     plt.axis('off')
 
     plt.xlim(minx, maxx)
     plt.ylim(miny, maxy)
 
-    ### Title kwarg.
+    # Title kwarg.
     if 'title' in kwargs:
         title = kwargs['title']
         plt.title(title + ' (' + location.title() + ')', fontsize=20)
 
-    ### Defining the colorscheme.
+    # Defining the colorscheme.
     if 'color' in kwargs:
         themap = getattr(cm, kwargs['color'])
     else:
         themap = getattr(cm, 'Blues')
 
-    ### Sidebar with normalized colors. Sidebar is only used in number plots.
+    # Sidebar with normalized colors. Sidebar is only used in number plots.
     if plotReturn == 'Number':
         ax2 = fig.add_axes([0.9, 0., 0.05, 1.0])
         ax2.tick_params(labelsize=20)
@@ -490,7 +490,7 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
                                         cmap=themap,
                                         norm=norm
                                         )
-        ### Sidebar name kwarg.
+        # Sidebar name kwarg.
         if 'sidebar' in kwargs:
             sidebar = kwargs['sidebar']
             if pc_merge[plot_col].min() == pc_merge[plot_col].max():
@@ -501,7 +501,7 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
         else:
             cb1.set_label('', fontsize=20, labelpad=20)
 
-    ### Geodan copyright tag
+    # Geodan copyright tag
     if 'copyright' in kwargs:
         side = kwargs['copyright']
         Copyright('Geodan', ax1, side=side)
@@ -546,25 +546,25 @@ def world_map(countries, values, location=['all'], **kwargs):
     This adds a 'Github' source on the plot. If the flag is
     absent, there will be no copyright stamp.
     """
-    ### Grab the data.
+    # Grab the data.
     df = pd.DataFrame()
     df['countries'] = countries
     df['vals'] = values
     merge_col = 'countries'
     plot_col = 'vals'
 
-    ### Rename the input to avoid inconsistencies.
-    ### Before this point we used the external names, from this point on they are as defined below.
+    # Rename the input to avoid inconsistencies.
+    # Before this point we used the external names, from this point on they are as defined below.
     df.rename(columns={merge_col: 'countries', plot_col: 'values'}, inplace=True)
     merge_col = 'countries'
     plot_col = 'values'
 
-    ### Poly data.
+    # Poly data.
     PolyData = pd.read_csv(world_polygons)
 
     pc_merge = pd.merge(PolyData, df, how='outer', left_on='code', right_on=merge_col)
 
-    ### Location slicing.
+    # Location slicing.
     if location[0].lower() != 'all':
         location = [loc.title() for loc in location]
         print 'INFO: Applying selection on location.'
@@ -576,16 +576,16 @@ def world_map(countries, values, location=['all'], **kwargs):
         else:
             print 'Warning: Invalid location used. Location is ignored.'
 
-    ### Range for the plot.
+    # Range for the plot.
     minx = pc_merge['X'].min()
     maxx = pc_merge['X'].max()
     miny = pc_merge['Y'].min()
     maxy = pc_merge['Y'].max()
 
-    ### Figure size and axes.
-    ### Because of the smaller sized axes we get a non-unity aspect ratio. This has to be adjusted to get the proper
+    # Figure size and axes.
+    # Because of the smaller sized axes we get a non-unity aspect ratio. This has to be adjusted to get the proper
     # aspect ratio on the maps.
-    ### This is done by multiplying with 1.25.
+    # This is done by multiplying with 1.25.
     if 'ax' not in kwargs:
         if 'size' in kwargs:
             size = kwargs['size']
@@ -596,26 +596,26 @@ def world_map(countries, values, location=['all'], **kwargs):
     else:
         ax1 = kwargs['ax']
 
-    ### Plot the polygons.
+    # Plot the polygons.
     plotReturn = Plotter(pc_merge, 'code', plot_col, **kwargs)
 
-    ### Plot range options.
+    # Plot range options.
     plt.axis('off')
     plt.xlim(minx, maxx)
     plt.ylim(miny, maxy)
 
-    ### Title kwarg.
+    # Title kwarg.
     if 'title' in kwargs:
         title = kwargs['title']
         plt.title(title, fontsize=20)
 
-    ### Defining the colorscheme.
+    # Defining the colorscheme.
     if 'color' in kwargs:
         themap = getattr(cm, kwargs['color'])
     else:
         themap = getattr(cm, 'Blues')
 
-    ### Sidebar with normalized colors. Sidebar is only used in number plots.
+    # Sidebar with normalized colors. Sidebar is only used in number plots.
     if plotReturn == 'Number':
         ax2 = fig.add_axes([0.9, 0., 0.05, 1.0])
         ax2.tick_params(labelsize=20)
@@ -624,7 +624,7 @@ def world_map(countries, values, location=['all'], **kwargs):
                                         cmap=themap,
                                         norm=norm
                                         )
-        ### Sidebar name kwarg.
+        # Sidebar name kwarg.
         if 'sidebar' in kwargs:
             sidebar = kwargs['sidebar']
             if pc_merge[plot_col].min() == pc_merge[plot_col].max():
@@ -635,7 +635,7 @@ def world_map(countries, values, location=['all'], **kwargs):
         else:
             cb1.set_label('', fontsize=20, labelpad=20)
 
-    ### Copyright tag
+    # Copyright tag
     if 'copyright' in kwargs:
         side = kwargs['copyright']
         Copyright('GitHub', ax1, side=side)
@@ -678,25 +678,25 @@ def US_map(states, values, location=['all'], **kwargs):
     This adds a 'Github' source on the plot. If the flag is
     absent, there will be no copyright stamp.
     """
-    ### Grab the data.
+    # Grab the data.
     df = pd.DataFrame()
     df['states'] = states
     df['vals'] = values
     merge_col = 'states'
     plot_col = 'vals'
 
-    ### Rename the input to avoid inconsistencies.
-    ### Before this point we used the external names, from this point on they are as defined below.
+    # Rename the input to avoid inconsistencies.
+    # Before this point we used the external names, from this point on they are as defined below.
     df.rename(columns={merge_col: 'states', plot_col: 'values'}, inplace=True)
     merge_col = 'states'
     plot_col = 'values'
 
-    ### Poly data.
+    # Poly data.
     PolyData = pd.read_csv(US_polygons)
 
     state_merge = pd.merge(PolyData, df, how='outer', left_on='StateName', right_on=merge_col)
 
-    ### Location slicing.
+    # Location slicing.
     if location[0].lower() != 'all':
         location = [loc.upper() for loc in location]
         print 'INFO: Applying selection on location.'
@@ -705,16 +705,16 @@ def US_map(states, values, location=['all'], **kwargs):
         else:
             print 'Warning: Invalid location used. Location is ignored.'
 
-    ### Range for the plot.
+    # Range for the plot.
     minx = state_merge['X'].min()
     maxx = state_merge['X'].max()
     miny = state_merge['Y'].min()
     maxy = state_merge['Y'].max()
 
-    ### Figure size and axes.
-    ### Because of the smaller sized axes we get a non-unity aspect ratio. This has to be adjusted to get the proper
+    # Figure size and axes.
+    # Because of the smaller sized axes we get a non-unity aspect ratio. This has to be adjusted to get the proper
     # aspect ratio on the maps.
-    ### This is done by multiplying with 1.25.
+    # This is done by multiplying with 1.25.
     if 'ax' not in kwargs:
         if 'size' in kwargs:
             size = kwargs['size']
@@ -725,36 +725,36 @@ def US_map(states, values, location=['all'], **kwargs):
     else:
         ax1 = kwargs['ax']
 
-    ### Plot the polygons.
+    # Plot the polygons.
     plotReturn = Plotter(state_merge, 'StateCode', plot_col, **kwargs)
 
-    ### Plot range options.
+    # Plot range options.
     plt.axis('off')
     plt.xlim(minx, maxx)
     plt.ylim(miny, maxy)
 
-    ### Title kwarg.
+    # Title kwarg.
     if 'title' in kwargs:
         title = kwargs['title']
         plt.title(title, fontsize=20)
 
-    ### Defining the colorscheme.
+    # Defining the colorscheme.
     if 'color' in kwargs:
         themap = getattr(cm, kwargs['color'])
     else:
         themap = getattr(cm, 'Blues')
 
-    ### Sidebar with normalized colors. Sidebar is only used in number plots.
+    # Sidebar with normalized colors. Sidebar is only used in number plots.
     if plotReturn == 'Number':
         ax2 = fig.add_axes([0.9, 0., 0.05, 1.0])
         ax2.tick_params(labelsize=20)
-        ### We need the plotReturn because there is no sidebar in color mode.
+        # We need the plotReturn because there is no sidebar in color mode.
         norm = mpl.colors.Normalize(vmin=state_merge[plot_col].min(), vmax=state_merge[plot_col].max())
         cb1 = mpl.colorbar.ColorbarBase(ax2,
                                         cmap=themap,
                                         norm=norm
                                         )
-        ### Sidebar name kwarg. We need the plotReturn because there is no sidebar in color mode.
+        # Sidebar name kwarg. We need the plotReturn because there is no sidebar in color mode.
         if 'sidebar' in kwargs:
             sidebar = kwargs['sidebar']
             if state_merge[plot_col].min() == state_merge[plot_col].max():
@@ -765,7 +765,7 @@ def US_map(states, values, location=['all'], **kwargs):
         else:
             cb1.set_label('', fontsize=20, labelpad=20)
 
-    ### Copyright tag
+    # Copyright tag
     if 'copyright' in kwargs:
         side = kwargs['copyright']
         Copyright('GitHub', ax1, side=side)

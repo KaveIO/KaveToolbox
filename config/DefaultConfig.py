@@ -48,7 +48,7 @@ import sys
 import libInstall as li
 from libInstall import InstallTopDir, Component, linuxVersion
 
-#top level directory under where to keep all KAVE software
+# top level directory under where to keep all KAVE software
 li.InstallTopDir = "/opt"
 
 
@@ -59,6 +59,7 @@ class Toolbox(Component):
     """
     Wrapper class for overwriting certain parts of the default installer
     """
+
     def clean(self, others_only=False):
         """
         Special case of clean script, don't clean my own directory if this script is running *from* there!
@@ -90,7 +91,7 @@ class Toolbox(Component):
     def envscript(self):
         guess_installed = self.installDirVersion + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_installed):
-            return guess_installed+" "+self.version
+            return guess_installed + " " + self.version
         installfrom = self.installfrom()
         return installfrom + os.sep + "scripts" + os.sep + "KaveEnv.sh"
 
@@ -98,7 +99,7 @@ class Toolbox(Component):
         prepend = False
         rest = []
         scriptloc = self.envscript().split()[0]
-        #recreate env script in case it totally does not exist, or somehow is missing the intro...
+        # recreate env script in case it totally does not exist, or somehow is missing the intro...
         if not os.path.exists(scriptloc) and os.path.exists(self.installDirVersion + '/scripts/'):
             prepend = True
         elif os.path.exists(scriptloc):
@@ -130,22 +131,22 @@ class Toolbox(Component):
         return super(Toolbox, self).buildEnv()
 
     def script(self):
-        #don't include the .git directory
+        # don't include the .git directory
         if ".git" in self.installfrom():
             raise NameError(
                 "Sorry, I cannot be installed from a directory which includes '.git' in the name! Can you please "
                 "download/copy to a different directory and try again")
         if os.path.realpath(self.installfrom()) != os.path.realpath(self.installDirVersion):
             self.run(
-                     "rsync -rv --exclude=.git --exclude=.project --exclude=.pydevproject --exclude=.pyc "
-                     + self.installfrom()
-                     + "/ " + self.installDirVersion)
+                "rsync -rv --exclude=.git --exclude=.project --exclude=.pydevproject --exclude=.pyc "
+                + self.installfrom()
+                + "/ " + self.installDirVersion)
         #self.run("mv ./"+self.installfrom().rstrip('/').split('/')[-1]+" "+self.installDir)
         f = open(self.installfrom() + os.sep + "scripts" + os.sep + "autoKaveEnv.sh")
         l = f.read()
         f.close()
-        l = l.replace("%ENVSCRIPT%", self.installDirPro+'/scripts/KaveEnv.sh')
-        #overwrite if it exists
+        l = l.replace("%ENVSCRIPT%", self.installDirPro + '/scripts/KaveEnv.sh')
+        # overwrite if it exists
         if not os.access("/etc/profile.d", os.W_OK):
             self.bauk(
                 "cannot write into /etc/profile.d, this means you are not running with root privilages. Run again as "
@@ -153,7 +154,7 @@ class Toolbox(Component):
         f = open("/etc/profile.d/kave.sh", "w")
         f.write(l)
         f.close()
-        #add to bash.bashrc for non-interactive&non-login shells
+        # add to bash.bashrc for non-interactive&non-login shells
         l = "#!/bin/bash\n"
         if os.path.exists("/etc/bash.bashrc"):
             f = open("/etc/bash.bashrc")
@@ -170,24 +171,25 @@ if [ -e /etc/profile.d/kave.sh ]; then
 fi
 """)
             f.close()
-        #set default wallpaper on workstations
-        if self.setwallpaper is True or (self.kind=='workstation' and self.setwallpaper in ['default','workstation']):
+        # set default wallpaper on workstations
+        if self.setwallpaper is True or (self.kind == 'workstation' and self.setwallpaper in ['default', 'workstation']):
             if linuxVersion.lower().startswith("centos6"):
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
-                         +'--set /desktop/gnome/background/picture_filename '+self.installDirPro+'/figs/KAVE_wp'+str(self.wallpaperselect)+'.png')
+                         + '--set /desktop/gnome/background/picture_filename ' + self.installDirPro + '/figs/KAVE_wp' + str(self.wallpaperselect) + '.png')
                 self.run('gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string '
-                         +' --set /desktop/gnome/background/picture_options centered')
+                         + ' --set /desktop/gnome/background/picture_options centered')
             else:
-                cfpath='/etc/xdg/xfce4/xfconf/xfce-perchannel-xml'
-                template='xfce4-desktop.xml'
+                cfpath = '/etc/xdg/xfce4/xfconf/xfce-perchannel-xml'
+                template = 'xfce4-desktop.xml'
                 if linuxVersion.lower().startswith("centos7"):
-                    cfpath='/etc/dconf/db/local.d'
-                    template='00-background'
+                    cfpath = '/etc/dconf/db/local.d'
+                    template = '00-background'
                 if not os.path.exists(cfpath):
-                    os.makedirs(cfpath,0755)
-                self.run('cp -f '+os.path.join(os.path.dirname(os.path.realpath(__file__)),template)+ ' ' + cfpath)
-                self.run('sed -i "s/%%INSTALLDIRPRO%%/'+self.installDirPro.replace('/','\\/')+'/g"  '+ os.path.join(cfpath,template))
-                self.run('sed -i "s/%%WPNUM%%/'+str(self.wallpaperselect)+'/g"  '+os.path.join(cfpath,template))
+                    os.makedirs(cfpath, 0755)
+                self.run('cp -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), template) + ' ' + cfpath)
+                self.run('sed -i "s/%%INSTALLDIRPRO%%/' + self.installDirPro.replace('/',
+                                                                                     '\\/') + '/g"  ' + os.path.join(cfpath, template))
+                self.run('sed -i "s/%%WPNUM%%/' + str(self.wallpaperselect) + '/g"  ' + os.path.join(cfpath, template))
                 if linuxVersion.lower().startswith("centos7"):
                     self.run('dconf update')
         return True
@@ -199,19 +201,19 @@ toolbox.installSubDir = "KaveToolbox"
 toolbox.freespace = 100
 toolbox.usrspace = 200
 toolbox.tempspace = 100
-toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\*',# --exclude=pulseaudio\\* --skip-broken',
+toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" "X Window System" "Fonts" --exclude=NetworkManager\\*',  # --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server firefox xpdf'],
-                             "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" "Desktop Platform" "X Window System" "Fonts"',#  --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken',
+                             "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" "Desktop Platform" "X Window System" "Fonts"',  # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server firefox pixman pixman-devel libXfont xpdf'],
                              "Ubuntu": ['apt-get -y install firefox xpdf',
-                                        'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ; then true; else '# Only install x if x not installed
-                                        +'apt-get -y install xfce4 xfce4-goodies;'
-                                        +'fi;',
+                                        'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ; then true; else '  # Only install x if x not installed
+                                        + 'apt-get -y install xfce4 xfce4-goodies;'
+                                        + 'fi;',
                                         'apt-get -y install tightvncserver'
                                         ]
                              }
-toolbox.setwallpaper='default' #wallpaper if it is a workstation type
-toolbox.wallpaperselect=0 #a number between 0 and 9
+toolbox.setwallpaper = 'default'  # wallpaper if it is a workstation type
+toolbox.wallpaperselect = 0  # a number between 0 and 9
 toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Centos7": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Ubuntu": ['apt-get -y install dictionaries-common',
@@ -292,9 +294,9 @@ java.version = '1.8'
 java.usrspace = 175
 java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
             "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-            "Ubuntu" : ["add-apt-repository ppa:openjdk-r/ppa -y",
-                        "apt-get update",
-                        "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
+            "Ubuntu": ["add-apt-repository ppa:openjdk-r/ppa -y",
+                       "apt-get update",
+                       "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
             }
 java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /usr/lib/jvm/java-1.8*-openjdk*`; export jdir; "
                          "alternatives --install /usr/bin/java java ${jdir}/jre/bin/java 20000; "
@@ -306,9 +308,10 @@ java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /us
                          ]
              }
 java.post["Centos7"] = java.post["Centos6"]
-java.post["Ubuntu"] = [c.replace("alternatives","update-alternatives") for c in java.post["Centos6"]]
+java.post["Ubuntu"] = [c.replace("alternatives", "update-alternatives") for c in java.post["Centos6"]]
 
 #######################  ECLIPSE  ############################
+
 
 class EclipseComponent(Component):
     """
@@ -333,9 +336,9 @@ class EclipseComponent(Component):
 eclipse = EclipseComponent("Eclipse")
 eclipse.workstation = True
 eclipse.node = False
-eclipse.children = {"Centos6" : [java],
-                    "Centos7" : [java],
-                    "Ubuntu" : [java]}
+eclipse.children = {"Centos6": [java],
+                    "Centos7": [java],
+                    "Ubuntu": [java]}
 eclipse.installSubDir = "eclipse"
 eclipse.version = "1.3"
 eclipse.src_from = li.fromKPMGrepo("eclipse.tar.gz", arch="noarch")
@@ -360,32 +363,35 @@ fi
 
 #######################  ANACONDA  ############################
 
+
 class Conda(Component):
+
     def script(self):
         dest = "./conda.sh"
         self.copy(self.src_from, dest)
         os.system("chmod a+x " + dest)
-        #install in batch mode to the requested directory
+        # install in batch mode to the requested directory
         self.run(dest + " -b -p " + self.installDirVersion)
         self.buildEnv()
 
 conda = Conda(cname="anaconda")
-conda.pre={"Centos6":['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
-                      'yum -y install epel-release',
-                      'yum -y install libffi* cyrus-sasl* geos*']}
-conda.pre["Centos7"]=conda.pre["Centos6"]
-conda.pre["Ubuntu"]=["apt-get -y install build-essential g++ libffi* libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
-conda.postwithenv={"Centos6" : ["conda update conda --yes","conda install pip --yes",
-                                "pip install delorean seaborn pygal mpld3 ",
-                                "pip install cairosvg pyhs2 shapely descartes",
-                                "pip install pyproj folium vincent pam",
-                                "pip install py4j",
-                                "pip install pymongo",
-                                "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi",
-                                " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; pip install root_numpy;"
-                                + " pip install git+https://github.com/ibab/root_pandas; fi "]}
-conda.postwithenv["Centos7"]=conda.postwithenv["Centos6"]
-conda.postwithenv["Ubuntu"]=conda.postwithenv["Centos6"]
+conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
+                         'yum -y install epel-release',
+                         'yum -y install libffi* cyrus-sasl* geos*']}
+conda.pre["Centos7"] = conda.pre["Centos6"]
+conda.pre["Ubuntu"] = [
+    "apt-get -y install build-essential g++ libffi* libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
+conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip --yes",
+                                 "pip install delorean seaborn pygal mpld3 ",
+                                 "pip install cairosvg pyhs2 shapely descartes",
+                                 "pip install pyproj folium vincent pam",
+                                 "pip install py4j",
+                                 "pip install pymongo",
+                                 "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi",
+                                 " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; pip install root_numpy;"
+                                 + " pip install git+https://github.com/ibab/root_pandas; fi "]}
+conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]
+conda.postwithenv["Ubuntu"] = conda.postwithenv["Centos6"]
 conda.doInstall = True
 conda.freespace = 1500
 conda.usrspace = 300
@@ -393,7 +399,7 @@ conda.tempspace = 300
 conda.installSubDir = "anaconda"
 conda.version = "2.4.1"
 conda.registerToolbox(toolbox)
-conda.src_from = [{"arch":"noarch","suffix":"-Linux-x86_64.sh"},
+conda.src_from = [{"arch": "noarch", "suffix": "-Linux-x86_64.sh"},
                   "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIRVERSION%%"
@@ -413,29 +419,31 @@ fi
 gsl = Component("pygsl")
 gsl.doInstall = True
 gsl.version = "2.1.1"
-gsl.src_from=[{"arch":"noarch","suffix":".tar.gz"},
-              "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
+gsl.src_from = [{"arch": "noarch", "suffix": ".tar.gz"},
+                "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
 gsl.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
-gsl.pre["Centos7"]=gsl.pre["Centos6"]
-gsl.pre["Ubuntu"]=["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
-gsl.prewithenv["Centos6"]=[' isinst=`python -c "import pkgutil; print pkgutil.find_loader(\\"numpy\\") is not None;"`;'
-                          ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed, so will not install pygsl,'
-                          ' turn on the anaconda installation! (was it skipped?) or turn off pygsl." ; exit 1 ; fi ']
-gsl.prewithenv["Centos7"]=gsl.prewithenv["Centos6"]
-gsl.prewithenv["Ubuntu"]=gsl.prewithenv["Centos6"]
+gsl.pre["Centos7"] = gsl.pre["Centos6"]
+gsl.pre["Ubuntu"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
+gsl.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; print pkgutil.find_loader(\\"numpy\\") is not None;"`;'
+                             ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed, so will not install pygsl,'
+                             ' turn on the anaconda installation! (was it skipped?) or turn off pygsl." ; exit 1 ; fi ']
+gsl.prewithenv["Centos7"] = gsl.prewithenv["Centos6"]
+gsl.prewithenv["Ubuntu"] = gsl.prewithenv["Centos6"]
 
-gsl.postwithenv={"Centos6":[' isinst=`python -c "import pkgutil; print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
-                            ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; python setup.py build; python setup.py install ; fi ']
-                 }
-gsl.postwithenv["Centos7"]=gsl.postwithenv["Centos6"]
-gsl.postwithenv["Ubuntu"]=gsl.postwithenv["Centos6"]
+gsl.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
+                               ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; python setup.py build; python setup.py install ; fi ']
+                   }
+gsl.postwithenv["Centos7"] = gsl.postwithenv["Centos6"]
+gsl.postwithenv["Ubuntu"] = gsl.postwithenv["Centos6"]
 gsl.usrspace = 3
 gsl.tempspace = 2
 gsl.registerToolbox(toolbox)
 
 #######################  Hadoop modules  ############################
 
+
 class HadoopPy(Component):
+
     def script(self):
         jdk = self.options["JavaHome"]
         if jdk is None:
@@ -465,7 +473,7 @@ class HadoopPy(Component):
                     hdh = hdh[:-len("/bin/hadoop")]
 
         if hdh is not None and jdk is not None:
-            #find hadoop version ...
+            # find hadoop version ...
             stat, hdv, err = li.mycmd("hadoop version")
             hdv = '.'.join([l for l in hdv.split('\n') if "Hadoop" in l][0].split(" ")[-1].split('.')[:3])
             for ezmodule in self.options["easy_install"]:
@@ -485,8 +493,8 @@ class HadoopPy(Component):
 
 hpy = HadoopPy("hadoop_python_modules")
 hpy.doInstall = True
-hpy.options = {"pip": ["pymongo_hadoop", "pyleus", "mrjob"],  #no pydoop yet, doesn't work very well
-               "easy_install": [], #"-z dumbo"], # dumbo is broken at the moment via easy_install
+hpy.options = {"pip": ["pymongo_hadoop", "pyleus", "mrjob"],  # no pydoop yet, doesn't work very well
+               "easy_install": [],  # "-z dumbo"], # dumbo is broken at the moment via easy_install
                "JavaHome": None,
                "HadoopHome": None
                }
@@ -499,26 +507,28 @@ hpy.registerToolbox(toolbox)
 #######################  ROOT  ############################
 
 # Ubuntu fix libpng
-libpng=Component("libpng")
-libpng.version="1.5.22"
+libpng = Component("libpng")
+libpng.version = "1.5.22"
 libpng.doInstall = True
-libpng.src_from={"suffix":".tar.gz"}
-libpng.post={"Ubuntu" : ["bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
-                         + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'"]}
+libpng.src_from = {"suffix": ".tar.gz"}
+libpng.post = {"Ubuntu": ["bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; ./configure --prefix=/usr/local/libpng; make; make install;"
+                          + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'"]}
 
 # Centos6 Glew Fix
-glew=Component("glew")
+glew = Component("glew")
 glew.doInstall = True
-glew.version="1.5.5-1"
-glew.src_from={"suffix":".el6.x86_64.rpm"}
+glew.version = "1.5.5-1"
+glew.src_from = {"suffix": ".el6.x86_64.rpm"}
 
 # Centos6 GlewDev Fix
-glewdev=Component("glew-devel")
+glewdev = Component("glew-devel")
 glewdev.doInstall = True
-glewdev.version="1.5.5-1"
-glewdev.src_from={"suffix":".el6.x86_64.rpm"}
+glewdev.version = "1.5.5-1"
+glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
+
 
 class RootComponent(Component):
+
     def compile(self):
         """
         All the necessary commands to  compile root locally
@@ -532,17 +542,16 @@ class RootComponent(Component):
                 f = open(afile, "w")
                 f.write(l)
                 f.close()
-        #need first to compile without python, and then against anaconda python
+        # need first to compile without python, and then against anaconda python
         self.run("./configure " + self.options["conf"][linuxVersion].replace("--enable-python", ""))
         print "Compiling, may take some time!"
         out = self.run("make")
-        #testing
+        # testing
         self.run(
             "bash -c 'source " + self.toolbox.envscript() + "; ./configure " + self.options["conf"][linuxVersion] + "'")
         print "Recompile with python"
         self.run("bash -c 'source " + self.toolbox.envscript() + "; make'")
         return
-
 
     def script(self):
         for ap in sys.path:
@@ -550,7 +559,7 @@ class RootComponent(Component):
                 self.bauk(
                     "Cannot compile ROOT because you have already inserted anaconda onto your python path. Please "
                     "touch ~/.nokaveEnv, begin a new shell, and try again")
-        #if not test:
+        # if not test:
         arch_url = li.fromKPMGrepo("root_" + self.version + "_" + linuxVersion.lower() + ".tar.gz")
         noarch_url = li.fromKPMGrepo("root_" + self.version + "_noarch.tar.gz", arch="noarch")
         if self.options["Strategy"] == "Default" or self.options["Strategy"] == "Copy":
@@ -574,9 +583,9 @@ class RootComponent(Component):
                 "website, Copy takes the precompiled version from our deployment area, default first tries the copy, "
                 "then the compile")
         dest = "root.tar.gz"
-        #copy to tmp for unpacking
+        # copy to tmp for unpacking
         self.copy(self.src_from, dest)
-        #untar, move to correct location and clean
+        # untar, move to correct location and clean
         self.run("tar xzf " + dest)
         os.system("mkdir -p " + os.sep.join(self.installDirVersion.split(os.sep)[:-1]))
         os.system("mv root " + self.installDirVersion)
@@ -590,7 +599,7 @@ class RootComponent(Component):
                 "bash -c 'source " + self.toolbox.envscript() + ";"
                 + " source " + self.installDirVersion + "/bin/thisroot.sh;"
                 + " pip install " + package + "'"
-                )
+            )
         return
 
 
@@ -628,11 +637,11 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                 " libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev libldap2-dev libkrb5-dev "
                 "freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev libiodbc2 libiodbc2-dev "
                 "libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev glew-utils libc6-dev-i386"
-                ]
-            }
-root.children = { "Centos6" : [glew, glewdev],
-                 "Centos7" : [],
-                 "Ubuntu" : [libpng]
+]
+}
+root.children = {"Centos6": [glew, glewdev],
+                 "Centos7": [],
+                 "Ubuntu": [libpng]
                  }
 root.registerToolbox(toolbox)
 root.freespace = 750
@@ -650,19 +659,22 @@ fi
 """
 
 #######################  KETTLE  ############################
+
+
 class Kettle(Component):
+
     def script(self):
         dest = "kettle.zip"
         self.copy(self.src_from, dest)
         self.run("unzip -o -q " + dest)
-        #default to our hadoop version
+        # default to our hadoop version
         f = open("data-integration/plugins/pentaho-big-data-plugin/plugin.properties")
         lines = f.read()
         f.close()
         f = open("data-integration/plugins/pentaho-big-data-plugin/plugin.properties", "w")
         f.write(lines.replace("active.hadoop.configuration=hadoop-20", "active.hadoop.configuration=hdp22"))
         f.close()
-        #default to not show the welcome screen
+        # default to not show the welcome screen
         addition = """
 
         #KPMG: workaround for crashing loading screen on Centos!
@@ -685,7 +697,7 @@ class Kettle(Component):
 """
         f = open("data-integration/spoon.sh")
         lines = f.readlines()
-        #fix bug PDI-9977, http://jira.pentaho.com/browse/PDI-9977
+        # fix bug PDI-9977, http://jira.pentaho.com/browse/PDI-9977
         lines = [line.replace("LIBPATH=$BASEDIR/", "LIBPATH=") for line in lines if "cd -" not in line]
         f.close()
         f = open("data-integration/spoon.sh", "w")
@@ -704,7 +716,7 @@ kettle.usrspace = 130
 kettle.tempspace = 1200
 kettle.version = "5.4.0.1-130"
 kettle.installSubDir = "kettle"
-kettle.src_from = [{'filename':"pdi-ce", 'suffix':".zip", 'arch':"noarch"},
+kettle.src_from = [{'filename': "pdi-ce", 'suffix': ".zip", 'arch': "noarch"},
                    "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.4/pdi-ce-5.4.0.1-130.zip?r"
                    "=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fpentaho%2Ffiles%2FData%2520Integration%2F5.4%2F&ts=1460476499&use_mirror=tenet"
                    ]
@@ -714,9 +726,9 @@ kettle.pre = {"Centos6": ["yum -y install webkitgtk"],
               "Centos7": ["yum -y install webkitgtk"],
               "Ubuntu": ["apt-get -y install libwebkitgtk-dev"]
               }
-kettle.children = {"Centos6" : [java],
-                   "Centos7" : [java],
-                   "Ubuntu" : [java]}
+kettle.children = {"Centos6": [java],
+                   "Centos7": [java],
+                   "Ubuntu": [java]}
 kettle.registerToolbox(toolbox)
 kettle.env = """
 ket="%%INSTALLDIRVERSION%%"
@@ -734,23 +746,27 @@ fi
 
 #######################  robomongo  ############################
 robo = Component("robomongo")
-robo.doInstall = False # Don't install at the moment by default, because it doesn't work with mongo 3.0
+robo.doInstall = False  # Don't install at the moment by default, because it doesn't work with mongo 3.0
 robo.node = False
 robo.workstation = False
 robo.version = "0.8.4"
-robo.src_from=[{"suffix":".tar.gz"}]
+robo.src_from = [{"suffix": ".tar.gz"}]
 robo.pre = {"Centos6": ["yum install -y glibc.i686 libstdc++.i686 libgcc.i686"]}
-robo.pre["Centos7"]=robo.pre["Centos6"]
-robo.pre["Ubuntu"]=["apt-get -y install libxcb-icccm4 libxkbcommon-x11-0 libxcb-xkb1 libxcb-render-util0 libxcb-keysyms1 libxcb-image0"]
+robo.pre["Centos7"] = robo.pre["Centos6"]
+robo.pre["Ubuntu"] = [
+    "apt-get -y install libxcb-icccm4 libxkbcommon-x11-0 libxcb-xkb1 libxcb-render-util0 libxcb-keysyms1 libxcb-image0"]
 robo.post = {"Centos6": ["yum -y install robomongo-*.rpm"]}
-robo.post["Centos7"]=robo.post["Centos6"]
-robo.post["Ubuntu"]=["dpkg -i robomongo-*.deb"]
+robo.post["Centos7"] = robo.post["Centos6"]
+robo.post["Ubuntu"] = ["dpkg -i robomongo-*.deb"]
 robo.usrspace = 40
 robo.tempspace = 20
 robo.registerToolbox(toolbox)
 
 #######################  R  ############################
+
+
 class RComponent(Component):
+
     def script(self):
         return True
 
@@ -760,10 +776,10 @@ r.doInstall = True
 r.pre = {"Centos6": ['yum -y install epel-release',
                      #"rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm", arch="centos6"),
                      'yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
-                     #http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm",
+                     # http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm",
                      "yum -y install readline-devel",
                      "yum -y install R",
-                     "yum -y install R-* --skip-broken"  #not everything installs on Centos6!
+                     "yum -y install R-* --skip-broken"  # not everything installs on Centos6!
                      ],
          "Ubuntu": ["apt-get -y install libreadline6 libreadline6-dev libc6-dev-i386",
                     "apt-get -y install build-essential g++",
@@ -771,10 +787,10 @@ r.pre = {"Centos6": ['yum -y install epel-release',
                     "apt-get -y install python-rpy2"
                     ]
          }
-r.pre["Centos7"]=r.pre["Centos6"]
-r.postwithenv={"Centos6":["conda update conda --yes; pip install rpy2"]}
-r.postwithenv["Centos7"]=r.postwithenv["Centos6"]
-r.postwithenv["Ubuntu"]=["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
+r.pre["Centos7"] = r.pre["Centos6"]
+r.postwithenv = {"Centos6": ["conda update conda --yes; pip install rpy2"]}
+r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
+r.postwithenv["Ubuntu"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.usrspace = 150
 r.tempspace = 1
 r.registerToolbox(toolbox)

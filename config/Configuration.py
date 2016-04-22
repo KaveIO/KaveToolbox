@@ -37,5 +37,4 @@ import DefaultConfig as cnf
 if os.path.exists("/etc/kave/CustomInstall.py"):
     execfile("/etc/kave/CustomInstall.py")
 
-
     # http://www.rackspace.com/knowledge_center/article/install-the-epel-ius-and-remi-repositories-on-centos-and-red-hat
