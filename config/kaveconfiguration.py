@@ -32,7 +32,7 @@ myfilename = inspect.getframeinfo(inspect.currentframe()).filename
 myinstallfrom = os.path.realpath(os.path.dirname(myfilename))
 sys.path.append(myinstallfrom)
 
-import DefaultConfig as cnf
+import kavedefaults as cnf
 
 if os.path.exists("/etc/kave/CustomInstall.py"):
     execfile("/etc/kave/CustomInstall.py")

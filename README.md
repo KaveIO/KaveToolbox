@@ -150,9 +150,9 @@ And/or visit http://nbviewer.ipython.org/
 * Optional: Editing configuration files
   * Default will install into directories in /opt
   * Default will not overwrite existing packages
-  * Default configurations are well-tested, read all the configurations from config/DefaultConfig.py
+  * Default configurations are well-tested, read all the configurations from config/kavedefaults.py
   * To override configurations, create a simple python file in /etc/kave/CustomInstall.py
-  * this python should be used to logically overwrite any property of a service appearing in DefaultConfig.py and will not be over-written on re-install/upgrade
+  * this python should be used to logically overwrite any property of a service appearing in kavedefaults.py and will not be over-written on re-install/upgrade
   * For an example and more information call ./kavetoolbox/scripts/KaveInstall --help
 
 * Optional: Set mirrors/nearside cache
@@ -303,7 +303,7 @@ We can't trouble shoot your networking issues for you, but if you are trying to 
 
 * This is to be expected.
 * If you have edited the configuration file to change installed packages or locations, it is quite likely that root will not install from the precompiled version correctly.
-* To fix this, revert your copy of Configuration.py to the default settings and re-install root, or, configure/compile root yourself in this new location like:
+* To fix this, revert your copy of kaveconfiguration.py to the default settings and re-install root, or, configure/compile root yourself in this new location like:
 
 ```
 cd /root/install/location
@@ -335,7 +335,7 @@ unset SSH_ASKPASS
 
 ## Is it possible to install the software without root/superuser privilages?
 
-So long as the pre-requisites are already installed (see the yum install commands in the Configuration.py) it is possible to install all the software we package into a local directory, however that is not implemented yet and will not permit seamless integration of all users and machines in a network, and it will not be possible to automatically source the environment for all users.
+So long as the pre-requisites are already installed (see the yum install commands in the kaveconfiguration.py) it is possible to install all the software we package into a local directory, however that is not implemented yet and will not permit seamless integration of all users and machines in a network, and it will not be possible to automatically source the environment for all users.
 
 ## Javascript elements of d3js, geomaps, or vincent will not display
 

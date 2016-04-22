@@ -17,7 +17,7 @@
 #
 ###############################################################################
 # Test runner script, unit tests are runnable without specific local installation
-# further tests require aws availability, aws kaveconfiguration, and AWSSECCONF variable defined
+# further tests require aws availability, aws configuration, and AWSSECCONF variable defined
 #
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

@@ -16,7 +16,7 @@
 #
 ##############################################################################
 """
-libInstall.py, base functions and classes for use by the KaveInstaller
+kaveinstall.py, base functions and classes for use by the KaveInstaller
 
 Two main pieces expected to be used elsewhere:
 
@@ -26,7 +26,7 @@ fromKPMGRepo(filename,architecture) : find the file for the given os/architectur
 
 class Component(object), instantiated as Component(name), wrapper for generic installation steps
  many implementations will mostly only overwrite the script() method, and set various parameters
- all parameters live in the DefaultConfig.py file which derives classes and sets params of the objects
+ all parameters live in the kavedefaults.py file which derives classes and sets params of the objects
 """
 import time
 import string

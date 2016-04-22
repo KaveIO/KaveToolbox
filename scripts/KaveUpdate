@@ -65,7 +65,7 @@ conflocation = os.path.realpath(conflocation)
 sys.path.append(conflocation)
 topdir = os.getcwd()
 
-import libInstall as li
+import kaveinstall as li
 
 
 def linkscraper(url):

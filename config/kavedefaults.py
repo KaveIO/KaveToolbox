@@ -24,7 +24,7 @@ We don't recommend you to edit this file. Instead we suggest to create/add confi
 e.g. adding extra entries like:
 
 #-----------------
-import DefaultConfig as cnf
+import kavedefaults as cnf
 
 # overwrite top install directory
 cnf.li.InstallTopDir='/wheretostartinstall'
@@ -45,8 +45,8 @@ cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-min
 """
 import os
 import sys
-import libInstall as li
-from libInstall import InstallTopDir, Component, linuxVersion
+import kaveinstall as li
+from kaveinstall import InstallTopDir, Component, linuxVersion
 
 # top level directory under where to keep all KAVE software
 li.InstallTopDir = "/opt"
@@ -150,7 +150,7 @@ class Toolbox(Component):
         if not os.access("/etc/profile.d", os.W_OK):
             self.bauk(
                 "cannot write into /etc/profile.d, this means you are not running with root privilages. Run again as "
-                "root, or turn off the explicit toolbox.doInstall in Configuration.py")
+                "root, or turn off the explicit toolbox.doInstall in kaveconfiguration.py")
         f = open("/etc/profile.d/kave.sh", "w")
         f.write(l)
         f.close()

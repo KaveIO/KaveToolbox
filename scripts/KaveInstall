@@ -19,12 +19,12 @@
 """
 The KaveInstall
 
-This python script uses config/DefaultConfig.py to read the configuration of all components,
+This python script uses config/kavedefaults.py to read the configuration of all components,
 reads /etc/kave/CustomInstall.py if it exists to overwrite those components, reads /etc/kave/mirrors if it exists for
 where to find our software.
 
 /etc/kave/CustomInstall.py should be used to logically overwrite any property of a service appearing in
-DefaultConfig.py and will not be over-written on re-install/upgrade.
+kavedefaults.py and will not be over-written on re-install/upgrade.
 
 /etc/kave/mirrors should be used to add a list of nearside cache directories or nearside mirrors of the KPMG
 repository. This list can be as long as you like.
@@ -59,7 +59,7 @@ in this case, switch the root installation to the 'low memory mode'
 Example configuration for CustomInstall.py
 
 #-----------------
-import DefaultConfig as cnf
+import kavedefaults as cnf
 
 # overwrite top install directory
 cnf.li.InstallTopDir='/wheretostartinstall'
@@ -107,7 +107,7 @@ conflocation = os.path.realpath(conflocation)
 sys.path.append(conflocation)
 topdir = os.getcwd()
 
-import libInstall as li
+import kaveinstall as li
 
 #check against list of supported platforms
 supportedversions = ["Centos6", "Centos7", "Ubuntu"]
@@ -156,7 +156,7 @@ if repotest is None:
         "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
         "settings (did you ensure your su inherits your proxy settings?)")
 
-import DefaultConfig as cnf
+import kavedefaults as cnf
 
 print "Default config from", cnf.__file__
 if os.path.exists('/etc/kave/CustomInstall.py'):
