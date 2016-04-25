@@ -36,7 +36,6 @@ date --utc
 mbc=`find ${BAHDIR}/.. -type f -name '*.*' | grep -v .git | grep -v .geojson | grep -v .ipynb | grep -v .csv | grep -v .pyc | grep -v .png | grep -v .md | xargs cat | sed '/^\s*#/d;/^\s*$/d' | wc -l`
 mtc=`find ${BAHDIR} -type f -name '*.*' | grep -v .pyc | grep -v .md | xargs cat | sed '/^\s*#/d;/^\s*$/d' | wc -l`
 mlc=$(($mbc-$mtc))
-echo $mbc $mtc $mlc
 tdd=`python -c "print float($mtc) / $mlc"`
 echo "TDD Stats, Code:Test " $mlc:$mtc "ratio:" $tdd
 ########## Unit tests
