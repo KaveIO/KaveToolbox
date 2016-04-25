@@ -60,7 +60,7 @@ class TestVersions(unittest.TestCase):
                     continue
                 found = found + self.findversion(os.path.join(root, f))
         # if '-Pre' in number to check, the Welcome.banner is the only one allowed to be missing -Pre
-        found = [i for i in found if i is not None and len(found)]
+        found = [i for i in found if i is not None and len(i)]
         ifound = []
         for f in found:
             if (f[0].endswith("Welcome.banner") and (self.checkAgainst.endswith('-Pre')
