@@ -95,7 +95,7 @@ class Toolbox(Component):
         installfrom = self.installfrom()
         return installfrom + os.sep + "scripts" + os.sep + "KaveEnv.sh"
 
-    def buildEnv(self):
+    def buildenv(self):
         prepend = False
         rest = []
         scriptloc = self.envscript().split()[0]
@@ -128,7 +128,7 @@ class Toolbox(Component):
                     )
             f.write(''.join(rest))
             f.close()
-        return super(Toolbox, self).buildEnv()
+        return super(Toolbox, self).buildenv()
 
     def script(self):
         # don't include the .git directory
@@ -227,7 +227,7 @@ toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzi
                "Ubuntu": ['apt-get -y install dictionaries-common',
                           "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
-toolbox.registerToolbox(toolbox)
+toolbox.register_toolbox(toolbox)
 toolbox.env = """
 
 ktbv='%%VERSION%%'
@@ -358,7 +358,7 @@ eclipse.src_from = li.fromKPMGrepo("eclipse.tar.gz", arch="noarch")
 eclipse.freespace = 500
 eclipse.usrspace = 150
 eclipse.tempspace = 1000
-eclipse.registerToolbox(toolbox)
+eclipse.register_toolbox(toolbox)
 eclipse.env = """
 ecl="%%INSTALLDIRVERSION%%"
 if [ ${pro} == 'yes' ]; then
@@ -385,7 +385,7 @@ class Conda(Component):
         os.system("chmod a+x " + dest)
         # install in batch mode to the requested directory
         self.run(dest + " -b -p " + self.installDirVersion)
-        self.buildEnv()
+        self.buildenv()
 
 conda = Conda(cname="anaconda")
 conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
@@ -411,7 +411,7 @@ conda.usrspace = 300
 conda.tempspace = 300
 conda.installSubDir = "anaconda"
 conda.version = "2.4.1"
-conda.registerToolbox(toolbox)
+conda.register_toolbox(toolbox)
 conda.src_from = [{"arch": "noarch", "suffix": "-Linux-x86_64.sh"},
                   "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3"
                   ".ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
@@ -456,7 +456,7 @@ gsl.postwithenv["Centos7"] = gsl.postwithenv["Centos6"]
 gsl.postwithenv["Ubuntu"] = gsl.postwithenv["Centos6"]
 gsl.usrspace = 3
 gsl.tempspace = 2
-gsl.registerToolbox(toolbox)
+gsl.register_toolbox(toolbox)
 
 # ######################  Hadoop modules  ############################
 
@@ -521,7 +521,7 @@ hpy.pre = {"Centos6": ["yum -y install boost boost-devel openssl-devel"],
            "Centos7": ["yum -y install boost boost-devel openssl-devel"],
            "Ubuntu": ["apt-get -y install libboost-python-dev libssl-dev"]
            }
-hpy.registerToolbox(toolbox)
+hpy.register_toolbox(toolbox)
 
 # ######################  ROOT  ############################
 
@@ -662,7 +662,7 @@ root.children = {"Centos6": [glew, glewdev],
                  "Centos7": [],
                  "Ubuntu": [libpng]
                  }
-root.registerToolbox(toolbox)
+root.register_toolbox(toolbox)
 root.freespace = 750
 root.usrspace = 300
 root.tempspace = 500
@@ -749,7 +749,7 @@ kettle.pre = {"Centos6": ["yum -y install webkitgtk"],
 kettle.children = {"Centos6": [java],
                    "Centos7": [java],
                    "Ubuntu": [java]}
-kettle.registerToolbox(toolbox)
+kettle.register_toolbox(toolbox)
 kettle.env = """
 ket="%%INSTALLDIRVERSION%%"
 if [ ${pro} == 'yes' ]; then
@@ -780,7 +780,7 @@ robo.post["Centos7"] = robo.post["Centos6"]
 robo.post["Ubuntu"] = ["dpkg -i robomongo-*.deb"]
 robo.usrspace = 40
 robo.tempspace = 20
-robo.registerToolbox(toolbox)
+robo.register_toolbox(toolbox)
 
 # ######################  R  ############################
 
@@ -813,4 +813,4 @@ r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
 r.postwithenv["Ubuntu"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.usrspace = 150
 r.tempspace = 1
-r.registerToolbox(toolbox)
+r.register_toolbox(toolbox)

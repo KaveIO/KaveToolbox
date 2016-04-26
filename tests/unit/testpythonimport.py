@@ -23,7 +23,7 @@ import sys
 
 
 class TestPyImport(unittest.TestCase):
-    skip = []
+    skip = ["stattoolssimple.py"]
     first = []
 
     def tryimporting(self, fullpath):
@@ -47,8 +47,9 @@ class TestPyImport(unittest.TestCase):
         are importable in python, this is a basic sanity check
         """
         pfiles = []
-        for root, dirs, files in os.walk(os.path.realpath(__file__ + '/../../../src')):
-            pfiles = pfiles + [os.path.join(root, f) for f in files if f.endswith('.py') and f not in self.skip]
+        for adir in ['src', 'config', 'examples', 'python', 'scripts', 'bin']:
+            for root, dirs, files in os.walk(os.path.realpath(__file__ + '/../../../' + adir)):
+                pfiles = pfiles + [os.path.join(root, f) for f in files if f.endswith('.py') and f not in self.skip]
         print len(pfiles)
         for f in self.first:
             fname = [fi for fi in pfiles if fi.endswith(f)][0]

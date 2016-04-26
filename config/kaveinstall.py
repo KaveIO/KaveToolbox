@@ -86,7 +86,7 @@ def mycmd(cmd):
     return status, stdout, stderr
 
 
-def exitIfFailureQuiet(cmd):
+def throw_on_fail_quiet(cmd):
     """
     Run a command, if this command fails raise a RuntimeError.
     Do not print the output of the command while it is running
@@ -105,7 +105,7 @@ def exitIfFailureQuiet(cmd):
     return output.strip()
 
 
-def exitIfFailureLoud(cmd):
+def throw_on_fail_loud(cmd):
     """
     Run a command, if this command fails raise a RuntimeError.
     Echo the progress to stdout while running
@@ -123,7 +123,7 @@ def exitIfFailureLoud(cmd):
     return status
 
 
-def cleanIfFailureQuiet(cmd, directory):
+def clean_on_fail_quiet(cmd, directory):
     """
     Run a command, if this command fails, remove a directory and raise a RuntimeError
     Do not print the output of the command while it is running
@@ -145,7 +145,7 @@ def cleanIfFailureQuiet(cmd, directory):
     return output.strip()
 
 
-def cleanIfFailureLoud(cmd, directory):
+def clean_on_fail_loud(cmd, directory):
     """
     Run a command, if this command fails, remove a directory and
     raise a RuntimeError. Echo the progress to stdout while running
@@ -168,7 +168,7 @@ def cleanIfFailureLoud(cmd, directory):
 # Simple helper functions
 #
 
-def detectLinuxVersion():
+def detect_linux_version():
     status, output, err = mycmd("uname -r")
     if status:
         raise RuntimeError("Problem detecting linux version: \n" + cmd + "\n got:\n\t" + str(
@@ -219,7 +219,7 @@ def copymethods(source, destination):
     raise IOError("no method to copy from " + source)
 
 
-linuxVersion = detectLinuxVersion()
+linuxVersion = detect_linux_version()
 InstallTopDir = "/opt"
 
 #
@@ -227,7 +227,7 @@ InstallTopDir = "/opt"
 #
 
 
-def failoverSource(sources):
+def failoversources(sources):
     """
     try a list of locations where a file could be, one after the other
     """
@@ -268,7 +268,7 @@ def fromKPMGrepo(filename, arch=linuxVersion, version=None, suffix=None):
 
     sources.append(repoURL(filename, arch=arch.lower()))
     try:
-        source = failoverSource(sources)
+        source = failoversources(sources)
         return source
     except IOError:
         print sources, "no file", filename, "found"
@@ -525,7 +525,7 @@ class Component(object):
             if os.path.isdir(self.installDirVersion):
                 print "Skipping", self.cname, "because this version is already installed"
                 print "remove", self.installDirVersion, "if you want to force re-install"
-                self.buildEnv()
+                self.buildenv()
                 return self.__install_end_actions()
                 # Detect previous KTB installation and skip
             if (os.path.exists(self.installDir) and not os.path.exists(self.installDirPro)
@@ -563,7 +563,7 @@ class Component(object):
             if self.skipIfDiskFull:
                 print "Skipping", self.cname, "because of insufficient disk space"
                 print e
-                return self.buildEnv()
+                return self.buildenv()
             raise e
         ##############################
         # Install children
@@ -597,7 +597,7 @@ class Component(object):
         if self.post is not None and linuxVersion in self.post:
             for cmd in self.post[linuxVersion]:
                 self.run(cmd)
-        self.buildEnv()
+        self.buildenv()
         # run post actions that require the environment
         if self.postwithenv is not None and linuxVersion in self.postwithenv:
             for cmd in self.postwithenv[linuxVersion]:
@@ -626,14 +626,14 @@ class Component(object):
                 self.clean(others_only=True)
         return True
 
-    def registerToolbox(self, toolbox):
+    def register_toolbox(self, toolbox):
         """
         The method of finding the env script must be known by components, and so the Component which installs
         KaveToolbox itself needs to be remembered and resolved at runtime
         """
         self.toolbox = toolbox
 
-    def buildEnv(self):
+    def buildenv(self):
         """
         Build env adds to the standard environment script the contents of self.env
         in order to build a static env file (fastest approach) this method can autoreplace the key
@@ -684,8 +684,8 @@ class Component(object):
         Intelligently run a command, either cleaning or exiting if the command fails
         """
         if self.tmpdir is not None and os.path.exists(self.tmpdir):
-            return self._cleanIfFailure(cmd, self.tmpdir)
-        self._exitIfFailure(cmd)
+            return self._clean_on_fail(cmd, self.tmpdir)
+        self._throw_on_fail(cmd)
 
     def bauk(self, reason):
         """
@@ -696,12 +696,12 @@ class Component(object):
                 os.system("rm -rf " + self.tmpdir)
         raise RuntimeError(reason)
 
-    def _exitIfFailure(self, cmd):
+    def _throw_on_fail(self, cmd):
         if self.loud:
-            return exitIfFailureLoud(cmd)
-        exitIfFailureQuiet(cmd)
+            return throw_on_fail_loud(cmd)
+        throw_on_fail_quiet(cmd)
 
-    def _cleanIfFailure(self, cmd, dir):
+    def _clean_on_fail(self, cmd, dir):
         if self.loud:
-            return cleanIfFailureLoud(cmd, dir)
-        cleanIfFailureQuiet(cmd, dir)
+            return clean_on_fail_loud(cmd, dir)
+        clean_on_fail_quiet(cmd, dir)

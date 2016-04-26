@@ -33,6 +33,7 @@ see also the root_pandas and the root_numpy libraries
 import ROOT
 import tempfile
 from IPython.core import display
+from IPython import get_ipython
 from ROOT import TH1D, TH2D
 
 HISTOCOUNTER = 0
@@ -105,16 +106,19 @@ def _display_any(obj):
     ip_img = display.Image(filename=file.name, format='png', embed=True)
     return ip_img._repr_png_()
 
-# register display function with PNG formatter:
-png_formatter = get_ipython().display_formatter.formatters['image/png']  # noqa
+ip = get_ipython()
+png_formatter = None
+if ip is not None:
+    # register display function with PNG formatter:
+    png_formatter = ip.display_formatter.formatters['image/png']  # noqa
 
-# Register ROOT types in ipython
-#
-# In [1]: canvas = rootnotes.canvas()
-# In [2]: canvas
-# Out [2]: [image will be here]
-png_formatter.for_type(ROOT.TCanvas, display_canvas)
-png_formatter.for_type(ROOT.TF1, _display_any)
+    # Register ROOT types in ipython
+    #
+    # In [1]: canvas = rootnotes.canvas()
+    # In [2]: canvas
+    # Out [2]: [image will be here]
+    png_formatter.for_type(ROOT.TCanvas, display_canvas)
+    png_formatter.for_type(ROOT.TF1, _display_any)
 
 from IPython.core.magic import (Magics, magics_class, cell_magic)
 
@@ -142,5 +146,5 @@ class RootMagics(Magics):
             print tmpFile.read()
 
 # Register
-ip = get_ipython()
-ip.register_magics(RootMagics)
+if ip is not None:
+    ip.register_magics(RootMagics)

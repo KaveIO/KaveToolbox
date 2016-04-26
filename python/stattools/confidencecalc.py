@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 import matplotlib.path as mpath
 
 
-class quantileCalc:
+class quantileCalc(object):
     """
     This class is built for calculating the confidence intervals from the y-direction. The result will be a list of
     intervals of which the combined integral under the normalized curve reaches the desired confidence interval.
@@ -34,7 +34,7 @@ class quantileCalc:
     -calculating the quantiles-
     qc = quantileCalc(x, ygaus)
     -the results-
-    ygauslvl, intervals = qc.getVerticalQuantile()
+    ygauslvl, intervals = qc.getquantilevertical()
     print  ygauslvl, intervals
     -plotting-
     qc.plot()
@@ -56,7 +56,7 @@ class quantileCalc:
         self.level = lvl
         self.niter = numiter
         self.__normalize()
-        self.ylevel, self.intervals = self.__calcVerticalQuantile()
+        self.ylevel, self.intervals = self.__calcquantile_vertical()
 
     def plot(self):
         Path = mpath.Path
@@ -75,7 +75,7 @@ class quantileCalc:
 
         plt.show()
 
-    def getVerticalQuantile(self):
+    def getquantilevertical(self):
         return self.ylevel, self.intervals
 
     def __mkpaths(self, path_data):
@@ -84,7 +84,7 @@ class quantileCalc:
         x, y = zip(*path.vertices)
         return x, y
 
-    def __calcVerticalQuantile(self):
+    def __calcquantile_vertical(self):
         # start from the max value
         ymax = self.y.max()
         ymin = self.y.min()
@@ -107,9 +107,9 @@ class quantileCalc:
 
         for i in range(self.niter):
             # create the splined dataset and solve for the roots
-            points = self.__getPoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)
+            points = self.__getpoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)
             # print 'points', points
-            integral = self.__computeIntegral(points, datarep)
+            integral = self.__compute_integral(points, datarep)
             diff = abs(integral - self.level)
             # print step, ylow, diff
 
@@ -117,8 +117,8 @@ class quantileCalc:
                 # wrong direction: go back and take a smaller step
                 ylow = prevylow
                 step = step / 2.0
-                points = self.__getPoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)
-                integral = self.__computeIntegral(points, datarep)
+                points = self.__getpoints(InterpolatedUnivariateSpline(self.x, self.y - ylow).roots(), datarep)
+                integral = self.__compute_integral(points, datarep)
 
             # if integral larger than level, raise lower bound
             if integral > self.level:
@@ -137,13 +137,13 @@ class quantileCalc:
         val = InterpolatedUnivariateSpline(self.x, self.y).integral(self.x.min(), self.x.max())
         self.y = self.y / val
 
-    def __computeIntegral(self, points, data):
+    def __compute_integral(self, points, data):
         val = 0
         for x1, x2 in points:
             val += data.integral(x1, x2)
         return val
 
-    def __getPoints(self, rootlist, thedata):
+    def __getpoints(self, rootlist, thedata):
         points = []
         # There must be a positive integral between two points
         # two cases:
@@ -171,7 +171,7 @@ class quantileCalc:
         return points
 
 
-def getLeftQuantile(histo, level=0.67):
+def getquantileleft(histo, level=0.67):
     """
     Gets the quantile levels from a ROOT histogram. This function calculates the integral of the normalized histogram
     and returns the bin center of the bin where the level is first reached. The computation starts from left to right.
@@ -189,7 +189,7 @@ def getLeftQuantile(histo, level=0.67):
     return val
 
 
-def testVerticalQuantile():
+def test_verticalquantile():
     """
     This is the test method for the vertical Quantile class
     """
@@ -199,31 +199,31 @@ def testVerticalQuantile():
     x = np.arange(-10 * np.pi, 10 * np.pi, 0.01)
     ygaus = np.exp(-0.5 * ((x)) ** 2)
     qc = quantileCalc(x, ygaus)
-    ygauslvl, intervals = qc.getVerticalQuantile()
+    ygauslvl, intervals = qc.getquantilevertical()
     print ygauslvl, intervals
     qc.plot()
 
     # generating data:
     ygaus = np.exp(-0.5 * ((x - 5)) ** 2) + np.exp(-0.5 * ((x + 5)) ** 2)
     qc = quantileCalc(x, ygaus)
-    ygauslvl, intervals = qc.getVerticalQuantile()
+    ygauslvl, intervals = qc.getquantilevertical()
     print ygauslvl, intervals
     qc.plot()
 
     # a sin**2 function to test the edge effects
     ysin = np.sin(x) ** 2
     qc = quantileCalc(x, ysin)
-    ysinlvl, intervals = qc.getVerticalQuantile()
+    ysinlvl, intervals = qc.getquantilevertical()
     print ysinlvl, intervals
     qc.plot()
 
     # a complicated function:
     ycomp = np.exp(-0.5 * (x / 10 ** 2)) * np.sin(x) ** 2 * x ** 2
     qc = quantileCalc(x, ycomp)
-    ycomplvl, intervals = qc.getVerticalQuantile()
+    ycomplvl, intervals = qc.getquantilevertical()
     print ycomplvl, intervals
     qc.plot()
 
 
 if __name__ == "__main__":
-    testVerticalQuantile()
+    test_verticalquantile()

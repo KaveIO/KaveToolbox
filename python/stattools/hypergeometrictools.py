@@ -22,28 +22,28 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def HypergeometricVariableMinimum(N, K, n):
+def hypergeometric_var_min(N, K, n):
     "Return the minimum value the variable can take"
     return long(n - N + K if n - N + K > 0 else 0)
 
 
-def HypergeometricVariableMaximum(N, K, n):
+def hypergeometric_var_max(N, K, n):
     "Return the maximum value the variable can take"
     return long(n if n < K else K)
 
 
-def HypergeometricSumOfLargerProbabilities(N, K, n, k):
+def hypergeometric_sumlargeprobabilities(N, K, n, k):
     """
     Determines how unlikely it is that given a total sample of N elements with K elements of a specific type,
     a random subsample of n elements contains k elements of the specific type.
     Returns a value between 0 and 1, where 1 indicates very unlikely and 0 very likely.
     If the subsample is truly drawn in a random way from the total sample, then this
-    HypergeometricSumOfLargerProbabilities has a uniform distribution.
+    hypergeometric_sumlargeprobabilities has a uniform distribution.
     """
     if n == 0 or K == 0:
         return numpy.random.uniform()
-    kmin = HypergeometricVariableMinimum(N, K, n)
-    kmax = HypergeometricVariableMaximum(N, K, n)
+    kmin = hypergeometric_var_min(N, K, n)
+    kmax = hypergeometric_var_max(N, K, n)
     sampleprobability = scipy.stats.hypergeom.pmf(k, N, K, n)
     result = sampleprobability * numpy.random.uniform()
     prob = sampleprobability
@@ -73,13 +73,13 @@ def HypergeometricSumOfLargerProbabilities(N, K, n, k):
     return result
 
 
-def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
+def inv_hypergeometric_sumlargeprobabilities(m, M, n, N):
     """
     Determines how unlikely it is that after a first sample of N elements with n elements of a specific type,
     a second sample of M elements contains m elements of the specific type.
     Returns a value between 0 and 1, where 1 indicates very unlikely and 0 very likely.
     If the second sample is truly drawn from the same collection as the first sample, then this
-    InverseHypergeometricSumOfLargerProbabilities has a uniform distribution.
+    inv_hypergeometric_sumlargeprobabilities has a uniform distribution.
     """
     sampleprobability = scipy.stats.hypergeom.pmf(m, N + M, n + m, M)
     result = sampleprobability * numpy.random.uniform()
@@ -110,7 +110,7 @@ def InverseHypergeometricSumOfLargerProbabilities(m, M, n, N):
     return result * float(N + 1) / float(N + M + 1)
 
 
-def Hypergeometric2DHistogramCorrelationQuantisation(H2D):
+def hypergeometric_quantize_2d_correlation_histo(H2D):
     """
     Takes a 2D histogram of entries (unnormalized and unweighted)
     and determines if the two variables/axes are uncorrelated,
@@ -129,12 +129,12 @@ def Hypergeometric2DHistogramCorrelationQuantisation(H2D):
     N = int(H2D.sum())
     for i in range(0, ni):
         for j in range(0, nj):
-            p = HypergeometricSumOfLargerProbabilities(N, int(xaxis[i]), int(yaxis[j]), int(H2D[j][i]))
+            p = hypergeometric_sumlargeprobabilities(N, int(xaxis[i]), int(yaxis[j]), int(H2D[j][i]))
             SOLP[j][i] = p
     return SOLP
 
 
-def InverseHypergeometricRandomVariable(M, N, n):
+def inv_hypergeometric_random(M, N, n):
     """Helper function that generates a random inverse hypergeometric variable"""
     p = np.random.uniform()
     prob = scipy.stats.hypergeom.pmf(0, N + M, n, M) * float(N + 1) / float(N + M + 1)

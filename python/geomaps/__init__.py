@@ -38,7 +38,7 @@ world_gdp_nom = os.path.dirname(__file__) + os.sep + 'country_gdp_nom.csv'
 world_gdp_cap = os.path.dirname(__file__) + os.sep + 'country_gdp_percap.csv'
 
 
-def Copyright(name, axes, side=None):
+def add_copyright(name, axes, side=None):
     '''
     This is the copyright module that is used in the plotting of the
     maps. By calling this function inside the plotter functions we
@@ -66,7 +66,7 @@ def Copyright(name, axes, side=None):
         print 'Copyright warning: Wrong name given.'
 
 
-def NumberPlot(df_tmp, min, max, plot_col, item, **kwargs):
+def plot_number(df_tmp, min, max, plot_col, item, **kwargs):
     '''
     This plotter will make the polygons if you input
     numbers into the plot. The input is a dataframe.
@@ -139,7 +139,7 @@ def NumberPlot(df_tmp, min, max, plot_col, item, **kwargs):
     return missing
 
 
-def ColorPlot(df_tmp, plot_col, item, **kwargs):
+def plot_color(df_tmp, plot_col, item, **kwargs):
     '''
     This plotter will make the polygons if you input
     colors into the plot. The input is a dataframe.
@@ -192,10 +192,10 @@ def ColorPlot(df_tmp, plot_col, item, **kwargs):
     return missing
 
 
-def Plotter(df_merge, iter_column, plot_col, **kwargs):
+def plotter(df_merge, iter_column, plot_col, **kwargs):
     '''
     This is the plotter function that takes the data and generates
-    the plot. It uses the NumerPlot for number input and ColorPlot
+    the plot. It uses the NumerPlot for number input and plot_color
     for the color input. The function returns a string if the
     number or colorplot is succesful. If it is not, it returns 0.
     '''
@@ -211,10 +211,10 @@ def Plotter(df_merge, iter_column, plot_col, **kwargs):
             break
         else:
             if df_tmp[plot_col].dtype == 'float' or df_tmp[plot_col].dtype == 'int':
-                missing = NumberPlot(df_tmp, min, max, plot_col, item, **kwargs)
+                missing = plot_number(df_tmp, min, max, plot_col, item, **kwargs)
                 return_val = 'Number'
             elif df_tmp[plot_col].dtype == 'object':
-                missing = ColorPlot(df_tmp, plot_col, item, **kwargs)
+                missing = plot_color(df_tmp, plot_col, item, **kwargs)
                 return_val = 'Color'
             else:
                 print 'Input format erroneous.'
@@ -462,7 +462,7 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
         ax1 = kwargs['ax']
 
     # Plot the polygons.
-    plotReturn = Plotter(pc_merge, 'PC4CODE', plot_col, **kwargs)
+    plotReturn = plotter(pc_merge, 'PC4CODE', plot_col, **kwargs)
 
     # Plot range options.
     plt.axis('off')
@@ -504,7 +504,7 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
     # Geodan copyright tag
     if 'copyright' in kwargs:
         side = kwargs['copyright']
-        Copyright('Geodan', ax1, side=side)
+        add_copyright('Geodan', ax1, side=side)
 
     return ax1
 
@@ -597,7 +597,7 @@ def world_map(countries, values, location=['all'], **kwargs):
         ax1 = kwargs['ax']
 
     # Plot the polygons.
-    plotReturn = Plotter(pc_merge, 'code', plot_col, **kwargs)
+    plotReturn = plotter(pc_merge, 'code', plot_col, **kwargs)
 
     # Plot range options.
     plt.axis('off')
@@ -638,7 +638,7 @@ def world_map(countries, values, location=['all'], **kwargs):
     # Copyright tag
     if 'copyright' in kwargs:
         side = kwargs['copyright']
-        Copyright('GitHub', ax1, side=side)
+        add_copyright('GitHub', ax1, side=side)
 
     return ax1
 
@@ -726,7 +726,7 @@ def US_map(states, values, location=['all'], **kwargs):
         ax1 = kwargs['ax']
 
     # Plot the polygons.
-    plotReturn = Plotter(state_merge, 'StateCode', plot_col, **kwargs)
+    plotReturn = plotter(state_merge, 'StateCode', plot_col, **kwargs)
 
     # Plot range options.
     plt.axis('off')
@@ -768,6 +768,6 @@ def US_map(states, values, location=['all'], **kwargs):
     # Copyright tag
     if 'copyright' in kwargs:
         side = kwargs['copyright']
-        Copyright('GitHub', ax1, side=side)
+        add_copyright('GitHub', ax1, side=side)
 
     return ax1
