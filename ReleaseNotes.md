@@ -36,6 +36,8 @@ Minor changes:
   if insufficient disk space is available. You can choose from a broad list of options
   on what to do in this case, e.g.: --clean-if-disk-full, or --clean-after, or
   --skip-if-disk-full, or --clean-before
+* refactoring of code to adhere to pep8 standard for function names where possible
+* addition of unit test framework copied from similar AmbariKave project
 
 Bugfixes:
 * pygsl protected against continuous re-install if it already exists
