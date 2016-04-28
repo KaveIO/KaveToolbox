@@ -307,7 +307,7 @@ We can't trouble shoot your networking issues for you, but if you are trying to 
 
 ```
 cd /root/install/location
-./configure [options e.g. linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --fail-on-missing]
+./configure [options e.g. linuxx8664gcc --enable-python --enable-mathmore --enable-minuit2 --enable-roofit --fail-on-missing]
 make -j numcores
 ```
 

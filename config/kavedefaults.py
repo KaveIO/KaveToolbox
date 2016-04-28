@@ -39,7 +39,7 @@ cnf.eclipse.doInstall=False
 cnf.conda.installSubDir='whatever_bro'
 
 # change the configuration options of ROOT to add C++11 support if the latest version of gcc is available:
-cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11
+cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-mathmore --enable-minuit2 --enable-roofit --enable-cxx11
 --fail-on-missing""
 #-----------------
 """
@@ -625,7 +625,7 @@ class RootComponent(Component):
 root = RootComponent("root")
 root.doInstall = True
 root.installSubDir = "root"
-root.version = "v5.34.34"
+root.version = "v5.34.36"
 root.options = {"Strategy": "Default",
                 "LowMemoryMode": False,
                 "conf": {
