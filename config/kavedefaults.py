@@ -354,7 +354,7 @@ eclipse.children = {"Centos6": [java],
                     "Ubuntu": [java]}
 eclipse.installSubDir = "eclipse"
 eclipse.version = "1.3"
-eclipse.src_from = li.fromKPMGrepo("eclipse.tar.gz", arch="noarch")
+eclipse.src_from = {"arch": "noarch", "suffix": ".tar.gz"}
 eclipse.freespace = 500
 eclipse.usrspace = 150
 eclipse.tempspace = 1000
