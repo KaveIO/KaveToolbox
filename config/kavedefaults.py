@@ -346,7 +346,7 @@ class EclipseComponent(Component):
         return
 
 
-eclipse = EclipseComponent("Eclipse")
+eclipse = EclipseComponent("eclipse")
 eclipse.workstation = True
 eclipse.node = False
 eclipse.children = {"Centos6": [java],
