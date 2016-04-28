@@ -27,6 +27,7 @@ Major changes:
 * KaveEnv script will now take a version arguement to enable a specific version (pro by default)
 
 Minor changes:
+* Default ROOT version update to 5.34.36
 * New pip packages for kave integration: pymongo and pykerberos
 * Additional flags to the installation script, see the installation help
 * pygsl protected against continuous re-install if it already exists

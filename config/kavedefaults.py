@@ -39,7 +39,7 @@ cnf.eclipse.doInstall=False
 cnf.conda.installSubDir='whatever_bro'
 
 # change the configuration options of ROOT to add C++11 support if the latest version of gcc is available:
-cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-mathmore --enable-minuit2 --enable-roofit --enable-cxx11
+cnf.root.options["conf"]["Centos6"]=cnf.root.options["conf"]["Centos6"] + " --enable-cxx11"
 --fail-on-missing""
 #-----------------
 """
@@ -736,9 +736,7 @@ kettle.tempspace = 1200
 kettle.version = "5.4.0.1-130"
 kettle.installSubDir = "kettle"
 kettle.src_from = [{'filename': "pdi-ce", 'suffix': ".zip", 'arch': "noarch"},
-                   "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.4/pdi-ce-5.4.0.1-130.zip?r"
-                   "=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fpentaho%2Ffiles%2FData%2520Integration"
-                   "%2F5.4%2F&ts=1460476499&use_mirror=tenet"
+                   "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.4/pdi-ce-5.4.0.1-130.zip"
                    ]
 kettle.node = False
 kettle.workstation = True
@@ -794,9 +792,7 @@ class RComponent(Component):
 r = RComponent("R")
 r.doInstall = True
 r.pre = {"Centos6": ['yum -y install epel-release',
-                     # "rpm -Uvh " + li.fromKPMGrepo("epel-release-6-8.noarch.rpm", arch="centos6"),
                      'yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
-                     # http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm",
                      "yum -y install readline-devel",
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  # not everything installs on Centos6!
