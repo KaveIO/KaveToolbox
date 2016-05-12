@@ -116,6 +116,7 @@ You have two choices:
 We recommend to install with the default configurations, but in case you want to modify the configurations you can create a file in /etc/kave/CustomInstall.py,For an example and more information run the installer with --help
 
 * 1: Installing the released version, for example, 2.1-Beta-Pre
+
 ```
 yum -y install wget curl tar zip unzip gzip
 wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.1-Beta-Pre/kavetoolbox-installer-2.1-Beta-Pre.sh
@@ -128,6 +129,7 @@ Remember the help at this stage  [--help]
   this password is intended to be widely known and is used here as an extension of the URL )
 
 * 2: Installing the head from git, Example given using ssh.
+
 ```
 #test ssh keys with
 ssh -T git@github.com
@@ -141,6 +143,7 @@ Remember the help at this stage [--help]
 
 
 * Then to browse through examples
+
 ```
 cd /opt/KaveToolbox/pro/examples
 ipython notebook
