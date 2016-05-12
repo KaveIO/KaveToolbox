@@ -200,7 +200,7 @@ Updating:
 
 There are three possible update mechanisms
 
-* Downloading/rerunning the latest install script (from git or from the repository)
+* Downloading/rerunning the latest install script (from git or from the repository -> 2 methods)
 * Running the KaveUpdate script
 
 ```
