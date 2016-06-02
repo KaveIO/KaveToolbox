@@ -125,7 +125,7 @@ if [ ! -f $RELEASE_PACKAGE ]; then
 	#echo \${checkout} \${repos_server}
 	if [ \${checkout} == "cp" ]; then
 		\${checkout} \${repos_server}noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE $RELEASE_PACKAGE
-	else:
+	else
 		\${checkout} \${repos_server}noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE -O $RELEASE_PACKAGE
 	fi
 fi
