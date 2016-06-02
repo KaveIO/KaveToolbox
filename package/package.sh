@@ -123,7 +123,11 @@ set -e
 
 if [ ! -f $RELEASE_PACKAGE ]; then
 	#echo \${checkout} \${repos_server}
-	\${checkout} \${repos_server}noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE
+	if [ \${checkout} == "cp" ]; then
+		\${checkout} \${repos_server}noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE $RELEASE_PACKAGE
+	else:
+		\${checkout} \${repos_server}noarch/KaveToolbox/$TAG/$RELEASE_PACKAGE -O $RELEASE_PACKAGE
+	fi
 fi
 tar -xzf $RELEASE_PACKAGE
 #try to cope with the annoying way the git-generated tarball contains something with .git at the end!
