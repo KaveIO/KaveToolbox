@@ -124,6 +124,7 @@ sudo bash kavetoolbox-installer-2.1-Beta-Pre.sh [--quiet]
 ```
 (--quiet is for a quieter install, remove the brackets!)
 Remember the help at this stage  [--help]
+( NB: yum is the standard package manager for Centos/redhat. To install on Ubuntu the equivalent is apt-get )
 
 ( NB: the repository server uses a semi-private password only as a means of avoiding robots and reducing DOS attacks
   this password is intended to be widely known and is used here as an extension of the URL )
