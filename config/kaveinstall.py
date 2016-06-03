@@ -396,7 +396,10 @@ class Component(object):
             return False
         afrom = self.src_from
         if type(afrom) is list:
-            afrom = afrom[0]
+            try:
+                afrom = [a for a in afrom if a is not None][0]
+            except IndexError:
+                return False
         # default, get file, if it is a .sh file, run it
         ext = ""
         try:
