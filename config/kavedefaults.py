@@ -92,6 +92,9 @@ class Toolbox(Component):
         guess_installed = self.installDirVersion + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_installed):
             return guess_installed + " " + self.version
+        guess_old = self.installDir + os.sep + "scripts" + os.sep + "KaveEnv.sh"
+        if os.path.exists(guess_old):
+            return guess_old + " " + self.version
         installfrom = self.installfrom()
         return installfrom + os.sep + "scripts" + os.sep + "KaveEnv.sh"
 
@@ -254,6 +257,11 @@ else
     export KAVETOOLBOX=%%INSTALLDIRVERSION%%
 fi
 
+# Allow mixed 1.X/2.X versions
+if [ ! -d ${KAVETOOLBOX} ]; then
+  ecl="%%INSTALLDIR%%"
+fi
+
 ban='yes'
 if [ $TERM != "dumb" ]; then
     if [ ! -z "$HOME" ]; then
@@ -364,6 +372,10 @@ ecl="%%INSTALLDIRVERSION%%"
 if [ ${pro} == 'yes' ]; then
   ecl="%%INSTALLDIRPRO%%"
 fi
+# Allow mixed 1.X/2.X versions
+if [ ! -d ${ecl} ]; then
+  ecl="%%INSTALLDIR%%"
+fi
 
 if [ -d ${ecl}  ]; then
     if [[ ":$PATH:" == *":$ecl:"* ]]; then
@@ -420,6 +432,11 @@ ana="%%INSTALLDIRVERSION%%"
 if [ ${pro} == 'yes' ]; then
   ana="%%INSTALLDIRPRO%%"
 fi
+# Allow mixed 1.X/2.X versions
+if [ ! -d ${ana} ]; then
+  ana="%%INSTALLDIR%%"
+fi
+
 if [ -d ${ana}  ]; then
     if [[ ":$PATH:" == *":$ana/bin:"* ]]; then
         true
@@ -753,6 +770,11 @@ ket="%%INSTALLDIRVERSION%%"
 if [ ${pro} == 'yes' ]; then
   ket="%%INSTALLDIRPRO%%"
 fi
+# Allow mixed 1.X/2.X versions
+if [ ! -d ${ket} ]; then
+  ket="%%INSTALLDIR%%"
+fi
+
 if [ -d ${ket}  ]; then
     if [[ ":$PATH:" == *":$ket:"* ]]; then
         true

@@ -313,7 +313,6 @@ class Component(object):
         self.cleanAfter = False  # remove older installations
         self.skipIfDiskFull = False  # skip installation if disk is full
         self.cleanIfDiskFull = False  # skip installation if disk is full
-        self.installDirPro = None
         self.src_from = None
         self.node = True
         self.workstation = True

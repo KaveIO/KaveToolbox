@@ -210,8 +210,16 @@ sudo /opt/KaveToolbox/pro/scripts/KaveUpdate --help
 sudo /opt/KaveToolbox/pro/scripts/KaveUpdate --quiet
 ```
 
-The update script works well for updating 2.X versions, and can also be used for 1.X, but only with the --clean-before flag.
+The update script works well for updating between 2.X versions, and can also be used for 1.X, but only with either:
+
+* the --clean-before flag.
+* or by moving/removing directories in /opt, e.g. moving /opt/KaveToolbox/ to /opt/KaveToolbox/1.X and
+  /opt/anaconda to /opt/anaconda/2.2 (version of old anaconda install)
+
 The --clean-after flag is a common addition to the update to remove deprecated software after install
+
+**If you are trying to upgrade from 1.X to 2.X, either use --clean-before to remove the previous install, or
+move /opt/KaveToolbox/ to /opt/KaveToolbox/1.X and /opt/anaconda to /opt/anaconda/2.2 before installation**
 
 Usage
 -----
