@@ -838,7 +838,7 @@ class RComponent(Component):
 
 r = RComponent("R")
 r.doInstall = True
-r.pre = {"Centos6": ['yum -y install epel-release',
+r.pre = {"Centos6": ['yum -y install epel-release', 'yum clean all',
                      'yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                      "yum -y install readline-devel",
                      "yum -y install R",
