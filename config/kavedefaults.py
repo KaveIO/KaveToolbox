@@ -59,6 +59,7 @@ class Toolbox(Component):
     """
     Wrapper class for overwriting certain parts of the default installer
     """
+    oldvdetect = False
 
     def clean(self, others_only=False):
         """
@@ -88,12 +89,20 @@ class Toolbox(Component):
             minstallfrom = minstallfrom[:-len("config")]
         return minstallfrom
 
+    def oldvwarning(self):
+        print "WARNING: an existing 1.X version of KaveToolbox was detected."
+        print "WARNING: lots of packages will be skipped, to really update."
+        print "WARNING: please add --clean-before or see the readme/wiki !."
+        self.oldvdetect = True
+
     def envscript(self):
         guess_installed = self.installDirVersion + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_installed):
             return guess_installed + " " + self.version
         guess_old = self.installDir + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_old):
+            if not self.oldvdetect:
+                self.oldvwarning()
             return guess_old + " " + self.version
         installfrom = self.installfrom()
         return installfrom + os.sep + "scripts" + os.sep + "KaveEnv.sh"

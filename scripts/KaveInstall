@@ -219,3 +219,5 @@ if cnf.toolbox.doInstall:
                                                                                          "software"
 else:
     print "Since you opted not to install this KaveToolbox itself, Try, try $ source " + installfrom + "/scripts/KaveEnv.sh and enjoy your software"
+if cnf.toolbox.oldvdetect:
+    cnf.toolbox.oldvwarning()
