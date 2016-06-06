@@ -90,9 +90,11 @@ class Toolbox(Component):
         return minstallfrom
 
     def oldvwarning(self):
+        print "WARNING:-----------------------------------------------------"
         print "WARNING: an existing 1.X version of KaveToolbox was detected."
         print "WARNING: lots of packages will be skipped, to really update."
         print "WARNING: please add --clean-before or see the readme/wiki !."
+        print "WARNING:-----------------------------------------------------"
         self.oldvdetect = True
 
     def envscript(self):
@@ -705,7 +707,7 @@ root.env = """
 rt="%%INSTALLDIRVERSION%%"
 if [ "$pro" == 'yes' ]; then
   rt="%%INSTALLDIRPRO%%"
-else if [ -z "$pro" ]; then
+elif [ -z "$pro" ]; then
   rt="%%INSTALLDIRPRO%%"
 fi
 if [ -e "$rt"/bin/thisroot.sh ]; then
