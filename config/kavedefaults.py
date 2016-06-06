@@ -401,7 +401,7 @@ class Conda(Component):
 
 conda = Conda(cname="anaconda")
 conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
-                         'yum -y install epel-release',
+                         'yum -y install epel-release', 'yum clean all',
                          'yum -y install libffi* cyrus-sasl* geos*']}
 conda.pre["Centos7"] = conda.pre["Centos6"]
 conda.pre["Ubuntu"] = ["apt-get -y install build-essential g++ libffi* "
