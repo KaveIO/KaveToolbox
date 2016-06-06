@@ -259,7 +259,7 @@ fi
 
 # Allow mixed 1.X/2.X versions
 if [ ! -d ${KAVETOOLBOX} ]; then
-  ecl="%%INSTALLDIR%%"
+  export KAVETOOLBOX="%%INSTALLDIR%%"
 fi
 
 ban='yes'
@@ -369,8 +369,11 @@ eclipse.tempspace = 1000
 eclipse.register_toolbox(toolbox)
 eclipse.env = """
 ecl="%%INSTALLDIRVERSION%%"
-if [ ${pro} == 'yes' ]; then
-  ecl="%%INSTALLDIRPRO%%"
+# Allow mixed 1.X/2.X versions
+if [ -z "$pro" ]; then
+  if [ ${pro} == 'yes' ]; then
+    ecl="%%INSTALLDIRPRO%%"
+  fi
 fi
 # Allow mixed 1.X/2.X versions
 if [ ! -d ${ecl} ]; then
@@ -429,8 +432,11 @@ conda.src_from = [{"arch": "noarch", "suffix": "-Linux-x86_64.sh"},
                   ".ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIRVERSION%%"
-if [ ${pro} == 'yes' ]; then
-  ana="%%INSTALLDIRPRO%%"
+# Allow mixed 1.X/2.X versions
+if [ ! -z "$pro" ]; then
+  if [ ${pro} == 'yes' ]; then
+    ana="%%INSTALLDIRPRO%%"
+  fi
 fi
 # Allow mixed 1.X/2.X versions
 if [ ! -d ${ana} ]; then
@@ -685,8 +691,12 @@ root.usrspace = 300
 root.tempspace = 500
 root.env = """
 #enable the most recent root installation
+# Allow mixed 1.X/2.X versions
+
 rt="%%INSTALLDIRVERSION%%"
-if [ ${pro} == 'yes' ]; then
+if [ "$pro" == 'yes' ]; then
+  rt="%%INSTALLDIRPRO%%"
+else if [ -z "$pro" ]; then
   rt="%%INSTALLDIRPRO%%"
 fi
 if [ -e "$rt"/bin/thisroot.sh ]; then
@@ -767,9 +777,13 @@ kettle.children = {"Centos6": [java],
 kettle.register_toolbox(toolbox)
 kettle.env = """
 ket="%%INSTALLDIRVERSION%%"
-if [ ${pro} == 'yes' ]; then
-  ket="%%INSTALLDIRPRO%%"
+# Allow mixed 1.X/2.X versions
+if [ ! -z "$pro" ]; then
+  if [ ${pro} == 'yes' ]; then
+    ket="%%INSTALLDIRPRO%%"
+  fi
 fi
+
 # Allow mixed 1.X/2.X versions
 if [ ! -d ${ket} ]; then
   ket="%%INSTALLDIR%%"
