@@ -185,6 +185,8 @@ def detect_linux_version():
 
 
 def df(filename, options=[]):
+    if "-P" not in options:
+        options.append("-P")
     filename = os.path.realpath(filename)
     while not os.path.exists(filename) and len(filename) > 1:
         filename = os.path.realpath(filename + '/../')
