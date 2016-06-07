@@ -49,12 +49,15 @@ class TestVersions(unittest.TestCase):
         for root, dirs, files in os.walk(os.path.realpath(__file__ + '/../../../')):
             if '.git' in root:
                 continue
+            if '.build' in root:
+                continue
             for f in files:
                 if (f.endswith('.png') or f.endswith('.ppt') or
                         f.endswith('.pptx') or f.endswith('.css') or
                         f.endswith('.svg') or f.endswith('.jpeg') or
                         f.endswith('.jpg') or f.endswith('.bmp') or
-                        f.endswith('.pdf') or f.endswith('.pyc')):
+                        f.endswith('.pdf') or f.endswith('.pyc') or
+                        f.endswith('.csv') or f.endswith('.ipynb')):
                     continue
                 if f in self.ignore:
                     continue

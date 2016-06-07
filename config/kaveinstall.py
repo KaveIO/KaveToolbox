@@ -171,7 +171,7 @@ def clean_on_fail_loud(cmd, directory):
 def detect_linux_version():
     status, output, err = mycmd("uname -r")
     if status:
-        raise RuntimeError("Problem detecting linux version: \n" + cmd + "\n got:\n\t" + str(
+        raise RuntimeError("Problem detecting linux version: uname -r got:\n\t" + str(
             status) + "\n from: \n" + output + " stderr: \n" + err)
     if "el6" in output:
         return "Centos6"
@@ -288,7 +288,7 @@ class Component(object):
     class wrapper for generic install scripts
     cname, component name
     installDir, where to install
-    install() can be overwriten with custom python
+    install() can be overwritten with custom python
     pre { OS: [] }, prerequisites to the true install, like installing component libraries
     doInstall, install it or not
     script(), simple script to run if possible, overwrite with custom python in derived classes

@@ -21,7 +21,7 @@
 #
 
 CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-export PYTHONPATH=$CURRENT_DIR/../python:$CURRENT_DIR/../tests/base:$PYTHONPATH
+export PYTHONPATH=$CURRENT_DIR/../python:$CURRENT_DIR/../tests/base:$CURRENT_DIR/../config:$PYTHONPATH
 export BAHDIR=$CURRENT_DIR
 
 if [ ! -z "$1" ]; then
