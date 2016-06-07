@@ -330,7 +330,7 @@ class Component(object):
         self.env = ""
         self.children = {}
         self.status = False
-        self.tests = [] # associated tests
+        self.tests = []  # associated tests
 
     def fillsrc(self):
         """
