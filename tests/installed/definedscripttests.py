@@ -25,6 +25,8 @@ import kaveinstall as ki
 class TestOneInstalledComponent(unittest.TestCase):
     component = None
     kind = 'workstation'
+    def id(self):
+        return "gaaaah"
     def runTest(self):
         """
         Runs the predefined tests on one installed piece of software
@@ -67,9 +69,10 @@ class TestOneInstalledComponent(unittest.TestCase):
                 newtuple = ki.mycmd("bash -c 'source "
                                     + script
                                     + " > /dev/null ;" + cmd + ";'")
-                self.assertEquals(ttuple[1:],newtuple,"Unexpected failure with component" + self.component.cname
-                                  + ", I was expecting:\n\t" + cmd + ttuple[1:].__str__()
-                                  + " but I received:\n\t " + newtuple.__str__())
+                self.assertEquals(ttuple[1:],newtuple, self.component.cname
+                                  + ": Unexpected failure with component " + self.component.cname
+                                  + ": \n - I was expecting:\n\t" + cmd + ttuple[1:].__str__()
+                                  + "\n - But I received:\n\t " + newtuple.__str__())
 
 
 if __name__ == "__main__":
@@ -86,7 +89,9 @@ if __name__ == "__main__":
 
     cnf.toolbox.constinstdir()
     for c in everything:
-        ct = TestOneInstalledComponent()
+        ct = None
+        exec("""class TestXXX(TestOneInstalledComponent): pass""".replace('XXX',c.cname))
+        exec("""ct = TestXXX()""".replace('XXX',c.cname))
         ct.component = c
         ct.kind = kind
         suite.addTest(ct)
