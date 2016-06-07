@@ -101,11 +101,14 @@ class Toolbox(Component):
         guess_installed = self.installDirVersion + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_installed):
             return guess_installed + " " + self.version
+        guess_pro = self.installDirPro + os.sep + "scripts" + os.sep + "KaveEnv.sh"
+        if os.path.exists(guess_pro):
+            return guess_pro
         guess_old = self.installDir + os.sep + "scripts" + os.sep + "KaveEnv.sh"
         if os.path.exists(guess_old):
             if not self.oldvdetect:
                 self.oldvwarning()
-            return guess_old + " " + self.version
+            return guess_old
         installfrom = self.installfrom()
         return installfrom + os.sep + "scripts" + os.sep + "KaveEnv.sh"
 
@@ -315,6 +318,8 @@ if type pyspark >/dev/null 2>/dev/null; then
 fi
 
 """
+toolbox.tests = [('source $KAVETOOLBOX/scripts/KaveEnv.sh > /dev/null',0,'',''),
+                 ("python -c \"import correlograms; import geomaps; import stattools; import rootnotes;\"",0,'','')]
 
 java = Component("java")
 java.version = '1.8'
@@ -399,6 +404,7 @@ if [ -d ${ecl}  ]; then
     fi
 fi
 """
+eclipse.tests = [ ('which eclipse > /dev/null',0,'','')]
 
 # ######################  ANACONDA  ############################
 
@@ -462,6 +468,8 @@ if [ -d ${ana}  ]; then
     fi
 fi
 """
+conda.tests = [ ('which python',0,'%%INSTALLDIRVERSION%%/bin/python\n',''),
+              ("python -c \"import numpy; import seaborn;\"",0,'','')]
 
 # ######################  pygsl  ############################
 gsl = Component("pygsl")
@@ -491,6 +499,7 @@ gsl.postwithenv["Ubuntu"] = gsl.postwithenv["Centos6"]
 gsl.usrspace = 3
 gsl.tempspace = 2
 gsl.register_toolbox(toolbox)
+gsl.tests = [ ("python -c \"import pygsl;\"",0,'','')]
 
 # ######################  Hadoop modules  ############################
 
@@ -714,6 +723,8 @@ if [ -e "$rt"/bin/thisroot.sh ]; then
     source "$rt"/bin/thisroot.sh
 fi
 """
+root.tests = [ ('which root',0,'%%INSTALLDIRVERSION%%/bin/root\n',''),
+              ("python -c \"import ROOT; ROOT.TBrowser();\"",0,'','')]
 
 # ######################  KETTLE  ############################
 
@@ -808,6 +819,7 @@ if [ -d ${ket}  ]; then
     fi
 fi
 """
+kettle.tests = [ ('which spoon.sh > /dev/null',0,'','')]
 
 # ######################  robomongo  ############################
 robo = Component("robomongo")
@@ -826,6 +838,7 @@ robo.post["Ubuntu"] = ["dpkg -i robomongo-*.deb"]
 robo.usrspace = 40
 robo.tempspace = 20
 robo.register_toolbox(toolbox)
+robo.tests = [ ('which robomongo > /dev/null',0,'','')]
 
 # ######################  R  ############################
 

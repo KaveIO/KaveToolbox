@@ -211,13 +211,30 @@ os.chdir(topdir)
 if os.path.exists(tempdir) and len(tempdir)>4:
     os.system("rm -rf "+tempdir)
 
+# Aaand finally, run the tests!
 print "========================================"
-print "Successful install"
+print "Testing installation"
+import subprocess as sub
+cmd = ("source " + cnf.toolbox.envscript() + " > /dev/null ;"
+       + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/test.sh "
+       + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/installed/definedscripttests.py;"
+       )
+p = subprocess.Popen(["bash", '-c' , + cmd]) #, stdout=sub.PIPE, stderr=sub.PIPE)
+p.communicate()
+status = p.returncode
+print "========================================"
+if not status:
+    print "Successful install"
+else:
+    print "WARNING: install ran successfully, but the post-installation tests failed!"
+
 if cnf.toolbox.doInstall:
     print "The KAVE environment should now be added for most users automatically through etc/profile.d, if they use " \
           "the bash shell. If this is not working, try $ . " + cnf.toolbox.envscript() + " manually and enjoy your " \
                                                                                          "software"
 else:
-    print "Since you opted not to install this KaveToolbox itself, Try, try $ source " + installfrom + "/scripts/KaveEnv.sh and enjoy your software"
+    print ("Since you opted not to install this KaveToolbox itself, Try, try $ source "
+           + installfrom + "/scripts/KaveEnv.sh and enjoy your software")
+
 if cnf.toolbox.oldvdetect:
     cnf.toolbox.oldvwarning()

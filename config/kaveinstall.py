@@ -330,6 +330,7 @@ class Component(object):
         self.env = ""
         self.children = {}
         self.status = False
+        self.tests = [] # associated tests
 
     def fillsrc(self):
         """
@@ -501,6 +502,15 @@ class Component(object):
             [self.checkadisk(k, v) for k, v in checked_mounts.iteritems()]
         return checked_mounts
 
+    def constinstdir(self):
+        """
+        Construct the installation directory
+        """
+        if self.installDir is None:
+            self.installDir = self.todir()
+            self.installDirVersion = (self.installDir + os.sep + self.version).replace("//", "/")
+            self.installDirPro = (self.installDir + os.sep + 'pro').replace("//", "/")
+
     def install(self, kind="node", tmpdir=None, loud=True):
         """
         Used by the installer, eventually calls the script method
@@ -513,10 +523,7 @@ class Component(object):
             self.topdir = InstallTopDir
         self.tmpdir = tmpdir
         self.loud = loud
-        if self.installDir is None:
-            self.installDir = self.todir()
-            self.installDirVersion = (self.installDir + os.sep + self.version).replace("//", "/")
-            self.installDirPro = (self.installDir + os.sep + 'pro').replace("//", "/")
+        self.constinstdir()
         if not self.doInstall:
             return False
         if self.kind is "node" and not self.node:
@@ -637,6 +644,14 @@ class Component(object):
         """
         self.toolbox = toolbox
 
+    def knownreplaces(self, stringtosearch):
+        self.constinstdir()
+        e = stringtosearch.replace("%%INSTALLDIR%%", self.installDir)
+        e = e.replace("%%INSTALLDIRPRO%%", self.installDirPro)
+        e = e.replace("%%INSTALLDIRVERSION%%", self.installDirVersion)
+        e = e.replace("%%VERSION%%", self.version)
+        return e
+
     def buildenv(self):
         """
         Build env adds to the standard environment script the contents of self.env
@@ -672,10 +687,7 @@ class Component(object):
         f.write(''.join(beforelines))
         f.write("## Begin " + self.cname + '\n')
         f.write('#\n')
-        e = self.env.replace("%%INSTALLDIR%%", self.installDir)
-        e = e.replace("%%INSTALLDIRPRO%%", self.installDirPro)
-        e = e.replace("%%INSTALLDIRVERSION%%", self.installDirVersion)
-        e = e.replace("%%VERSION%%", self.version)
+        e = self.knownreplaces(self.env)
         f.write(e)
         f.write('#\n')
         f.write("## End " + self.cname + '\n')
