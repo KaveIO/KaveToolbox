@@ -217,7 +217,8 @@ print "Testing installation"
 import subprocess as sub
 cmd = ("source " + cnf.toolbox.envscript() + " > /dev/null ;"
        + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/test.sh "
-       + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/installed/definedscripttests.py;"
+       + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/installed/definedscripttests.py "
+       + kind + ";"
        )
 p = subprocess.Popen(["bash", '-c' , + cmd]) #, stdout=sub.PIPE, stderr=sub.PIPE)
 p.communicate()
