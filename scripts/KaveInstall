@@ -220,7 +220,7 @@ cmd = ("source " + cnf.toolbox.envscript() + " > /dev/null ;"
        + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/installed/definedscripttests.py "
        + kind + ";"
        )
-p = sub.Popen(["bash", '-c' , + cmd]) #, stdout=sub.PIPE, stderr=sub.PIPE)
+p = sub.Popen(["bash", '-c' , cmd]) #, stdout=sub.PIPE, stderr=sub.PIPE)
 p.communicate()
 status = p.returncode
 print "========================================"
