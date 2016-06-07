@@ -63,16 +63,16 @@ def repoURL(filename, repo=__repo_url__, arch=__arch__, dir=__main_dir__, ver=No
 # Always add a '/' if there is no trailing '/'
 
 if os.path.exists(__mirror_list_file__):
-    f = open(__mirror_list_file__)
-    ls = f.readlines()
-    f.close()
-    for mirror in ls:
-        mirror = mirror.strip()
-        if not len(mirror):
+    _f = open(__mirror_list_file__)
+    _ls = _f.readlines()
+    _f.close()
+    for _mirror in _ls:
+        _mirror = _mirror.strip()
+        if not len(_mirror):
             continue
-        if mirror[-1] != "/":
-            mirror = mirror + '/'
-        __mirror_list__.append(mirror)
+        if _mirror[-1] != "/":
+            _mirror = _mirror + '/'
+        __mirror_list__.append(_mirror)
 
 #
 # Wrappers around subprocess
