@@ -42,7 +42,7 @@ gsl.prewithenv["Ubuntu"] = gsl.prewithenv["Centos6"]
 gsl.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
                                'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
                                ' if [ ${isinst} == "False" ]; then cd pygsl-2.2.0; '
-                               'python setup.py build; python setup.py install ; fi ']
+                               'python setup.py config; python setup.py build; python setup.py install ; fi ']
                    }
 gsl.postwithenv["Centos7"] = gsl.postwithenv["Centos6"]
 gsl.postwithenv["Ubuntu"] = gsl.postwithenv["Centos6"]
