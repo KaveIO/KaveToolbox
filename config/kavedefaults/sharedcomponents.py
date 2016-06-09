@@ -181,7 +181,9 @@ fi
                     template = '00-background'
                 if not os.path.exists(cfpath):
                     os.makedirs(cfpath, 0755)
-                self.run('cp -f ' + os.path.join(os.path.dirname(os.path.realpath(__file__)), template) + ' ' + cfpath)
+                self.run('cp -f '
+                         + os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), template)
+                         + ' ' + cfpath)
                 self.run('sed -i "s/%%INSTALLDIRPRO%%/'
                          + self.installDirPro.replace('/', '\\/')
                          + '/g"  ' + os.path.join(cfpath, template))

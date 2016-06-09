@@ -120,6 +120,8 @@ fi
 
 # abort at first failure below this line!
 set -e
+tdir=`mktemp -d` && cd \$tdir
+echo "Fetching tarball to " \$tdir
 
 if [ ! -f $RELEASE_PACKAGE ]; then
 	#echo \${checkout} \${repos_server}
@@ -137,3 +139,4 @@ fi
 EOF
 
 echo './[k,K]ave[t,T]oolbox*/scripts/KaveInstall $@' >> $BUILD_DIR/$RELEASE_INSTALLER
+echo 'rm -rf $tdir' >> $BUILD_DIR/$RELEASE_INSTALLER
