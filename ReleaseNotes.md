@@ -4,7 +4,29 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
-## v2.1-Beta-Pre
+## v2.1-Beta
+
+Bugfix release, fixing minor issues with the installer and featuring small improvements.
+
+Minor Changes and improvements:
+* Additional examples for using RooFit and TMVA added to example notebooks
+* Several robustness tweaks for upgrading to 2.X over an existing 1.X installation
+* New testing approach, including ability to test the result of the install. See tests/installed
+* New post-installation tests automatically run after installation
+* Code refactoring. The kavedefaults library has been subdivided per component, no behavioural changes
+* Default install script now untars in temporary location, better for future upgrade scripts
+* readme improved for ubuntu users
+* autopep8 added to standard installed python modules
+* Default make options now use more cores on a multicore machine, #nCPU-1 by default, change with makeopts
+
+Bugfixes:
+* ROOT src TMVA error prevented compiling on some systems
+* Disk-space checking failed for machines with very long mountpoint names
+* The installer could not determine the correct file extension if the first alternative download failed
+
+We have begun our first testing on Ubuntu16, but it is not yet in production. For help, please get in touch.
+
+## v2.0-Beta
 
 Major version change, mirroring the version increase of AmbariKave
 
