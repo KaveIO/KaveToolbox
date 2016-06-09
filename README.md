@@ -261,7 +261,7 @@ Test if it works?
 Coming Soon
 -----------
 
-No additional plans on the horizon
+Support for Ubuntu16 (currently not supported)
 
 Internet during installation, firewalls and nearside cache/mirror options
 -------------------------------------------------------------------------
