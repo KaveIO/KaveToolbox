@@ -333,7 +333,7 @@ class Component(object):
         self.status = False
         self.tests = []  # associated tests
         # default to using all but one processor
-        self.makeopts = ' -j ' + str(max(multiprocessing.cpu_count()-1,1))
+        self.makeopts = ' -j ' + str(max(multiprocessing.cpu_count() - 1, 1))
 
     def fillsrc(self):
         """
