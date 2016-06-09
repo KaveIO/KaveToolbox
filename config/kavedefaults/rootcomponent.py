@@ -67,12 +67,12 @@ class RootComponent(Component):
         # need first to compile without python, and then against anaconda python
         self.run("./configure " + self.options["conf"][linuxVersion].replace("--enable-python", ""))
         print "Compiling, may take some time!"
-        self.run("make" + self.makeopts)
+        self.run("make " + self.makeopts)
         # testing
         self.run("bash -c 'source " + self.toolbox.envscript()
                  + "; ./configure " + self.options["conf"][linuxVersion] + "'")
         print "Recompile with python"
-        self.run("bash -c 'source " + self.toolbox.envscript() + "; make" + self.makeopts + "'")
+        self.run("bash -c 'source " + self.toolbox.envscript() + "; make " + self.makeopts + "'")
         return
 
     def script(self):
