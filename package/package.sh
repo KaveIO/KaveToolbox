@@ -120,7 +120,7 @@ fi
 
 # abort at first failure below this line!
 set -e
-tdir=`mktemp -d` && cd \$tdir
+tdir=\`mktemp -d\` && cd \$tdir
 echo "Fetching tarball to " \$tdir
 
 if [ ! -f $RELEASE_PACKAGE ]; then

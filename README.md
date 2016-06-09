@@ -401,3 +401,15 @@ xsetroot -solid grey
 xterm -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
 twm &
 ```
+
+
+## Cannot open ipython/jupyter notebooks: Permission denied: '/run/user/0/jupyter'
+
+This is caused by an environment variable being inherited form one user to the next. Simple fix, unset $XDG\_RUNTIME\_DIR .
+
+## Cannot import pandas in notebook, notebooks run under different kernel!
+
+In some cases we have seen that users have a file ~/.local/share/jupyter/kernels/python2/kernel.json where the wrong python executable is given.
+
+Easy fix, change the name of the python executable to simply 'python' in this file.
+
