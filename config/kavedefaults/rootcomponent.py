@@ -62,15 +62,17 @@ class RootComponent(Component):
                 f = open(afile, "w")
                 f.write(l)
                 f.close()
+        # patch TMVA::RuleFitParams::CalcFStar function to compile with GCC 5 (C++ 11 enabled)
+        self.run("sed -i -e 's/isnan(/TMath::IsNaN(/' tmva/src/RuleFitParams.cxx")
         # need first to compile without python, and then against anaconda python
         self.run("./configure " + self.options["conf"][linuxVersion].replace("--enable-python", ""))
         print "Compiling, may take some time!"
-        self.run("make")
+        self.run("make" + self.makeopts)
         # testing
         self.run("bash -c 'source " + self.toolbox.envscript()
                  + "; ./configure " + self.options["conf"][linuxVersion] + "'")
         print "Recompile with python"
-        self.run("bash -c 'source " + self.toolbox.envscript() + "; make'")
+        self.run("bash -c 'source " + self.toolbox.envscript() + "; make" + self.makeopts + "'")
         return
 
     def script(self):
