@@ -21,21 +21,6 @@ import os
 import sys
 
 
-class RedirectStdOut(object):
-
-    def __init__(self, stdout=None):
-        self._stdout = stdout or sys.stdout
-
-    def __enter__(self):
-        self.old_stdout = sys.stdout
-        self.old_stdout.flush()
-        sys.stdout = self._stdout
-
-    def __exit__(self, exc_type, exc_value, traceback):
-        self._stdout.flush()
-        sys.stdout = self.old_stdout
-
-
 class TestInstHelpers(unittest.TestCase):
 
     def runTest(self):
@@ -72,7 +57,7 @@ class TestInstHelpers(unittest.TestCase):
                                              "http://google.com"]), "http://google.com")
         nn = None
         with open(os.devnull, 'w') as devnull:
-            with RedirectStdOut(devnull):
+            with base.RedirectStdOut(devnull):
                 nn = ki.fromKPMGrepo('notafilenotafilenotafilenot')
         self.assertTrue(nn is None,
                         "Expected failure of repo file not seen")

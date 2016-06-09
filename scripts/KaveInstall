@@ -156,14 +156,7 @@ if repotest is None:
         "Could not connect to the KPMG repo page, please set up a local mirror/nearside cache, or check your proxy "
         "settings (did you ensure your su inherits your proxy settings?)")
 
-import kavedefaults as cnf
-
-print "Default config from", cnf.__file__
-if os.path.exists('/etc/kave/CustomInstall.py'):
-    print "Applying custom configuration from: /etc/kave/CustomInstall.py"
-    execfile('/etc/kave/CustomInstall.py')
-else:
-    print "no custom configuration found, using defaults"
+from kaveconfiguration import cnf
 
 kind = "workstation"
 workstation = True
@@ -176,7 +169,7 @@ if workstation:
 else:
     print "configuring node"
 
-everything = [cnf.toolbox, cnf.eclipse, cnf.conda, cnf.gsl, cnf.hpy, cnf.root, cnf.kettle, cnf.robo, cnf.r]
+everything = cnf.ordered_components
 
 if not quieter:
     print "options read from configuration file"

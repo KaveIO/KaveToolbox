@@ -17,17 +17,10 @@
 #
 ##############################################################################
 """
-KaveInstall Configuration.
-
-First get all the defaults, the overwrite with custom install if it exists
+dummycomponent.py module: installs dummy
 """
 import os
+import sys
+from kaveinstall import Component, linuxVersion
 
-import kavedefaults as cnf
-
-print "Default config from", cnf.__file__
-if os.path.exists('/etc/kave/CustomInstall.py'):
-    print "Applying custom configuration from: /etc/kave/CustomInstall.py"
-    execfile('/etc/kave/CustomInstall.py')
-else:
-    print "no custom configuration found, using defaults"
+__all__ = ["dummy"]

@@ -102,6 +102,21 @@ class LockOnPrintThread(threading.Thread):
         raise ImportError("do not call the baseclass method!")
 
 
+class RedirectStdOut(object):
+
+    def __init__(self, stdout=None):
+        self._stdout = stdout or sys.stdout
+
+    def __enter__(self):
+        self.old_stdout = sys.stdout
+        self.old_stdout.flush()
+        sys.stdout = self._stdout
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self._stdout.flush()
+        sys.stdout = self.old_stdout
+
+
 class RunFileInSubProcess(LockOnPrintThread):
     """
     Class derived from lockOnPrintThread to re-implement run method. In this case the item list sent, the queue must

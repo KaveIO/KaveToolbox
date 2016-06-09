@@ -80,16 +80,15 @@ class TestOneInstalledComponent(unittest.TestCase):
 if __name__ == "__main__":
     suite = unittest.TestSuite()
     kind = 'workstation'
-    import kavedefaults as cnf
-    if os.path.exists('/etc/kave/CustomInstall.py'):
-        execfile('/etc/kave/CustomInstall.py')
-    else:
-        print "no custom configuration found, using defaults"
+    cnf = None
+    with open(os.devnull, 'w') as devnull:
+        with base.RedirectStdOut(devnull):
+            from kaveconfiguration import cnf
     if sys.argv[-1] in ['workstation', 'node']:
         kind = sys.argv[-1]
-    everything = [cnf.toolbox, cnf.eclipse, cnf.conda, cnf.gsl, cnf.hpy, cnf.root, cnf.kettle, cnf.robo, cnf.r]
-
+    everything = cnf.ordered_components
     cnf.toolbox.constinstdir()
+    # little constructor to make a test with the same name as the component
     for c in everything:
         ct = None
         exec("""class TestXXX(TestOneInstalledComponent): pass""".replace('XXX', c.cname))
