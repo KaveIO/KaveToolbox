@@ -25,6 +25,8 @@ Bugfixes:
 * The installer could not determine the correct file extension if the first alternative download failed
 
 We have begun our first testing on Ubuntu16, but it is not yet in production. For help, please get in touch.
+We already know of two issues on Ubuntu16, first that only the more recent pygsl2.2 can be installed,
+second that the existing ubuntu root distribution must be recompiled.
 
 ## v2.0-Beta
 
