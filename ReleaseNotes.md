@@ -5,6 +5,7 @@ Contains a list of the released versions with a summary of the main changes in e
 # Beta Releases
 
 ## v2.1-Beta
+- June 2016
 
 Bugfix release, fixing minor issues with the installer and featuring small improvements.
 
@@ -29,6 +30,7 @@ We already know of two issues on Ubuntu16, first that only the more recent pygsl
 second that the existing ubuntu root distribution must be recompiled.
 
 ## v2.0-Beta
+- May 2016
 
 Major version change, mirroring the version increase of AmbariKave
 
@@ -92,6 +94,7 @@ Bugfixes:
  - Currently then I don't know how to install a sufficiently good desktop tool without these plugins
 
 ## v1.4-Beta
+- Jan 2016
 
 * Minor release with incremental fixes and small version updates
 
@@ -106,6 +109,7 @@ Bugfixes:
 * Fix packaging/installation script so that it copes with missing repositories in the mirrors file
 
 ## v1.3-Beta
+- Sept 2016
 
 * Bugfix release with high-impact fixes for Ubuntu and Centos7
 
@@ -140,6 +144,7 @@ Bugfixes:
 
 
 ## v1.2-Beta
+- June 2016
 
 * Minor bugfixes in packaging and installer script
 
@@ -148,6 +153,7 @@ Bugfixes:
 * Installer now less sensitive to trailing '/' in /etc/kave/mirror which previously could cause failures in some wget calls
 
 ## v1.1-Beta
+- May 2016
 
 * Reworking of the postalmap package to be more generic
 * Minor updates in the installer to install curl and wget
