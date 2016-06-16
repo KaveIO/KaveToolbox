@@ -39,15 +39,15 @@ Major changes:
   Each directory also has a pro softlink, which is created during install. Advanced users may wish to modify this softlink
   This versioning scheme has several benefits:
   a) Ability to have multiple KTB versions operating side-by-side
-     (to start a different KTB run the KaveEnv script with the version as a parameter, i.e. KaveEnv.sh 2.1-Beta-Pre)
+     (to start a different KTB run the KaveEnv script with the version as a parameter, i.e. KaveEnv.sh 2.1-Beta)
   b) Simpler upgrading
      (no need to delete /opt content yourself before the upgrade, if needed the script can do that for you
      with --clean-after, or --clean-if-disk-full, see the installation help for more new flags)
 * Affect of version numbering on script locations: the KaveToolbox distribution used to be placed under
   /topdir/KaveToolbox directly (e.g. /opt/KaveToolbox/scripts/KaveEnv.sh). Now it is moved to a versioned directory
-  (e.g. /opt/KaveToolbox/2.1-Beta-Pre/scripts/KaveEnv.sh). Scripts which explicitly source the env file or bind against
+  (e.g. /opt/KaveToolbox/2.1-Beta/scripts/KaveEnv.sh). Scripts which explicitly source the env file or bind against
   explicit directories will need to be updated accordingly, either to point to the new static location, or to point
-  to the new dynamic location (e.g.: /opt/KaveToolbox/2.1-Beta-Pre/pro/KaveEnv.sh)
+  to the new dynamic location (e.g.: /opt/KaveToolbox/2.1-Beta/pro/KaveEnv.sh)
 * We have created an update script can poll for latest versions from the repository.
   The new KaveUpdate script will poll the repo server for latest versions and install what you request
 * KaveEnv script will now take a version arguement to enable a specific version (pro by default)
