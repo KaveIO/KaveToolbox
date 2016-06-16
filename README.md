@@ -69,6 +69,8 @@ CentOS6, CentOS7 and Ubuntu 14 are used for testing, although no guarantees are 
 
 Only bash as a default shell is supported at the moment, users with a different default have reported many problems.
 
+Warning: Ubuntu16 has issues with pygsl and ROOT installation at the moment. Ubuntu16 not yet supported.
+Please get in touch if you would like to make enquiries about this.
 
 Introduction:
 ---------
