@@ -220,7 +220,7 @@ def parallel(mods, modargs=[]):
     """
     # loop over threads, see the class for more details
     # create list of packages as a queue
-    itemPool = Queue.Queue()
+    item_pool = Queue.Queue()
     result = {}
     items = []
     if not len(modargs):
@@ -254,11 +254,11 @@ def parallel(mods, modargs=[]):
     # print items
     for item in items:
         result[item] = {}
-        itemPool.put(item)
+        item_pool.put(item)
     lock = thread.allocate_lock()
     thethreads = []
     for _i in range(20):
-        t = RunFileInSubProcess(itemPool, lock, result)
+        t = RunFileInSubProcess(item_pool, lock, result)
         thethreads.append(t)
         t.start()
     # setup a timeout to prevent really infinite loops!

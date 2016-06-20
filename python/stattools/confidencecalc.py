@@ -59,12 +59,12 @@ class quantileCalc(object):
         self.ylevel, self.intervals = self.__calcquantile_vertical()
 
     def plot(self):
-        Path = mpath.Path
+        _path = mpath.Path
         fig, ax = plt.subplots()
         xmin = self.x.min()
         xmax = self.x.max()
 
-        path_data = [(Path.MOVETO, (xmin, self.ylevel)), (Path.LINETO, (xmax, self.ylevel))]
+        path_data = [(_path.MOVETO, (xmin, self.ylevel)), (_path.LINETO, (xmax, self.ylevel))]
         x_lvl, y_lvl = self.__mkpaths(path_data)
 
         x_border, y_border = self.__mkpaths(path_data)

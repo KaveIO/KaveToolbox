@@ -22,10 +22,11 @@ import license
 import testpythonimport
 import checkpep8
 import pep8functions
+import pep8variables
 import installlibunits
 import base
 
-mods = [testversion, pep8functions, checkpep8, testpythonimport, installlibunits, license, pyfilenames]
+mods = [testversion, pep8functions, checkpep8, testpythonimport, installlibunits, pep8variables, license, pyfilenames]
 
 if __name__ == "__main__":
     base.parallel(mods)
