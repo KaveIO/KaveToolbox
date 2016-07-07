@@ -38,7 +38,6 @@ class TestKTBPackaging(unittest.TestCase):
             os.system('rm -rf ' + builddir)
 
 
-
 if __name__ == "__main__":
     import sys
 
