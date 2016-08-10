@@ -204,8 +204,8 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                                          # --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server firefox xpdf'],
                              "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" '
-                                         '"Desktop Platform" "X Window System" "Fonts"',
-                                         # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken',
+                                         '"X Window System" "Fonts"',
+                                         # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken'
                                          'yum -y install tigervnc-server firefox pixman pixman-devel libXfont xpdf'],
                              "Ubuntu": ['apt-get -y install firefox xpdf',
                                         'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
@@ -217,11 +217,13 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                              }
 toolbox.setwallpaper = 'default'  # wallpaper if it is a workstation type
 toolbox.wallpaperselect = 0  # a number between 0 and 9
-toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
-               "Centos7": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
+toolbox.pre = {"Centos6": ['yum -y install epel-release',
+                           'yum clean all',
+                           "yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Ubuntu": ['apt-get -y install dictionaries-common',
                           "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
+toolbox.pre["Centos7"] = toolbox.pre["Centos6"]
 toolbox.register_toolbox(toolbox)
 toolbox.env = """
 
