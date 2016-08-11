@@ -213,7 +213,7 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                                          '"X Window System" "Fonts" --exclude=NetworkManager\\*',
                                          # --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server'],
-                             "Centos7": ['yum -y install firefox pixman pixman-devel libXfont xpdf'
+                             "Centos7": ['yum -y install firefox pixman pixman-devel libXfont xpdf',
                                          'yum -y groupinstall "GNOME Desktop" "Fonts"',
                                          # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken'
                                          'yum -y install tigervnc-server',
