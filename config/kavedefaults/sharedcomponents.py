@@ -216,7 +216,15 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                              "Centos7": ['yum -y install firefox pixman pixman-devel libXfont xpdf'
                                          'yum -y groupinstall "GNOME Desktop" "Fonts"',
                                          # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken'
-                                         'yum -y install tigervnc-server'],
+                                         'yum -y install tigervnc-server',
+                                         # fix x runtime permissions
+                                         'mkdir -p /run/user'
+                                         'chmod a+rx /run',
+                                         'chmod a+rwx /run/user',
+                                         # sed to fix runtime directory for all gnome x-sessions
+                                         'sed -i "s/# xinitrc-common/'
+                                         'export XDG_RUNTIME_DIR=\\/run\\/user\\/\\`id -u\\`\\n# xinitrc-common/" '
+                                         '/etc/X11/xinit/xinitrc-common'],
                              "Ubuntu": ['apt-get -y install firefox xpdf',
                                         'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
                                         + ' then true; else '  # Only install x if x not installed
