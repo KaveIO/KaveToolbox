@@ -20,6 +20,7 @@
 rcomponent.py module: installs r
 """
 from kaveinstall import Component
+from sharedcomponents import epel
 
 
 class RComponent(Component):
@@ -30,8 +31,7 @@ class RComponent(Component):
 
 r = RComponent("R")
 r.doInstall = True
-r.pre = {"Centos6": ['yum -y install epel-release', 'yum clean all',
-                     'yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
+r.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                      "yum -y install readline-devel",
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  # not everything installs on Centos6!
@@ -43,6 +43,7 @@ r.pre = {"Centos6": ['yum -y install epel-release', 'yum clean all',
                     ]
          }
 r.pre["Centos7"] = r.pre["Centos6"]
+r.children = {"Centos6": [epel], "Centos7": [epel]}
 r.postwithenv = {"Centos6": ["conda update conda --yes; pip install rpy2"]}
 r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
 r.postwithenv["Ubuntu"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]

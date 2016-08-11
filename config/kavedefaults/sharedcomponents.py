@@ -28,6 +28,15 @@ from kaveinstall import Component, linuxVersion
 # top level directory under where to keep all KAVE software
 li.InstallTopDir = "/opt"
 
+# ### epel component ####
+
+epel = Component("epel")
+epel.usrspace = 1
+epel.pre = {"Centos6": ["yum -y epel-release",
+                        "yum clean all"]}
+epel.pre["Centos7"] = epel.pre["Centos6"]
+
+
 # ######################  KAVETOOLBOX ITSELF ############################
 
 
@@ -199,14 +208,15 @@ toolbox.installSubDir = "KaveToolbox"
 toolbox.freespace = 100
 toolbox.usrspace = 200
 toolbox.tempspace = 100
-toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop Platform" '
+toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
+                                         'yum -y groupinstall "Desktop" "Desktop Platform" '
                                          '"X Window System" "Fonts" --exclude=NetworkManager\\*',
                                          # --exclude=pulseaudio\\* --skip-broken',
-                                         'yum -y install tigervnc-server firefox xpdf'],
-                             "Centos7": ['yum -y groupinstall "Desktop"  "GNOME Desktop" '
-                                         '"X Window System" "Fonts"',
+                                         'yum -y install tigervnc-server'],
+                             "Centos7": ['yum -y install firefox pixman pixman-devel libXfont xpdf'
+                                         'yum -y groupinstall "GNOME Desktop" "Fonts"',
                                          # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken'
-                                         'yum -y install tigervnc-server firefox pixman pixman-devel libXfont xpdf'],
+                                         'yum -y install tigervnc-server'],
                              "Ubuntu": ['apt-get -y install firefox xpdf',
                                         'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
                                         + ' then true; else '  # Only install x if x not installed
@@ -217,9 +227,7 @@ toolbox.workstationExtras = {"Centos6": ['yum -y groupinstall "Desktop" "Desktop
                              }
 toolbox.setwallpaper = 'default'  # wallpaper if it is a workstation type
 toolbox.wallpaperselect = 0  # a number between 0 and 9
-toolbox.pre = {"Centos6": ['yum -y install epel-release',
-                           'yum clean all',
-                           "yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
+toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
                "Ubuntu": ['apt-get -y install dictionaries-common',
                           "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
@@ -300,6 +308,9 @@ fi
 """
 toolbox.tests = [('source $KAVETOOLBOX/scripts/KaveEnv.sh > /dev/null', 0, '', ''),
                  ("python -c \"import correlograms; import geomaps; import stattools; import rootnotes;\"", 0, '', '')]
+toolbox.children = {"Centos6" : [epel],
+                    "Centos7" : [epel]}
+
 
 # ### JAVA component ####
 
@@ -330,4 +341,4 @@ java.post["Ubuntu"] = [c.replace("alternatives", "update-alternatives") for c in
 
 # ##### all ############
 
-__all__ = ['toolbox', 'java']
+__all__ = ['toolbox', 'java', 'epel']

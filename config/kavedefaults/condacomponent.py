@@ -21,6 +21,7 @@ conda.py module: installs anaconda python
 """
 import os
 from kaveinstall import Component
+from sharedcomponents import epel
 
 
 class Conda(Component):
@@ -34,8 +35,8 @@ class Conda(Component):
         self.buildenv()
 
 conda = Conda(cname="anaconda")
+conda.children = {"Centos6" : [epel], "Centos7" : epel}
 conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
-                         'yum -y install epel-release', 'yum clean all',
                          'yum -y install libffi* cyrus-sasl* geos*']}
 conda.pre["Centos7"] = conda.pre["Centos6"]
 conda.pre["Ubuntu"] = ["apt-get -y install build-essential g++ libffi* "
