@@ -223,7 +223,8 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                                          'chmod a+rwx /run/user',
                                          # sed to fix runtime directory for all gnome x-sessions
                                          'sed -i "s/# xinitrc-common/'
-                                         'export XDG_RUNTIME_DIR=\\/run\\/user\\/\\`id -u\\`\\n# xinitrc-common/" '
+                                         'export XDG_RUNTIME_DIR=\\/run\\/user\\/\\`id -u\\`\\n'
+                                         '# xinitrc-common #add xdg fix \\(kave\\)/" '
                                          '/etc/X11/xinit/xinitrc-common'],
                              "Ubuntu": ['apt-get -y install firefox xpdf',
                                         'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
