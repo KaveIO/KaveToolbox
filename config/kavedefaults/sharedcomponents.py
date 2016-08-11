@@ -317,8 +317,8 @@ fi
 """
 toolbox.tests = [('source $KAVETOOLBOX/scripts/KaveEnv.sh > /dev/null', 0, '', ''),
                  ("python -c \"import correlograms; import geomaps; import stattools; import rootnotes;\"", 0, '', '')]
-toolbox.children = {"Centos6" : [epel],
-                    "Centos7" : [epel]}
+toolbox.children = {"Centos6": [epel],
+                    "Centos7": [epel]}
 
 
 # ### JAVA component ####
