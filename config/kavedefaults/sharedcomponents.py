@@ -32,7 +32,7 @@ li.InstallTopDir = "/opt"
 
 epel = Component("epel")
 epel.usrspace = 1
-epel.pre = {"Centos6": ["yum -y epel-release",
+epel.pre = {"Centos6": ["yum -y install epel-release",
                         "yum clean all"]}
 epel.pre["Centos7"] = epel.pre["Centos6"]
 
