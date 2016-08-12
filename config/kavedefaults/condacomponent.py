@@ -46,7 +46,7 @@ conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip 
                                  "pip install cairosvg pyhs2 shapely descartes",
                                  "pip install pyproj folium vincent pam",
                                  "pip install py4j autopep8",
-                                 "pip install pymongo",
+                                 "pip install pymongo tqdm watermark dotenv cookiecutter",
                                  "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi",
                                  " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; pip install root_numpy;"
                                  + " pip install git+https://github.com/ibab/root_pandas; fi "]}
