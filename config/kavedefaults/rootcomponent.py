@@ -44,6 +44,7 @@ glew.src_from = {"suffix": ".el6.x86_64.rpm"}
 glewdev = Component("glew-devel")
 glewdev.doInstall = True
 glewdev.version = "1.5.5-1"
+glewdev.pre = {"Centos6" : ["yum -y install mesa-libGLU-devel"]}
 glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
 
 
