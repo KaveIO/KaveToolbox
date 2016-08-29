@@ -41,6 +41,17 @@ epel.pre["Centos7"] = ["yum info epel-release 2>/dev/null | grep installed; epel
                        "yum clean all"]
 
 
+# ### more rh repos component ####
+
+rhrepo = Component("rhrepo")
+rhrepo.usrspace = 1
+rhrepo.pre["Centos7"] = ['if grep Red /etc/redhat-release; '
+                         'then yum-config-manager --enablerepo rhui-REGION-rhel-server-optional; '
+                         'yum-config-manager --enablerepo rhui-REGION-rhel-server-extras; '
+                         'yum-config-manager --enablerepo rhui-REGION-rhel-server-source-optional; fi;'
+                         ]
+
+
 # ######################  KAVETOOLBOX ITSELF ############################
 
 
@@ -218,7 +229,8 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                                          # --exclude=pulseaudio\\* --skip-broken',
                                          'yum -y install tigervnc-server'],
                              "Centos7": ['yum -y install firefox pixman pixman-devel libXfont xpdf',
-                                         'yum -y groupinstall "GNOME Desktop" "Fonts"',
+                                         'yum -y groupinstall "GNOME Desktop" "Fonts" '
+                                         '"X Window System" "Server with Gui" "GNOME"',
                                          # --exclude=NetworkManager\\* --exclude=pulseaudio\\* --skip-broken'
                                          'yum -y install tigervnc-server',
                                          # fix x runtime permissions
@@ -322,7 +334,7 @@ fi
 toolbox.tests = [('source $KAVETOOLBOX/scripts/KaveEnv.sh > /dev/null', 0, '', ''),
                  ("python -c \"import correlograms; import geomaps; import stattools; import rootnotes;\"", 0, '', '')]
 toolbox.children = {"Centos6": [epel],
-                    "Centos7": [epel]}
+                    "Centos7": [epel, rhrepo]}
 
 
 # ### JAVA component ####
@@ -354,4 +366,4 @@ java.post["Ubuntu"] = [c.replace("alternatives", "update-alternatives") for c in
 
 # ##### all ############
 
-__all__ = ['toolbox', 'java', 'epel']
+__all__ = ['toolbox', 'java', 'epel', 'rhrep']

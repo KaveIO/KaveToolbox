@@ -20,8 +20,7 @@
 rcomponent.py module: installs r
 """
 from kaveinstall import Component
-from sharedcomponents import epel
-
+from sharedcomponents import epel, rhrepo
 
 class RComponent(Component):
 
@@ -36,6 +35,12 @@ r.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libra
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  # not everything installs on Centos6!
                      ],
+         "Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
+                     "yum -y install readline-devel",
+                     "yum -y install texinfo texlive",
+                     "yum -y install R",
+                     "yum -y install R-* --skip-broken"  # not everything installs on Centos6!
+                     ],
          "Ubuntu": ["apt-get -y install libreadline6 libreadline6-dev libc6-dev-i386",
                     "apt-get -y install build-essential g++",
                     "apt-get -y install r-base-dev",
@@ -43,7 +48,7 @@ r.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libra
                     ]
          }
 r.pre["Centos7"] = r.pre["Centos6"]
-r.children = {"Centos6": [epel], "Centos7": [epel]}
+r.children = {"Centos6": [epel], "Centos7": [epel, rhrepo]}
 r.postwithenv = {"Centos6": ["conda update conda --yes; pip install rpy2"]}
 r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
 r.postwithenv["Ubuntu"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
