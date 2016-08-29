@@ -164,7 +164,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                          " glew-utils libc6-dev-i386"
                          ]
             }
-root.pre["Ubuntu16"] =  root.pre["Ubuntu14"]
+root.pre["Ubuntu16"] = root.pre["Ubuntu14"]
 root.children = {"Centos6": [glew, glewdev],
                  "Centos7": [],
                  "Ubuntu14": [libpng],
