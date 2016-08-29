@@ -251,6 +251,7 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                                           'apt-get -y install tightvncserver'
                                           ]
                              }
+toolbox.workstationExtras["Ubuntu16"] = toolbox.workstationExtras["Ubuntu14"]
 toolbox.setwallpaper = 'default'  # wallpaper if it is a workstation type
 toolbox.wallpaperselect = 0  # a number between 0 and 9
 toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
@@ -258,6 +259,7 @@ toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzi
                             "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
 toolbox.pre["Centos7"] = toolbox.pre["Centos6"]
+toolbox.pre["Ubuntu16"] = toolbox.pre["Ubuntu16"]
 toolbox.register_toolbox(toolbox)
 toolbox.env = """
 
@@ -349,6 +351,7 @@ java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-de
                          "apt-get update",
                          "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
             }
+java.pre["Ubuntu16"] = java.pre["Ubuntu14"]
 java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /usr/lib/jvm/java-1.8*-openjdk*`;"
                          " export jdir; "
                          "alternatives --install /usr/bin/java java ${jdir}/jre/bin/java 20000; "
@@ -364,6 +367,7 @@ java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /us
              }
 java.post["Centos7"] = java.post["Centos6"]
 java.post["Ubuntu14"] = [c.replace("alternatives", "update-alternatives") for c in java.post["Centos6"]]
+java.post["Ubuntu16"] = java.post["Ubuntu14"]
 
 # ##### all ############
 

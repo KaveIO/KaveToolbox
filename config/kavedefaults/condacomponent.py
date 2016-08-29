@@ -54,6 +54,7 @@ conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip 
                                  + " pip install git+https://github.com/ibab/root_pandas; fi "]}
 conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu14"] = conda.postwithenv["Centos6"]
+conda.postwithenv["Ubuntu16"] = conda.postwithenv["Ubuntu14"]
 conda.doInstall = True
 conda.freespace = 1500
 conda.usrspace = 300

@@ -33,6 +33,7 @@ libpng.src_from = {"suffix": ".tar.gz"}
 libpng.post = {"Ubuntu14": ["bash -c 'if [ ! -e /usr/local/libpng ]; then cd libpng-1.5.22; "
                             + "./configure --prefix=/usr/local/libpng; make; make install;"
                             + " ln -s /usr/local/libpng/lib/libpng15.so.15 /usr/lib/libpng15.so.15; fi;'"]}
+libpng.post["Ubuntu16"] = libpng.post["Ubuntu14"]
 
 # Centos6 Glew Fix
 glew = Component("glew")
@@ -137,7 +138,9 @@ root.options = {"Strategy": "Default",
                     "Centos6": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit  "
                                "--enable-mathmore --fail-on-missing",
                     "Ubuntu14": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
-                    "--enable-mathmore --fail-on-missing"},
+                                "--enable-mathmore --fail-on-missing",
+                    "Ubuntu16": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
+                                "--enable-mathmore --fail-on-missing"},
                 "pip": ["root_numpy", "git+https://github.com/ibab/root_pandas", "rootpy"]
                 }
 root.src_from = "ftp://root.cern.ch/root/"
@@ -161,9 +164,11 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                          " glew-utils libc6-dev-i386"
                          ]
             }
+root.pre["Ubuntu16"] =  root.pre["Ubuntu14"]
 root.children = {"Centos6": [glew, glewdev],
                  "Centos7": [],
-                 "Ubuntu14": [libpng]
+                 "Ubuntu14": [libpng],
+                 "Ubuntu16": [libpng]
                  }
 root.freespace = 750
 root.usrspace = 300

@@ -31,9 +31,11 @@ robo.pre = {"Centos6": ["yum install -y glibc.i686 libstdc++.i686 libgcc.i686"]}
 robo.pre["Centos7"] = robo.pre["Centos6"]
 robo.pre["Ubuntu14"] = ["apt-get -y install libxcb-icccm4 libxkbcommon-x11-0 "
                         + "libxcb-xkb1 libxcb-render-util0 libxcb-keysyms1 libxcb-image0"]
+robo.pre["Ubuntu16"] = robo.pre["Ubuntu14"]
 robo.post = {"Centos6": ["yum -y install robomongo-*.rpm"]}
 robo.post["Centos7"] = robo.post["Centos6"]
 robo.post["Ubuntu14"] = ["dpkg -i robomongo-*.deb"]
+robo.post["Ubuntu16"] = robo.post["Ubuntu14"]
 robo.usrspace = 40
 robo.tempspace = 20
 robo.tests = [('which robomongo > /dev/null', 0, '', '')]

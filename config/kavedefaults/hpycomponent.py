@@ -82,7 +82,8 @@ hpy.options = {"pip": ["pymongo_hadoop", "pyleus", "mrjob"],  # no pydoop yet, d
                }
 hpy.pre = {"Centos6": ["yum -y install boost boost-devel openssl-devel"],
            "Centos7": ["yum -y install boost boost-devel openssl-devel"],
-           "Ubuntu14": ["apt-get -y install libboost-python-dev libssl-dev"]
+           "Ubuntu14": ["apt-get -y install libboost-python-dev libssl-dev"],
+           "Ubuntu16": ["apt-get -y install libboost-python-dev libssl-dev"]
            }
 hpy.test = [("python -c \"import mrjob; import pyleus; import pymongo_hadoop;\"", 0, '', '')]
 
