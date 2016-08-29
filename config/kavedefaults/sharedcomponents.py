@@ -37,7 +37,8 @@ epel.pre = {"Centos6": ["yum -y install epel-release",
 epel.pre["Centos7"] = ["yum info epel-release 2>/dev/null | grep installed; epel_not_installed=$?;  "
                        "if [[ $epel_not_installed -ne 0 ]]; "
                        "then wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm ;"
-                       "yum -y install epel-release-latest-7.noarch.rpm; fi"]
+                       "yum -y install epel-release-latest-7.noarch.rpm; fi",
+                       "yum clean all"]
 
 
 # ######################  KAVETOOLBOX ITSELF ############################
