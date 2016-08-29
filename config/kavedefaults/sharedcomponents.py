@@ -46,9 +46,10 @@ epel.pre["Centos7"] = ["yum info epel-release 2>/dev/null | grep installed; epel
 rhrepo = Component("rhrepo")
 rhrepo.usrspace = 1
 rhrepo.pre["Centos7"] = ['if grep Red /etc/redhat-release; '
-                         'then yum-config-manager --enablerepo rhui-REGION-rhel-server-optional; '
-                         'yum-config-manager --enablerepo rhui-REGION-rhel-server-extras; '
-                         'yum-config-manager --enablerepo rhui-REGION-rhel-server-source-optional; fi;'
+                         'then yum-config-manager --enable rhui-REGION-rhel-server-optional; '
+                         'yum-config-manager --enable rhui-REGION-rhel-server-extras; '
+                         'yum-config-manager --enable rhui-REGION-rhel-server-source-optional; '
+                         'yum-config-manager --enable rhui-REGION-rhel-server-releases-source; fi;'
                          ]
 
 
