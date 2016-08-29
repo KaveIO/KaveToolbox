@@ -1,7 +1,7 @@
 KaveToolbox is separated into modular installable components
 
 Each component inherits from the Component class and contains the
-complete instructions for installation on Centos6/7 or Ubuntu
+complete instructions for installation on Centos6/7 or Ubuntu14
 
 To overwrite these instructions in the case of local variations we don't recommend you to edit this file.
 Instead we suggest to create/add configurations to /etc/kave/CustomInstall.py

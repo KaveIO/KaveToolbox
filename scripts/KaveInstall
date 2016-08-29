@@ -110,7 +110,7 @@ topdir = os.getcwd()
 import kaveinstall as li
 
 #check against list of supported platforms
-supportedversions = ["Centos6", "Centos7", "Ubuntu"]
+supportedversions = ["Centos6", "Centos7", "Ubuntu14"]
 if li.linuxVersion not in supportedversions:
     raise SystemError(
         "Cannot recognise linux version from " + cnf.li.linuxVersion + " we only support " +
@@ -121,7 +121,7 @@ if li.linuxVersion not in supportedversions:
 #
 preinstall = {"Centos6": ["yum -y install wget curl zip unzip tar gzip"],
               "Centos7": ["yum -y install wget curl zip unzip tar gzip"],
-              "Ubuntu": ["apt-get -y install wget curl zip unzip tar gzip"]}
+              "Ubuntu14": ["apt-get -y install wget curl zip unzip tar gzip"]}
 
 for cmd in preinstall[li.linuxVersion]:
     stat, out, err = li.mycmd(cmd)

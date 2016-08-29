@@ -29,7 +29,7 @@ gsl.src_from = [{"arch": "noarch", "suffix": ".tar.gz"},
                 "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
 gsl.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl.pre["Centos7"] = gsl.pre["Centos6"]
-gsl.pre["Ubuntu"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
+gsl.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
 gsl.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; '
                              'print pkgutil.find_loader(\\"numpy\\") is not None;"`;'
                              ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed,'
@@ -37,7 +37,7 @@ gsl.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; '
                              ' turn on the anaconda installation! '
                              '(was it skipped?) or turn off pygsl." ; exit 1 ; fi ']
 gsl.prewithenv["Centos7"] = gsl.prewithenv["Centos6"]
-gsl.prewithenv["Ubuntu"] = gsl.prewithenv["Centos6"]
+gsl.prewithenv["Ubuntu14"] = gsl.prewithenv["Centos6"]
 
 gsl.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
                                'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
@@ -45,7 +45,7 @@ gsl.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
                                'python setup.py config; python setup.py build; python setup.py install ; fi ']
                    }
 gsl.postwithenv["Centos7"] = gsl.postwithenv["Centos6"]
-gsl.postwithenv["Ubuntu"] = gsl.postwithenv["Centos6"]
+gsl.postwithenv["Ubuntu14"] = gsl.postwithenv["Centos6"]
 gsl.usrspace = 3
 gsl.tempspace = 2
 gsl.tests = [("python -c \"import pygsl;\"", 0, '', '')]

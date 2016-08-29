@@ -181,6 +181,10 @@ def detect_linux_version():
     else:
         status2, output2, err = mycmd("lsb_release -a")
         if not status2 and "Ubuntu" in output2:
+            if " 14." in output2:
+                return "Ubuntu14"
+            if " 16." in output2:
+                return "Ubuntu16"
             return "Ubuntu"
     return output
 

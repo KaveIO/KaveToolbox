@@ -85,11 +85,11 @@ kettle.node = False
 kettle.workstation = True
 kettle.pre = {"Centos6": ["yum -y install webkitgtk"],
               "Centos7": ["yum -y install webkitgtk"],
-              "Ubuntu": ["apt-get -y install libwebkitgtk-dev"]
+              "Ubuntu14": ["apt-get -y install libwebkitgtk-dev"]
               }
 kettle.children = {"Centos6": [java],
                    "Centos7": [java],
-                   "Ubuntu": [java]}
+                   "Ubuntu14": [java]}
 kettle.env = """
 ket="%%INSTALLDIRVERSION%%"
 # Allow mixed 1.X/2.X versions

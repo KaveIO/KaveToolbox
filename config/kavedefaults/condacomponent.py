@@ -39,8 +39,8 @@ conda.children = {"Centos6": [epel], "Centos7": [epel]}
 conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                          'yum -y install libffi* cyrus-sasl* geos*']}
 conda.pre["Centos7"] = conda.pre["Centos6"]
-conda.pre["Ubuntu"] = ["apt-get -y install build-essential g++ libffi* "
-                       "libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
+conda.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libffi* "
+                         "libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
 conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip --yes",
                                  "pip install delorean seaborn pygal mpld3 ",
                                  "pip install cairosvg pyhs2 shapely descartes",
@@ -53,7 +53,7 @@ conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip 
                                  " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; pip install root_numpy;"
                                  + " pip install git+https://github.com/ibab/root_pandas; fi "]}
 conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]
-conda.postwithenv["Ubuntu"] = conda.postwithenv["Centos6"]
+conda.postwithenv["Ubuntu14"] = conda.postwithenv["Centos6"]
 conda.doInstall = True
 conda.freespace = 1500
 conda.usrspace = 300

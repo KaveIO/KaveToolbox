@@ -42,17 +42,17 @@ r.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libra
                      "yum -y install R",
                      "yum -y install R-* --skip-broken"  # not everything installs on Centos6!
                      ],
-         "Ubuntu": ["apt-get -y install libreadline6 libreadline6-dev libc6-dev-i386",
-                    "apt-get -y install build-essential g++",
-                    "apt-get -y install r-base-dev",
-                    "apt-get -y install python-rpy2"
-                    ]
+         "Ubuntu14": ["apt-get -y install libreadline6 libreadline6-dev libc6-dev-i386",
+                      "apt-get -y install build-essential g++",
+                      "apt-get -y install r-base-dev",
+                      "apt-get -y install python-rpy2"
+                      ]
          }
 r.pre["Centos7"] = r.pre["Centos6"]
 r.children = {"Centos6": [epel], "Centos7": [epel, rhrepo]}
 r.postwithenv = {"Centos6": ["conda update conda --yes; pip install rpy2"]}
 r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
-r.postwithenv["Ubuntu"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
+r.postwithenv["Ubuntu14"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.usrspace = 150
 r.tempspace = 1
 r.test = [("python -c \"import rpy2;\"", 0, '', '')]

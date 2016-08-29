@@ -243,19 +243,19 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                                          'export XDG_RUNTIME_DIR=\\/run\\/user\\/\\`id -u\\`\\n'
                                          '# xinitrc-common #add xdg fix \\(kave\\)/" '
                                          '/etc/X11/xinit/xinitrc-common'],
-                             "Ubuntu": ['apt-get -y install firefox xpdf',
-                                        'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
-                                        + ' then true; else '  # Only install x if x not installed
-                                        + 'apt-get -y install xfce4 xfce4-goodies;'
-                                        + 'fi;',
-                                        'apt-get -y install tightvncserver'
-                                        ]
+                             "Ubuntu14": ['apt-get -y install firefox xpdf',
+                                          'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
+                                          + ' then true; else '  # Only install x if x not installed
+                                          + 'apt-get -y install xfce4 xfce4-goodies;'
+                                          + 'fi;',
+                                          'apt-get -y install tightvncserver'
+                                          ]
                              }
 toolbox.setwallpaper = 'default'  # wallpaper if it is a workstation type
 toolbox.wallpaperselect = 0  # a number between 0 and 9
 toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzip rsync git"],
-               "Ubuntu": ['apt-get -y install dictionaries-common',
-                          "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
+               "Ubuntu14": ['apt-get -y install dictionaries-common',
+                            "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
 toolbox.pre["Centos7"] = toolbox.pre["Centos6"]
 toolbox.register_toolbox(toolbox)
@@ -345,9 +345,9 @@ java.version = '1.8'
 java.usrspace = 175
 java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
             "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-            "Ubuntu": ["add-apt-repository ppa:openjdk-r/ppa -y",
-                       "apt-get update",
-                       "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
+            "Ubuntu14": ["add-apt-repository ppa:openjdk-r/ppa -y",
+                         "apt-get update",
+                         "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
             }
 java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /usr/lib/jvm/java-1.8*-openjdk*`;"
                          " export jdir; "
@@ -363,7 +363,7 @@ java.post = {"Centos6": ["bash -c 'IFS=\";\" read -r jdir string <<< `ls -dt /us
                          ]
              }
 java.post["Centos7"] = java.post["Centos6"]
-java.post["Ubuntu"] = [c.replace("alternatives", "update-alternatives") for c in java.post["Centos6"]]
+java.post["Ubuntu14"] = [c.replace("alternatives", "update-alternatives") for c in java.post["Centos6"]]
 
 # ##### all ############
 

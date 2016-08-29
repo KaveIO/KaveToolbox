@@ -145,7 +145,7 @@ except ImportError:
                               "yum -y install python-devel python-pip", "pip install lxml"],
                   "Centos7": ["yum -y install epel-release", 'yum clean all',
                               "yum -y install python-devel python-pip", "pip install lxml"],
-                  "Ubuntu": ["apt-get install -y python-dev python-pip", "pip install lxml"]}
+                  "Ubuntu14": ["apt-get install -y python-dev python-pip", "pip install lxml"]}
 
     for cmd in preinstall[li.linuxVersion]:
         stat, out, err = li.mycmd(cmd)

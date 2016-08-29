@@ -52,7 +52,7 @@ eclipse.workstation = True
 eclipse.node = False
 eclipse.children = {"Centos6": [java],
                     "Centos7": [java],
-                    "Ubuntu": [java]}
+                    "Ubuntu14": [java]}
 eclipse.installSubDir = "eclipse"
 eclipse.version = "1.3"
 eclipse.src_from = {"arch": "noarch", "suffix": ".tar.gz"}
