@@ -22,6 +22,7 @@ rcomponent.py module: installs r
 from kaveinstall import Component
 from sharedcomponents import epel, rhrepo
 
+
 class RComponent(Component):
 
     def script(self):
