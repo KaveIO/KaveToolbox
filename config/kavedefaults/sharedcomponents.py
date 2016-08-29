@@ -259,7 +259,7 @@ toolbox.pre = {"Centos6": ["yum -y install vim emacs wget curl zip unzip tar gzi
                             "apt-get -y install vim emacs wget curl zip unzip tar gzip rsync git"]
                }
 toolbox.pre["Centos7"] = toolbox.pre["Centos6"]
-toolbox.pre["Ubuntu16"] = toolbox.pre["Ubuntu16"]
+toolbox.pre["Ubuntu16"] = toolbox.pre["Ubuntu14"]
 toolbox.register_toolbox(toolbox)
 toolbox.env = """
 
