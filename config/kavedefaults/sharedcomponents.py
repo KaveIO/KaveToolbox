@@ -347,7 +347,9 @@ java.version = '1.8'
 java.usrspace = 175
 java.pre = {"Centos6": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
             "Centos7": ["yum -y install java-1.8.0-openjdk java-1.8.0-openjdk-devel"],
-            "Ubuntu14": ["add-apt-repository ppa:openjdk-r/ppa -y",
+            "Ubuntu14": ["apt-get -y install software-properties-common",
+                         "apt-get -y install python-software-properties",
+                         "add-apt-repository ppa:openjdk-r/ppa -y",
                          "apt-get update",
                          "apt-get -y install openjdk-8-jre openjdk-8-jdk openjdk-8-source "]
             }
