@@ -41,7 +41,7 @@ gsl1.prewithenv["Ubuntu14"] = gsl1.prewithenv["Centos6"]
 
 gsl1.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
                                 'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
-                                ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; '
+                                ' if [ ${isinst} == "False" ]; then cd pygsl-*/; '
                                 'python setup.py config; python setup.py build; python setup.py install ; fi ']
                     }
 gsl1.postwithenv["Centos7"] = gsl1.postwithenv["Centos6"]
@@ -60,11 +60,7 @@ gsl2.src_from = [gsl2.src_from[0],
                  "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.2.0/pygsl-2.2.0.tar.gz"]
 gsl2.prewithenv["Ubuntu16"] = gsl2.prewithenv["Ubuntu14"]
 gsl2.pre["Ubuntu16"] = gsl2.pre["Ubuntu14"]
-gsl2.postwithenv = {"Ubuntu16": [' isinst=`python -c "import pkgutil; '
-                                 'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
-                                 ' if [ ${isinst} == "False" ]; then cd pygsl-2.2.0; '
-                                 'python setup.py config; python setup.py build; python setup.py install ; fi ']
-                    }
+gsl2.postwithenv["Ubuntu16"] = gsl2.postwithenv["Ubuntu14"]
 
 # ######################  pygsl parent ############################
 gsl = Component("pygsl2")
