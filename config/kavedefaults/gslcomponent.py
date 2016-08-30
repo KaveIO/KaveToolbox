@@ -56,8 +56,8 @@ import copy
 gsl2 = copy.deepcopy(gsl1)
 gsl2.cname = "pygsl2"
 gsl2.version = "2.2.0"
-gsl2.src_from = gsl2.src_from[0] + \
-    ["http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.2.0/pygsl-2.2.0.tar.gz"]
+gsl2.src_from = [gsl2.src_from[0],
+                 "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.2.0/pygsl-2.2.0.tar.gz"]
 gsl2.prewithenv["Ubuntu16"] = gsl2.prewithenv["Ubuntu14"]
 gsl2.pre["Ubuntu16"] = gsl2.pre["Ubuntu14"]
 gsl2.postwithenv = {"Ubuntu16": [' isinst=`python -c "import pkgutil; '
