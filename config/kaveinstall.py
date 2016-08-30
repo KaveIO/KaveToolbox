@@ -588,6 +588,7 @@ class Component(object):
         ##############################
         if self.children is not None and linuxVersion in self.children:
             for child in self.children[linuxVersion]:
+                child.register_toolbox(self.toolbox)
                 if not child.status:
                     child.install(kind=self.kind, tmpdir=self.tmpdir, loud=self.loud)
         ##############################
