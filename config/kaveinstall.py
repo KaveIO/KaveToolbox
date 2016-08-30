@@ -170,6 +170,15 @@ def clean_on_fail_loud(cmd, directory):
 #
 
 def detect_linux_version():
+    try:
+        status2, output2, err = mycmd("lsb_release -a")
+        if not status2 and "Ubuntu" in output2:
+            if " 14." in output2:
+                return "Ubuntu14"
+            if " 16." in output2:
+                return "Ubuntu16"
+    except:
+        pass
     status, output, err = mycmd("uname -r")
     if status:
         raise RuntimeError("Problem detecting linux version: uname -r got:\n\t" + str(
@@ -178,14 +187,6 @@ def detect_linux_version():
         return "Centos6"
     elif "el7" in output:
         return "Centos7"
-    else:
-        status2, output2, err = mycmd("lsb_release -a")
-        if not status2 and "Ubuntu" in output2:
-            if " 14." in output2:
-                return "Ubuntu14"
-            if " 16." in output2:
-                return "Ubuntu16"
-            return "Ubuntu"
     return output
 
 
