@@ -26,24 +26,24 @@ gsl1 = Component("pygsl1")
 gsl1.doInstall = True
 gsl1.version = "2.1.1"
 gsl1.src_from = [{"arch": "noarch", "suffix": ".tar.gz"},
-                "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
+                 "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
 gsl1.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl1.pre["Centos7"] = gsl1.pre["Centos6"]
 gsl1.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
 gsl1.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; '
-                             'print pkgutil.find_loader(\\"numpy\\") is not None;"`;'
-                             ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed,'
-                             ' so will not install pygsl,'
-                             ' turn on the anaconda installation! '
-                             '(was it skipped?) or turn off pygsl." ; exit 1 ; fi ']
+                              'print pkgutil.find_loader(\\"numpy\\") is not None;"`;'
+                              ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed,'
+                              ' so will not install pygsl,'
+                              ' turn on the anaconda installation! '
+                              '(was it skipped?) or turn off pygsl." ; exit 1 ; fi ']
 gsl1.prewithenv["Centos7"] = gsl1.prewithenv["Centos6"]
 gsl1.prewithenv["Ubuntu14"] = gsl1.prewithenv["Centos6"]
 
 gsl1.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
-                               'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
-                               ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; '
-                               'python setup.py config; python setup.py build; python setup.py install ; fi ']
-                   }
+                                'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
+                                ' if [ ${isinst} == "False" ]; then cd pygsl-2.1.1; '
+                                'python setup.py config; python setup.py build; python setup.py install ; fi ']
+                    }
 gsl1.postwithenv["Centos7"] = gsl1.postwithenv["Centos6"]
 gsl1.postwithenv["Ubuntu14"] = gsl1.postwithenv["Centos6"]
 gsl1.usrspace = 3
@@ -56,25 +56,24 @@ import copy
 gsl2 = copy.deepcopy(gsl1)
 gsl2.cname = "pygsl2"
 gsl2.version = "2.2.0"
-gsl2.src_from = gsl2.src_from[0] + ["http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.2.0/pygsl-2.2.0.tar.gz"]
+gsl2.src_from = gsl2.src_from[0] + \
+    ["http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.2.0/pygsl-2.2.0.tar.gz"]
 gsl2.prewithenv["Ubuntu16"] = gsl2.prewithenv["Ubuntu14"]
 gsl2.pre["Ubuntu16"] = gsl2.pre["Ubuntu14"]
 gsl2.postwithenv = {"Ubuntu16": [' isinst=`python -c "import pkgutil; '
-                               'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
-                               ' if [ ${isinst} == "False" ]; then cd pygsl-2.2.0; '
-                               'python setup.py config; python setup.py build; python setup.py install ; fi ']
-                   }
+                                 'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
+                                 ' if [ ${isinst} == "False" ]; then cd pygsl-2.2.0; '
+                                 'python setup.py config; python setup.py build; python setup.py install ; fi ']
+                    }
 
 # ######################  pygsl parent ############################
 gsl = Component("pygsl2")
 gsl.doInstall = True
-gsl.children = {"Centos6" : [gsl1],
-                "Centos7" : [gsl1],
-                "Ubuntu14" : [gsl1],
-                "Ubuntu16" : [gsl2]}
+gsl.children = {"Centos6": [gsl1],
+                "Centos7": [gsl1],
+                "Ubuntu14": [gsl1],
+                "Ubuntu16": [gsl2]}
 gsl.tests = [("python -c \"import pygsl;\"", 0, '', '')]
-
-
 
 
 __all__ = ["gsl"]
