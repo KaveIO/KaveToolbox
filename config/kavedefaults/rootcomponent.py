@@ -162,9 +162,15 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                          "libldap2-dev libkrb5-dev freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev "
                          "libiodbc2 libiodbc2-dev libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev"
                          " glew-utils libc6-dev-i386"
+                         ],
+            "Ubuntu16": ["apt-get -y install x11-common libx11-6 x11-utils libx11-dev libgsl-dev gsl-bin libxpm-dev "
+                         "libxft-dev g++ gfortran build-essential g++ libjpeg-turbo8-dev libjpeg8-dev libjpeg8-dev"
+                         " libjpeg-dev libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev "
+                         "libldap2-dev libkrb5-dev freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev "
+                         "libiodbc2 libiodbc2-dev libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev"
+                         " glew-utils libc6-dev-i386"
                          ]
             }
-root.pre["Ubuntu16"] = root.pre["Ubuntu14"]
 root.children = {"Centos6": [glew, glewdev],
                  "Centos7": [],
                  "Ubuntu14": [libpng],

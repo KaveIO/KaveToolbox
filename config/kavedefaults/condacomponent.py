@@ -21,6 +21,7 @@ conda.py module: installs anaconda python
 """
 import os
 from kaveinstall import Component
+from kaveinstall import linuxVersion
 from sharedcomponents import epel
 
 
@@ -32,6 +33,17 @@ class Conda(Component):
         os.system("chmod a+x " + dest)
         # install in batch mode to the requested directory
         self.run(dest + " -b -p " + self.installDirVersion)
+        # patch for libstdc6, anaconda version not latest version
+        if linuxVersion in ["Ubuntu16"]:
+            if os.path.exists(self.installDirVersion):
+                if os.path.exists(self.installDirVersion + 'lib/libstdc++.so.6'):
+                    if os.path.exists('/usr/lib/x86_64-linux-gnu/libstdc++.so.6'):
+                        self.run('mv -rf '
+                                 + self.installDirVersion + 'lib/libstdc++.so.6 '
+                                 + self.installDirVersion + 'lib/libstdc++.so.6.old')
+                        self.run('ln -s '
+                                 + '/usr/lib/x86_64-linux-gnu/libstdc++.so.6 '
+                                 + self.installDirVersion + 'lib/libstdc++.so.6')
         self.buildenv()
 
 conda = Conda(cname="anaconda")
@@ -41,6 +53,7 @@ conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development L
 conda.pre["Centos7"] = conda.pre["Centos6"]
 conda.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libffi* "
                          "libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
+conda.pre["Ubuntu16"] = conda.pre["Ubuntu14"]
 conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip --yes",
                                  "pip install delorean seaborn pygal mpld3 ",
                                  "pip install cairosvg pyhs2 shapely descartes",

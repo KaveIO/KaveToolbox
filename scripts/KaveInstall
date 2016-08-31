@@ -110,7 +110,7 @@ topdir = os.getcwd()
 import kaveinstall as li
 
 #check against list of supported platforms
-supportedversions = ["Centos6", "Centos7", "Ubuntu14", "Ubintu16"]
+supportedversions = ["Centos6", "Centos7", "Ubuntu14", "Ubuntu16"]
 if li.linuxVersion not in supportedversions:
     raise SystemError(
         "Cannot recognise linux version from " + li.linuxVersion + " we only support " +

@@ -246,7 +246,8 @@ toolbox.workstationExtras = {"Centos6": ['yum -y install firefox xpdf',
                              "Ubuntu14": ['apt-get -y install firefox xpdf',
                                           'if dpkg -l xserver-xorg-input-mouse 2>/dev/null > /dev/null ;'
                                           + ' then true; else '  # Only install x if x not installed
-                                          + 'apt-get -q -y install xfce4 xfce4-goodies;'
+                                          + 'export DEBIAN_FRONTEND=noninteractive; '
+                                          + 'apt-get -qq -y install xfce4 xfce4-goodies;'
                                           + 'fi;',
                                           'apt-get -y install tightvncserver'
                                           ]
