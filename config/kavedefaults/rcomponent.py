@@ -21,11 +21,17 @@ rcomponent.py module: installs r
 """
 from kaveinstall import Component
 from sharedcomponents import epel, rhrepo
+from condacomponent import conda
 
 
 class RComponent(Component):
 
+    def install(self, kind="node", tmpdir=None, loud=True):
+        super(RComponent, self).install(kind=kind, tmpdir=tmpdir, loud=loud)
+        conda.fixstdc(False)
+
     def script(self):
+        conda.fixstdc(False)
         return True
 
 

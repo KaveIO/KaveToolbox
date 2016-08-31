@@ -123,6 +123,8 @@ class RootComponent(Component):
                 + " source " + self.installDirVersion + "/bin/thisroot.sh;"
                 + " pip install " + package + "'"
             )
+        # force fixing of stdlib++ here if necessary
+        conda.fixstdc(False)
         return
 
 
