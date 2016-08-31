@@ -26,7 +26,7 @@ from dockerbase import DockerRun
 class TestLocalDocker(unittest.TestCase):
     start = "ubuntu:14.04"
     verbose = False
-    script = ["ls -l /opt/build",
+    script = ["ls -l /opt/hostktb",
               "apt-get update",
               "apt-get install -y wget curl",
               "apt-get install -y python python-dev",
