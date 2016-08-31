@@ -113,7 +113,7 @@ import kaveinstall as li
 supportedversions = ["Centos6", "Centos7", "Ubuntu14"]
 if li.linuxVersion not in supportedversions:
     raise SystemError(
-        "Cannot recognise linux version from " + cnf.li.linuxVersion + " we only support " +
+        "Cannot recognise linux version from " + li.linuxVersion + " we only support " +
         supportedversions.__str__())
 
 #
@@ -121,7 +121,8 @@ if li.linuxVersion not in supportedversions:
 #
 preinstall = {"Centos6": ["yum -y install wget curl zip unzip tar gzip"],
               "Centos7": ["yum -y install wget curl zip unzip tar gzip"],
-              "Ubuntu14": ["apt-get -y install wget curl zip unzip tar gzip"]}
+              "Ubuntu14": ["apt-get -y install wget curl zip unzip tar gzip"],
+              "Ubuntu16": ["apt-get -y install wget curl zip unzip tar gzip"]}
 
 for cmd in preinstall[li.linuxVersion]:
     stat, out, err = li.mycmd(cmd)
@@ -197,6 +198,9 @@ for component in everything:
         component.skipIfDiskFull=True
     if cleanIfDiskFull:
         component.cleanIfDiskFull=True
+
+# second loop just in case one component is a child of another
+for component in everything:
     component.install(kind=kind, tmpdir=tempdir, loud=(not quieter))
 
 #final cleanup
