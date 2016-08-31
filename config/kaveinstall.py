@@ -171,6 +171,15 @@ def clean_on_fail_loud(cmd, directory):
 
 def detect_linux_version():
     try:
+        status2, output2, err = mycmd("cat /etc/issue")
+        if not status2 and "Ubuntu" in output2:
+            if " 14." in output2:
+                return "Ubuntu14"
+            if " 16." in output2:
+                return "Ubuntu16"
+    except:
+        pass
+    try:
         status2, output2, err = mycmd("lsb_release -a")
         if not status2 and "Ubuntu" in output2:
             if " 14." in output2:
