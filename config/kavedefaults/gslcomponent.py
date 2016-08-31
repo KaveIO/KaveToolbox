@@ -22,7 +22,7 @@ pygsl.py module: installs pygsl
 from kaveinstall import Component
 
 # ######################  pygsl 2.1 ############################
-gsl1 = Component("pygsl1")
+gsl1 = Component("pygsl")
 gsl1.doInstall = True
 gsl1.version = "2.1.1"
 gsl1.src_from = [{"arch": "noarch", "suffix": ".tar.gz"},
@@ -54,7 +54,6 @@ gsl1.tempspace = 2
 import copy
 # Use for Ubuntu16 only for now, does not work on Centos6 or Ubuntu14
 gsl2 = copy.deepcopy(gsl1)
-gsl2.cname = "pygsl2"
 gsl2.version = "2.2.0"
 gsl2.src_from = [gsl2.src_from[0],
                  "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.2.0/pygsl-2.2.0.tar.gz"]
@@ -63,7 +62,7 @@ gsl2.pre["Ubuntu16"] = gsl2.pre["Ubuntu14"]
 gsl2.postwithenv["Ubuntu16"] = gsl2.postwithenv["Ubuntu14"]
 
 # ######################  pygsl parent ############################
-gsl = Component("pygsl2")
+gsl = Component("pygsl")
 gsl.doInstall = True
 gsl.children = {"Centos6": [gsl1],
                 "Centos7": [gsl1],

@@ -17,25 +17,35 @@
 ##############################################################################
 import base
 import unittest
+import os
+import glob
 
 
 class TestKTBPackaging(unittest.TestCase):
+    builddir = os.path.realpath(os.path.dirname(__file__) + '/../../build')
 
-    def runTest(self):
+    def cleandir(self):
+        if os.path.exists(self.builddir):
+            os.system('rm -rf ' + self.builddir)
+
+    def makepak(self):
         """
         Check that the packaging script works
         """
         import os
         import glob
-        builddir = os.path.dirname(__file__) + '/../../build'
-        if os.path.exists(builddir):
-            os.system('rm -rf ' + builddir)
         os.system(os.path.dirname(__file__) + '/../../package/package.sh')
-        self.assertTrue(os.path.exists(builddir))
-        self.assertTrue(len(glob.glob(builddir + '/kavetoolbox-installer*.sh')))
-        self.assertTrue(len(glob.glob(builddir + '/kavetoolbox-*.tar.gz')))
-        if os.path.exists(builddir):
-            os.system('rm -rf ' + builddir)
+        self.assertTrue(os.path.exists(self.builddir))
+        self.assertTrue(len(glob.glob(self.builddir + '/kavetoolbox-installer*.sh')))
+        self.assertTrue(len(glob.glob(self.builddir + '/kavetoolbox-*.tar.gz')))
+
+    def runTest(self):
+        """
+        Check that the packaging script works
+        """
+        self.cleandir()
+        self.makepak()
+        self.cleandir()
 
 
 if __name__ == "__main__":
