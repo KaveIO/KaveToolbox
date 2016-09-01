@@ -25,6 +25,7 @@ The new OK support required some minor changes in the installer.
 Minor changes and improvements:
 * Python: added pip packages: tqdm watermark dotenv cookiecutter requests
 * Epel dedendency added explicitly
+* new helper scripts for obtaining zipped root file in deployment
 
 Bugfixes:
 * Centos7 gnome issues fixed where users would see only a black box
