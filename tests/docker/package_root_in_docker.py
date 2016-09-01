@@ -40,7 +40,7 @@ class PackageRoot(TestLocalDocker):
         Package locally and copy across to the container"""
         self.script.append('cp /tmp/packroot/root_*.tar.gz /tmp/log-docker-test-' + self.start.replace(':', "_"))
         self.script.append('chmod a+rwx /tmp/log-docker-test-' + self.start.replace(':', "_") + '/root_*.tar.gz')
-        super(PackageRoot,self).runTest()
+        super(PackageRoot, self).runTest()
         import glob
         self.assertTrue(len(glob.glob('/tmp/log-docker-test-'
                                       + self.start.replace(':', "_") + '/root_*'
