@@ -4,6 +4,30 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
+## v2.2-Beta
+- September 2016
+
+Minor release bringing several layers of improvements for KaveToolbox
+
+**Important information:**
+
+**New OS support**
+- We now support the following OSes for KaveToolbox
+- Centos6 (well tested and stable)
+- Centos7 (well tested and stable)
+- Redhat7 (new, not yet throughly tested)
+- Ubuntu14 (well tested and stable)
+- Ubuntu16 (new, not yet throughly tested)
+- Note that AmbariKave has been similarly modified to support C6/C7/RH7
+
+Minor changes and improvements:
+
+
+Bugfixes:
+
+
+
+
 ## v2.1-Beta
 - June 2016
 
