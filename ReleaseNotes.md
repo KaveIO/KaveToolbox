@@ -20,13 +20,19 @@ Minor release bringing several layers of improvements for KaveToolbox
 - Ubuntu16 (new, not yet throughly tested)
 - Note that AmbariKave has been similarly modified to support C6/C7/RH7
 
-Minor changes and improvements:
+The new OK support required some minor changes in the installer.
 
+Minor changes and improvements:
+* Python: added pip packages: tqdm watermark dotenv cookiecutter requests
+* Epel dedendency added explicitly
 
 Bugfixes:
+* Centos7 gnome issues fixed where users would see only a black box
+* Centos6 libglew dependency resolution corrected
 
-
-
+Docker:
+* We have begin testing with docker and shall make public docker containers starting
+  from this current release.
 
 ## v2.1-Beta
 - June 2016
