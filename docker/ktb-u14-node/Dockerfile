@@ -1,4 +1,4 @@
-# KaveToolbox 2.2.-Beta-Pre on ubuntu 14
+# KaveToolbox 2.2-Beta on ubuntu 14
 FROM ubuntu:14.04
 MAINTAINER KAVE <kave@kpmg.com>
 RUN apt-get update
