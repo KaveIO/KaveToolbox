@@ -32,7 +32,7 @@ class PackageRoot(TestLocalDocker):
               "/opt/hostktb/scripts/KaveInstall",
               "/opt/KaveToolbox/pro/tests/test.sh /opt/KaveToolbox/pro/tests/installed/all.py",
               "mkdir /tmp/packroot",
-              "/opt/KaveToolbox/pro/scripts/package_root_version.sh /tmp/packroot"
+              "/opt/KaveToolbox/pro/scripts/PackageRootVersion.sh /tmp/packroot"
               ]
 
     def runTest(self):
