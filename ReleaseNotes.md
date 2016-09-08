@@ -4,7 +4,7 @@ Contains a list of the released versions with a summary of the main changes in e
 
 # Beta Releases
 
-## v2.2-Beta
+## v3.0-Beta-Pre
 - September 2016
 
 Minor release bringing several layers of improvements for KaveToolbox

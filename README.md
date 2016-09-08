@@ -116,12 +116,12 @@ You have two choices:
 
 We recommend to install with the default configurations, but in case you want to modify the configurations you can create a file in /etc/kave/CustomInstall.py,For an example and more information run the installer with --help
 
-* 1: Installing the released version, for example, 2.2-Beta
+* 1: Installing the released version, for example, 3.0-Beta-Pre
 
 ```
 yum -y install wget curl tar zip unzip gzip python
-wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/2.2-Beta/kavetoolbox-installer-2.2-Beta.sh
-sudo bash kavetoolbox-installer-2.2-Beta.sh [--quiet]
+wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.0-Beta-Pre/kavetoolbox-installer-3.0-Beta-Pre.sh
+sudo bash kavetoolbox-installer-3.0-Beta-Pre.sh [--quiet]
 ```
 (--quiet is for a quieter install, remove the brackets!)
 Remember the help at this stage  [--help]
