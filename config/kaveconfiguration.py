@@ -32,6 +32,7 @@ if os.path.exists('/etc/kave/CustomInstall.py'):
 else:
     print "no custom configuration found, using defaults"
 
+
 def pick_components(requested_comps):
     """
     pick components from a list of components
@@ -50,4 +51,3 @@ def pick_components(requested_comps):
             e.node = True
             e.workstation = True
     return everything
-
