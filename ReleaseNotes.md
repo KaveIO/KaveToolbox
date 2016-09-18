@@ -15,7 +15,7 @@ Contains a list of the released versions with a summary of the main changes in e
 - Migration of anaconda default major version from 2-2.1 to 2-4.1
 - Major overhaul of ROOT dependency/installation structure, ROOT is now installed as an anaconda dependency
   via the NLESC channel. This simplifies KaveToolbox and leads to more portable code.
-- New ROOT and Anaconda installations require more disk space, /opt/anadonda is now 4 GB in size
+- New ROOT and Anaconda installations require more disk space, /opt/anadonda is now 4.5 GB in size
 - Deprecation of Centos6 support. KAVE 2.0 releases use Centos6 as the main test environment.
   KAVE 3.0 uses Centos7 and Centos6 will still work for most things but is no longer thoroughly tested.
 - Now uses a requirements file for pip package installation instead of a custom script, custom pip
@@ -28,13 +28,13 @@ Notable changes/improvements:
 - We perform tests and release our software also as docker containers, see http://hub.docker.com/r/kave/kavetoolbox
   The dockers are built for three OS flavours, ubuntu14 ubuntu16 and centos7
   The dockers are build for two configurations, node and workstation
+- allow installation of python3 anaconda, to do this, set cnf.conda.python=3 in /etc/kave/CustomInstall.py
 
 Minor improvements:
 - add pip library mock, coverage, modernize, future, pylint
 - begin python3 compatibility changes (python 2 still default version)
 - reduction in usage of temporary space for large installations (kettle, eclipse)
 - better detection of status of installation of component packages to skip installations
-- allow installation of python3 anaconda, to do this, set cnf.conda.python=3 in /etc/kave/CustomInstall.py
 
 ## v2.2-Beta
 - September 2016
