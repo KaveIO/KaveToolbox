@@ -26,11 +26,9 @@ from dockerbase import DockerRun
 class TestLocalDocker(unittest.TestCase):
     start = "ubuntu:14.04"
     verbose = False
-    script = ["ls -l /opt/hostktb",
-              "apt-get update",
-              "apt-get install -y wget curl",
-              "apt-get install -y python python-dev",
-              "/opt/hostktb/scripts/KaveInstall",
+    os_script = {"ubuntu" : ["apt-get update", "apt-get install -y wget curl python python-dev"],
+                 "centos" : ["yum clean all", "yum -y install wget curl python python-dev"]}
+    script = ["ls -l /opt/hostktb", "/opt/hostktb/scripts/KaveInstall",
               "/opt/KaveToolbox/pro/tests/test.sh /opt/KaveToolbox/pro/tests/installed/all.py"]
 
     def runTest(self):
@@ -52,7 +50,7 @@ class TestLocalDocker(unittest.TestCase):
                        ["-v", topdir + ":/opt/hostktb:ro",
                         "-v", logdir + ":" + logdir],
                        stdout=stdout, stderr=stderr) as dock:
-            for cmd in self.script:
+            for cmd in self.os_script[self.start.split(':')[0]] + self.script:
                 print cmd
                 dock.run(cmd, logfile=logfile)
         result = ""

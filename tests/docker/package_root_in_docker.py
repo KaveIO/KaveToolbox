@@ -23,9 +23,6 @@ from localdocker import TestLocalDocker
 
 class PackageRoot(TestLocalDocker):
     script = ["ls -l /opt/hostktb",
-              "apt-get update",
-              "apt-get install -y wget curl",
-              "apt-get install -y python python-dev",
               "mkdir -p /etc/kave",
               "echo 'import kavedefaults as cnf; cnf.root.options[\"Strategy\"] "
               + "= \"Compile\";' > /etc/kave/CustomInstall.py",

@@ -21,6 +21,7 @@ conda.py module: installs anaconda python
 """
 import os
 from kaveinstall import Component
+from kaveinstall import fromKPMGrepo
 from kaveinstall import linuxVersion
 from sharedcomponents import epel
 
@@ -47,11 +48,42 @@ class Conda(Component):
         os.system("chmod a+x " + dest)
         # install in batch mode to the requested directory
         self.run(dest + " -b -p " + self.installDirVersion)
+        # If a specific python version is required, update now
         # patch for libstdc6, anaconda version not latest version
         self.fixstdc(False)
         self.buildenv()
+        if '.' in str(self.python):
+            # Attempt to update to this python version
+            self.run("bash -c 'source " + self.toolbox.envscript()
+                     + " > /dev/null ; conda update --all python="
+                     + str(self.python) + "  --yes;'")
 
-conda = Conda(cname="anaconda")
+    def fill_src(self):
+        """
+        Method to fill the src_from in case it must be logical,
+        modified to add 2 or 3 to name of file, to match python version for anaconda
+        """
+        if self.src_from is None:
+            return False
+        if type(self.src_from) is list:
+            # fill version with self.version if suffix is specified but not version
+            osf = []
+            for s in self.src_from:
+                if type(s) is dict and 'version' not in s and 'suffix' in s:
+                    s['version'] = self.version
+                if type(s) is dict and 'filename' not in s:
+                    s['filename'] = self.cname + str(self.python).split('.')[0]
+                osf.append(s)
+            self.src_from = [fromKPMGrepo(**s) if type(s) is dict else s for s in osf]
+        elif type(self.src_from) is dict:
+            if 'version' not in self.src_from and 'suffix' in self.src_from:
+                self.src_from['version'] = self.version
+            if 'filename' not in self.src_from:
+                self.src_from['filename'] = self.cname + str(self.python).split('.')[0]
+            self.src_from = fromKPMGrepo(**self.src_from)
+        return True
+
+conda = Conda(cname="Anaconda")
 conda.children = {"Centos6": [epel], "Centos7": [epel]}
 conda.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                          'yum -y install libffi* cyrus-sasl* geos*']}
@@ -67,21 +99,19 @@ conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip 
                                  "pip install pymongo tqdm watermark dotenv cookiecutter",
                                  "pip install requests",
                                  "pip install --upgrade requests",
-                                 "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi",
-                                 " if [  ! -z \"$ROOTSYS\" ] ; then pip install rootpy ; pip install root_numpy;"
-                                 + " pip install git+https://github.com/ibab/root_pandas; fi "]}
+                                 "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi"]}
 conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu14"] = conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu16"] = conda.postwithenv["Ubuntu14"]
 conda.doInstall = True
-conda.freespace = 1500
+conda.freespace = 1900
 conda.usrspace = 300
 conda.tempspace = 300
 conda.installSubDir = "anaconda"
-conda.version = "2.4.1"
+conda.python = 2
+conda.version = "4.1.1"
 conda.src_from = [{"arch": "noarch", "suffix": "-Linux-x86_64.sh"},
-                  "https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3"
-                  ".ssl.cf1.rackcdn.com/Anaconda2-2.4.1-Linux-x86_64.sh"]
+                  "https://repo.continuum.io/archive/Anaconda2-4.1.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIRVERSION%%"
 # Allow mixed 1.X/2.X versions

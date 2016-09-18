@@ -17,7 +17,7 @@
 #
 ##############################################################################
 """
-root.py module: installs root
+root.py module: installs root on top of anaconda :)
 """
 import os
 import sys
@@ -48,104 +48,19 @@ glewdev.version = "1.5.5-1"
 glewdev.pre = {"Centos6": ["yum -y install mesa-libGLU-devel"]}
 glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
 
-
 class RootComponent(Component):
-
-    def compile(self):
-        """
-        All the necessary commands to  compile root locally
-        """
-        if self.options["LowMemoryMode"]:
-            print "Compiling ROOT in low memory mode"
-            for afile in ["etc/vmc/Makefile.linuxx8664gcc", "config/Makefile.linuxx8664gcc"]:
-                f = open(afile)
-                l = f.read().replace(" -pipe ", " ")
-                f.close()
-                f = open(afile, "w")
-                f.write(l)
-                f.close()
-        # patch TMVA::RuleFitParams::CalcFStar function to compile with GCC 5 (C++ 11 enabled)
-        self.run("sed -i -e 's/isnan(/TMath::IsNaN(/' tmva/src/RuleFitParams.cxx")
-        # need first to compile without python, and then against anaconda python
-        self.run("./configure " + self.options["conf"][linuxVersion].replace("--enable-python", ""))
-        print "Compiling, may take some time!"
-        self.run("make " + self.makeopts)
-        # testing
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + "; ./configure " + self.options["conf"][linuxVersion] + "'")
-        print "Recompile with python"
-        self.run("bash -c 'source " + self.toolbox.envscript() + "; make " + self.makeopts + "'")
-        return
-
     def script(self):
-        for ap in sys.path:
-            if conda.installSubDir in ap:
-                self.bauk(
-                    "Cannot compile ROOT because you have already inserted anaconda onto your python path. Please "
-                    "touch ~/.nokaveEnv, begin a new shell, and try again")
-        # if not test:
-        arch_url = li.fromKPMGrepo("root_" + self.version + "_" + linuxVersion.lower() + ".tar.gz")
-        noarch_url = li.fromKPMGrepo("root_" + self.version + "_noarch.tar.gz", arch="noarch")
-        if self.options["Strategy"] == "Default" or self.options["Strategy"] == "Copy":
-            if arch_url:
-                self.options["Strategy"] = "Copy"
-            else:
-                print ("The version you have requested is not available precompiled for this OS,"
-                       + "I will try to compile from source")
-                self.options["Strategy"] = "Compile"
-
-        if self.options["Strategy"] == "Copy":
-            self.src_from = arch_url
-        elif self.options["Strategy"] == "Compile" and noarch_url:
-            self.src_from = noarch_url
-        elif self.options["Strategy"] == "Compile":
-            self.src_from = self.src_from + "root_" + self.options["Version"] + ".source.tar.gz"
-        else:
-            self.bauk(
-                "Strategy can either be Default, Compile OR Copy only. Compile takes the source from the root "
-                "website, Copy takes the precompiled version from our deployment area, default first tries the copy, "
-                "then the compile")
-        dest = "root.tar.gz"
-        # copy to tmp for unpacking
-        self.copy(self.src_from, dest)
-        # untar, move to correct location and clean
-        self.run("tar xzf " + dest)
-        os.system("mkdir -p " + os.sep.join(self.installDirVersion.split(os.sep)[:-1]))
-        os.system("mv root " + self.installDirVersion)
-        os.chdir(self.installDirVersion)
-        if self.options["Strategy"] == "Compile":
-            self.compile()
-            os.chdir(self.tmpdir)
-        os.chdir(self.tmpdir)
-        for package in self.options["pip"]:
-            self.run(
-                "bash -c 'source " + self.toolbox.envscript() + ";"
-                + " source " + self.installDirVersion + "/bin/thisroot.sh;"
-                + " pip install " + package + "'"
-            )
-        # force fixing of stdlib++ here if necessary
-        conda.fixstdc(False)
-        return
-
+        self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; conda config --add channels NLESC;'")
+        self.run("bash -c 'source " + self.toolbox.envscript()
+                 + " > /dev/null ; conda config --add channels https://conda.anaconda.org/nlesc/label/dev;'")
+        self.run("bash -c 'source " + self.toolbox.envscript()
+                 + " > /dev/null ; conda install root=" + self.version + " --yes;'")
+        self.run("bash -c 'source " + self.toolbox.envscript()
+                 + " > /dev/null ; conda install rootpy root-numpy root_pandas  --yes;'")
 
 root = RootComponent("root")
 root.doInstall = True
-root.installSubDir = "root"
-root.version = "v5.34.36"
-root.options = {"Strategy": "Default",
-                "LowMemoryMode": False,
-                "conf": {
-                    "Centos7": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
-                               "--enable-mathmore --fail-on-missing",
-                    "Centos6": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit  "
-                               "--enable-mathmore --fail-on-missing",
-                    "Ubuntu14": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
-                                "--enable-mathmore --fail-on-missing",
-                    "Ubuntu16": "linuxx8664gcc --enable-python --enable-minuit2 --enable-roofit --enable-cxx11 "
-                                "--enable-mathmore --fail-on-missing"},
-                "pip": ["root_numpy", "git+https://github.com/ibab/root_pandas", "rootpy"]
-                }
-root.src_from = "ftp://root.cern.ch/root/"
+root.version = "6.04"
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
@@ -173,29 +88,19 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                          " glew-utils libc6-dev-i386"
                          ]
             }
-root.children = {"Centos6": [glew, glewdev],
-                 "Centos7": [],
-                 "Ubuntu14": [libpng],
-                 "Ubuntu16": [libpng]
+root.children = {"Centos6": [glew, glewdev, conda],
+                 "Centos7": [conda],
+                 "Ubuntu14": [libpng, conda],
+                 "Ubuntu16": [libpng, conda]
                  }
-root.freespace = 750
+root.freespace = 2048
 root.usrspace = 300
-root.tempspace = 500
+root.tempspace = 50
 root.env = """
-#enable the most recent root installation
-# Allow mixed 1.X/2.X versions
-
-rt="%%INSTALLDIRVERSION%%"
-if [ "$pro" == 'yes' ]; then
-  rt="%%INSTALLDIRPRO%%"
-elif [ -z "$pro" ]; then
-  rt="%%INSTALLDIRPRO%%"
-fi
-if [ -e "$rt"/bin/thisroot.sh ]; then
-    source "$rt"/bin/thisroot.sh
+if [ -e "$ana"/bin/thisroot.sh ]; then
+    source "$ana"/bin/thisroot.sh
 fi
 """
-root.tests = [('which root', 0, '%%INSTALLDIRVERSION%%/bin/root\n', ''),
-              ("python -c \"import ROOT; ROOT.TBrowser();\"", 0, '', '')]
+root.tests = [("python -c \"import ROOT; import root_numpy; ROOT.TBrowser();\"", 0, '', '')]
 
 __all__ = ["root"]

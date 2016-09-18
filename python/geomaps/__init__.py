@@ -63,7 +63,7 @@ def add_copyright(name, axes, side=None):
             axes.text(0.5, 0, 'Postcode Data: Geodan', horizontalalignment='left', verticalalignment='bottom',
                       transform=axes.transAxes, fontsize=20, bbox=props)
     else:
-        print 'Copyright warning: Wrong name given.'
+        print('Copyright warning: Wrong name given.')
 
 
 def plot_number(df_tmp, min, max, plot_col, item, **kwargs):
@@ -206,8 +206,8 @@ def plotter(df_merge, iter_column, plot_col, **kwargs):
     for item in df_merge[iter_column].unique():
         df_tmp = df_merge[df_merge[iter_column] == item]
         if len(df_tmp) < 3:
-            print 'Warning: Invalid items to plot entered, skipping:', item
-            print df_tmp
+            print('Warning: Invalid items to plot entered, skipping:', item)
+            print(df_tmp)
             break
         else:
             if df_tmp[plot_col].dtype == 'float' or df_tmp[plot_col].dtype == 'int':
@@ -217,10 +217,10 @@ def plotter(df_merge, iter_column, plot_col, **kwargs):
                 missing = plot_color(df_tmp, plot_col, item, **kwargs)
                 return_val = 'Color'
             else:
-                print 'Input format erroneous.'
+                print('Input format erroneous.')
                 return_val = 0
     if missing:
-        print 'Warning: missing data at:', missing
+        print('Warning: missing data at:', missing)
     # NB!!! Now it only returns the last return_val, thats not optimal.
     return return_val
 
@@ -267,7 +267,7 @@ def scatter(postcodes, values, **kwargs):
         raise KeyError('postcodes and values must be of the same length')
     missing = [postcode for postcode in postcodes if postcode not in postaldata.postcode.values]
     if len(missing):
-        print 'Warning: Certain postcodes will not be plotted:', missing
+        print('Warning: Certain postcodes will not be plotted:', missing)
     df = pd.DataFrame()
     df['postcode'] = postcodes
     df['mapped'] = values
@@ -346,7 +346,7 @@ def path(postcodes, **kwargs):
         postaldata = postaldata.drop_duplicates(['XCOORD', 'YCOORD', 'PC4CODE']).reset_index(drop=True)
     missing = [postcode for postcode in postcodes if postcode not in postaldata.PC4CODE.values]
     if len(missing):
-        print 'Warning: Certain postcodes will not be plotted:', missing
+        print('Warning: Certain postcodes will not be plotted:', missing)
     df = pd.DataFrame()
     df['postcode'] = postcodes
     merged = postaldata.merge(df, how='inner', left_on=['PC4CODE'], right_on=['postcode'])
@@ -357,7 +357,7 @@ def path(postcodes, **kwargs):
         kwargs.pop('axes', None)
         ax.plot(xs, ys, format, **kwargs)
     else:
-        print 'Due to the way MatPlotLib works you have to specify on which Axes you want to plot the Path (in kwargs).'
+        print('Due to the way MatPlotLib works you have to specify on which Axes you want to plot the Path (in kwargs).')
 
 
 def postal_map(postcodes, values, location='NL', city=0, **kwargs):
@@ -426,9 +426,9 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
 
     # Location slicing.
     if location.upper() != 'NL':
-        print 'INFO: Applying selection on location:', location.title()
+        print('INFO: Applying selection on location:', location.title())
         if location.title() in ['Utrecht', 'Groningen']:
-            print 'Did you mean the city of the province? For city, set \'city=1\''
+            print('Did you mean the city of the province? For city, set \'city=1\'')
             if city == 1:
                 pc_merge = pc_merge[pc_merge['WOONPLAATS'] == location.upper()]
             else:
@@ -439,7 +439,7 @@ def postal_map(postcodes, values, location='NL', city=0, **kwargs):
             elif location.upper() in pc_merge.WOONPLAATS.unique():
                 pc_merge = pc_merge[pc_merge['WOONPLAATS'] == location.upper()]
             else:
-                print 'Warning: Invalid location used. Location is ignored.'
+                print('Warning: Invalid location used. Location is ignored.')
 
     # Range for the plot.
     minx = pc_merge['X'].min()
@@ -567,14 +567,14 @@ def world_map(countries, values, location=['all'], **kwargs):
     # Location slicing.
     if location[0].lower() != 'all':
         location = [loc.title() for loc in location]
-        print 'INFO: Applying selection on location.'
+        print('INFO: Applying selection on location.')
         if location[0].upper() in pc_merge.code.unique():
             location = [loc.upper() for loc in location]
             pc_merge = pc_merge[pc_merge['code'].isin(location)]
         elif location[0].title() in pc_merge.continent.unique():
             pc_merge = pc_merge[pc_merge['continent'].isin(location)]
         else:
-            print 'Warning: Invalid location used. Location is ignored.'
+            print('Warning: Invalid location used. Location is ignored.')
 
     # Range for the plot.
     minx = pc_merge['X'].min()
@@ -699,11 +699,11 @@ def US_map(states, values, location=['all'], **kwargs):
     # Location slicing.
     if location[0].lower() != 'all':
         location = [loc.upper() for loc in location]
-        print 'INFO: Applying selection on location.'
+        print('INFO: Applying selection on location.')
         if location[0].upper() in state_merge.StateCode.unique():
             state_merge = state_merge[state_merge['StateCode'].isin(location)]
         else:
-            print 'Warning: Invalid location used. Location is ignored.'
+            print('Warning: Invalid location used. Location is ignored.')
 
     # Range for the plot.
     minx = state_merge['X'].min()
