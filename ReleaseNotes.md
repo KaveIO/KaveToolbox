@@ -8,7 +8,7 @@ Contains a list of the released versions with a summary of the main changes in e
 ## v3.0-Beta
 - September 2016
 
-**MAJOR RELEASE** not guarnateed backwards compatible
+**MAJOR RELEASE** not guaranteed backwards compatible
 
 **MAJOR CHANGES**
 - Migration of default ROOT major version from ROOT 5.36 to ROOT 6.04
@@ -23,6 +23,7 @@ Contains a list of the released versions with a summary of the main changes in e
 - Change of default behaviour for Kettle: not installed by default. Pentaho kettle continues to grow in size
   and is now (in v6) prohibitively large to be installed along side KaveToolbox by default especially considering
   dockerization of KaveToolbox, where the default 10GB / is no longer sufficient
+- With the new root/anaconda installation, ubuntu16 no longer supports pygsl 2.2.0, only 2.1.1
 
 Notable changes/improvements:
 - We perform tests and release our software also as docker containers, see http://hub.docker.com/r/kave/kavetoolbox
