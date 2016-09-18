@@ -48,7 +48,7 @@ class EclipseComponent(Component):
             self.run("echo '-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false' >> "
                      + self.installDir + "/eclipse.ini")
         os.chdir(self.tmpdir)
-        self.run("rm -rf "  + self.installDirVersion.rstrip('/') + '_tmp')
+        self.run("rm -rf " + self.installDirVersion.rstrip('/') + '_tmp')
         return
 
 

@@ -20,6 +20,9 @@ Contains a list of the released versions with a summary of the main changes in e
   KAVE 3.0 uses Centos7 and Centos6 will still work for most things but is no longer thoroughly tested.
 - Now uses a requirements file for pip package installation instead of a custom script, custom pip
   packages can be obtained by creating the contents of /etc/kave/requirements.txt before install
+- Change of default behaviour for Kettle: not installed by default. Pentaho kettle continues to grow in size
+  and is now (in v6) prohibitively large to be installed along side KaveToolbox by default especially considering
+  dockerization of KaveToolbox, where the default 10GB / is no longer sufficient
 
 Notable changes/improvements:
 - We perform tests and release our software also as docker containers, see http://hub.docker.com/r/kave/kavetoolbox

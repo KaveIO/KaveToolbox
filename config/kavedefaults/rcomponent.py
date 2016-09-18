@@ -37,7 +37,7 @@ class RComponent(Component):
     def skipif(self):
         return (conda.installDirVersion in
                 mycmd("bash -c 'source " + self.toolbox.envscript()
-                      +  " > /dev/null ; python -c \"import rpy2; print(rpy2.__file__);\" ;'")[1]
+                      + " > /dev/null ; python -c \"import rpy2; print(rpy2.__file__);\" ;'")[1]
                 )
 
 
@@ -70,7 +70,7 @@ r.postwithenv = {"Centos6": ["conda update conda --yes",
 r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
 r.postwithenv["Ubuntu14"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.postwithenv["Ubuntu16"] = r.postwithenv["Ubuntu14"]
-r.usrspace = 150
+r.usrspace = 125
 r.tempspace = 1
 r.test = [("python -c \"import rpy2;\"", 0, '', '')]
 

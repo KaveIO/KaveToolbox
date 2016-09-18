@@ -357,7 +357,8 @@ def path(postcodes, **kwargs):
         kwargs.pop('axes', None)
         ax.plot(xs, ys, format, **kwargs)
     else:
-        print('Due to the way MatPlotLib works you have to specify on which Axes you want to plot the Path (in kwargs).')
+        print('Due to the way MatPlotLib works you have to specify on '
+              'which Axes you want to plot the Path (in kwargs).')
 
 
 def postal_map(postcodes, values, location='NL', city=0, **kwargs):

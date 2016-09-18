@@ -48,7 +48,9 @@ glewdev.version = "1.5.5-1"
 glewdev.pre = {"Centos6": ["yum -y install mesa-libGLU-devel"]}
 glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
 
+
 class RootComponent(Component):
+
     def script(self):
         self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; conda config --add channels NLESC;'")
         self.run("bash -c 'source " + self.toolbox.envscript()
@@ -61,7 +63,7 @@ class RootComponent(Component):
     def skipif(self):
         return (conda.installDirVersion in
                 mycmd("bash -c 'source " + self.toolbox.envscript()
-                      +  " > /dev/null ; which root ;'")[1]
+                      + " > /dev/null ; which root ;'")[1]
                 )
 
 root = RootComponent("ROOT")

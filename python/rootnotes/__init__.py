@@ -38,6 +38,7 @@ from ROOT import TH1D, TH2D
 
 HISTOCOUNTER = 0
 
+
 def rootv():
     """
     Detect approx running version of ROOT from ROOT package
@@ -46,6 +47,7 @@ def rootv():
         return 5
     else:
         return 6
+
 
 def TH1D(nbinsx=40, xmin=0, xmax=1, title=None, name=None):
     """Helper method for creating 1D histograms
@@ -107,6 +109,7 @@ def display_canvas(canvas):
         display.display(display.Image(filename=file.name, format='png', embed=True))
     else:
         canvas.Draw()
+
 
 def _display_any(obj):
     """Helper method for drawing a ROOT canvas inline, used with python magic functions"""

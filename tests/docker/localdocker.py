@@ -26,8 +26,8 @@ from dockerbase import DockerRun
 class TestLocalDocker(unittest.TestCase):
     start = "ubuntu:14.04"
     verbose = False
-    os_script = {"ubuntu" : ["apt-get update", "apt-get install -y wget curl python python-dev"],
-                 "centos" : ["yum clean all", "yum -y install wget curl python python-devel"]}
+    os_script = {"ubuntu": ["apt-get update", "apt-get install -y wget curl python python-dev"],
+                 "centos": ["yum clean all", "yum -y install wget curl python python-devel"]}
     script = ["ls -l /opt/hostktb", "/opt/hostktb/scripts/KaveInstall",
               "/opt/KaveToolbox/pro/tests/test.sh /opt/KaveToolbox/pro/tests/installed/all.py"]
 

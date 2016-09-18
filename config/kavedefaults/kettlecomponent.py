@@ -23,6 +23,7 @@ from kaveinstall import Component
 from sharedcomponents import java
 import os
 
+
 class Kettle(Component):
 
     def script(self):
@@ -72,12 +73,12 @@ class Kettle(Component):
         f.close()
         self.run("mv data-integration " + self.installDirVersion)
         os.chdir(self.tmpdir)
-        self.run("rm -rf "  + self.installDirVersion.rstrip('/') + '_tmp')
+        self.run("rm -rf " + self.installDirVersion.rstrip('/') + '_tmp')
         return
 
 
 kettle = Kettle("Kettle")
-kettle.doInstall = True
+kettle.doInstall = False
 kettle.freespace = 700
 kettle.usrspace = 50
 kettle.tempspace = 600
@@ -87,7 +88,7 @@ kettle.src_from = [{'filename': "pdi-ce", 'suffix': ".zip", 'arch': "noarch"},
                    "http://downloads.sourceforge.net/project/pentaho/Data%20Integration/5.4/pdi-ce-5.4.0.1-130.zip"
                    ]
 kettle.node = False
-kettle.workstation = True
+kettle.workstation = False
 kettle.pre = {"Centos6": ["yum -y install webkitgtk"],
               "Centos7": ["yum -y install webkitgtk"],
               "Ubuntu14": ["apt-get -y install libwebkitgtk-dev"],

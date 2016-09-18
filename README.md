@@ -53,9 +53,9 @@ Installer for:
 
 * Python through (ana)conda, includes SciPy, numpy, pip etc., (continuum.io)
 * ROOT, CERN's data analysis package (root.cern.ch)
-* Pentaho kettle, graphical process and data management tool (http://community.pentaho.com/projects/data-integration/)
 * R with integration into iPython notebook (http://nbviewer.ipython.org/github/dboyliao/cookbook-code/blob/master/notebooks/chapter07_stats/08_r.ipynb)
 * Additional hadoopy-python modules, dumbo, mrjob, pyleus and pymongo_hadoop (if hadoop is available)
+* Pentaho kettle (only if specifically configured, see ReleaseNotes.md for details), graphical process and data management tool (http://community.pentaho.com/projects/data-integration/)
 * robomongo (only if specifically configured, see ReleaseNotes.md for details)
 
 Examples of:
@@ -112,7 +112,7 @@ Docker:
 We also release the software packaged within docker containers. See http://hub.docker.com/r/kave/kavetoolbox. For example:
 
 ```
-docker run -it kave/kavetoolbox:3.0-Beta.c7.node /bin/bash
+docker run -it kave/kavetoolbox:3.0-Beta-Pre.c7.node /bin/bash
 ```
 
 Installation:

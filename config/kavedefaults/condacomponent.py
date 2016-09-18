@@ -95,7 +95,8 @@ conda.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libffi* "
                          "libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
 conda.pre["Ubuntu16"] = conda.pre["Ubuntu14"] + ['apt-get -y install libstdc++6']
 conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip --yes",
-                                 " if [ -f /etc/kave/requirements.txt ]; then pip install -r /etc/kave/requirements.txt; "
+                                 " if [ -f /etc/kave/requirements.txt ]; "
+                                 "then pip install -r /etc/kave/requirements.txt; "
                                  "else pip install -r " + os.path.dirname(__file__) + '/requirements.txt; fi',
                                  "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi"]}
 conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]

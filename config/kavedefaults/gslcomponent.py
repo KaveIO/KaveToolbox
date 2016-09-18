@@ -63,11 +63,14 @@ gsl2.pre["Ubuntu16"] = gsl2.pre["Ubuntu14"]
 gsl2.postwithenv["Ubuntu16"] = gsl2.postwithenv["Ubuntu14"]
 
 # ######################  pygsl parent ############################
+
+
 class GslComponent(Component):
+
     def skipif(self):
         return (conda.installDirVersion in
                 mycmd("bash -c 'source " + self.toolbox.envscript()
-                      +  " > /dev/null ; python -c \"import pygsl; print(pygsl.__file__);\" ;'")[1]
+                      + " > /dev/null ; python -c \"import pygsl; print(pygsl.__file__);\" ;'")[1]
                 )
 
 gsl = GslComponent("pygsl")
