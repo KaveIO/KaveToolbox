@@ -38,9 +38,9 @@ def pick_components(requested_comps):
     pick components from a list of components
     """
     everything = cnf.ordered_components[:]
+    for _c in everything:
+        _c.constinstdir()
     if len(requested_comps):
-        if 'KaveToolbox' not in requested_comps:
-            cnf.toolbox.constinstdir()
         cnames = [c.cname for c in everything]
         fail = [f for f in requested_comps if f not in cnames]
         if len(fail):
