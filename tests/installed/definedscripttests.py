@@ -88,7 +88,7 @@ if __name__ == "__main__":
     for skind in ['workstation', 'node']:
         if skind in sys.argv:
             kind = skind
-            sys.argv = [s for s in sys.argv if s!=skind]
+            sys.argv = [s for s in sys.argv if s != skind]
     requested_comps = [a for a in sys.argv[1:] if not a.startswith("-")]
     everything = kcf.pick_components(requested_comps)
     # little constructor to make a test with the same name as the component
