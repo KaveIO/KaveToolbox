@@ -83,11 +83,14 @@ if __name__ == "__main__":
     cnf = None
     with open(os.devnull, 'w') as devnull:
         with base.RedirectStdOut(devnull):
+            import kaveconfiguration as kcf
             from kaveconfiguration import cnf
-    if sys.argv[-1] in ['workstation', 'node']:
-        kind = sys.argv[-1]
-    everything = cnf.ordered_components
-    cnf.toolbox.constinstdir()
+    for skind in ['workstation', 'node']:
+        if skind in sys.argv:
+            kind = skind
+            sys.argv = [s for s in sys.argv if s!=skind]
+    requested_comps = [a for a in sys.argv[1:] if not a.startswith("-")]
+    everything = kcf.pick_components(requested_comps)
     # little constructor to make a test with the same name as the component
     for c in everything:
         ct = None

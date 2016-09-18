@@ -39,6 +39,7 @@ gsl1.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; '
                               '(was it skipped?) or turn off pygsl." ; exit 1 ; fi ']
 gsl1.prewithenv["Centos7"] = gsl1.prewithenv["Centos6"]
 gsl1.prewithenv["Ubuntu14"] = gsl1.prewithenv["Centos6"]
+gsl1.prewithenv["Ubuntu16"] = gsl1.prewithenv["Ubuntu14"]
 
 gsl1.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
                                 'print(pkgutil.find_loader(\\"pygsl\\") is not None);"`;'
@@ -47,6 +48,7 @@ gsl1.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
                     }
 gsl1.postwithenv["Centos7"] = gsl1.postwithenv["Centos6"]
 gsl1.postwithenv["Ubuntu14"] = gsl1.postwithenv["Centos6"]
+gsl1.postwithenv["Ubuntu16"] = gsl1.postwithenv["Ubuntu14"]
 gsl1.usrspace = 3
 gsl1.tempspace = 2
 
@@ -78,7 +80,7 @@ gsl.doInstall = True
 gsl.children = {"Centos6": [gsl1],
                 "Centos7": [gsl1],
                 "Ubuntu14": [gsl1],
-                "Ubuntu16": [gsl2]}
+                "Ubuntu16": [gsl1]}
 gsl.tests = [("python -c \"import pygsl;\"", 0, '', '')]
 
 

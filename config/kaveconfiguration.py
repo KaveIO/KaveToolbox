@@ -31,3 +31,23 @@ if os.path.exists('/etc/kave/CustomInstall.py'):
     execfile('/etc/kave/CustomInstall.py')
 else:
     print "no custom configuration found, using defaults"
+
+def pick_components(requested_comps):
+    """
+    pick components from a list of components
+    """
+    everything = cnf.ordered_components[:]
+    if len(requested_comps):
+        if 'KaveToolbox' not in requested_comps:
+            cnf.toolbox.constinstdir()
+        cnames = [c.cname for c in everything]
+        fail = [f for f in requested_comps if f not in cnames]
+        if len(fail):
+            raise NameError("I do not know how to install " + fail.__str__() + " I can only do " + cnames.__str__())
+        everything = [e for e in everything if e.cname in requested_comps]
+        for e in everything:
+            e.doInstall = True
+            e.node = True
+            e.workstation = True
+    return everything
+

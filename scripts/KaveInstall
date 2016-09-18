@@ -19,6 +19,8 @@
 """
 The KaveInstall
 
+usage KaveInstall [options] [components=everything]
+
 This python script uses config/kavedefaults.py to read the configuration of all components,
 reads /etc/kave/CustomInstall.py if it exists to overwrite those components,
 reads /etc/kave/mirrors if it exists for where to find our software.
@@ -49,6 +51,11 @@ options:
    --clean-if-disk-full: attempt to cleanup any KTB installations if the disk is full
    --clean-before: always empty out installation directories before installing new software
    --clean-after: always remove old ins
+
+   Any other options passed on the command line are interpreted as meaning components to explicitly install, e.g.:
+   KaveInstall --quiet #install everything quietly
+   KaveInstall eclipse #install only eclipse
+   this skips any subtleties of workstation or node and always tries to do the install as requested
 
 if installation fails, it may be due to conflicts with a previous install, try touch ~/.nokaveEnv (remove after
 successful install)
@@ -92,6 +99,8 @@ skipIfDiskFull = ("--skip-if-disk-full" in sys.argv)
 cleanIfDiskFull = ("--clean-if-disk-full" in sys.argv)
 cleanBefore = ("--clean-before" in sys.argv)
 cleanAfter = ("--clean-after" in sys.argv)
+requested_comps = [a for a in sys.argv[1:] if not a.startswith("-")]
+
 
 if not quieter:
     print "Welcome to the KAVE installer"
@@ -173,7 +182,11 @@ if workstation:
 else:
     print "configuring node"
 
+# If a person asks explicitly for a package, let them install it
 everything = cnf.ordered_components
+from kaveconfiguration import pick_components
+
+everything =  pick_components(requested_comps)
 
 if not quieter:
     print "options read from configuration file"
@@ -218,6 +231,7 @@ import subprocess as sub
 cmd = ("source " + cnf.toolbox.envscript() + " > /dev/null ;"
        + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/test.sh "
        + os.path.dirname(cnf.toolbox.envscript()) + "/../tests/installed/definedscripttests.py "
+       + ' '.join(requested_comps) + ' '
        + kind + ";"
        )
 p = sub.Popen(["bash", '-c' , cmd]) #, stdout=sub.PIPE, stderr=sub.PIPE)

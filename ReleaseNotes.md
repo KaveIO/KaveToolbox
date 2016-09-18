@@ -29,6 +29,8 @@ Notable changes/improvements:
   The dockers are built for three OS flavours, ubuntu14 ubuntu16 and centos7
   The dockers are build for two configurations, node and workstation
 - allow installation of python3 anaconda, to do this, set cnf.conda.python=3 in /etc/kave/CustomInstall.py
+- allow later manual installation of components with command line arguements
+  'KaveInstall eclipse' would now only install the eclipse component, skipping the rest.
 
 Minor improvements:
 - add pip library mock, coverage, modernize, future, pylint

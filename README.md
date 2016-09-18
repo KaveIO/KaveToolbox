@@ -4,7 +4,7 @@ KaveToolbox
 Data analytics toolkit part of the KAVE, installed with [AmbariKave](http://github.com/KaveIO/AmbariKave), and also installable stand-alone http://beta.kave.io, a wiki for the entire KAVE is maintained on the cluster installer, [AmbariKave wiki](http://github.com/KaveIO/AmbariKave/wiki)
 
 
-Installing more modules on top of kave toolbox as the root user:
+Installing more pip modules on top of kave toolbox as the root user:
 ----------------------------------------------------------------
 
 Examples:
@@ -181,6 +181,7 @@ And/or visit http://nbviewer.ipython.org/
   * take a look at the --help for the KaveInstall script for more details.
   * Examples include automatically cleaning old versions from /opt. (--clean-after)
   * Examples include completely cleaning directories before install from /opt (--clean-before)
+  * If you want to only select a certain list of components to install, this is possible with command-line arguments, e.g. KaveInstall KaveToolbox anaconda will only install the KaveToolbox scripts and anaconda python, but nothing else
 
 
 Troubleshooting:
@@ -205,6 +206,7 @@ Re-installing:
 * To fix some component within a broken installation, delete any installed directories in /opt (or whatever you specified them to be) and re-run the installer, it will only install those parts you either deleted or didn't work the first time.
 * To perform a complete re-install remove relevent directories from /opt, like /opt/root, /opt/kettle etc. or add the --clean-before flag to the script
 * To re-install only the core KaveToolbox with any new features, see Updating
+* To re-install specific components, add the component name as an arguement ' KaveInstall eclipse kettle --clean-before '
 
 
 Updating:
