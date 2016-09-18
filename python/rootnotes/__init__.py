@@ -38,6 +38,14 @@ from ROOT import TH1D, TH2D
 
 HISTOCOUNTER = 0
 
+def rootv():
+    """
+    Detect approx running version of ROOT from ROOT package
+    """
+    if ROOT.module.__version__ < "8":
+        return 5
+    else:
+        return 6
 
 def TH1D(nbinsx=40, xmin=0, xmax=1, title=None, name=None):
     """Helper method for creating 1D histograms
@@ -93,18 +101,23 @@ def canvas(name="icanvas", size=(800, 600)):
 
 def display_canvas(canvas):
     """Helper method for drawing a ROOT canvas inline, used with python magic functions"""
-    file = tempfile.NamedTemporaryFile(suffix=".png")
-    canvas.SaveAs(file.name)
-    display.display(display.Image(filename=file.name, format='png', embed=True))
-
+    if rootv == 5:
+        file = tempfile.NamedTemporaryFile(suffix=".png")
+        canvas.SaveAs(file.name)
+        display.display(display.Image(filename=file.name, format='png', embed=True))
+    else:
+        canvas.Draw()
 
 def _display_any(obj):
     """Helper method for drawing a ROOT canvas inline, used with python magic functions"""
-    file = tempfile.NamedTemporaryFile(suffix=".png")
-    obj.Draw()
-    ROOT.gPad.SaveAs(file.name)
-    ip_img = display.Image(filename=file.name, format='png', embed=True)
-    return ip_img._repr_png_()
+    if rootv == 5:
+        file = tempfile.NamedTemporaryFile(suffix=".png")
+        obj.Draw()
+        ROOT.gPad.SaveAs(file.name)
+        ip_img = display.Image(filename=file.name, format='png', embed=True)
+        return ip_img._repr_png_()
+    else:
+        obj.Draw()
 
 ip = get_ipython()
 png_formatter = None

@@ -34,7 +34,10 @@ class EclipseComponent(Component):
     def script(self):
         dest = "myeclipse.tar.gz"
         self.copy(self.src_from, dest)
-        self.run("tar xzf " + dest)
+        # eclipse is massive, so untar directly next to destination folder to save space
+        self.run("mkdir -p " + self.installDirVersion.rstrip('/') + '_tmp')
+        os.chdir(self.installDirVersion.rstrip('/') + '_tmp')
+        self.run("tar xzf " + self.tmpdir + '/' + dest)
         if os.path.exists("eclipse"):
             os.system("mv eclipse " + self.installDirVersion)
         elif os.path.exists("opt/eclipse"):
@@ -44,6 +47,8 @@ class EclipseComponent(Component):
         if linuxVersion == "Centos6":
             self.run("echo '-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false' >> "
                      + self.installDir + "/eclipse.ini")
+        os.chdir(self.tmpdir)
+        self.run("rm -rf "  + self.installDirVersion.rstrip('/') + '_tmp')
         return
 
 
@@ -59,7 +64,7 @@ eclipse.version = "1.3"
 eclipse.src_from = {"arch": "noarch", "suffix": ".tar.gz"}
 eclipse.freespace = 500
 eclipse.usrspace = 150
-eclipse.tempspace = 1000
+eclipse.tempspace = 500
 eclipse.env = """
 ecl="%%INSTALLDIRVERSION%%"
 # Allow mixed 1.X/2.X versions

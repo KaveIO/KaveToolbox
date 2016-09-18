@@ -19,7 +19,8 @@
 """
 pygsl.py module: installs pygsl
 """
-from kaveinstall import Component
+from kaveinstall import Component, mycmd
+from condacomponent import conda
 
 # ######################  pygsl 2.1 ############################
 gsl1 = Component("pygsl")
@@ -31,7 +32,7 @@ gsl1.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl1.pre["Centos7"] = gsl1.pre["Centos6"]
 gsl1.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
 gsl1.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; '
-                              'print pkgutil.find_loader(\\"numpy\\") is not None;"`;'
+                              'print(pkgutil.find_loader(\\"numpy\\") is not None);"`;'
                               ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed,'
                               ' so will not install pygsl,'
                               ' turn on the anaconda installation! '
@@ -40,7 +41,7 @@ gsl1.prewithenv["Centos7"] = gsl1.prewithenv["Centos6"]
 gsl1.prewithenv["Ubuntu14"] = gsl1.prewithenv["Centos6"]
 
 gsl1.postwithenv = {"Centos6": [' isinst=`python -c "import pkgutil; '
-                                'print pkgutil.find_loader(\\"pygsl\\") is not None;"`;'
+                                'print(pkgutil.find_loader(\\"pygsl\\") is not None);"`;'
                                 ' if [ ${isinst} == "False" ]; then cd pygsl-*/; '
                                 'python setup.py config; python setup.py build; python setup.py install ; fi ']
                     }
@@ -62,7 +63,14 @@ gsl2.pre["Ubuntu16"] = gsl2.pre["Ubuntu14"]
 gsl2.postwithenv["Ubuntu16"] = gsl2.postwithenv["Ubuntu14"]
 
 # ######################  pygsl parent ############################
-gsl = Component("pygsl")
+class GslComponent(Component):
+    def skipif(self):
+        return (conda.installDirVersion in
+                mycmd("bash -c 'source " + self.toolbox.envscript()
+                      +  " > /dev/null ; python -c \"import pygsl; print(pygsl.__file__);\" ;'")[1]
+                )
+
+gsl = GslComponent("pygsl")
 gsl.doInstall = True
 gsl.children = {"Centos6": [gsl1],
                 "Centos7": [gsl1],

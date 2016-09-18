@@ -528,6 +528,13 @@ class Component(object):
             self.installDirVersion = (self.installDir + os.sep + self.version).replace("//", "/")
             self.installDirPro = (self.installDir + os.sep + 'pro').replace("//", "/")
 
+    def skipif(self):
+        """
+        Rules which cause the skipping of installation of a package
+        by default, False
+        """
+        return False
+
     def install(self, kind="node", tmpdir=None, loud=True):
         """
         Used by the installer, eventually calls the script method
@@ -561,6 +568,11 @@ class Component(object):
                 print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
                 print "remove", self.installDir, "if you want to force re-install"
                 return False
+        # additional user-defined skipping
+        if self.skipif():
+            print "Skipping", self.cname, "because a custom skip rule asked to, e.g. already installed"
+            self.buildenv()
+            return self.__install_end_actions()
         ##############################
         # Check disk space
         ##############################
@@ -604,6 +616,7 @@ class Component(object):
         ##############################
         # run prerequisites
         ##############################
+        print "Installing", self.cname
         if self.pre is not None and linuxVersion in self.pre:
             for cmd in self.pre[linuxVersion]:
                 self.run(cmd)

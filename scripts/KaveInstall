@@ -78,6 +78,9 @@ cnf.root.options["conf"]["Centos6"]=""linuxx8664gcc --enable-python --enable-min
 --fail-on-missing""
 #-----------------
 
+For modifying pip packages, you can create/edit the content of /etc/kave/requirements.txt, start from
+the contents of requirements.txt in the config/kavedefaults folder
+
 """
 
 import os

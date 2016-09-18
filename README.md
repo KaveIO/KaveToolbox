@@ -85,8 +85,8 @@ KaveToolbox recognises two types of distribution:
 Minimum Requirements:
 ---------------------
 
-* Node: 2.5 GB of disk space for the software, additional 3 GB temp space needed during installation
-* Workstation: 4 GB of disk space for the software, additional 3 GB temp space needed during installation
+* Node: 5 GB of disk space for the software, additional 2 GB temp space needed during installation
+* Workstation: 7 GB of disk space for the software, additional 2 GB temp space needed during installation
 
 * Node: 1 core 2GB of RAM
 * Workstation: 2 core 4GB RAM
@@ -106,10 +106,19 @@ Recommended workstation:
 * GB Ethernet with high upload bandwidth for VNC connections
 * We recommend that any servers/services requiring 100% uptime are not run on the analysis workstation (e.g. Hue/Ganglia/nagios/ldap) since analysis users will have erratic usage with a very high peak usage, we recommend running such services on dedicated servers in the network.
 
+Docker:
+----------
+
+We also release the software packaged within docker containers. See http://hub.docker.com/r/kave/kavetoolbox. For example:
+
+```
+docker run -it kave/kavetoolbox:3.0-Beta.c7.node /bin/bash
+```
+
 Installation:
 -------------
 
-You have two choices:
+When making a local installation you have two choices:
 
 1. Installing a released version from the repos server
 2. Installing the head, branch or specific tag from GIT
@@ -157,6 +166,7 @@ And/or visit http://nbviewer.ipython.org/
   * Default will not overwrite existing packages
   * Default configurations are well-tested, read all the configurations from config/kavedefaults.py
   * To override configurations, create a simple python file in /etc/kave/CustomInstall.py
+  * To override pip requirements, create and edit the fine /etc/kave/requirements.txt
   * this python should be used to logically overwrite any property of a service appearing in kavedefaults.py and will not be over-written on re-install/upgrade
   * For an example and more information call ./kavetoolbox/scripts/KaveInstall --help
 
@@ -191,7 +201,7 @@ Re-installing:
 
 * Re-running the installer over a pre-existing installation will only install new software and pick up new configuration changes.
 * New software will be installed into versioned directories, to make it easier to track
-* In case of an error during installation the install will stop, to complete an incomplete installation, re-run the installer,
+* In case of an error during installation the install will stop, to complete an incomplete installation, re-run the installer, this will not delete any partially created directories, you will need to do that yourself
 * To fix some component within a broken installation, delete any installed directories in /opt (or whatever you specified them to be) and re-run the installer, it will only install those parts you either deleted or didn't work the first time.
 * To perform a complete re-install remove relevent directories from /opt, like /opt/root, /opt/kettle etc. or add the --clean-before flag to the script
 * To re-install only the core KaveToolbox with any new features, see Updating
@@ -262,7 +272,7 @@ Test if it works?
 Coming Soon
 -----------
 
-Releases as Docker containers
+Migration to python3 as default
 
 Internet during installation, firewalls and nearside cache/mirror options
 -------------------------------------------------------------------------
@@ -337,14 +347,6 @@ Check /etc/yum.conf and see if there is anything your are ignoring or forbidding
 This is gnome trying to spawn an x window to have you enter your password. Work around by:
 
 unset SSH_ASKPASS
-
-## (Developer) How to add a new precompiled root version
-
-1. Install KaveToolbox with anaconda and that root version onto one a machine running a supported OS
-2. cp -r /opt/root/version /some/temp/dir/root
-3. cd /some/temp/dir
-4. tar cvzf root\_version\_os.tar.gz root
-5. Upload tar to the repo server into the correct directory
 
 ## Is it possible to install the software without root/superuser privilages?
 

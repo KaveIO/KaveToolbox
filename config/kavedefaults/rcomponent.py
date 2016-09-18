@@ -19,7 +19,7 @@
 """
 rcomponent.py module: installs r
 """
-from kaveinstall import Component
+from kaveinstall import Component, mycmd
 from sharedcomponents import epel, rhrepo
 from condacomponent import conda
 
@@ -33,6 +33,12 @@ class RComponent(Component):
     def script(self):
         conda.fixstdc(False)
         return True
+
+    def skipif(self):
+        return (conda.installDirVersion in
+                mycmd("bash -c 'source " + self.toolbox.envscript()
+                      +  " > /dev/null ; python -c \"import rpy2; print(rpy2.__file__);\" ;'")[1]
+                )
 
 
 r = RComponent("R")
@@ -56,7 +62,11 @@ r.pre = {"Centos6": ['yum -y groupinstall "Development Tools" "Development Libra
          }
 r.pre["Ubuntu16"] = r.pre["Ubuntu14"]
 r.children = {"Centos6": [epel], "Centos7": [epel, rhrepo]}
-r.postwithenv = {"Centos6": ["conda update conda --yes; pip install rpy2"]}
+# Readline issue reported here: https://github.com/ContinuumIO/anaconda-issues/issues/152
+r.postwithenv = {"Centos6": ["conda update conda --yes",
+                             "conda remove --yes --force readline",
+                             "pip install readline",
+                             "pip install rpy2"]}
 r.postwithenv["Centos7"] = r.postwithenv["Centos6"]
 r.postwithenv["Ubuntu14"] = ["conda update conda --yes; conda install -c asmeurer rpy2 --yes"]
 r.postwithenv["Ubuntu16"] = r.postwithenv["Ubuntu14"]

@@ -43,6 +43,9 @@ cnf.conda.installSubDir='whatever_bro'
 cnf.root.options["conf"]["Centos6"]=cnf.root.options["conf"]["Centos6"] + " --enable-cxx11"
 --fail-on-missing""
 #-----------------
+
+For modifying pip packages, you can create/edit the content of /etc/kave/requirements.txt, start from
+the contents of requirements.txt in this folder
 """
 
 import kaveinstall as li
@@ -58,6 +61,6 @@ from kettlecomponent import kettle
 from rcomponent import r
 
 
-ordered_components = [toolbox, eclipse, conda, gsl, hpy, root, kettle, robo, r]
+ordered_components = [toolbox, eclipse, kettle, conda, hpy, root, robo, r, gsl]
 for __c in ordered_components[1:]:
     __c.register_toolbox(toolbox)

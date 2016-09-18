@@ -5,7 +5,8 @@ complete instructions for installation on Centos6/7 or Ubuntu14
 
 To overwrite these instructions in the case of local variations we don't recommend you to edit this file.
 Instead we suggest to create/add configurations to /etc/kave/CustomInstall.py
-
+For modifying pip packages, you can create/edit the content of /etc/kave/requirements.txt, start from
+the contents of requirements.txt in this folder
 e.g. adding extra entries like:
 
 ```

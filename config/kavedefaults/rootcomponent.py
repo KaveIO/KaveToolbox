@@ -22,7 +22,7 @@ root.py module: installs root on top of anaconda :)
 import os
 import sys
 import kaveinstall as li
-from kaveinstall import Component, linuxVersion
+from kaveinstall import Component, linuxVersion, mycmd
 from condacomponent import conda
 
 # Ubuntu14 fix libpng
@@ -58,7 +58,13 @@ class RootComponent(Component):
         self.run("bash -c 'source " + self.toolbox.envscript()
                  + " > /dev/null ; conda install rootpy root-numpy root_pandas  --yes;'")
 
-root = RootComponent("root")
+    def skipif(self):
+        return (conda.installDirVersion in
+                mycmd("bash -c 'source " + self.toolbox.envscript()
+                      +  " > /dev/null ; which root ;'")[1]
+                )
+
+root = RootComponent("ROOT")
 root.doInstall = True
 root.version = "6.04"
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
@@ -95,7 +101,7 @@ root.children = {"Centos6": [glew, glewdev, conda],
                  }
 root.freespace = 2048
 root.usrspace = 300
-root.tempspace = 50
+root.tempspace = 10
 root.env = """
 if [ -e "$ana"/bin/thisroot.sh ]; then
     source "$ana"/bin/thisroot.sh

@@ -18,6 +18,8 @@
 ##############################################################################
 """
 conda.py module: installs anaconda python
+For modifying pip packages, you can create/edit the content of /etc/kave/requirements.txt, start from
+the contents of requirements.txt in this folder
 """
 import os
 from kaveinstall import Component
@@ -29,6 +31,7 @@ from sharedcomponents import epel
 class Conda(Component):
 
     def fixstdc(self, fail=True):
+        # fix wrong stdc++ linking on ubuntu16
         if linuxVersion in ["Ubuntu16"]:
             if os.path.exists(self.installDirVersion):
                 if os.path.exists(self.installDirVersion + '/lib/libstdc++.so.6'):
@@ -58,7 +61,7 @@ class Conda(Component):
                      + " > /dev/null ; conda update --all python="
                      + str(self.python) + "  --yes;'")
 
-    def fill_src(self):
+    def fillsrc(self):
         """
         Method to fill the src_from in case it must be logical,
         modified to add 2 or 3 to name of file, to match python version for anaconda
@@ -92,13 +95,8 @@ conda.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libffi* "
                          "libsasl2-dev libsasl2-modules-gssapi-mit* cyrus-sasl2-mit* libgeos-dev"]
 conda.pre["Ubuntu16"] = conda.pre["Ubuntu14"] + ['apt-get -y install libstdc++6']
 conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip --yes",
-                                 "pip install delorean seaborn pygal mpld3 ",
-                                 "pip install cairosvg pyhs2 shapely descartes",
-                                 "pip install pyproj folium vincent pam",
-                                 "pip install py4j autopep8",
-                                 "pip install pymongo tqdm watermark dotenv cookiecutter",
-                                 "pip install requests",
-                                 "pip install --upgrade requests",
+                                 " if [ -f /etc/kave/requirements.txt ]; then pip install -r /etc/kave/requirements.txt; "
+                                 "else pip install -r " + os.path.dirname(__file__) + '/requirements.txt; fi',
                                  "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi"]}
 conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu14"] = conda.postwithenv["Centos6"]

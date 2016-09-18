@@ -21,14 +21,17 @@ kettlecomponent.py module: installs kettle
 """
 from kaveinstall import Component
 from sharedcomponents import java
-
+import os
 
 class Kettle(Component):
 
     def script(self):
         dest = "kettle.zip"
         self.copy(self.src_from, dest)
-        self.run("unzip -o -q " + dest)
+        # kettle is massive, so save space by unpacking directly next to destination
+        self.run("mkdir -p " + self.installDirVersion.rstrip('/') + '_tmp')
+        self.run("unzip -o -q " + dest + " -d " + self.installDirVersion.rstrip('/') + '_tmp')
+        os.chdir(self.installDirVersion.rstrip('/') + '_tmp')
         # default to our hadoop version
         f = open("data-integration/plugins/pentaho-big-data-plugin/plugin.properties")
         lines = f.read()
@@ -68,14 +71,16 @@ class Kettle(Component):
         f.write('\n'.join(lines[1:]))
         f.close()
         self.run("mv data-integration " + self.installDirVersion)
+        os.chdir(self.tmpdir)
+        self.run("rm -rf "  + self.installDirVersion.rstrip('/') + '_tmp')
         return
 
 
 kettle = Kettle("Kettle")
 kettle.doInstall = True
 kettle.freespace = 700
-kettle.usrspace = 130
-kettle.tempspace = 1200
+kettle.usrspace = 50
+kettle.tempspace = 600
 kettle.version = "5.4.0.1-130"
 kettle.installSubDir = "kettle"
 kettle.src_from = [{'filename': "pdi-ce", 'suffix': ".zip", 'arch': "noarch"},
