@@ -98,6 +98,7 @@ conda.postwithenv = {"Centos6": ["conda update conda --yes", "conda install pip 
                                  " if [ -f /etc/kave/requirements.txt ]; "
                                  "then pip install -r /etc/kave/requirements.txt; "
                                  "else pip install -r " + os.path.dirname(__file__) + '/requirements.txt; fi',
+                                 "python -c \"import pandas; import seaborn;\"", #build font cache
                                  "if type krb5-config 2>&1 > /dev/null; then pip install pykerberos; fi"]}
 conda.postwithenv["Centos7"] = conda.postwithenv["Centos6"]
 conda.postwithenv["Ubuntu14"] = conda.postwithenv["Centos6"]
