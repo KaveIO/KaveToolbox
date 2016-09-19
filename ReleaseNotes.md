@@ -38,6 +38,7 @@ Minor improvements:
 - begin python3 compatibility changes (python 2 still default version)
 - reduction in usage of temporary space for large installations (kettle, eclipse)
 - better detection of status of installation of component packages to skip installations
+- ProtectNotebooks.sh now accepts an arguement to specify the fqdn of the machine in case hostname -f is not the one to be used
 
 ## v2.2-Beta
 - September 2016
