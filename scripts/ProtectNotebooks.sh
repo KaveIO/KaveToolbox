@@ -18,7 +18,7 @@
 ##############################################################################
 
 mhelp='ProtectNotebooks.sh,\n\tappend to ipython_notebook_config.py,\n\tadd password protection to notebooks\n\tset default port number to a semi-unique hash of the username\n\n\tIf run as root or sudoer, will set the system wide ipython notebook config,\n\t\telse will set the user-specific one\n\n\tIn order to correctly protect, first you should create a valid ssl certificate for the server, for example\n\topenssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mycert.pem -out mycert.pem #self-signed certificate\n\nusage ProtectNotebooks.sh /absolute/path/to/ssl/cert/file [optional-fqdn-specification = hostname -f]  [profilename = default] [--help]\n\tpositional args: /absolute/path/to/ssl/cert/file, must be set to the path of a valid ssl certificate for this domain (localhost)\n\t [optional-fqdn-specification = hostname -f] (optional) if given will use a different URL (FQDN/IP) for the server in the case some sort of aliasing or redirection is in place\n\tprofilename=default (optional) if given will append to a different profile. Only applies when run as not a root user.\n\toptional args: --help: print this help and exit'
-uhelp='usage: ProtectNotebooks.sh /absolute/path/to/cert/file [optional-fqdn-specification = hostname -f] [optional profile name = default]'
+uhelp='usage: ProtectNotebooks.sh /absolute/path/to/cert/file [optional-fqdn-specification = hostname -f] [optional profile name = default] [--help]'
 
 # Parse Arguements
 
