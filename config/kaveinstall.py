@@ -188,6 +188,15 @@ def detect_linux_version():
                 return "Ubuntu16"
     except:
         pass
+    try:
+        status3, output3, err = mycmd("cat /etc/redhat-release")
+        if not status2 and "Centos" in output3:
+            if "release 6" in output3.lower():
+                return "Centos6"
+            if "release 7" in output3.lower():
+                return "Centos6"
+    except:
+        pass
     status, output, err = mycmd("uname -r")
     if status:
         raise RuntimeError("Problem detecting linux version: uname -r got:\n\t" + str(
