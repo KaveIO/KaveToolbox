@@ -2,7 +2,7 @@ delorean
 seaborn
 pygal
 mpld3
-cairosvg 
+cairosvg==1.0.22
 pyhs2 
 shapely 
 descartes
