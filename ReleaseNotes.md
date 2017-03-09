@@ -3,10 +3,12 @@
 Contains a list of the released versions with a summary of the main changes in each version.
 
 # Beta Releases
-
+## v3.1-Beta
+- March 2017
 
 ## v3.0-Beta
 - September 2016
+Minor release for cairosvg version number
 
 **MAJOR RELEASE** not guaranteed backwards compatible
 
