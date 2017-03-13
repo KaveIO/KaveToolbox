@@ -2,6 +2,12 @@
 FROM kave/kavetoolbox:3.1-Beta.u16.node
 MAINTAINER KAVE <kave@kpmg.com>
 RUN apt-get update
-RUN wget http://repos:kaverepos@repos.dna.kpmglab.com/noarch/KaveToolbox/3.1-Beta/kavetoolbox-installer-3.1-Beta.sh
-RUN rm  -rf /opt/anaconda /opt/eclipse /opt/kettle
-RUN /bin/bash kavetoolbox-installer-3.1-Beta.sh --clean-before
+
+# hack linux version detection for windows builds (docker inconsistent!)
+RUN rm -f /opt/KaveToolbox/pro
+RUN mv /opt/KaveToolbox/3.1-Beta /opt/KaveToolbox_tmp
+RUN rm -rf /opt/KaveToolbox
+RUN sed -i 's/return output$/return "Ubuntu16"\n/' /opt/KaveToolbox_tmp/config/kaveinstall.py 
+RUN /opt/KaveToolbox_tmp/scripts/KaveInstall
+RUN rm  -rf /opt/KaveToolbox_tmp
+
