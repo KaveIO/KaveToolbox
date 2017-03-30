@@ -27,6 +27,8 @@ case `whoami` in
 	root)
 	 autoFire='no'
 	;;
+	ams)
+         autoFire='no'
 	hive)
 	 autoFire='yes'
 	;;
