@@ -29,6 +29,7 @@ case `whoami` in
 	;;
 	ams)
          autoFire='no'
+	;;
 	hive)
 	 autoFire='yes'
 	;;
