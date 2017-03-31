@@ -29,6 +29,20 @@ case `whoami` in
 	;;
 	ams)
          autoFire='no'
+	postgres)
+	 autoFire='no'
+	;;
+	zookeeper)
+	 autoFire='no'
+	;;
+	ambari-qa)
+	 autoFire='no'
+	;;
+	hdfs)
+	 autoFire='no'
+	;;
+	yarn)
+	 autoFire='no'
 	;;
 	hive)
 	 autoFire='yes'
