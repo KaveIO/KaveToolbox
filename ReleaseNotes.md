@@ -3,6 +3,9 @@
 Contains a list of the released versions with a summary of the main changes in each version.
 
 # Beta Releases
+## v3.2-Beta
+- April 2017
+
 ## v3.1-Beta
 - March 2017
 
