@@ -28,7 +28,8 @@ case `whoami` in
 	 autoFire='no'
 	;;
 	ams)
-         autoFire='no'
+     autoFire='no'
+    ;;
 	postgres)
 	 autoFire='no'
 	;;
