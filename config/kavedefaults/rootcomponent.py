@@ -52,14 +52,8 @@ glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
 class RootComponent(Component):
 
     def script(self):
-        self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; conda config --add channels NLESC;'")
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ; conda config --add channels https://conda.anaconda.org/nlesc/label/dev;'")
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ; conda install root=" + self.version + " --yes;'")
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ; conda install rootpy root-numpy root_pandas  --yes;'")
-
+        self.run("./InstallRoot.sh")
+       
     def skipif(self):
         return (conda.installDirVersion in
                 mycmd("bash -c 'source " + self.toolbox.envscript()
@@ -68,12 +62,14 @@ class RootComponent(Component):
 
 root = RootComponent("ROOT")
 root.doInstall = True
-root.version = "6.04"
+root.version = "6.08.06"
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
-                        "libxml2-devel ftgl-devel glew glew-devel qt qt-devel gsl gsl-devel"
+                        "libxml2-devel ftgl-devel glew glew-devel qt qt-devel gsl gsl-devel cmake3 gcc-c++ gcc "
+                        "binutils clang gcc-gfortran openssl-devel pcre-devel mesa-libGL-devel mesa-libGLU-devel "
+                        "cfitsio-devel graphviz-devel avahi-compat-libdns_sd-devel libldap-dev python-devel gsl-static"
                         ],
             "Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
