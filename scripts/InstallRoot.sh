@@ -1,8 +1,26 @@
 #!/bin/bash
+##############################################################################
+#
+# Copyright 2017 KPMG Advisory N.V. (unless otherwise stated)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+##############################################################################
+
 set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y_%T"`-$RANDOM"
+TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
 LOGDIR="/var/log/RootInstall"
 KTBRELEASE="3.2-Beta"
 KTBDIR="/opt/KaveToolbox"
@@ -59,21 +77,14 @@ cd "${TMPDIR}"
 mkdir -p root_build
 cd root_build
 
+
 if [ `${SCRIPTDIR}/DetectOSVersion` == "Centos7" ]; then
-	
-	cmake3 -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
-	-Dfail-on-missing=ON -Dcxx11=ON\
-	-Dcxx14=OFF -Droot7=ON -Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython=ON -Dcling=ON -Dx11=ON -Dssl=ON \
-	-Dxml=ON -Dfftw3=ON -Dbuiltin_fftw3=OFF -Dmathmore=ON -Dminuit2=ON -Droofit=ON -Dtmva=ON -Dopengl=ON -Dgviz=ON \
-	-Dalien=OFF -Dbonjour=OFF -Dcastor=OFF -Dchirp=OFF -Ddavix=OFF -Ddcache=OFF -Dfitsio=OFF -Dgfal=OFF -Dhdfs=OFF \
-	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
-	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
-	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
-	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${PYTHONVERSION}/site-packages/numpy/core/include" \
-	"../root-${ROOTRELEASE}"
-	cmake3 --build . --target install -- -j${CORESCOUNT}
+	CMAKECMD="cmake3"
 else
-	cmake -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
+	CMAKECMD="cmake"
+fi
+
+${CMAKECMD} -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
 	-Dfail-on-missing=ON -Dcxx11=ON\
 	-Dcxx14=OFF -Droot7=ON -Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython=ON -Dcling=ON -Dx11=ON -Dssl=ON \
 	-Dxml=ON -Dfftw3=ON -Dbuiltin_fftw3=OFF -Dmathmore=ON -Dminuit2=ON -Droofit=ON -Dtmva=ON -Dopengl=ON -Dgviz=ON \
@@ -83,8 +94,7 @@ else
 	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
 	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${PYTHONVERSION}/site-packages/numpy/core/include" \
 	"../root-${ROOTRELEASE}"
-	cmake --build . --target install -- -j${CORESCOUNT}
-fi
+${CMAKECMD} --build . --target install -- -j${CORESCOUNT}
 
 # Temporary set root env.
 
