@@ -101,7 +101,7 @@ root.freespace = 2048
 root.usrspace = 300
 root.tempspace = 10
 root.env = """
-##Beginn ROOT
+##Begin ROOT
 
 export ROOTSYS="/opt/root/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
