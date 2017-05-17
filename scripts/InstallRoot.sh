@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-SCRIPTDIR=`pwd`
-TMPDIR="/tmp/rootTry"
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y_%T"`-$RANDOM"
 LOGDIR="/var/log/RootInstall"
 KTBRELEASE="3.2-Beta"
 KTBDIR="/opt/KaveToolbox"
@@ -14,16 +14,6 @@ ROOTRELEASE="6.08.06"
 ROOTDIR="/opt/root"
 #PYCHARMRELEASE="2016.3.3"
 #PYCHARMDIR="/opt/pycharm"
-ROOTBUILDOPTS="-DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
-  -Dfail-on-missing=ON -Dcxx11=ON\
-  -Dcxx14=OFF -Droot7=ON -Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython=ON -Dcling=ON -Dx11=ON -Dssl=ON \
-  -Dxml=ON -Dfftw3=ON -Dbuiltin_fftw3=OFF -Dmathmore=ON -Dminuit2=ON -Droofit=ON -Dtmva=ON -Dopengl=ON -Dgviz=ON \
-  -Dalien=OFF -Dbonjour=OFF -Dcastor=OFF -Dchirp=OFF -Ddavix=OFF -Ddcache=OFF -Dfitsio=OFF -Dgfal=OFF -Dhdfs=OFF \
-  -Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
-  -Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
-  -DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
-  -DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${PYTHONVERSION}/site-packages/numpy/core/include" \
-\"../root-${ROOTRELEASE}\""
 
 CORESCOUNT=`cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l`
 ln -sf /bin/bash /bin/sh
@@ -42,10 +32,6 @@ cd "${TMPDIR}"
 #fftw-devel cfitsio-devel graphviz-devel \
 #avahi-compat-libdns_sd-devel libldap-dev python-devel \
 #libxml2-devel gsl-static
-
-### Root env. to be included in KaveEnv.sh
-#printf '#Begin ROOT\n\nexport ROOTSYS="/opt/root/pro"
-#source "${ROOTSYS}/bin/thisroot.sh"\n\n#End ROOT\n' >> "${KTBDIR}/pro/scripts/KaveEnv.sh"
 
 mkdir -p "${ROOTDIR}"
 ln -sfT "root-${ROOTRELEASE}" "${ROOTDIR}/pro"
@@ -74,12 +60,36 @@ mkdir -p root_build
 cd root_build
 
 if [ `${SCRIPTDIR}/DetectOSVersion` == "Centos7" ]; then
-	cmake3 ${ROOTBUILDOPTS}
+	
+	cmake3 -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
+	-Dfail-on-missing=ON -Dcxx11=ON\
+	-Dcxx14=OFF -Droot7=ON -Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython=ON -Dcling=ON -Dx11=ON -Dssl=ON \
+	-Dxml=ON -Dfftw3=ON -Dbuiltin_fftw3=OFF -Dmathmore=ON -Dminuit2=ON -Droofit=ON -Dtmva=ON -Dopengl=ON -Dgviz=ON \
+	-Dalien=OFF -Dbonjour=OFF -Dcastor=OFF -Dchirp=OFF -Ddavix=OFF -Ddcache=OFF -Dfitsio=OFF -Dgfal=OFF -Dhdfs=OFF \
+	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
+	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
+	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
+	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${PYTHONVERSION}/site-packages/numpy/core/include" \
+	"../root-${ROOTRELEASE}"
 	cmake3 --build . --target install -- -j${CORESCOUNT}
 else
-	cmake ${ROOTBUILDOPTS}
+	cmake -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
+	-Dfail-on-missing=ON -Dcxx11=ON\
+	-Dcxx14=OFF -Droot7=ON -Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython=ON -Dcling=ON -Dx11=ON -Dssl=ON \
+	-Dxml=ON -Dfftw3=ON -Dbuiltin_fftw3=OFF -Dmathmore=ON -Dminuit2=ON -Droofit=ON -Dtmva=ON -Dopengl=ON -Dgviz=ON \
+	-Dalien=OFF -Dbonjour=OFF -Dcastor=OFF -Dchirp=OFF -Ddavix=OFF -Ddcache=OFF -Dfitsio=OFF -Dgfal=OFF -Dhdfs=OFF \
+	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
+	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
+	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
+	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${PYTHONVERSION}/site-packages/numpy/core/include" \
+	"../root-${ROOTRELEASE}"
 	cmake --build . --target install -- -j${CORESCOUNT}
 fi
+
+# Temporary set root env.
+
+export ROOTSYS="${ROOTDIR}/pro"
+source "${ROOTSYS}/bin/thisroot.sh"
 
 # install Python packages for ROOT
 
