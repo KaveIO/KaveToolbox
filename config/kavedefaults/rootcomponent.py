@@ -51,9 +51,10 @@ glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
 
 class RootComponent(Component):
     ktbpath = os.path.abspath(__file__ + "/../../../")
+
     def script(self):
         self.run(self.ktbpath + "/scripts/InstallRoot.sh")
-       
+   
     def skipif(self):
         return (conda.installDirVersion in
                 mycmd("bash -c 'source " + self.toolbox.envscript()
@@ -106,7 +107,7 @@ root.env = """
 export ROOTSYS="/opt/root/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
 
-## End ROOT 
+## End ROOT
 """
 root.tests = [("python -c \"import ROOT; import root_numpy; ROOT.TBrowser();\"", 0, '', '')]
 
