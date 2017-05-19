@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 ##############################################################################
 #
-# Copyright 2016 KPMG Advisory N.V. (unless otherwise stated)
+# Copyright 2017 KPMG Advisory N.V. (unless otherwise stated)
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ root.py module: installs root on top of anaconda :)
 import os
 import sys
 import kaveinstall as li
-from kaveinstall import Component, linuxVersion, mycmd
+from kaveinstall import Component, linuxVersion, mycmd, installfrom
 from condacomponent import conda
 
 # Ubuntu14 fix libpng
@@ -50,15 +50,10 @@ glewdev.src_from = {"suffix": ".el6.x86_64.rpm"}
 
 
 class RootComponent(Component):
+    ktbpath = os.path.abspath(__file__ + "/../../../")
 
     def script(self):
-        self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; conda config --add channels NLESC;'")
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ; conda config --add channels https://conda.anaconda.org/nlesc/label/dev;'")
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ; conda install root=" + self.version + " --yes;'")
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ; conda install rootpy root-numpy root_pandas  --yes;'")
+        self.run(self.ktbpath + "/scripts/InstallRoot.sh")
 
     def skipif(self):
         return (conda.installDirVersion in
@@ -68,12 +63,14 @@ class RootComponent(Component):
 
 root = RootComponent("ROOT")
 root.doInstall = True
-root.version = "6.04"
+root.version = "6.08.06"
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
                         "yum -y install libX11-devel libXpm-devel libXft-devel libXext-devel fftw-devel mysql-devel "
-                        "libxml2-devel ftgl-devel glew glew-devel qt qt-devel gsl gsl-devel"
+                        "libxml2-devel ftgl-devel glew glew-devel qt qt-devel gsl gsl-devel cmake3 gcc-c++ gcc "
+                        "binutils clang gcc-gfortran openssl-devel pcre-devel mesa-libGL-devel mesa-libGLU-devel "
+                        "cfitsio-devel graphviz-devel avahi-compat-libdns_sd-devel libldap-dev python-devel gsl-static"
                         ],
             "Centos6": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
@@ -93,7 +90,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                          " libjpeg-dev libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev "
                          "libldap2-dev libkrb5-dev freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev "
                          "libiodbc2 libiodbc2-dev libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev"
-                         " glew-utils libc6-dev-i386"
+                         " glew-utils libc6-dev-i386 cmake dpkg-dev graphviz-dev"
                          ]
             }
 root.children = {"Centos6": [glew, glewdev, conda],
@@ -105,9 +102,12 @@ root.freespace = 2048
 root.usrspace = 300
 root.tempspace = 10
 root.env = """
-if [ -e "$ana"/bin/thisroot.sh ]; then
-    source "$ana"/bin/thisroot.sh
-fi
+##Begin ROOT
+
+export ROOTSYS="/opt/root/pro"
+source "${ROOTSYS}/bin/thisroot.sh"
+
+## End ROOT
 """
 root.tests = [("python -c \"import ROOT; import root_numpy; ROOT.TBrowser();\"", 0, '', '')]
 
