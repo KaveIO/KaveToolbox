@@ -22,7 +22,7 @@ set -e
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
 LOGDIR="/var/log/RootInstall"
-KTBRELEASE="3.3-Beta-Pre"
+KTBRELEASE="3.3-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
 PYTHONVERSION="2.7"
@@ -62,7 +62,7 @@ tar -xzf "root_v${ROOTRELEASE}.source.tar.gz" --no-same-owner
 
 mkdir -p "${TMPDIR}/root-patches"
 cd "${TMPDIR}/root-patches"
-wget "http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.3-Beta-Pre/root_patches.tar.gz"
+wget "http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.3-Beta/root_patches.tar.gz"
 tar -xzf "root_patches.tar.gz" --no-same-owner
 
 cd "${TMPDIR}/root-${ROOTRELEASE}"
