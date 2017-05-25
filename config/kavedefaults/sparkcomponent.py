@@ -36,8 +36,8 @@ class SparkComponent(Component):
         return
 
 spark = SparkComponent("spark")
-spark.doInstall = True   
-spark.node = True   
+spark.doInstall = True
+spark.node = True
 spark.workstation = True
 spark.version = "2.1.0"
 spark.installSubDir = "spark"
