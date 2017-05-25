@@ -36,9 +36,9 @@ class SparkComponent(Component):
         return
 
 spark = SparkComponent("spark")
-spark.doInstall = False  # Don't install at the moment by default
-spark.node = False
-spark.workstation = False
+spark.doInstall = True   
+spark.node = True   
+spark.workstation = True
 spark.version = "2.1.0"
 spark.installSubDir = "spark"
 spark.src_from = ["http://archive.apache.org/dist/spark/spark-" 

@@ -21,45 +21,27 @@ set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
-LOGDIR="/var/log/RootInstall"
 KTBRELEASE="3.2-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
-PYTHONVERSION="2.7"
-#SPARKRELEASE="2.1.0"
-#SPARKDIR="/opt/spark"
+PYTHONVERSION=`python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
 ROOTRELEASE="6.08.06"
 ROOTDIR="/opt/root"
-#PYCHARMRELEASE="2016.3.3"
-#PYCHARMDIR="/opt/pycharm"
 
 CORESCOUNT=`cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l`
 ln -sf /bin/bash /bin/sh
 
 # create directories for software installation
 mkdir -p "${TMPDIR}"
-mkdir -p "${LOGDIR}"
-cd "${TMPDIR}"
-
-## Prereq packages are installed by rootcomponent.py
-#install prereq packages
-#yum -y install cmake3 gcc-c++ gcc binutils clang\
-#libX11-devel libXpm-devel libXft-devel libXext-devel \
-#gcc-gfortran openssl-devel pcre-devel \
-#mesa-libGL-devel mesa-libGLU-devel glew-devel ftgl-devel mysql-devel \
-#fftw-devel cfitsio-devel graphviz-devel \
-#avahi-compat-libdns_sd-devel libldap-dev python-devel \
-#libxml2-devel gsl-static
-
 mkdir -p "${ROOTDIR}"
 ln -sfT "root-${ROOTRELEASE}" "${ROOTDIR}/pro"
 
+# Get ROOT sources
 cd "${TMPDIR}"
 wget "https://root.cern.ch/download/root_v${ROOTRELEASE}.source.tar.gz"
 tar -xzf "root_v${ROOTRELEASE}.source.tar.gz" --no-same-owner
 
 # Get ROOT patches and apply them
-
 mkdir -p "${TMPDIR}/root-patches"
 cd "${TMPDIR}/root-patches"
 wget "http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.2-Beta/root_patches.tar.gz"
@@ -72,7 +54,6 @@ for patchfile in $(ls ${TMPDIR}/root-patches/*.patch); do
 done
 
 # Install ROOT
-
 cd "${TMPDIR}"
 mkdir -p root_build
 cd root_build
@@ -97,29 +78,14 @@ ${CMAKECMD} -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
 ${CMAKECMD} --build . --target install -- -j${CORESCOUNT}
 
 # Temporary set root env.
-
 export ROOTSYS="${ROOTDIR}/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
 
 # install Python packages for ROOT
-
 cd "${TMPDIR}"
 git clone git://github.com/rootpy/root_numpy.git
 bash -c "source ${KTBDIR}/pro/scripts/KaveEnv.sh > /dev/null && python ${TMPDIR}/root_numpy/setup.py install"
-
-## For now just commenting out PyCharm code.   
-# PyCharm env:
-#
-#printf '#Begin PyCharm\n\nexport export PYCHARM_HOME="${PYCHARMDIR}/pro"
-#export PATH="${PYCHARM_HOME}/bin:${PATH}\n\n#End PyCharm\n' >> "${KTBDIR}/pro/scripts/KaveEnv.sh"
-#
-## Install PyCharm
-#mkdir -p "${PYCHARMDIR}"
-#ln -sfT "pycharm-community-${PYCHARMRELEASE}" "${PYCHARMDIR}/pro"
-#cd "${TMPDIR}"
-#wget -q "https://download.jetbrains.com/python/pycharm-community-${PYCHARMRELEASE}.tar.gz"
-#tar -xzf "pycharm-community-${PYCHARMRELEASE}.tar.gz" --no-same-owner -C "${PYCHARMDIR}"
-
+   
 # Install ROOT Pandas
 cd "${TMPDIR}"
 git clone https://github.com/ibab/root_pandas.git

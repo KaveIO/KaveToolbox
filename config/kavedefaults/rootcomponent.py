@@ -53,7 +53,8 @@ class RootComponent(Component):
     ktbpath = os.path.abspath(__file__ + "/../../../")
 
     def script(self):
-        self.run(self.ktbpath + "/scripts/InstallRoot.sh")
+        self.run("bash -c 'source " + self.toolbox.envscript()
+                + " > /dev/null ;" + self.ktbpath + "/scripts/InstallRoot.sh'")
 
     def skipif(self):
         return (conda.installDirVersion in
