@@ -54,13 +54,13 @@ export SPARK_HOME="%(sparkhome)s"
 if [[ ":$PYTHONPATH:" == *":$SPARK_HOME/python:"* ]]; then
     true
 else
-    export PYTHONPATH=$SPARK_HOME/python:"${PYTHONPATH}
+    export PYTHONPATH="$SPARK_HOME/python:"${PYTHONPATH}
 fi
 
 if [[ ":$PATH:" == *":$SPARK_HOME/bin:"* ]]; then
     true
 else
-    export PATH=$SPARK_HOME/bin:"${PATH}
+    export PATH="$SPARK_HOME/bin:"${PATH}
 fi
 
 if [[ ":$PYTHONPATH:" == *"$(ls ${SPARK_HOME}/python/lib/py4j-*-src.zip):"* ]]; then
