@@ -54,7 +54,7 @@ class RootComponent(Component):
 
     def script(self):
         self.run("bash -c 'source " + self.toolbox.envscript()
-                + " > /dev/null ;" + self.ktbpath + "/scripts/InstallRoot.sh'")
+                 + " > /dev/null ;" + self.ktbpath + "/scripts/InstallRoot.sh'")
 
     def skipif(self):
         return (conda.installDirVersion in
@@ -101,7 +101,7 @@ root.children = {"Centos6": [glew, glewdev, conda],
                  }
 root.freespace = 2048
 root.usrspace = 300
-root.tempspace = 10
+root.tempspace = 1000
 root.env = """
 
 export ROOTSYS="/opt/root/pro"
