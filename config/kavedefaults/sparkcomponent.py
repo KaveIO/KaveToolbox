@@ -28,7 +28,7 @@ class SparkComponent(Component):
         dest = self.tmpdir + "/spark-" + spark.version + ".tgz"
         self.run("mkdir -p " + InstallTopDir + "/" + self.installSubDir)
         self.run("ln -sfT " + spark.installSubDir + "-" + spark.version + " " +
-                 InstallTopDir + "/" + self.installSubDir + "/pro")        
+                 InstallTopDir + "/" + spark.installSubDir + "/pro")        
         self.copy(self.src_from, dest)
         self.run("tar xzf " + dest + " --no-same-owner -C " + InstallTopDir + "/" + spark.installSubDir)
         os.chdir(InstallTopDir + "/" + self.installSubDir + "/pro")
@@ -48,15 +48,27 @@ spark.src_from = ["http://archive.apache.org/dist/spark/spark-"
 #spark.tempspace = 20
 #spark.tests = [('which sparkmongo > /dev/null', 0, '', '')]
 
-#spark.env = """
-##Begin SPARK
+spark.env = """
+export SPARK_HOME="%(sparkhome)s"
 
-#export SPARK_HOME=" "
+if [[ ":$PYTHONPATH:" == *":$SPARK_HOME/python:"* ]]; then
+    true
+else
+    export PYTHONPATH=$SPARK_HOME/python:"${PYTHONPATH}
+fi
 
+if [[ ":$PATH:" == *":$SPARK_HOME/bin:"* ]]; then
+    true
+else
+    export PATH=$SPARK_HOME/bin:"${PATH}
+fi
 
-## End SPARK
-#"""
-
+if [[ ":$PYTHONPATH:" == *"$(ls ${SPARK_HOME}/python/lib/py4j-*-src.zip):"* ]]; then
+    true
+else
+    export PYTHONPATH="$(ls ${SPARK_HOME}/python/lib/py4j-*-src.zip):${PYTHONPATH}"
+fi
+"""%{'sparkhome':InstallTopDir + "/" + spark.installSubDir + "/pro"}
 
 __all__ = ["spark"]
 

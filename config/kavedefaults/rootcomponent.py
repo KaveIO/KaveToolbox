@@ -103,12 +103,10 @@ root.freespace = 2048
 root.usrspace = 300
 root.tempspace = 10
 root.env = """
-##Begin ROOT
 
 export ROOTSYS="/opt/root/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
 
-## End ROOT
 """
 root.tests = [("python -c \"import ROOT; import root_numpy; ROOT.TBrowser();\"", 0, '', '')]
 
