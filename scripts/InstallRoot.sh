@@ -18,12 +18,16 @@
 ##############################################################################
 
 
-#   Thsi script can be used to locally build and install root if needed.
+#   This script can be used to locally build and install root if needed.
 
 set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
+<<<<<<< scripts/InstallRoot.sh
+=======
+LOGDIR="/var/log/RootInstall"
+>>>>>>> scripts/InstallRoot.sh
 KTBRELEASE="3.3-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
