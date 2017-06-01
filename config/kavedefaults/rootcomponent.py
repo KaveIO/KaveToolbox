@@ -22,7 +22,7 @@ root.py module: installs root on top of anaconda :)
 import os
 import sys
 import kaveinstall as li
-from kaveinstall import Component, linuxVersion, mycmd, installfrom
+from kaveinstall import Component, linuxVersion, mycmd, installfrom, InstallTopDir
 from condacomponent import conda
 
 # Ubuntu14 fix libpng
@@ -53,8 +53,20 @@ class RootComponent(Component):
     ktbpath = os.path.abspath(__file__ + "/../../../")
 
     def script(self):
-        self.run("bash -c 'source " + self.toolbox.envscript()
-                 + " > /dev/null ;" + self.ktbpath + "/scripts/InstallRoot.sh'")
+        dest = self.tmpdir + "/root-" + root.version + ".tar.gz"
+        self.run("mkdir -p " + InstallTopDir + "/" + root.installSubDir)
+        self.run("ln -sfT " + root.installSubDir + "-" + root.version + " " +
+                 InstallTopDir + "/" + root.installSubDir + "/pro")
+        self.copy(self.src_from, dest)
+        self.run("tar xzf " + dest + " --no-same-owner -C " + InstallTopDir + "/" + root.installSubDir)
+        os.chdir(self.tmpdir)
+        self.run("bash -c 'source " + self.toolbox.envscript() + " > /dev/null && " +
+                 "export ROOTSYS=" + InstallTopDir + "/" + root.installSubDir + "/pro && "
+                 "source \"${ROOTSYS}/bin/thisroot.sh\" && " +
+                 "git clone git://github.com/rootpy/root_numpy.git && " +
+                 "./root_numpy/setup.py install && " +
+                 "git clone https://github.com/ibab/root_pandas.git&& " +
+                 "cd root_pandas && python ./setup.py install" + "'")
 
     def skipif(self):
         return (conda.installDirVersion in
@@ -65,6 +77,9 @@ class RootComponent(Component):
 root = RootComponent("ROOT")
 root.doInstall = True
 root.version = "6.08.06"
+root.installSubDir = "root"
+root.src_from = {"arch": linuxVersion, "version": root.version, "filename": "root",
+                 "suffix": "-" + linuxVersion + ".tar.gz"}
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
@@ -108,6 +123,6 @@ export ROOTSYS="/opt/root/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
 
 """
-root.tests = [("python -c \"import ROOT; import root_numpy; ROOT.TBrowser();\"", 0, '', '')]
+root.tests = [("python -c \"import ROOT; import root_numpy; import root_pandas; ROOT.TBrowser();\"", 0, '', '')]
 
 __all__ = ["root"]

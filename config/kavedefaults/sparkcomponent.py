@@ -50,8 +50,8 @@ spark.usrspace = 1000
 spark.tempspace = 1500
 spark.tests = [('which spark-shell > /dev/null', 0, '', ''),
                ('which sparkR > /dev/null', 0, '', ''),
-               ('spark-shell --version > /dev/null', 0, '', ''),
-               ('sparkR --version > /dev/null', 0, '', '')]
+               ('spark-shell --version &> /dev/null', 0, '', ''),
+               ('sparkR --version &> /dev/null', 0, '', '')]
 
 spark.env = """
 export SPARK_HOME="%(sparkhome)s"
