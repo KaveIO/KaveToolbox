@@ -59,8 +59,9 @@ from rootcomponent import root
 from robocomponent import robo
 from kettlecomponent import kettle
 from rcomponent import r
+from sparkcomponent import spark
 
 
-ordered_components = [toolbox, eclipse, kettle, conda, hpy, root, robo, r, gsl]
+ordered_components = [toolbox, eclipse, kettle, conda, hpy, root, robo, r, gsl, spark]
 for __c in ordered_components[1:]:
     __c.register_toolbox(toolbox)
