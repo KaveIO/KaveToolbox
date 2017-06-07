@@ -24,7 +24,6 @@ set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
-scripts/InstallRoot.sh
 KTBRELEASE="3.3-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"

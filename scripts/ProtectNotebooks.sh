@@ -77,7 +77,7 @@ fi
 
 mkdir -p ${DEPLOYIDIR}
 
-cat << EOF >> ${DEPLOYIDIR}/ipython_notebook_config.py
+cat << EOF > ${DEPLOYIDIR}/ipython_notebook_config.py
 #
 # Password protect ipython notebooks with user's login password
 # each user forced to re-enter login credentials on starting a server
