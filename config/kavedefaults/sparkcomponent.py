@@ -21,7 +21,7 @@ sparkcomponent.py module: installs spark
 """
 import os
 from kaveinstall import Component, InstallTopDir
-
+from sharedcomponents import java
 
 class SparkComponent(Component):
 
@@ -34,12 +34,16 @@ class SparkComponent(Component):
         self.run("tar xzf " + dest + " --no-same-owner -C " + InstallTopDir + "/" + spark.installSubDir)
         os.chdir(InstallTopDir + "/" + self.installSubDir + "/pro")
         self.run("build/mvn -DskipTests -DrecompileMode=all clean package")
+        self.run("sudo pkill -f zinc")
         return
 
 spark = SparkComponent("spark")
 spark.doInstall = True
 spark.node = True
 spark.workstation = True
+spark.children = {  "Centos7": [java],
+                    "Ubuntu14": [java],
+                    "Ubuntu16": [java]}
 spark.version = "2.1.0"
 spark.installSubDir = "spark"
 spark.src_from = ["http://archive.apache.org/dist/spark/spark-"
