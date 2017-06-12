@@ -34,7 +34,7 @@ class SparkComponent(Component):
         self.run("tar xzf " + dest + " --no-same-owner -C " + InstallTopDir + "/" + spark.installSubDir)
         os.chdir(InstallTopDir + "/" + self.installSubDir + "/pro")
         self.run("build/mvn -DskipTests -DrecompileMode=all clean package")
-        self.run("sudo pkill -f zinc")
+        self.run("pkill -f zinc | exit 0")
         return
 
 spark = SparkComponent("spark")
