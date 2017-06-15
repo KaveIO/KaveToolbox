@@ -108,10 +108,10 @@ conda.freespace = 1900
 conda.usrspace = 300
 conda.tempspace = 300
 conda.installSubDir = "anaconda"
-conda.python = 2
+conda.python = 3
 conda.version = "4.1.1"
 conda.src_from = [{"arch": "noarch", "suffix": "-Linux-x86_64.sh"},
-                  "https://repo.continuum.io/archive/Anaconda2-4.1.1-Linux-x86_64.sh"]
+                  "https://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh"]
 conda.env = """
 ana="%%INSTALLDIRVERSION%%"
 # Allow mixed 1.X/2.X versions
