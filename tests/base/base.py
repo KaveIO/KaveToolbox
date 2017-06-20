@@ -282,10 +282,10 @@ def parallel(mods, modargs=[]):
     TIMES = []
     TESTS = []
     for key, val in result.items():
-        timing = [l for l in val["stderr"].split("\n") if l.startswith("Ran") and " in " in l][0].strip()
+        timing = [l for l in val["stderr"].split(b"\n") if l.startswith(b"Ran") and b" in " in l][0].strip()
         if len(timing):
-            TIMES.append(float(timing.split(" ")[-1].replace("s", "")))
-            TESTS.append(int(timing.split(" ")[1]))
+            TIMES.append(float(timing.split(b" ")[-1].replace(b"s", b"")))
+            TESTS.append(int(timing.split(b" ")[1]))
     print("======================================================================")
     print("Ran", sum(TESTS), "tests in", sum(TIMES).__str__() + "s", "from", len(result), "module/args")
     print('')

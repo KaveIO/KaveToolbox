@@ -21,6 +21,7 @@ Simple script to enable the user to see what linux version KTB thinks they are u
 """
 import os
 import sys
+import __future__
 
 installfrom = os.path.realpath(os.sep.join(__file__.split(os.sep)[:-2]))
 if installfrom == "":
@@ -34,4 +35,4 @@ topdir = os.getcwd()
 
 import kaveinstall as li
 
-print li.linuxVersion
+print(li.linuxVersion)
