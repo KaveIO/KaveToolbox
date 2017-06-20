@@ -23,7 +23,7 @@ import os
 import sys
 import kaveinstall as li
 from kaveinstall import Component, linuxVersion, mycmd, installfrom, InstallTopDir
-from condacomponent import conda
+from kavedefaults.condacomponent import conda
 
 # Ubuntu14 fix libpng
 libpng = Component("libpng")

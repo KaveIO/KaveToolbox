@@ -20,7 +20,7 @@
 kettlecomponent.py module: installs kettle
 """
 from kaveinstall import Component
-from sharedcomponents import java
+from kavedefaults.sharedcomponents import java
 import os
 
 

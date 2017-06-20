@@ -25,7 +25,7 @@ import os
 from kaveinstall import Component
 from kaveinstall import fromKPMGrepo
 from kaveinstall import linuxVersion
-from sharedcomponents import epel
+from kavedefaults.sharedcomponents import epel
 
 
 class Conda(Component):

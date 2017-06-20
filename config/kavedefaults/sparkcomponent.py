@@ -22,7 +22,7 @@ sparkcomponent.py module: installs spark
 import os
 import subprocess as sub
 from kaveinstall import Component, InstallTopDir
-from sharedcomponents import java
+from kavedefaults.sharedcomponents import java
 
 
 class SparkComponent(Component):
