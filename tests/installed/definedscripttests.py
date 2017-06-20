@@ -61,8 +61,8 @@ class TestOneInstalledComponent(unittest.TestCase):
                 ttuple = (
                     self.component.knownreplaces(cmd),
                     rc,
-                    self.component.knownreplaces(sin),
-                    self.component.knownreplaces(sout)
+                    self.component.knownreplaces(sin).encode('utf-8'),
+                    self.component.knownreplaces(sout).encode('utf-8')
                 )
                 cmd = ttuple[0]
                 script = self.component.toolbox.envscript()
