@@ -78,8 +78,8 @@ root = RootComponent("ROOT")
 root.doInstall = True
 root.version = "6.08.06"
 root.installSubDir = "root"
-root.src_from = {"arch": linuxVersion, "version": root.version, "filename": "root",
-                 "suffix": "-" + linuxVersion + ".tar.gz"}
+root.src_from = {"arch": str(linuxVersion), "version": root.version, "filename": "root",
+                 "suffix": "-" + str(linuxVersion) + ".tar.gz"}
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",

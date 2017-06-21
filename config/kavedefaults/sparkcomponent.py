@@ -36,8 +36,7 @@ class SparkComponent(Component):
         self.run("tar xzf " + dest + " --no-same-owner -C " + InstallTopDir + "/" + spark.installSubDir)
         os.chdir(InstallTopDir + "/" + self.installSubDir + "/pro")
         self.run("build/mvn -DskipTests -DrecompileMode=all clean package")
-        zincstatus = sub.call('pgrep -f zinc', shell=True)
-        if not zincstatus:
+        if sub.call(["/usr/bin/pgrep", "-f", "zinc"]) == 0:
             self.run("pkill -f zinc")
         return
 
