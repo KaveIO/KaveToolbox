@@ -15,6 +15,12 @@
 #   limitations under the License.
 #
 ##############################################################################
+import sys,__future__
+if sys.version_info[0] < 3:
+    print("The Python version is %s.%s.%s" % sys.version_info[:3])
+    print("These tests require Python 3")
+    sys.exit(1)
+
 import unittest
 import base
 import os

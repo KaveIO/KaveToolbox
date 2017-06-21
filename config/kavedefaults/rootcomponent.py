@@ -53,7 +53,7 @@ class RootComponent(Component):
     ktbpath = os.path.abspath(__file__ + "/../../../")
 
     def script(self):
-        dest = self.tmpdir + "/root-" + root.version + ".tar.gz"
+        dest = self.tmpdir + "/root-" + root.version + "py3.tar.gz"
         self.run("mkdir -p " + InstallTopDir + "/" + root.installSubDir)
         self.run("ln -sfT " + root.installSubDir + "-" + root.version + " " +
                  InstallTopDir + "/" + root.installSubDir + "/pro")
