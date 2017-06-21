@@ -20,6 +20,7 @@ import base
 import os
 import imp
 import sys
+import __future__
 
 
 class TestPyImport(unittest.TestCase):
@@ -50,7 +51,7 @@ class TestPyImport(unittest.TestCase):
         for adir in ['src', 'config', 'examples', 'python', 'scripts', 'bin']:
             for root, dirs, files in os.walk(os.path.realpath(__file__ + '/../../../' + adir)):
                 pfiles = pfiles + [os.path.join(root, f) for f in files if f.endswith('.py') and f not in self.skip]
-        print len(pfiles)
+        print(len(pfiles))
         for f in self.first:
             fname = [fi for fi in pfiles if fi.endswith(f)][0]
             self.tryimporting(fname)

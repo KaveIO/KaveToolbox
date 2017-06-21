@@ -103,7 +103,8 @@ def throw_on_fail_quiet(cmd):
         if status > 10 and cmd.startswith("wget "):
             return status
         raise RuntimeError(
-            "Problem running: \n" + cmd + "\n got:\n\t" + str(status) + "\n from: \n" + output + " stderr: \n" + err)
+            "Problem running: \n" + cmd + "\n got:\n\t" + str(status) +
+            "\n from: \n" + str(output) + " stderr: \n" + str(err))
     return output.strip()
 
 
@@ -143,7 +144,7 @@ def clean_on_fail_quiet(cmd, directory):
         if len(directory) > 4:
             os.system("rm -rf " + directory)
         raise RuntimeError("Problem running: \n" + cmd + "\n got:\n\t" +
-                           str(status) + "\n from: \n" + output + " stderr: \n" + err)
+                           str(status) + "\n from: \n" + str(output) + " stderr: \n" + str(err))
     return output.strip()
 
 

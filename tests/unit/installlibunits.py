@@ -30,7 +30,7 @@ class TestInstHelpers(unittest.TestCase):
         import kaveinstall as ki
         self.assertEqual(ki.repoURL('fn', 'repo', 'arch', 'dir', 'ver'),
                          'repo/arch/dir/ver/fn', 'unexpected output from RepoURL')
-        self.assertEqual(ki.mycmd('echo "w00t"'), (0, 'w00t\n', ''),
+        self.assertEqual(ki.mycmd('echo "w00t"'), (0, b'w00t\n', b''),
                          'unexpected output from mycmd')
         self.assertRaises(RuntimeError, ki.throw_on_fail_quiet, 'exit 1')
         self.assertRaises(RuntimeError, ki.throw_on_fail_loud, 'exit 1')
@@ -45,7 +45,7 @@ class TestInstHelpers(unittest.TestCase):
                         'Unexpected OS result!')
         self.assertTrue(len(ki.df('/')) == 6, 'df -P returned strange results!')
         prot = {"http:": "wget", "https:": "wget", "ftp:": "wget", "/tmp": "cp"}
-        for p, m in prot.iteritems():
+        for p, m in prot.items():
             self.assertTrue(ki.copymethods(p, 'blah').startswith(m), m + ' copymethod not used for ' + p)
         self.assertRaises(IOError,
                           ki.failoversources,

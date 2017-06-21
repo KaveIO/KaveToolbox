@@ -24,6 +24,7 @@ import kaveinstall as li
 from kaveinstall import Component
 import __future__
 
+
 class HadoopPy(Component):
 
     def script(self):
@@ -35,7 +36,7 @@ class HadoopPy(Component):
                 stat, jdk, _err = li.mycmd("readlink -f $(which java)")
                 jdk = jdk.strip()
                 if stat or not jdk.endswith("/jre/bin/java"):
-                    print("Warning: could not detect JAVA version, probably you don't have a local hadoop client, " \
+                    print("Warning: could not detect JAVA version, probably you don't have a local hadoop client, "
                           "so I'm skipping hadoop python libraries, try setting JAVA_HOME manually")
                     jdk = None
                 else:
@@ -48,7 +49,7 @@ class HadoopPy(Component):
                 stat, hdh, _err = li.mycmd(" readlink -f $(which hadoop)")
                 hdh = hdh.strip()
                 if stat or not hdh.endswith("/bin/hadoop"):
-                    print("INFO: could not detect hadoop installation, probably you don't have a local hadoop " \
+                    print("INFO: could not detect hadoop installation, probably you don't have a local hadoop "
                           "client, so I'm skipping  hadoop python libraries, try setting HADOOP_HOME manually")
                     hdh = None
                 else:

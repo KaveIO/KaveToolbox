@@ -35,6 +35,7 @@ import queue
 import subprocess as sub
 import __future__
 
+
 def run(mods):
     """
     Wrapper for unittest running of test suite in sequence, collecting results and exiting on failure
