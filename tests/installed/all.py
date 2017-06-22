@@ -15,15 +15,16 @@
 #   limitations under the License.
 #
 ##############################################################################
+import base
+import definedscripttests
 import sys
 import __future__
+
+
 if sys.version_info[0] < 3:
     print("The Python version is %s.%s.%s" % sys.version_info[:3])
     print("These tests require Python 3")
     sys.exit(1)
-
-import base
-import definedscripttests
 
 mods = [definedscripttests]
 

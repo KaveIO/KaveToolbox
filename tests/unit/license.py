@@ -51,10 +51,10 @@ class TestLicense(unittest.TestCase):
         check_contains = "http://www.apache.org/licenses/LICENSE-2.0"
         for toignore in ignore_regex:
             r = re.compile(toignore)
-            ignore = ignore + filter(r.match, all_files)
+            ignore = ignore + list(filter(r.match, all_files))
         for tofind in accept_regex:
             r = re.compile(tofind)
-            matches = matches + filter(r.match, all_files)
+            matches = matches + list(filter(r.match, all_files))
         # print matches[:10], ignore[:10]
         matches = [f for f in matches if f not in ignore]
         for f in matches:

@@ -223,7 +223,7 @@ def df(filename, options=[]):
         output = _df.communicate()[0]
     except:
         raise OSError("Problem retrieving diskspace for " + filename)
-    return output.split("\n")[1].split()
+    return output.split(b"\n")[1].split()
 
 
 def installfrom():
@@ -265,7 +265,7 @@ def failoversources(sources):
         if source.startswith("ftp:") or (source.startswith("http") and ":" in source):
             # print "checking "+source
             stat, stdout, stderr = mycmd("curl -i -I --keepalive-time 5 " + source)
-            if "200 OK" not in stdout and "302 Found" not in stdout:
+            if b"200 OK" not in stdout and b"302 Found" not in stdout:
                 # print stdout, stderr, stat
                 continue
             return source
@@ -483,7 +483,7 @@ class Component(object):
         free_space = df(disk, ['-m'])
         free = int(free_space[3])
         if free < space:
-            raise OSError("Not enough space on mount point " + free_space[-1] + " to install " + self.cname
+            raise OSError("Not enough space on mount point " + str(free_space[-1]) + " to install " + self.cname
                           + " (" + disk + "). Skip the installation, cleanup, or add more disk space, an additional "
                           + str(space - free) + " MB is needed")
         return free_space[-1]
@@ -520,7 +520,7 @@ class Component(object):
         Loop to check for disk space, expect OSError if not enough space
         """
         checked_mounts = {}
-        for k, v in mounts.iteritems():
+        for k, v in mounts.items():
             mnt = self.checkadisk(k, v)
             try:
                 checked_mounts[mnt] = checked_mounts[mnt] + v
