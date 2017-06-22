@@ -37,7 +37,7 @@ class SparkComponent(Component):
         os.chdir(InstallTopDir + "/" + self.installSubDir + "/pro")
         self.run("build/mvn -DskipTests -DrecompileMode=all clean package")
         if sub.call(["/usr/bin/pgrep", "-f", "zinc"]) == 0:
-            sub.call(["usr/bin/pkill", "-f", "zinc"])
+            sub.call(["/usr/bin/pkill", "-f", "zinc"])
         return
 
 spark = SparkComponent("spark")
