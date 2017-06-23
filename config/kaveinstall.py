@@ -174,38 +174,38 @@ def clean_on_fail_loud(cmd, directory):
 def detect_linux_version():
     try:
         status2, output2, err = mycmd("cat /etc/issue")
-        if not status2 and "Ubuntu" in output2:
-            if " 14." in output2:
+        if not status2 and "Ubuntu" in str(output2):
+            if " 14." in str(output2):
                 return "Ubuntu14"
-            if " 16." in output2:
+            if " 16." in str(output2):
                 return "Ubuntu16"
     except:
         pass
     try:
         status2, output2, err = mycmd("lsb_release -a")
-        if not status2 and "Ubuntu" in output2:
-            if " 14." in output2:
+        if not status2 and "Ubuntu" in str(output2):
+            if " 14." in str(output2):
                 return "Ubuntu14"
-            if " 16." in output2:
+            if " 16." in str(output2):
                 return "Ubuntu16"
     except:
         pass
     try:
         status3, output3, err = mycmd("cat /etc/redhat-release")
-        if not status3 and "CentOS" in output3:
-            if "release 6" in output3.lower():
+        if not status3 and "CentOS" in str(output3):
+            if "release 6" in str(output3).lower():
                 return "Centos6"
-            if "release 7" in output3.lower():
+            if "release 7" in str(output3).lower():
                 return "Centos7"
     except:
         pass
     status, output, err = mycmd("uname -r")
     if status:
         raise RuntimeError("Problem detecting linux version: uname -r got:\n\t" + str(
-            status) + "\n from: \n" + output + " stderr: \n" + err)
-    if b"el6" in output:
+            status) + "\n from: \n" + str(output) + " stderr: \n" + str(err))
+    if "el6" in str(output):
         return "Centos6"
-    elif b"el7" in output:
+    elif "el7" in str(output):
         return "Centos7"
     return output
 

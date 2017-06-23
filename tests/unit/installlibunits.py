@@ -41,7 +41,7 @@ class TestInstHelpers(unittest.TestCase):
         tdir = tempfile.mkdtemp()
         self.assertRaises(RuntimeError, ki.clean_on_fail_loud, 'exit 1', tdir)
         self.assertFalse(os.path.exists(tdir), 'cleaning (loud) failed to work')
-        self.assertTrue(ki.detect_linux_version() in ["Centos6", "Centos7", "Ubuntu14"],
+        self.assertTrue(ki.detect_linux_version() in ["Centos7", "Ubuntu16"],
                         'Unexpected OS result!')
         self.assertTrue(len(ki.df('/')) == 6, 'df -P returned strange results!')
         prot = {"http:": "wget", "https:": "wget", "ftp:": "wget", "/tmp": "cp"}
