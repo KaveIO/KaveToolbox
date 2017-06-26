@@ -49,20 +49,20 @@ class DockerRun(object):
     def run(self, cmd, logfile=None):
         if logfile is not None:
             cmd = cmd + ' | tee -a ' + logfile
-        self.process.stdin.write(cmd + '\n')
+        self.process.stdin.write(cmd.encode('utf-8') + b'\n')
         self.process.stdin.flush()
 
     def finalcommand(self, cmd):
-        _stdout, _stderr = self.process.communicate(cmd + '\n')
+        _stdout, _stderr = self.process.communicate(cmd.encode('utf-8') + b'\n')
         return self.process.returncode, _stdout, _stderr
 
     def __exit__(self, *args, **kwargs):
-        print args, kwargs
+        print(args, kwargs)
         if self.process is None:
             return
         else:
             try:
-                self.process.communicate('exit\n')
+                self.process.communicate(b'exit\n')
             except:
                 pass
             try:
