@@ -28,9 +28,8 @@ import __future__
 
 print("Default config from", cnf.__file__)
 if os.path.exists('/etc/kave/CustomInstall.py'):
-    from past.builtins import execfile
     print("Applying custom configuration from: /etc/kave/CustomInstall.py")
-    execfile('/etc/kave/CustomInstall.py')
+    exec(open('/etc/kave/CustomInstall.py').read())
 else:
     print("no custom configuration found, using defaults")
 
