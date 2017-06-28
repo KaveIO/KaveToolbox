@@ -20,6 +20,7 @@
 hpy.py module: installs hpy hadoop python modules
 """
 import os
+import subprocess as sub
 import kaveinstall as li
 from kaveinstall import Component
 import __future__
@@ -66,11 +67,11 @@ class HadoopPy(Component):
                     + "; export CLASSPATH=$CLASSPATH:`hadoop classpath`; easy_install " +
                     ezmodule + "'")
             for pipmodule in self.options["pip"]:
-                self.run(
+                sub.call(
                     "bash -c 'source " + self.toolbox.envscript() + " > /dev/null ; export HADOOP_VERSION=" + hdv +
                     "; export JAVA_HOME=" + jdk + "; export HADOOP_HOME=" + hdh
                     + "; export CLASSPATH=$CLASSPATH:`hadoop classpath`; pip install " +
-                    pipmodule + "'")
+                    pipmodule + "'", shell=True)
         return
 
 
