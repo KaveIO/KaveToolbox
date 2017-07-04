@@ -31,6 +31,12 @@ PYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:
 ROOTRELEASE="6.08.06"
 ROOTDIR="/opt/root"
 
+if [[ $PATH == ?(*:)/opt/anaconda/*/bin?(:*) ]] 
+	then
+		echo "ERROR: Anaconda found in user's PATH. Please remove it and retry";
+		exit 1;
+fi
+
 CORESCOUNT=`cat /proc/cpuinfo | awk '/^processor/{print $3}' | wc -l`
 ln -sf /bin/bash /bin/sh
 
