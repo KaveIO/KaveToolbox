@@ -123,6 +123,7 @@ export ROOTSYS="/opt/root/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
 
 """
-root.tests = [("python -c \"import ROOT; import root_numpy; import root_pandas; ROOT.TBrowser();\"", 0, '', '')]
+root.tests = [("python -c \"import ROOT; import root_numpy; import root_pandas; ROOT.TBrowser();\"", 0, '', ''),
+              ("root -b -q", 0, '', '')]
 
 __all__ = ["root"]

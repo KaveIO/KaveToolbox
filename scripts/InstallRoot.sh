@@ -27,7 +27,7 @@ TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
 KTBRELEASE="3.3-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
-PYTHONVERSION=`python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
+PYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
 ROOTRELEASE="6.08.06"
 ROOTDIR="/opt/root"
 
