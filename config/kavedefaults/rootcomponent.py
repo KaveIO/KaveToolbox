@@ -124,6 +124,6 @@ source "${ROOTSYS}/bin/thisroot.sh"
 
 """
 root.tests = [("python -c \"import ROOT; import root_numpy; import root_pandas; ROOT.TBrowser();\"", 0, '', ''),
-              ("root -b -q", 0, '', '')]
+              ("root -b -q &>/dev/null", 0, '', '')]
 
 __all__ = ["root"]
