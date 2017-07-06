@@ -13,6 +13,7 @@ Python3 migration for KaveToolBox
     Fixed detect_linux_version so it works with both py2 and py3
     Fixed execfile compatibility with both 2 and 3
     Switched from run to subprocess.call for hpy component pip installs
+    ROOT binaries rebuilt for Python3 operation
     Added additional check for ROOT component
     Added check if anaconda is in $PATH prior to building root
 

@@ -271,10 +271,10 @@ Test if it works?
   --> Cells --> RunAll
 ```
 
-Coming Soon
+Migration to Python3 as of (July 6 2017)
 -----------
 
-Migration to python3 as default
+we have Migrated to python3 as default
 
 Internet during installation, firewalls and nearside cache/mirror options
 -------------------------------------------------------------------------
