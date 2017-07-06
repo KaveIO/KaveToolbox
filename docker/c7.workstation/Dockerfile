@@ -1,11 +1,11 @@
-# KaveToolbox 3.3-Beta on centos 7
-FROM kave/kavetoolbox:3.3-Beta.c7.node
+# KaveToolbox 3.4-Beta on centos 7
+FROM kave/kavetoolbox:3.4-Beta.c7.node
 MAINTAINER KAVE <kave@kpmg.com>
 RUN yum clean all
 
 # hack linux version detection for windows builds (docker inconsistent!)
 RUN rm -f /opt/KaveToolbox/pro
-RUN mv /opt/KaveToolbox/3.3-Beta /opt/KaveToolbox_tmp
+RUN mv /opt/KaveToolbox/3.4-Beta /opt/KaveToolbox_tmp
 RUN rm -rf /opt/KaveToolbox
 RUN sed -i 's/return output$/return "Centos7"\n/' /opt/KaveToolbox_tmp/config/kaveinstall.py 
 RUN /opt/KaveToolbox_tmp/scripts/KaveInstall
