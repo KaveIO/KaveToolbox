@@ -24,17 +24,18 @@ from dockerbase import DockerRun
 
 
 class TestLocalDocker(unittest.TestCase):
-    start = "ubuntu:14.04"
+    start = "ubuntu:16.04"
     verbose = False
     os_script = {"ubuntu": ["apt-get update", "apt-get install -y wget curl python python-dev"],
                  "centos": ["yum clean all", "yum -y install wget curl python python-devel"]}
     script = ["ls -l /opt/hostktb", "/opt/hostktb/scripts/KaveInstall",
-              "/opt/KaveToolbox/pro/tests/test.sh /opt/KaveToolbox/pro/tests/installed/all.py"]
+              'bash -c "source /opt/KaveToolbox/pro/scripts/KaveEnv.sh 1&>/dev/null;' +
+              ' /opt/KaveToolbox/pro/tests/test.sh /opt/KaveToolbox/pro/tests/installed/all.py"']
 
     def runTest(self):
         """Run the packaged installer within a docker container.
         Package locally and copy across to the container"""
-        topdir = os.path.realpath(os.path.dirname(__file__) + '/../../')
+        topdir = str(os.path.realpath(os.path.dirname(__file__))) + '/../../'
         logdir = '/tmp/log-docker-test-' + self.start.replace(':', "_")
         logfile = logdir + '/log.log'
         os.system('mkdir -p ' + logdir)
@@ -51,13 +52,13 @@ class TestLocalDocker(unittest.TestCase):
                         "-v", logdir + ":" + logdir],
                        stdout=stdout, stderr=stderr) as dock:
             for cmd in self.os_script[self.start.split(':')[0]] + self.script:
-                print cmd
+                print(cmd)
                 dock.run(cmd, logfile=logfile)
         result = ""
         with open(logfile) as logfilep:
             result = logfilep.read()
-        self.assertTrue("Successful install" in result)
-        self.assertTrue("installed/definedscripttests ... OK" in result)
+        self.assertTrue("Successful install" in str(result))
+        self.assertTrue("installed/definedscripttests ... OK" in str(result))
 
 if __name__ == "__main__":
     test1 = TestLocalDocker()

@@ -20,7 +20,7 @@
 pygsl.py module: installs pygsl
 """
 from kaveinstall import Component, mycmd
-from condacomponent import conda
+from kavedefaults.condacomponent import conda
 
 # ######################  pygsl 2.1 ############################
 gsl1 = Component("pygsl")

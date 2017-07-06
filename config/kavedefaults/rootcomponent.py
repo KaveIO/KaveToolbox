@@ -23,7 +23,7 @@ import os
 import sys
 import kaveinstall as li
 from kaveinstall import Component, linuxVersion, mycmd, installfrom, InstallTopDir
-from condacomponent import conda
+from kavedefaults.condacomponent import conda
 
 # Ubuntu14 fix libpng
 libpng = Component("libpng")
@@ -78,8 +78,8 @@ root = RootComponent("ROOT")
 root.doInstall = True
 root.version = "6.08.06"
 root.installSubDir = "root"
-root.src_from = {"arch": linuxVersion, "version": root.version, "filename": "root",
-                 "suffix": "-" + linuxVersion + ".tar.gz"}
+root.src_from = {"arch": str(linuxVersion), "version": root.version, "filename": "root",
+                 "suffix": "-" + str(linuxVersion) + "py3.tar.gz"}
 root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Libraries" "Additional Development"',
                         "wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6",
                         "rpm --import RPM-GPG-KEY-oracle-ol6",
@@ -123,6 +123,7 @@ export ROOTSYS="/opt/root/pro"
 source "${ROOTSYS}/bin/thisroot.sh"
 
 """
-root.tests = [("python -c \"import ROOT; import root_numpy; import root_pandas; ROOT.TBrowser();\"", 0, '', '')]
+root.tests = [("python -c \"import ROOT; import root_numpy; import root_pandas; ROOT.TBrowser();\"", 0, '', ''),
+              ("root -b -q &>/dev/null", 0, '', '')]
 
 __all__ = ["root"]

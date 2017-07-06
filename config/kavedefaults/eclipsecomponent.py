@@ -21,7 +21,7 @@ eclipse.py module: installs eclipse
 """
 import os
 from kaveinstall import Component, linuxVersion
-from sharedcomponents import java
+from kavedefaults.sharedcomponents import java
 
 # ######################  ECLIPSE  ############################
 

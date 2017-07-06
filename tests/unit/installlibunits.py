@@ -30,7 +30,7 @@ class TestInstHelpers(unittest.TestCase):
         import kaveinstall as ki
         self.assertEqual(ki.repoURL('fn', 'repo', 'arch', 'dir', 'ver'),
                          'repo/arch/dir/ver/fn', 'unexpected output from RepoURL')
-        self.assertEqual(ki.mycmd('echo "w00t"'), (0, 'w00t\n', ''),
+        self.assertEqual(ki.mycmd('echo "w00t"'), (0, b'w00t\n', b''),
                          'unexpected output from mycmd')
         self.assertRaises(RuntimeError, ki.throw_on_fail_quiet, 'exit 1')
         self.assertRaises(RuntimeError, ki.throw_on_fail_loud, 'exit 1')
@@ -41,11 +41,11 @@ class TestInstHelpers(unittest.TestCase):
         tdir = tempfile.mkdtemp()
         self.assertRaises(RuntimeError, ki.clean_on_fail_loud, 'exit 1', tdir)
         self.assertFalse(os.path.exists(tdir), 'cleaning (loud) failed to work')
-        self.assertTrue(ki.detect_linux_version() in ["Centos6", "Centos7", "Ubuntu14"],
+        self.assertTrue(ki.detect_linux_version() in ["Centos7", "Ubuntu16"],
                         'Unexpected OS result!')
         self.assertTrue(len(ki.df('/')) == 6, 'df -P returned strange results!')
         prot = {"http:": "wget", "https:": "wget", "ftp:": "wget", "/tmp": "cp"}
-        for p, m in prot.iteritems():
+        for p, m in prot.items():
             self.assertTrue(ki.copymethods(p, 'blah').startswith(m), m + ' copymethod not used for ' + p)
         self.assertRaises(IOError,
                           ki.failoversources,

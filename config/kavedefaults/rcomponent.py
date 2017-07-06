@@ -20,8 +20,8 @@
 rcomponent.py module: installs r
 """
 from kaveinstall import Component, mycmd
-from sharedcomponents import epel, rhrepo
-from condacomponent import conda
+from kavedefaults.sharedcomponents import epel, rhrepo
+from kavedefaults.condacomponent import conda
 
 
 class RComponent(Component):

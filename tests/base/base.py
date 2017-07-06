@@ -31,9 +31,15 @@ import sys
 import os
 import glob
 import threading
-import thread
-import Queue
 import subprocess as sub
+import __future__
+
+
+if sys.version_info[0] < 3:
+    print("The Python version is %s.%s.%s" % sys.version_info[:3])
+    print("These tests require Python 3")
+    sys.exit(1)
+import queue
 
 
 def run(mods):
@@ -71,7 +77,7 @@ class LockOnPrintThread(threading.Thread):
 
     def __init__(self, pool, lock):
         """
-        pool should be a Queue.Queue object
+        pool should be a queue.Queue object
         lock, a thread.lock object
         """
         threading.Thread.__init__(self)
@@ -89,9 +95,9 @@ class LockOnPrintThread(threading.Thread):
                 if item is not None:
                     result = self.method(self, item)
                     self.lock.acquire()
-                    print result.strip()
+                    print(result.strip())
                     self.lock.release()
-            except Queue.Empty:
+            except queue.Empty:
                 self.done = True
 
     def method(self, item):
@@ -126,7 +132,7 @@ class RunFileInSubProcess(LockOnPrintThread):
 
     def __init__(self, pool, lock, result):
         """
-        pool should be a Queue.Queue object
+        pool should be a queue.Queue object
         lock, a thread.lock object
         """
         threading.Thread.__init__(self)
@@ -152,7 +158,7 @@ class RunFileInSubProcess(LockOnPrintThread):
                     self.islockedbyme = True
                     myname = item.replace(os.path.realpath(os.path.dirname(__file__) + "/../") + "/", "")
                     myname = myname.replace("python ", "").replace(".py", "")
-                    print "started:", myname
+                    print("started:", myname)
                     sys.__stdout__.flush()
                     self.lock.release()
                     self.islockedbyme = False
@@ -167,17 +173,17 @@ class RunFileInSubProcess(LockOnPrintThread):
                     import datetime
 
                     if not status:
-                        print myname, "... OK"
+                        print(myname, "... OK")
                     else:
-                        print myname, "... ERROR"
-                        print myname, datetime.datetime.utcnow().strftime('%a %b %d %H:%M:%S UTC %Y')
-                        print myname, " details: exited with ", status
-                        print stdout
-                        print stderr
+                        print(myname, "... ERROR")
+                        print(myname, datetime.datetime.utcnow().strftime('%a %b %d %H:%M:%S UTC %Y'))
+                        print(myname, " details: exited with ", status)
+                        print(stdout)
+                        print(stderr)
                     sys.__stdout__.flush()
                     self.lock.release()
                     self.islockedbyme = False
-            except Queue.Empty:
+            except queue.Empty:
                 self.done = True
                 if self.islockedbyme:
                     try:
@@ -186,7 +192,7 @@ class RunFileInSubProcess(LockOnPrintThread):
                     except:
                         self.islockedbyme = False
             except Exception as e:
-                print "Exiting a thread due to Error: " + str(e)
+                print("Exiting a thread due to Error: " + str(e))
                 err1, err2, err3 = sys.exc_info()
                 self.errors.append(str(e) + " " + str(err1) + " " + str(err2) + "\n" + str(err3))
                 if self.islockedbyme:
@@ -220,7 +226,7 @@ def parallel(mods, modargs=[]):
     """
     # loop over threads, see the class for more details
     # create list of packages as a queue
-    item_pool = Queue.Queue()
+    item_pool = queue.Queue()
     result = {}
     items = []
     if not len(modargs):
@@ -255,7 +261,7 @@ def parallel(mods, modargs=[]):
     for item in items:
         result[item] = {}
         item_pool.put(item)
-    lock = thread.allocate_lock()
+    lock = threading._allocate_lock()
     thethreads = []
     for _i in range(20):
         t = RunFileInSubProcess(item_pool, lock, result)
@@ -282,21 +288,21 @@ def parallel(mods, modargs=[]):
     FAILED = len([f for f in result if result[f]["status"] != 0])
     TIMES = []
     TESTS = []
-    for key, val in result.iteritems():
-        timing = [l for l in val["stderr"].split("\n") if l.startswith("Ran") and " in " in l][0].strip()
+    for key, val in result.items():
+        timing = [l for l in val["stderr"].split(b"\n") if l.startswith(b"Ran") and b" in " in l][0].strip()
         if len(timing):
-            TIMES.append(float(timing.split(" ")[-1].replace("s", "")))
-            TESTS.append(int(timing.split(" ")[1]))
-    print "======================================================================"
-    print "Ran", sum(TESTS), "tests in", sum(TIMES).__str__() + "s", "from", len(result), "module/args"
-    print
+            TIMES.append(float(timing.split(b" ")[-1].replace(b"s", b"")))
+            TESTS.append(int(timing.split(b" ")[1]))
+    print("======================================================================")
+    print("Ran", sum(TESTS), "tests in", sum(TIMES).__str__() + "s", "from", len(result), "module/args")
+    print('')
     if FAILED == 0 and len(nd) == 0:
-        print "OK"
+        print("OK")
         sys.exit(0)
     if FAILED:
-        print "FAILED (modules=" + str(FAILED) + ")"
+        print("FAILED (modules=" + str(FAILED) + ")")
     if len(nd):
-        print "TIMEOUT (modules=" + str(len(nd)) + ")"
+        print("TIMEOUT (modules=" + str(len(nd)) + ")")
     sys.exit(1)
 
 

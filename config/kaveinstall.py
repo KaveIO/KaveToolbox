@@ -35,6 +35,7 @@ import sys
 import tempfile
 import subprocess as sub
 import multiprocessing
+import __future__
 
 # defaults for the repository
 #
@@ -102,7 +103,8 @@ def throw_on_fail_quiet(cmd):
         if status > 10 and cmd.startswith("wget "):
             return status
         raise RuntimeError(
-            "Problem running: \n" + cmd + "\n got:\n\t" + str(status) + "\n from: \n" + output + " stderr: \n" + err)
+            "Problem running: \n" + cmd + "\n got:\n\t" + str(status) +
+            "\n from: \n" + str(output) + " stderr: \n" + str(err))
     return output.strip()
 
 
@@ -142,7 +144,7 @@ def clean_on_fail_quiet(cmd, directory):
         if len(directory) > 4:
             os.system("rm -rf " + directory)
         raise RuntimeError("Problem running: \n" + cmd + "\n got:\n\t" +
-                           str(status) + "\n from: \n" + output + " stderr: \n" + err)
+                           str(status) + "\n from: \n" + str(output) + " stderr: \n" + str(err))
     return output.strip()
 
 
@@ -172,38 +174,38 @@ def clean_on_fail_loud(cmd, directory):
 def detect_linux_version():
     try:
         status2, output2, err = mycmd("cat /etc/issue")
-        if not status2 and "Ubuntu" in output2:
-            if " 14." in output2:
+        if not status2 and "Ubuntu" in str(output2):
+            if " 14." in str(output2):
                 return "Ubuntu14"
-            if " 16." in output2:
+            if " 16." in str(output2):
                 return "Ubuntu16"
     except:
         pass
     try:
         status2, output2, err = mycmd("lsb_release -a")
-        if not status2 and "Ubuntu" in output2:
-            if " 14." in output2:
+        if not status2 and "Ubuntu" in str(output2):
+            if " 14." in str(output2):
                 return "Ubuntu14"
-            if " 16." in output2:
+            if " 16." in str(output2):
                 return "Ubuntu16"
     except:
         pass
     try:
         status3, output3, err = mycmd("cat /etc/redhat-release")
-        if not status3 and "CentOS" in output3:
-            if "release 6" in output3.lower():
+        if not status3 and "CentOS" in str(output3):
+            if "release 6" in str(output3).lower():
                 return "Centos6"
-            if "release 7" in output3.lower():
+            if "release 7" in str(output3).lower():
                 return "Centos7"
     except:
         pass
     status, output, err = mycmd("uname -r")
     if status:
         raise RuntimeError("Problem detecting linux version: uname -r got:\n\t" + str(
-            status) + "\n from: \n" + output + " stderr: \n" + err)
-    if "el6" in output:
+            status) + "\n from: \n" + str(output) + " stderr: \n" + str(err))
+    if "el6" in str(output):
         return "Centos6"
-    elif "el7" in output:
+    elif "el7" in str(output):
         return "Centos7"
     return output
 
@@ -221,7 +223,7 @@ def df(filename, options=[]):
         output = _df.communicate()[0]
     except:
         raise OSError("Problem retrieving diskspace for " + filename)
-    return output.split("\n")[1].split()
+    return output.split(b"\n")[1].split()
 
 
 def installfrom():
@@ -263,7 +265,7 @@ def failoversources(sources):
         if source.startswith("ftp:") or (source.startswith("http") and ":" in source):
             # print "checking "+source
             stat, stdout, stderr = mycmd("curl -i -I --keepalive-time 5 " + source)
-            if "200 OK" not in stdout and "302 Found" not in stdout:
+            if b"200 OK" not in stdout and b"302 Found" not in stdout:
                 # print stdout, stderr, stat
                 continue
             return source
@@ -297,7 +299,7 @@ def fromKPMGrepo(filename, arch=linuxVersion, version=None, suffix=None):
         source = failoversources(sources)
         return source
     except IOError:
-        print sources, "no file", filename, "found"
+        print(sources, "no file", filename, "found")
 
     return None
 
@@ -389,8 +391,8 @@ class Component(object):
                     continue
                 try:
                     return self.copy(afrom, dest)
-                except RuntimeError, IOError:
-                    print "Failed to copy from", afrom, "retry next source"
+                except RuntimeError as IOError:
+                    print("Failed to copy from", afrom, "retry next source")
                     continue
             raise RuntimeError("Failed to copy from any source " + str(optional_froms))
         afrom = optional_froms
@@ -400,20 +402,20 @@ class Component(object):
         return True
 
     def summary(self):
-        print self.cname, " Summary :"
-        print "    Installing?", self.doInstall
-        print "    To:", self.topdir, self.installSubDir, "i.e.:", self.todir()
-        print "    Version:", self.version
-        print "    From:", self.src_from
-        print "    Nodes?:", self.node
-        print "    Workstations?:", self.workstation
-        print "    Workstations Extras:", self.workstationExtras
-        print "    Pre:", self.pre
-        print "    Pre with environment file:", self.prewithenv
-        print "    Post:", self.post
-        print "    Post with environment file:", self.postwithenv
-        print "    Options:", self.options
-        print "----------------------------"
+        print(self.cname, " Summary :")
+        print("    Installing?", self.doInstall)
+        print("    To:", self.topdir, self.installSubDir, "i.e.:", self.todir())
+        print("    Version:", self.version)
+        print("    From:", self.src_from)
+        print("    Nodes?:", self.node)
+        print("    Workstations?:", self.workstation)
+        print("    Workstations Extras:", self.workstationExtras)
+        print("    Pre:", self.pre)
+        print("    Pre with environment file:", self.prewithenv)
+        print("    Post:", self.post)
+        print("    Post with environment file:", self.postwithenv)
+        print("    Options:", self.options)
+        print("----------------------------")
 
     def script(self):
         """
@@ -436,7 +438,7 @@ class Component(object):
             if '.' in f:
                 ext = '.'.join(f.split(".")[1:])
         except AttributeError:
-            print "warning, could not determine file extension, does the download location exist?"
+            print("warning, could not determine file extension, does the download location exist?")
         dest = self.cname + '.' + ext
         self.copy(self.src_from, dest)
         if ext.endswith(".sh"):
@@ -481,7 +483,7 @@ class Component(object):
         free_space = df(disk, ['-m'])
         free = int(free_space[3])
         if free < space:
-            raise OSError("Not enough space on mount point " + free_space[-1] + " to install " + self.cname
+            raise OSError("Not enough space on mount point " + str(free_space[-1]) + " to install " + self.cname
                           + " (" + disk + "). Skip the installation, cleanup, or add more disk space, an additional "
                           + str(space - free) + " MB is needed")
         return free_space[-1]
@@ -489,7 +491,7 @@ class Component(object):
     def clean(self, others_only=False):
         if self.installDir is not None and os.path.exists(self.installDir):
             if not others_only:
-                print "Force-cleaning installation directory as requested"
+                print("Force-cleaning installation directory as requested")
                 if len(self.installDirPro) > 4 and os.path.islink(self.installDirPro):
                     self.run("rm -f " + self.installDirPro)
                 if len(self.installDirPro) > 4 and os.path.exists(self.installDirPro):
@@ -501,7 +503,7 @@ class Component(object):
                                                        != os.path.realpath(self.topdir)))):
                     self.run("rm -rf " + self.installDir)
             else:
-                print "Force-cleaning obsolete installations as requested"
+                print("Force-cleaning obsolete installations as requested")
                 import glob
                 dirs = glob.glob(self.installDir + '/*')
                 cleaning = [os.path.realpath(d) for d in dirs if os.path.realpath(d)
@@ -518,7 +520,7 @@ class Component(object):
         Loop to check for disk space, expect OSError if not enough space
         """
         checked_mounts = {}
-        for k, v in mounts.iteritems():
+        for k, v in mounts.items():
             mnt = self.checkadisk(k, v)
             try:
                 checked_mounts[mnt] = checked_mounts[mnt] + v
@@ -567,19 +569,19 @@ class Component(object):
             if self.cleanBefore:
                 self.clean()
             if os.path.isdir(self.installDirVersion):
-                print "Skipping", self.cname, "because this version is already installed"
-                print "remove", self.installDirVersion, "if you want to force re-install"
+                print("Skipping", self.cname, "because this version is already installed")
+                print("remove", self.installDirVersion, "if you want to force re-install")
                 self.buildenv()
                 return self.__install_end_actions()
                 # Detect previous KTB installation and skip
             if (os.path.exists(self.installDir) and not os.path.exists(self.installDirPro)
                     and not os.path.islink(self.installDirPro) and len(os.listdir(self.installDir))):
-                print "Skipping", self.cname, "because a 1.X-KTB version was already installed"
-                print "remove", self.installDir, "if you want to force re-install"
+                print("Skipping", self.cname, "because a 1.X-KTB version was already installed")
+                print("remove", self.installDir, "if you want to force re-install")
                 return False
         # additional user-defined skipping
         if self.skipif():
-            print "Skipping", self.cname, "because a custom skip rule asked to, e.g. already installed"
+            print("Skipping", self.cname, "because a custom skip rule asked to, e.g. already installed")
             self.buildenv()
             return self.__install_end_actions()
         ##############################
@@ -610,8 +612,8 @@ class Component(object):
             self.__checkdloop(mounts)
         except OSError as e:
             if self.skipIfDiskFull:
-                print "Skipping", self.cname, "because of insufficient disk space"
-                print e
+                print("Skipping", self.cname, "because of insufficient disk space")
+                print(e)
                 return self.buildenv()
             raise e
         ##############################
@@ -625,7 +627,7 @@ class Component(object):
         ##############################
         # run prerequisites
         ##############################
-        print "Installing", self.cname
+        print("Installing", self.cname)
         if self.pre is not None and linuxVersion in self.pre:
             for cmd in self.pre[linuxVersion]:
                 self.run(cmd)

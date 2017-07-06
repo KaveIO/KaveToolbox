@@ -15,6 +15,13 @@
 #   limitations under the License.
 #
 ##############################################################################
+import sys
+import __future__
+if sys.version_info[0] < 3:
+    print("The Python version is %s.%s.%s" % sys.version_info[:3])
+    print("These tests require Python 3")
+    sys.exit(1)
+
 import unittest
 import base
 import os
@@ -61,8 +68,8 @@ class TestOneInstalledComponent(unittest.TestCase):
                 ttuple = (
                     self.component.knownreplaces(cmd),
                     rc,
-                    self.component.knownreplaces(sin),
-                    self.component.knownreplaces(sout)
+                    self.component.knownreplaces(sin).encode('utf-8'),
+                    self.component.knownreplaces(sout).encode('utf-8')
                 )
                 cmd = ttuple[0]
                 script = self.component.toolbox.envscript()

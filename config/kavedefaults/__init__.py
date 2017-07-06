@@ -50,16 +50,16 @@ the contents of requirements.txt in this folder
 
 import kaveinstall as li
 from kaveinstall import InstallTopDir
-from sharedcomponents import toolbox
-from eclipsecomponent import eclipse
-from condacomponent import conda
-from gslcomponent import gsl
-from hpycomponent import hpy
-from rootcomponent import root
-from robocomponent import robo
-from kettlecomponent import kettle
-from rcomponent import r
-from sparkcomponent import spark
+from kavedefaults.sharedcomponents import toolbox
+from kavedefaults.eclipsecomponent import eclipse
+from kavedefaults.condacomponent import conda
+from kavedefaults.gslcomponent import gsl
+from kavedefaults.hpycomponent import hpy
+from kavedefaults.rootcomponent import root
+from kavedefaults.robocomponent import robo
+from kavedefaults.kettlecomponent import kettle
+from kavedefaults.rcomponent import r
+from kavedefaults.sparkcomponent import spark
 
 
 ordered_components = [toolbox, eclipse, kettle, conda, hpy, root, robo, r, gsl, spark]

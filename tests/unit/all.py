@@ -24,7 +24,15 @@ import checkpep8
 import pep8functions
 import pep8variables
 import installlibunits
+import sys
 import base
+import __future__
+
+
+if sys.version_info[0] < 3:
+    print("The Python version is %s.%s.%s" % sys.version_info[:3])
+    print("These tests require Python 3")
+    sys.exit(1)
 
 mods = [testversion, pep8functions, checkpep8, testpythonimport, installlibunits, pep8variables, license, pyfilenames]
 

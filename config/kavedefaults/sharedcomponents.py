@@ -23,7 +23,7 @@ anything used by more than one package installation lives here
 import os
 import kaveinstall as li
 from kaveinstall import Component, linuxVersion
-
+import __future__
 
 # top level directory under where to keep all KAVE software
 li.InstallTopDir = "/opt"
@@ -91,11 +91,11 @@ class Toolbox(Component):
         return minstallfrom
 
     def oldvwarning(self):
-        print "WARNING:-----------------------------------------------------"
-        print "WARNING: an existing 1.X version of KaveToolbox was detected."
-        print "WARNING: lots of packages will be skipped, to really update."
-        print "WARNING: please add --clean-before or see the readme/wiki !."
-        print "WARNING:-----------------------------------------------------"
+        print("WARNING:-----------------------------------------------------")
+        print("WARNING: an existing 1.X version of KaveToolbox was detected.")
+        print("WARNING: lots of packages will be skipped, to really update.")
+        print("WARNING: please add --clean-before or see the readme/wiki !.")
+        print("WARNING:-----------------------------------------------------")
         self.oldvdetect = True
 
     def envscript(self):
@@ -205,7 +205,7 @@ fi
                     cfpath = '/etc/dconf/db/local.d'
                     template = '00-background'
                 if not os.path.exists(cfpath):
-                    os.makedirs(cfpath, 0755)
+                    os.makedirs(cfpath, 0o755)
                 self.run('cp -f '
                          + os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), template)
                          + ' ' + cfpath)

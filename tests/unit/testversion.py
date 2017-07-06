@@ -34,7 +34,7 @@ class TestVersions(unittest.TestCase):
     def findversion(self, fullpath):
         found = []
         if os.path.isfile(fullpath):
-            with open(fullpath) as fp:
+            with open(fullpath, encoding='latin-1') as fp:
                 for i, line in enumerate(fp):
                     for match in re.finditer(self.re, line):
                         found.append((fullpath, i + 1, match.groups()))

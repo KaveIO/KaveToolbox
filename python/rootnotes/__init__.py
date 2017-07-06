@@ -157,7 +157,7 @@ class RootMagics(Magics):
             ROOT.gSystem.RedirectOutput(tmpFile.name, "w")
             # ns = {}
             # exec cell in self.shell.user_ns, ns
-            exec cell in self.shell.user_ns
+            exec(cell in self.shell.user_ns)
             ROOT.gROOT.ProcessLine("gSystem->RedirectOutput(0);")
             print(tmpFile.read())
 

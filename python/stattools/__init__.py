@@ -27,4 +27,4 @@ At the moment, we have two sub modules:
 
 - hypergeometrictools: simple helper functions for hypergeometric calculations
 """
-from confidencecalc import quantileCalc
+from stattools.confidencecalc import quantileCalc
