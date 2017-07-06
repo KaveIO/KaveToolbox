@@ -1,6 +1,23 @@
 # The ReleaseNotes file
 
 Contains a list of the released versions with a summary of the main changes in each version.
+# Beta Releases
+## v3.4-Beta
+- July 06 2017
+**MAJOR RELEASE** Python 3 Migration
+
+Python3 migration for KaveToolBox
+    Anaconda4 with python3
+    Fixed module paths, imports, result datatypes, print statements and adjusting data type so output comparison actually works
+    Fixed Unit, docker tests
+    Fixed detect_linux_version so it works with both py2 and py3
+    Fixed execfile compatibility with both 2 and 3
+    Switched from run to subprocess.call for hpy component pip installs
+    Added additional check for ROOT component
+    Added check if anaconda is in $PATH prior to building root
+
+
+
 
 # Beta Releases
 ## v3.3-Beta
