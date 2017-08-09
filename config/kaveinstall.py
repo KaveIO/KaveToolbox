@@ -43,7 +43,7 @@ import __future__
 #  this password is intended to be widely known and is used here as an extension of the URL
 #
 __repo_url__ = "http://repos:kaverepos@repos.kave.io"
-__version__ = "3.4-Beta"
+__version__ = "3.5-Beta"
 __main_dir__ = "KaveToolbox"
 __arch__ = "Centos7"
 __mirror_list_file__ = "/etc/kave/mirror"

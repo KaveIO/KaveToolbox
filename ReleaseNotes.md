@@ -2,6 +2,15 @@
 
 Contains a list of the released versions with a summary of the main changes in each version.
 # Beta Releases
+## v3.5-Beta
+- Aug 10 2017
+**MAJOR RELEASE** Spark version upgrade
+
+Spark version upgrade for Eskapade
+    Upgraded spark version from 2.1.0 to 2.1.1
+    Adding check for root build if anaconda is present in PATH
+
+
 ## v3.4-Beta
 - July 06 2017
 **MAJOR RELEASE** Python 3 Migration
