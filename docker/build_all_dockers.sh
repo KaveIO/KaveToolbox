@@ -17,7 +17,7 @@
 #
 ##############################################################################
 set -e
-TAG="3.4-Beta"
+TAG="3.5-Beta"
 docker login
 for type in c7.node u14.node u16.node c7.workstation u14.workstation u16.workstation; do
 	echo $type $TAG "building"
