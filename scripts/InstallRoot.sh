@@ -24,14 +24,14 @@ set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
-KTBRELEASE="3.4-Beta"
+lKTBRELEASE="3.4-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
-PYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
+ANAPYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
 ROOTRELEASE="6.08.06"
 ROOTDIR="/opt/root"
 
-if [[ $PATH == ?(*:)/opt/anaconda/*/bin?(:*) ]] 
+if [[ $PATH == ?(*:)$ANADIR/*/bin?(:*) ]] 
 	then
 		echo "ERROR: Anaconda found in user's PATH. Please remove it and retry";
 		exit 1;
@@ -82,7 +82,7 @@ ${CMAKECMD} -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
 	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
 	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
 	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
-	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${PYTHONVERSION}/site-packages/numpy/core/include" \
+	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${ANAPYTHONVERSION}/site-packages/numpy/core/include" \
 	"../root-${ROOTRELEASE}"
 ${CMAKECMD} --build . --target install -- -j${CORESCOUNT}
 
