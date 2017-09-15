@@ -28,7 +28,7 @@ lKTBRELEASE="3.5-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
 ANAPYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
-ROOTRELEASE="6.08.06"
+ROOTRELEASE="6.10.04"
 ROOTDIR="/opt/root"
 
 if [[ $PATH == ?(*:)$ANADIR/*/bin?(:*) ]] 
