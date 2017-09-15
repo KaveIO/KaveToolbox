@@ -76,7 +76,7 @@ class RootComponent(Component):
 
 root = RootComponent("ROOT")
 root.doInstall = True
-root.version = "6.08.06"
+root.version = "6.10.04"
 root.installSubDir = "root"
 root.src_from = {"arch": str(linuxVersion), "version": root.version, "filename": "root",
                  "suffix": "-" + str(linuxVersion) + "py3.tar.gz"}
