@@ -24,7 +24,7 @@ set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
-lKTBRELEASE="3.5-Beta"
+KTBRELEASE="3.5-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
 ANAPYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`
@@ -76,14 +76,17 @@ fi
 
 ${CMAKECMD} -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
 	-Dfail-on-missing=ON -Dcxx11=ON\
-	-Dcxx14=OFF -Droot7=ON -Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython=ON -Dcling=ON -Dx11=ON -Dssl=ON \
+	-Dshared=ON -Dsoversion=ON -Dthread=ON -Dfortran=ON -Dpython3=ON -Dcling=ON -Dx11=ON -Dssl=ON \
 	-Dxml=ON -Dfftw3=ON -Dbuiltin_fftw3=OFF -Dmathmore=ON -Dminuit2=ON -Droofit=ON -Dtmva=ON -Dopengl=ON -Dgviz=ON \
 	-Dalien=OFF -Dbonjour=OFF -Dcastor=OFF -Dchirp=OFF -Ddavix=OFF -Ddcache=OFF -Dfitsio=OFF -Dgfal=OFF -Dhdfs=OFF \
 	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
 	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
-	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python" \
+	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python${ANAPYTHONVERSION}" \
+    -DPYTHON_INCLUDE_DIR= "${ANADIR}/pro/include/python${ANAPYTHONVERSION}m" \
+    -DPYTHON_LIBRARY="${ANADIR}/pro/lib/libpython${ANAPYTHONVERSION}.so" \
 	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${ANAPYTHONVERSION}/site-packages/numpy/core/include" \
 	"../root-${ROOTRELEASE}"
+	
 ${CMAKECMD} --build . --target install -- -j${CORESCOUNT}
 
 # Temporary set root env.
