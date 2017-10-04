@@ -82,8 +82,8 @@ ${CMAKECMD} -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
 	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
 	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
 	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python${ANAPYTHONVERSION}" \
-    -DPYTHON_INCLUDE_DIR= "${ANADIR}/pro/include/python${ANAPYTHONVERSION}m" \
-    -DPYTHON_LIBRARY="${ANADIR}/pro/lib/libpython${ANAPYTHONVERSION}.so" \
+	-DPYTHON_INCLUDE_DIR= "${ANADIR}/pro/include/python${ANAPYTHONVERSION}m" \
+	-DPYTHON_LIBRARY="${ANADIR}/pro/lib/libpython${ANAPYTHONVERSION}.so" \
 	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${ANAPYTHONVERSION}/site-packages/numpy/core/include" \
 	"../root-${ROOTRELEASE}"
 	
