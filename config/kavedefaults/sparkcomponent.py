@@ -47,7 +47,7 @@ spark.workstation = True
 spark.children = {"Centos7": [java],
                   "Ubuntu14": [java],
                   "Ubuntu16": [java]}
-spark.version = "2.2.0"
+spark.version = "2.1.1"
 spark.installSubDir = "spark"
 spark.src_from = ["http://archive.apache.org/dist/spark/spark-"
                   + spark.version + "/spark-" + spark.version + ".tgz"]
