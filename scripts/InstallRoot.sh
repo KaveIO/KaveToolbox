@@ -50,18 +50,6 @@ cd "${TMPDIR}"
 wget "https://root.cern.ch/download/root_v${ROOTRELEASE}.source.tar.gz"
 tar -xzf "root_v${ROOTRELEASE}.source.tar.gz" --no-same-owner
 
-# Get ROOT patches and apply them
-mkdir -p "${TMPDIR}/root-patches"
-cd "${TMPDIR}/root-patches"
-wget "http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.5-Beta/root_patches.tar.gz"
-tar -xzf "root_patches.tar.gz" --no-same-owner
-
-cd "${TMPDIR}/root-${ROOTRELEASE}"
-
-for patchfile in $(ls ${TMPDIR}/root-patches/*.patch); do
-  patch -p1 -i "${patchfile}"
-done
-
 # Install ROOT
 cd "${TMPDIR}"
 mkdir -p root_build
@@ -82,8 +70,8 @@ ${CMAKECMD} -DCMAKE_INSTALL_PREFIX="${ROOTDIR}/root-${ROOTRELEASE}" \
 	-Dkrb5=OFF -Dldap=OFF -Dmonalisa=OFF -Dmysql=OFF -Dodbc=OFF -Doracle=OFF -Dpgsql=OFF -Dpythia6=OFF -Dpythia8=OFF \
 	-Dsqlite=OFF -Drfio=OFF -Dxrootd=OFF \
 	-DPYTHON_EXECUTABLE="${ANADIR}/pro/bin/python${ANAPYTHONVERSION}" \
-	-DPYTHON_INCLUDE_DIR= "${ANADIR}/pro/include/python${ANAPYTHONVERSION}m" \
-	-DPYTHON_LIBRARY="${ANADIR}/pro/lib/libpython${ANAPYTHONVERSION}.so" \
+	-DPYTHON_INCLUDE_DIRS= "${ANADIR}/pro/include/python${ANAPYTHONVERSION}m" \
+	-DPYTHON_LIBRARY="${ANADIR}/pro/lib/libpython${ANAPYTHONVERSION}m.so" \
 	-DNUMPY_INCLUDE_DIR="${ANADIR}/pro/lib/python${ANAPYTHONVERSION}/site-packages/numpy/core/include" \
 	"../root-${ROOTRELEASE}"
 	
