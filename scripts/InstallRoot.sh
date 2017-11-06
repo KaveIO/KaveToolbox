@@ -24,7 +24,7 @@ set -e
 
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 TMPDIR="/tmp/rootTmp-`date +"%d-%m-%y"`-$RANDOM"
-KTBRELEASE="3.5-Beta"
+KTBRELEASE="3.6-Beta"
 KTBDIR="/opt/KaveToolbox"
 ANADIR="/opt/anaconda"
 ANAPYTHONVERSION=`$ANADIR/pro/bin/python -c 'import sys; version=sys.version_info[:3]; print("{0}.{1}".format(*version))'`

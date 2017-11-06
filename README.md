@@ -112,7 +112,7 @@ Docker:
 We also release the software packaged within docker containers. See http://hub.docker.com/r/kave/kavetoolbox. For example:
 
 ```
-docker run -it kave/kavetoolbox:3.5-Beta.c7.node /bin/bash
+docker run -it kave/kavetoolbox:3.6-Beta.c7.node /bin/bash
 ```
 
 Installation:
@@ -125,12 +125,12 @@ When making a local installation you have two choices:
 
 We recommend to install with the default configurations, but in case you want to modify the configurations you can create a file in /etc/kave/CustomInstall.py,For an example and more information run the installer with --help
 
-* 1: Installing the released version, for example, 3.5-Beta
+* 1: Installing the released version, for example, 3.6-Beta
 
 ```
 yum -y install wget curl tar zip unzip gzip python
-wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.5-Beta/kavetoolbox-installer-3.5-Beta.sh
-sudo bash kavetoolbox-installer-3.5-Beta.sh [--quiet]
+wget http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.6-Beta/kavetoolbox-installer-3.6-Beta.sh
+sudo bash kavetoolbox-installer-3.6-Beta.sh [--quiet]
 ```
 (--quiet is for a quieter install, remove the brackets!)
 Remember the help at this stage  [--help]
