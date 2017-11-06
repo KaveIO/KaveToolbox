@@ -80,7 +80,7 @@ gsl.doInstall = True
 gsl.children = {"Centos6": [gsl1],
                 "Centos7": [gsl1],
                 "Ubuntu14": [gsl1],
-                "Ubuntu16": [gsl2]}
+                "Ubuntu16": [gsl1]}
 gsl.tests = [("python -c \"import pygsl;\"", 0, '', '')]
 
 

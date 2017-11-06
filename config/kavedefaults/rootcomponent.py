@@ -76,7 +76,7 @@ class RootComponent(Component):
 
 root = RootComponent("ROOT")
 root.doInstall = True
-root.version = "6.08.06"
+root.version = "6.10.04"
 root.installSubDir = "root"
 root.src_from = {"arch": str(linuxVersion), "version": root.version, "filename": "root",
                  "suffix": "-" + str(linuxVersion) + "py3.tar.gz"}
@@ -106,7 +106,7 @@ root.pre = {"Centos7": ['yum -y groupinstall "Development Tools" "Development Li
                          " libjpeg-dev libtiff5-dev libxml2-dev libssl-dev libgnutls-dev libgmp3-dev libpng12-dev "
                          "libldap2-dev libkrb5-dev freeglut3-dev libfftw3-dev python-dev libmysqlclient-dev libgif-dev "
                          "libiodbc2 libiodbc2-dev libxext-dev libxmu-dev libimlib2 gccxml libxml2 libglew-dev"
-                         " glew-utils libc6-dev-i386 cmake dpkg-dev graphviz-dev"
+                         " glew-utils libc6-dev-i386 cmake dpkg-dev graphviz-dev libtbb-dev"
                          ]
             }
 root.children = {"Centos6": [glew, glewdev, conda],

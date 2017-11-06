@@ -15,7 +15,7 @@ autopep8
 pymongo 
 tqdm 
 watermark 
-dotenv 
+python-dotenv 
 cookiecutter
 requests>=2.11
 coverage 
