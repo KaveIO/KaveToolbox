@@ -2,6 +2,13 @@
 
 Contains a list of the released versions with a summary of the main changes in each version.
 # Beta Releases
+## v3.6 Beta
+- Nov 06 2017
+
+**MAJOR RELEASE**
+Anaconda version upgraded to 4.4.0
+ROOT version upgraded to 6.10.04
+
 ## v3.5-Beta
 - Aug 10 2017
 **MAJOR RELEASE** Spark version upgrade
