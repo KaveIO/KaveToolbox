@@ -1,5 +1,5 @@
 # KaveToolbox 3.6-Beta on ubuntu 16
-FROM ubuntu:16.04
+FROM ubuntu:xenial-20171006
 MAINTAINER KAVE <kave@kpmg.com>
 RUN apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 RUN apt-get install -y wget curl python python-dev
