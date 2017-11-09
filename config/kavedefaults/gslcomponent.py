@@ -30,7 +30,7 @@ gsl1.src_from = [{"arch": "noarch", "suffix": ".tar.gz"},
                  "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
 gsl1.pre = {"Centos6": ["yum -y install gsl gsl-devel"]}
 gsl1.pre["Centos7"] = gsl1.pre["Centos6"]
-gsl1.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin"]
+gsl1.pre["Ubuntu14"] = ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin libgl1"]
 gsl1.prewithenv["Centos6"] = [' isinst=`python -c "import pkgutil; '
                               'print(pkgutil.find_loader(\\"numpy\\") is not None);"`;'
                               ' if [ ${isinst} == "False" ]; then echo "no scipy/numpy installed,'
@@ -80,7 +80,7 @@ gsl.doInstall = True
 gsl.children = {"Centos6": [gsl1],
                 "Centos7": [gsl1],
                 "Ubuntu14": [gsl1],
-                "Ubuntu16": [gsl1]}
+                "Ubuntu16": [gsl2]}
 gsl.tests = [("python -c \"import pygsl;\"", 0, '', '')]
 
 
