@@ -76,7 +76,7 @@ gsl.doInstall = True
 gsl.pre = {"Centos7": ["yum -y install gsl gsl-devel"],
            "Ubuntu16": ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin libgl1-mesa-glx"]}
 gsl.children = {"Centos7": [gsl1],
-                "Ubuntu16": [gsl2]}
+                "Ubuntu16": [gsl1]}
 gsl.tests = [("python -c \"import pygsl;\"", 0, '', '')]
 
 
