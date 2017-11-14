@@ -24,7 +24,7 @@ from dockerbase import DockerRun
 
 
 class TestLocalDocker(unittest.TestCase):
-    start = "ubuntu:16.04"
+    start = "ubuntu:xenial"
     verbose = False
     os_script = {"ubuntu": ["apt-get update", "apt-get install -y wget curl python python-dev"],
                  "centos": ["yum clean all", "yum -y install wget curl python python-devel"]}
