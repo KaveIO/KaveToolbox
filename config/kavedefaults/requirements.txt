@@ -9,7 +9,7 @@ descartes
 pyproj 
 folium 
 vincent 
-pam
+python-pam
 py4j 
 autopep8
 pymongo 
