@@ -84,7 +84,7 @@ cat << EOF > ${DEPLOYIDIR}/ipython_notebook_config.py
 #
 import getpass
 import os,sys,socket
-from IPython.lib import passwd
+from notebook.auth import passwd
 import pam, signal
 
 c = get_config()
@@ -113,8 +113,8 @@ set this password to ipython notebooks, or quit after three failures
     prompt='password:'
     for tries in range(3):
         cleartext= getpass.getpass(prompt)
-        if pam.authenticate(user, cleartext, service='login'):
-            from IPython.lib import passwd
+        if pam.pam().authenticate(user, cleartext, service='login'):
+            from notebook.auth import passwd
             c.NotebookApp.password = passwd(cleartext)
             return True
         else:
@@ -148,7 +148,7 @@ else:
 #
 # Add username into the URL for extra obvious URL
 #
-c.NotebookApp.base_url=user.lower()
+c.NotebookApp.base_url=user.lower() + '/'
 
 #
 # Set an intelligent semi-unique default port for all users
