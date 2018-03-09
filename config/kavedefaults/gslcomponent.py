@@ -24,7 +24,7 @@ from kavedefaults.condacomponent import conda
 
 # ######################  pygsl 2.1 ############################
 gsl1 = Component("pygsl")
-gsl1.doInstall = False
+gsl1.doInstall = True
 gsl1.version = "2.1.1"
 gsl1.src_from = [{"arch": "noarch", "suffix": ".tar.gz"},
                  "http://downloads.sourceforge.net/project/pygsl/pygsl/pygsl-2.1.1/pygsl-2.1.1.tar.gz"]
