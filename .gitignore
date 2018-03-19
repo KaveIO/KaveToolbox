@@ -1,3 +1,7 @@
+.settings
+.project
+.pydevproject
+.idea/
 *.pyc
 build/*
 *ipynb_checkpoints*
