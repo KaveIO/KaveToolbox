@@ -2,16 +2,24 @@
 
 Contains a list of the released versions with a summary of the main changes in each version.
 # Beta Releases
+## v3.7 Beta
+- Mar 28 2018
+
+**MINOR RELEASE**
+KTB parasite spark environment removed – it was not working well with the HDP Spark
+PyGSL is disabled by default – if you need it, you must use the CustomInstall.py script to enable it.
+Fix for git junk in the KTB archive.
+
 ## v3.6 Beta
 - Nov 06 2017
 
-**MAJOR RELEASE**
+**MINOR RELEASE**
 Anaconda version upgraded to 4.4.0
 ROOT version upgraded to 6.10.04
 
 ## v3.5-Beta
 - Aug 10 2017
-**MAJOR RELEASE** Spark version upgrade
+**MINOR RELEASE** Spark version upgrade
 
 Spark version upgrade for Eskapade
     Upgraded spark version from 2.1.0 to 2.1.1
