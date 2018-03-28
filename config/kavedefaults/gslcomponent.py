@@ -65,7 +65,7 @@ class GslComponent(Component):
                 )
 
 gsl = GslComponent("pygsl")
-gsl.doInstall = True
+gsl.doInstall = False
 gsl.pre = {"Centos7": ["yum -y install gsl gsl-devel"],
            "Ubuntu16": ["apt-get -y install build-essential g++ libgsl0-dev gsl-bin libgl1-mesa-glx"]}
 gsl.children = {"Centos7": [gsl1],

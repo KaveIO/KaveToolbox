@@ -63,7 +63,9 @@ cp -r `basename $PROJECT_DIR` $TMP_DIR/KaveToolbox
 cd /tmp/tempbuild/
 #remove pyc files!
 find . -name "*.pyc" -exec rm '{}' ';'
-tar -czf $RELEASE_PACKAGE KaveToolbox
+cd KaveToolbox
+git archive --format=tar.gz --prefix=KaveToolbox/ -o $RELEASE_PACKAGE $TAG
+# tar -czf $RELEASE_PACKAGE KaveToolbox
 mv $RELEASE_PACKAGE $BUILD_DIR
 cd $PROJECT_DIR
 

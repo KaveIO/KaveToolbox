@@ -66,18 +66,6 @@ else
 	export PYTHONPATH=${DIR}"/../python:"${PYTHONPATH}
 fi
 
-#Add spark if spark is installed
-if type pyspark >/dev/null 2>/dev/null ; then
-  export SPARK_HOME=`readlink -f \`which pyspark\``
-  export SPARK_HOME=`dirname \`dirname $SPARK_HOME\``
-
-  if [[ ":$PYTHONPATH:" == *":$SPARK_HOME/python:"* ]]; then
-    true
-  else
-    export PYTHONPATH=${SPARK_HOME}"/python:"${PYTHONPATH}
-  fi
-fi
-
 #
 # \/ don't remove this line from this script!
 ## End KaveToolbox
