@@ -323,17 +323,6 @@ else
     export PYTHONPATH=$KAVETOOLBOX"/python:"${PYTHONPATH}
 fi
 
-#Add spark if spark is installed
-if type pyspark >/dev/null 2>/dev/null; then
-  export SPARK_HOME=`readlink -f \`which pyspark\``
-  export SPARK_HOME=`dirname \`dirname $SPARK_HOME\``
-  if [[ ":$PYTHONPATH:" == *":$SPARK_HOME/python:"* ]]; then
-    true
-  else
-    export PYTHONPATH=${SPARK_HOME}"/python:"${PYTHONPATH}
-  fi
-fi
-
 """
 toolbox.tests = [('source $KAVETOOLBOX/scripts/KaveEnv.sh > /dev/null', 0, '', ''),
                  ("python -c \"import correlograms; import geomaps; import stattools; import rootnotes;\" > /dev/null",
