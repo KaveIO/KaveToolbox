@@ -23,7 +23,7 @@ This python script downloads a new install script from the repository, and execu
 This should make it easier to perform updates of KAVE software into the future.
 
 There are installation scripts looking like:
-http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.6-Beta/kavetoolbox-installer-3.6-Beta.sh
+http://repos:kaverepos@repos.kave.io/noarch/KaveToolbox/3.7-Beta/kavetoolbox-installer-3.7-Beta.sh
 for each installation.
 
 usage:
